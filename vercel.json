@@ -1,0 +1,5 @@
+{
+  "buildCommand": "npm --prefix web run build",
+  "outputDirectory": "web/dist",
+  "framework": "vite"
+}

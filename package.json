@@ -1,0 +1,26 @@
+{
+  "name": "blinka-autonomous-ap-agent",
+  "version": "1.0.0",
+  "description": "Autonomous Accounts Payable, B2B Payments & Treasury Management Agent for Blinka (YC F26) powered by Model Context Protocol (MCP)",
+  "private": true,
+  "scripts": {
+    "build": "npm --prefix mcp-server run build && npm --prefix web run build",
+    "build:mcp": "npm --prefix mcp-server run build",
+    "build:web": "npm --prefix web run build",
+    "test": "npm --prefix mcp-server run test",
+    "dev:web": "npm --prefix web run dev",
+    "start:mcp": "npm --prefix mcp-server start"
+  },
+  "keywords": [
+    "blinka",
+    "mcp",
+    "model-context-protocol",
+    "autonomous-ap",
+    "treasury",
+    "fintech",
+    "y-combinator",
+    "hackathon-30x"
+  ],
+  "author": "30X Hackathon Team",
+  "license": "MIT"
+}

@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --blinka-paper: #f7f7f4;
+    --blinka-ink: #1c253a;
+    --blinka-ink-muted: #576071;
+    --blinka-accent: #2a4bd0;
+    --blinka-accent-hover: #1e3bb3;
+    --blinka-surface: #ffffff;
+    --blinka-surface-subtle: #f0f0eb;
+    --blinka-border: #e3e3dc;
+    --blinka-border-subtle: #eeeee8;
+  }
+
+  body {
+    background-color: var(--blinka-paper);
+    color: var(--blinka-ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    margin: 0;
+  }
+}
+
+/* Custom subtle glows and borders matching Blinka's landing/app */
+.blinka-beacon-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(42, 75, 208, 0.08), transparent 70%);
+}
+
+.blinka-card {
+  background: #ffffff;
+  border: 1px solid #e3e3dc;
+  border-radius: 14px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02);
+}
+
+.blinka-card-interactive {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blinka-card-interactive:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px 0 rgba(28, 37, 58, 0.06);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d4cb;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a89d;
+}
