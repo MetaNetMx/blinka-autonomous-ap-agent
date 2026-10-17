@@ -556,6 +556,57 @@ server.tool(
 );
 
 // -------------------------------------------------------------
+// TOOL 13: blinka_list_pending_invoices
+// -------------------------------------------------------------
+server.tool(
+  'blinka_list_pending_invoices',
+  'Autonomous AP Inbox: List all pending and staged vendor invoices awaiting policy evaluation, approval, or settlement across Fiat (USD) and Crypto (USDC Base Network) rails. Use this to inspect invoices before reconciling or evaluating them.',
+  {},
+  async () => {
+    try {
+      const invoices = await client.listPendingInvoices();
+      const formatted = invoices.map((inv) => ({
+        id: inv.id,
+        invoiceNumber: inv.invoiceNumber,
+        vendorName: inv.vendorName,
+        amount: formatCents(inv.amountCents, inv.currency),
+        amountCents: inv.amountCents,
+        currency: inv.currency,
+        dueDate: inv.dueDate,
+        destinationRail: inv.currency === 'USDC' ? `Base Network (${inv.walletAddress})` : `Portage Bank ACH (ending ${inv.beneficiaryBankLastFour})`,
+        beneficiaryBankLastFour: inv.beneficiaryBankLastFour,
+        walletAddress: inv.walletAddress,
+        network: inv.network,
+        description: inv.description,
+        status: inv.status,
+        notes: inv.notes,
+      }));
+
+      return {
+        content: [
+          {
+            type: 'text',
+            text: JSON.stringify(
+              {
+                totalInvoices: formatted.length,
+                invoices: formatted,
+              },
+              null,
+              2
+            ),
+          },
+        ],
+      };
+    } catch (e: any) {
+      return {
+        content: [{ type: 'text', text: `Error listing invoices: ${e.message}` }],
+        isError: true,
+      };
+    }
+  }
+);
+
+// -------------------------------------------------------------
 // START SERVER
 // -------------------------------------------------------------
 async function main() {

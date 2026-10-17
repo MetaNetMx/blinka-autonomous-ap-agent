@@ -9,12 +9,14 @@ import {
   Transaction,
   Transfer,
   TransferRequest,
+  StagedInvoice,
 } from './types.js';
 import {
   INITIAL_ACCOUNTS,
   INITIAL_COUNTERPARTIES,
   INITIAL_LEGAL_ENTITY,
   INITIAL_TRANSACTIONS,
+  DEMO_PRESET_INVOICES,
 } from './mockData.js';
 import { BlinkaPolicyEngine } from './policyEngine.js';
 
@@ -26,6 +28,7 @@ export class BlinkaClient {
   private accounts: Account[] = JSON.parse(JSON.stringify(INITIAL_ACCOUNTS));
   private transactions: Transaction[] = JSON.parse(JSON.stringify(INITIAL_TRANSACTIONS));
   private counterparties: Counterparty[] = JSON.parse(JSON.stringify(INITIAL_COUNTERPARTIES));
+  private pendingInvoices: StagedInvoice[] = JSON.parse(JSON.stringify(DEMO_PRESET_INVOICES));
   private transfers: Transfer[] = [];
   private idempotencyStore = new Map<string, Transfer>();
 
@@ -74,6 +77,10 @@ export class BlinkaClient {
       txs = txs.slice(0, filters.limit);
     }
     return txs;
+  }
+
+  async listPendingInvoices(): Promise<StagedInvoice[]> {
+    return this.pendingInvoices;
   }
 
   async listCounterparties(): Promise<Counterparty[]> {

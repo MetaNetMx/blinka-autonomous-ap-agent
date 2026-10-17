@@ -1,4 +1,4 @@
-import { Account, Counterparty, Transaction } from './types.js';
+import { Account, Counterparty, Transaction, StagedInvoice } from './types.js';
 
 export const INITIAL_LEGAL_ENTITY = {
   id: '018f6734-7123-789a-bcde-0123456789ab',
@@ -278,3 +278,95 @@ export const INITIAL_COUNTERPARTIES: Counterparty[] = [
     ],
   },
 ];
+
+export const DEMO_PRESET_INVOICES: StagedInvoice[] = [
+  {
+    id: 'inv_preset_vercel',
+    invoiceNumber: 'INV-VERCEL-2026-88',
+    vendorName: 'Vercel Inc.',
+    amountCents: 320000, // $3,200.00
+    currency: 'USD',
+    issueDate: '2026-10-10',
+    dueDate: '2026-10-24',
+    description: 'Enterprise Edge Network & Serverless Hosting',
+    beneficiaryBankLastFour: '4141',
+    routingNumber: '121000358',
+    status: 'pending_evaluation',
+    notes: 'Standard recurring monthly vendor. Within $5,000 auto-approval threshold.',
+  },
+  {
+    id: 'inv_preset_lambda',
+    invoiceNumber: 'INV-LAMBDA-GPU-904',
+    vendorName: 'Lambda Labs Inc.',
+    amountCents: 4850000, // $48,500.00
+    currency: 'USD',
+    issueDate: '2026-10-12',
+    dueDate: '2026-10-26',
+    description: 'H100 8x GPU Reserved Cluster - Cluster Block 4',
+    beneficiaryBankLastFour: '8833',
+    routingNumber: '026009593',
+    status: 'pending_evaluation',
+    notes: 'Exceeds $10,000 threshold. Requires CFO dual-authorization before dispatch.',
+  },
+  {
+    id: 'inv_preset_fraud_stripe',
+    invoiceNumber: 'INV-STRIPE-TAMPERED-01',
+    vendorName: 'Stripe Payments LLC',
+    amountCents: 1425000, // $14,250.00
+    currency: 'USD',
+    issueDate: '2026-10-14',
+    dueDate: '2026-10-21',
+    description: 'Spoofed Payment Infrastructure & Processing Surcharge',
+    beneficiaryBankLastFour: '9999', // MISMATCH! Registered is 1029
+    routingNumber: '121000358',
+    status: 'pending_evaluation',
+    notes: '🚨 PHISHING ALERT: Beneficiary bank ending 9999 does NOT match verified ending 1029!',
+  },
+  {
+    id: 'inv_preset_dup_aws',
+    invoiceNumber: 'INV-AWS-US-EAST-4412',
+    vendorName: 'Amazon Web Services Inc',
+    amountCents: 245000, // $2,450.00
+    currency: 'USD',
+    issueDate: '2026-10-01',
+    dueDate: '2026-10-15',
+    description: 'EC2 & S3 Cloud Infrastructure (Duplicate claim)',
+    beneficiaryBankLastFour: '1099',
+    routingNumber: '026009593',
+    status: 'pending_evaluation',
+    notes: 'Duplicate invoice test: already processed in prior cycle.',
+  },
+  {
+    id: 'inv_preset_crypto_alchemy',
+    invoiceNumber: 'INV-ALCHEMY-2026-01',
+    vendorName: 'Alchemy Infrastructure Inc',
+    amountCents: 185000, // 1,850.00 USDC
+    currency: 'USDC',
+    issueDate: '2026-10-15',
+    dueDate: '2026-10-29',
+    description: 'Web3 RPC Dedicated Node Cluster (Base Network)',
+    beneficiaryBankLastFour: '43e7',
+    routingNumber: 'BASE_NETWORK',
+    walletAddress: '0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7',
+    network: 'Base',
+    status: 'pending_evaluation',
+    notes: '⚡ CRIPTO: Liquidación instantánea en USDC sobre Base Network. Billetera verificada.',
+  },
+  {
+    id: 'inv_preset_crypto_poisoning',
+    invoiceNumber: 'INV-WEB3-POISONED-88',
+    vendorName: 'Alchemy Infrastructure Inc',
+    amountCents: 890000, // 8,900.00 USDC
+    currency: 'USDC',
+    issueDate: '2026-10-16',
+    dueDate: '2026-10-23',
+    description: 'Smart Contract Audit & Gas Subsidy (Spoofed Address)',
+    beneficiaryBankLastFour: '9999',
+    routingNumber: 'BASE_NETWORK',
+    walletAddress: '0xDEADBEEF44120000000000000000000000009999', // MISMATCH!
+    network: 'Base',
+    status: 'pending_evaluation',
+    notes: '🚨 ALERTA CRIPTO: Dirección de wallet no coincide con la registrada. Intento de Address Poisoning.',
+  },
+];
+

@@ -171,3 +171,20 @@ export interface PolicyEvaluationResult {
   }[];
   suggestedAction: string;
 }
+
+export interface StagedInvoice {
+  id: string;
+  invoiceNumber: string;
+  vendorName: string;
+  amountCents: number;
+  currency: string;
+  issueDate: string;
+  dueDate: string;
+  description: string;
+  beneficiaryBankLastFour?: string;
+  routingNumber?: string;
+  walletAddress?: string;
+  network?: string;
+  status: 'pending_evaluation' | 'auto_paid' | 'awaiting_cfo_approval' | 'fraud_blocked' | 'duplicate_rejected';
+  notes?: string;
+}
