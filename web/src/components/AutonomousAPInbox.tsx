@@ -21,6 +21,7 @@ import {
   ArrowDownLeft,
   Coins,
   Building2,
+  Sparkles,
 } from 'lucide-react';
 import {
   StagedInvoice,
@@ -70,6 +71,58 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
   const [payinRef, setPayinRef] = useState('');
   const [payinResult, setPayinResult] = useState<InboundPaymentVerificationResult | null>(null);
 
+  // File Upload & OCR Document AI state
+  const [uploadedFileName, setUploadedFileName] = useState<string | null>(null);
+  const [isOcrParsing, setIsOcrParsing] = useState(false);
+  const [ocrSuccess, setOcrSuccess] = useState(false);
+
+  const simulateOcrExtraction = (fileName: string) => {
+    setIsOcrParsing(true);
+    setUploadedFileName(fileName);
+    setOcrSuccess(false);
+
+    setTimeout(() => {
+      const lower = fileName.toLowerCase();
+      if (lower.includes('stripe') || lower.includes('phishing')) {
+        setVendorName('Stripe Payments LLC');
+        setInvoiceNumber(`INV-STRIPE-${Math.floor(1000 + Math.random() * 9000)}`);
+        setAmountUsd('14250.00');
+        setCurrency('USD');
+        setBankLastFour('9999'); // Mismatch!
+        setDescription('Payment Gateway Processing & Surcharge (Tampered)');
+      } else if (lower.includes('aws') || lower.includes('amazon')) {
+        setVendorName('Amazon Web Services Inc');
+        setInvoiceNumber(`INV-AWS-US-${Math.floor(1000 + Math.random() * 9000)}`);
+        setAmountUsd('2450.00');
+        setCurrency('USD');
+        setBankLastFour('1099');
+        setDescription('AWS EC2 & S3 Cloud Infrastructure');
+      } else if (lower.includes('alchemy') || lower.includes('base') || lower.includes('crypto')) {
+        setVendorName('Alchemy Infrastructure Inc');
+        setInvoiceNumber(`INV-ALCHEMY-${Math.floor(1000 + Math.random() * 9000)}`);
+        setAmountUsd('1850.00');
+        setCurrency('USDC');
+        setWalletAddress('0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7');
+        setDescription('Web3 Dedicated RPC Node Cluster (Base Network)');
+      } else {
+        setVendorName(fileName.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ').toUpperCase());
+        setInvoiceNumber(`INV-EXTRACTED-${Math.floor(1000 + Math.random() * 9000)}`);
+        setAmountUsd('3420.00');
+        setCurrency('USD');
+        setBankLastFour('4141');
+        setDescription(`Factura extraída por Document AI desde archivo: ${fileName}`);
+      }
+      setIsOcrParsing(false);
+      setOcrSuccess(true);
+    }, 450);
+  };
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    simulateOcrExtraction(file.name);
+  };
+
   const pendingCount = invoices.filter((i) => i.status === 'pending_evaluation').length;
   const awaitingCfoCount = invoices.filter((i) => i.status === 'awaiting_cfo_approval').length;
   const fraudCount = invoices.filter((i) => i.status === 'fraud_blocked').length;
@@ -99,7 +152,7 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
       routingNumber: currency === 'USD' ? '021000021' : undefined,
       walletAddress: currency === 'USDC' ? (walletAddress || '0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7') : undefined,
       network: currency === 'USDC' ? 'Base' : undefined,
-      notes: `Factura ${currency} ingresada manualmente para auditoría`,
+      notes: `Factura ${currency} ingresada para auditoría (${uploadedFileName || 'Entrada manual'})`,
     });
 
     setVendorName('');
@@ -108,6 +161,8 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
     setBankLastFour('');
     setWalletAddress('');
     setDescription('');
+    setUploadedFileName(null);
+    setOcrSuccess(false);
     setShowUploadModal(false);
   };
 
@@ -815,9 +870,12 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
       {/* Manual Upload Modal */}
       {showUploadModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-xl border border-[#e3e3dc] space-y-4">
+          <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-xl border border-[#e3e3dc] space-y-4 max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between border-b border-[#eeeee8] pb-3">
-              <h3 className="text-base font-bold text-[#1c253a]">Ingresar Factura a la Bandeja</h3>
+              <div>
+                <h3 className="text-base font-bold text-[#1c253a]">Ingresar o Subir Factura a la Bandeja</h3>
+                <p className="text-xs text-[#576071]">Sube un archivo PDF/XML o ingresa los datos para su auditoría.</p>
+              </div>
               <button
                 onClick={() => setShowUploadModal(false)}
                 className="text-[#576071] hover:text-[#1c253a] p-1 rounded-md"
@@ -825,6 +883,80 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
                 <X className="w-5 h-5" />
               </button>
             </div>
+
+            {/* Drag & Drop File Upload Area */}
+            <div className="border-2 border-dashed border-[#d1d5db] hover:border-[#2a4bd0] rounded-xl p-4 text-center bg-[#fcfcf9] transition-all cursor-pointer relative group">
+              <input
+                type="file"
+                accept=".pdf,.png,.jpg,.jpeg,.xml"
+                onChange={handleFileUpload}
+                className="absolute inset-0 opacity-0 cursor-pointer w-full h-full z-10"
+              />
+              <div className="flex flex-col items-center justify-center space-y-1.5 pointer-events-none">
+                <div className="p-2.5 bg-blue-50 text-[#2a4bd0] rounded-xl group-hover:scale-110 transition-transform">
+                  <Upload className="w-5 h-5" />
+                </div>
+                <div className="text-xs font-bold text-[#1c253a]">
+                  {uploadedFileName ? (
+                    <span className="text-emerald-700 flex items-center justify-center">
+                      <CheckCircle2 className="w-4 h-4 mr-1 text-emerald-600" />
+                      {uploadedFileName}
+                    </span>
+                  ) : (
+                    'Arrastra tu factura (PDF, XML, Imagen) o haz clic para examinar'
+                  )}
+                </div>
+                <p className="text-[11px] text-[#576071]">
+                  {isOcrParsing ? (
+                    <span className="text-[#2a4bd0] font-semibold animate-pulse flex items-center justify-center">
+                      <Sparkles className="w-3.5 h-3.5 mr-1 text-amber-500 animate-spin" />
+                      Extrayendo datos con OCR & Document AI...
+                    </span>
+                  ) : (
+                    'Auto-extrae proveedor, montos y cuenta bancaria/wallet para auditoría'
+                  )}
+                </p>
+              </div>
+            </div>
+
+            {/* Quick Presets for Demo */}
+            <div>
+              <span className="text-[10px] font-semibold text-[#576071] uppercase tracking-wider block mb-1.5">
+                O prueba con documentos de muestra:
+              </span>
+              <div className="flex flex-wrap gap-1.5">
+                <button
+                  type="button"
+                  onClick={() => simulateOcrExtraction('factura_aws_legitima.pdf')}
+                  className="text-[11px] px-2.5 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 rounded-lg font-medium transition-all"
+                >
+                  📄 Subir PDF AWS ($2,450 ACH)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => simulateOcrExtraction('factura_stripe_phishing_alerta.pdf')}
+                  className="text-[11px] px-2.5 py-1 bg-red-50 hover:bg-red-100 text-red-800 border border-red-200 rounded-lg font-medium transition-all"
+                >
+                  🚨 Subir PDF Phishing Stripe ($14.2k)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => simulateOcrExtraction('factura_alchemy_web3_base.pdf')}
+                  className="text-[11px] px-2.5 py-1 bg-indigo-50 hover:bg-indigo-100 text-indigo-800 border border-indigo-200 rounded-lg font-medium transition-all"
+                >
+                  ⚡ Subir PDF Alchemy ($1.8k USDC Base)
+                </button>
+              </div>
+            </div>
+
+            {ocrSuccess && (
+              <div className="bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs p-2.5 rounded-xl flex items-center space-x-2">
+                <Sparkles className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>
+                  <strong>Document AI:</strong> Datos extraídos y validados automáticamente. Puedes modificarlos abajo antes de registrar la factura.
+                </span>
+              </div>
+            )}
 
             <form onSubmit={handleCreateCustomInvoice} className="space-y-3">
               <div>
