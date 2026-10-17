@@ -1,0 +1,238 @@
+import { Account, Counterparty, Transaction } from './types.js';
+
+export const INITIAL_LEGAL_ENTITY = {
+  id: '018f6734-7123-789a-bcde-0123456789ab',
+  name: 'Acme Global Ventures LLC',
+  type: 'LLC',
+  slug: 'acme-global',
+  contactEmail: 'finance@acmeglobal.co',
+  settlementStrategy: 'USD' as const,
+};
+
+export const INITIAL_ACCOUNTS: Account[] = [
+  {
+    id: 'acc_usd_primary_4821',
+    type: 'CHECKING',
+    balance: 18441860, // $184,418.60 (matching Blinka landing page)
+    balanceAsOf: new Date().toISOString(),
+    legalEntityId: INITIAL_LEGAL_ENTITY.id,
+    legalEntityName: INITIAL_LEGAL_ENTITY.name,
+    settlementStrategy: 'USD',
+    tokenBalances: [
+      {
+        symbol: 'USD',
+        type: 'fiat',
+        balance: 18441860,
+      },
+    ],
+    transferRails: [
+      {
+        railType: 'ACH_WIRE',
+        label: 'US Domestic ACH & Wire',
+        currency: 'USD',
+        beneficiaryName: 'Acme Global Ventures LLC',
+        beneficiaryAddress: '1209 Orange St, Wilmington, DE 19801',
+        routingNumber: '021000021',
+        accountNumber: '••••••••4821',
+        bankName: 'Portage Bank, Member FDIC',
+        bankAddress: 'Seattle, WA',
+        supportedCurrencies: ['USD'],
+      },
+      {
+        railType: 'IBAN_BIC',
+        label: 'International SWIFT Transfer',
+        currency: 'USD',
+        beneficiaryName: 'Acme Global Ventures LLC',
+        iban: 'US89PORB02100002100000004821',
+        bic: 'PORBUS33XXX',
+        bankName: 'Portage Bank',
+      },
+      {
+        railType: 'LOCAL_BANK',
+        label: 'Colombia Bre-B & Transfiya',
+        currency: 'COP',
+        breBKey: 'nit:901458291',
+        bankName: 'Blinka Local Colombia Partner',
+      },
+    ],
+  },
+  {
+    id: 'acc_treasury_dreyfus_9921',
+    type: 'TREASURY',
+    balance: 5000000, // $50,000.00
+    balanceAsOf: new Date().toISOString(),
+    legalEntityId: INITIAL_LEGAL_ENTITY.id,
+    legalEntityName: INITIAL_LEGAL_ENTITY.name,
+    settlementStrategy: 'USD',
+    tokenBalances: [
+      {
+        symbol: 'USD',
+        type: 'fiat',
+        balance: 5000000,
+      },
+    ],
+    transferRails: [
+      {
+        railType: 'ACH_WIRE',
+        label: 'BNY Dreyfus Institutional Money Market (DSHXX)',
+        currency: 'USD',
+        bankName: 'Atomic Brokerage LLC / BNY Mellon',
+      },
+    ],
+  },
+  {
+    id: 'acc_usdc_multichain_3310',
+    type: 'CHECKING',
+    balance: 1850000, // 18,500.00 USDC
+    balanceAsOf: new Date().toISOString(),
+    legalEntityId: INITIAL_LEGAL_ENTITY.id,
+    legalEntityName: INITIAL_LEGAL_ENTITY.name,
+    settlementStrategy: 'USDC',
+    tokenBalances: [
+      {
+        symbol: 'USDC',
+        type: 'blockchain',
+        balance: 1850000,
+      },
+    ],
+    transferRails: [
+      {
+        railType: 'CRYPTO_ADDRESS',
+        label: 'USDC on Base & Solana',
+        currency: 'USDC',
+        walletAddress: '0x71C...BlinkaBaseVault',
+        network: 'Base',
+        supportedCurrencies: ['USDC'],
+      },
+    ],
+  },
+];
+
+export const INITIAL_TRANSACTIONS: Transaction[] = [
+  {
+    id: 'tx_019283a',
+    accountId: 'acc_usd_primary_4821',
+    transferId: null,
+    kind: 'PAYOUT',
+    status: 'COMPLETED',
+    counterpartyName: 'Linear Orbit Inc',
+    method: 'CARD',
+    amountCents: 12800, // -$128.00
+    currency: 'USD',
+    memo: 'Software Subscription',
+    notes: 'Monthly engineering seats',
+    feeCents: 0,
+    createdAt: '2026-10-15T14:20:00Z',
+    executedAt: '2026-10-15T14:20:02Z',
+  },
+  {
+    id: 'tx_019283b',
+    accountId: 'acc_usd_primary_4821',
+    transferId: null,
+    kind: 'PAYIN',
+    status: 'COMPLETED',
+    counterpartyName: 'Northstar Group Capital',
+    method: 'WIRE',
+    amountCents: 2500000, // +$25,000.00
+    currency: 'USD',
+    memo: 'Series A Tranche Settlement',
+    notes: 'Approved funding wire',
+    feeCents: 1500,
+    createdAt: '2026-10-14T09:12:00Z',
+    executedAt: '2026-10-14T10:05:00Z',
+  },
+  {
+    id: 'tx_019283c',
+    accountId: 'acc_usd_primary_4821',
+    transferId: null,
+    kind: 'PAYOUT',
+    status: 'COMPLETED',
+    counterpartyName: 'Forma Studio LLC',
+    method: 'ACH',
+    amountCents: 245000, // -$2,450.00
+    currency: 'USD',
+    memo: 'Design & UX Milestone 2',
+    notes: 'Invoice #FS-2026-102',
+    feeCents: 25,
+    createdAt: '2026-10-12T16:45:00Z',
+    executedAt: '2026-10-13T08:30:00Z',
+  },
+];
+
+export const INITIAL_COUNTERPARTIES: Counterparty[] = [
+  {
+    id: 'cp_forma_studio',
+    legalEntityId: INITIAL_LEGAL_ENTITY.id,
+    type: 'business',
+    name: 'Forma Studio LLC',
+    email: 'billing@formastudio.design',
+    status: 'active',
+    createdAt: '2026-08-01T00:00:00Z',
+    payoutMethods: [
+      {
+        id: 'pm_forma_ach_1',
+        counterpartyId: 'cp_forma_studio',
+        rail: 'usdDomestic',
+        methodType: 'ACH',
+        accountEnding: '9124',
+        routingNumber: '021000021',
+        approval: {
+          status: 'approved',
+          approvedBy: 'founder@acmeglobal.co',
+          approvedAt: '2026-08-01T10:00:00Z',
+        },
+        createdAt: '2026-08-01T09:00:00Z',
+      },
+    ],
+  },
+  {
+    id: 'cp_linear_orbit',
+    legalEntityId: INITIAL_LEGAL_ENTITY.id,
+    type: 'business',
+    name: 'Linear Orbit Inc',
+    email: 'payments@linear.app',
+    status: 'active',
+    createdAt: '2026-07-15T00:00:00Z',
+    payoutMethods: [
+      {
+        id: 'pm_linear_card_1',
+        counterpartyId: 'cp_linear_orbit',
+        rail: 'usdDomestic',
+        methodType: 'ACH',
+        accountEnding: '5512',
+        routingNumber: '121000358',
+        approval: {
+          status: 'approved',
+          approvedBy: 'founder@acmeglobal.co',
+          approvedAt: '2026-07-15T12:00:00Z',
+        },
+        createdAt: '2026-07-15T11:00:00Z',
+      },
+    ],
+  },
+  {
+    id: 'cp_aws_cloud',
+    legalEntityId: INITIAL_LEGAL_ENTITY.id,
+    type: 'business',
+    name: 'Amazon Web Services Inc',
+    email: 'aws-receivables@amazon.com',
+    status: 'active',
+    createdAt: '2026-06-01T00:00:00Z',
+    payoutMethods: [
+      {
+        id: 'pm_aws_wire_1',
+        counterpartyId: 'cp_aws_cloud',
+        rail: 'usdDomestic',
+        methodType: 'WIRE',
+        accountEnding: '1099',
+        routingNumber: '026009593',
+        approval: {
+          status: 'approved',
+          approvedBy: 'founder@acmeglobal.co',
+          approvedAt: '2026-06-01T08:00:00Z',
+        },
+        createdAt: '2026-06-01T08:00:00Z',
+      },
+    ],
+  },
+];

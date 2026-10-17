@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicons/favicon.ico?v=3" sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg?v=3" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png?v=3" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png?v=3" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png?v=3" />
+    <link rel="manifest" href="/favicons/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Blinka - Modern banking for businesses" />
+    <!-- The bed of the light theme, not white: this is what the mobile URL bar
+         blends into, and the page bed is what meets the top of the viewport.
+         Rewritten per theme by src/lib/theme.ts. -->
+    <meta name="theme-color" content="#f4f5f7" />
+
+    <!--
+      Pre-paint theme. This is the one piece that cannot be a React component:
+      by the time any component mounts the browser has already painted, so
+      without this a reader who chose dark gets a full white flash on every
+      single load. Blocking and inline on purpose.
+
+      Kept deliberately tiny, and it duplicates four constants from
+      src/lib/theme.ts because a module cannot be imported here.
+      test/theme-prepaint.test.ts asserts the two agree; the failure mode if
+      they drift is silent, since React then applies the right class a moment
+      later and everything looks correct except the flash.
+
+      The stored value is a BARE string. JSON.stringify would write `"dark"`
+      with quotes and this comparison would never match.
+    -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('blinka.web.theme');
+          var theme =
+            stored === 'light' || stored === 'dark' || stored === 'system' ? stored : 'light';
+          var dark =
+            theme === 'dark' ||
+            (theme === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
+          if (dark) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.style.colorScheme = 'dark';
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0f1013');
+          } else {
+            document.documentElement.style.colorScheme = 'light';
+          }
+        } catch (e) {
+          // Private-mode Safari throws on localStorage. Light is the default.
+        }
+      })();
+    </script>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://blinka.co" />
+    <meta property="og:title" content="Blinka" />
+    <meta property="og:description" content="Modern banking for businesses" />
+    <meta property="og:image" content="https://blinka.co/favicons/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Blinka" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://blinka.co" />
+    <meta name="twitter:title" content="Blinka" />
+    <meta name="twitter:description" content="Modern banking for businesses" />
+    <meta name="twitter:image" content="https://blinka.co/favicons/og-image.png" />
+
+    <!-- Discord -->
+    <meta property="discord:card" content="summary_large_image" />
+
+    <title>Blinka</title>
+    <script type="module" crossorigin src="/assets/index-KQOvpaLA.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-Dw2cE7zH.js">
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-BtSQp3eb.js">
+    <link rel="modulepreload" crossorigin href="/assets/blinka_logo_white_mode-zk7Lr2LA.js">
+    <link rel="modulepreload" crossorigin href="/assets/clerk-BFKDAVha.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-CdsaXfKe.js">
+    <link rel="modulepreload" crossorigin href="/assets/i18n-vendor-CTHLS1Cq.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-DmovhTOG.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
