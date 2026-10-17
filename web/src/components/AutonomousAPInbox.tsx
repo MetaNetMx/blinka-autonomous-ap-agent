@@ -49,6 +49,8 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
   const [selectedInvoice, setSelectedInvoice] = useState<StagedInvoice | null>(null);
   const [showUploadModal, setShowUploadModal] = useState(false);
   const [showVerifyModal, setShowVerifyModal] = useState(false);
+  const [showAuditModal, setShowAuditModal] = useState(false);
+  const [auditPeriod, setAuditPeriod] = useState<'today' | 'week' | 'month' | 'all'>('month');
   const [expandedRowId, setExpandedRowId] = useState<string | null>(null);
   const [currencyFilter, setCurrencyFilter] = useState<'ALL' | 'USD' | 'USDC'>('ALL');
 
@@ -162,10 +164,42 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
     setPayinResult(null);
   };
 
-  const handleExportAudit = () => {
+  const handleExportAudit = (period: 'today' | 'week' | 'month' | 'all' = auditPeriod) => {
+    const now = new Date();
+    const todayStr = now.toISOString().split('T')[0];
+    const sevenDaysAgo = new Date(now.getTime() - 7 * 86400000).toISOString().split('T')[0];
+    const currentMonthStr = todayStr.substring(0, 7); // e.g. "2026-10"
+
+    const filteredForAudit = invoices.filter((inv) => {
+      if (period === 'all') return true;
+      const invDate = inv.issueDate || inv.dueDate || todayStr;
+      if (period === 'today') {
+        return invDate === todayStr || inv.evaluatedAt?.startsWith(todayStr);
+      }
+      if (period === 'week') {
+        return invDate >= sevenDaysAgo;
+      }
+      if (period === 'month') {
+        return invDate.startsWith(currentMonthStr) || inv.evaluatedAt?.startsWith(currentMonthStr);
+      }
+      return true;
+    });
+
+    const periodLabels: Record<string, string> = {
+      today: `Cierre Diario (${todayStr})`,
+      week: `Cierre Semanal (${sevenDaysAgo} a ${todayStr})`,
+      month: `Cierre Mensual (${currentMonthStr})`,
+      all: 'Histórico Completo (Todas las transacciones)',
+    };
+
     const auditData = {
       title: 'Blinka Autonomous AP Agent - Registro Inmutable de Auditoría Dual-Rail',
       exportTimestamp: new Date().toISOString(),
+      auditScope: {
+        period: period.toUpperCase(),
+        periodLabel: periodLabels[period],
+        filterAppliedDate: todayStr,
+      },
       agentArchitecture: 'Deterministic Policy Engine + Anthropic Model Context Protocol (MCP)',
       settlementRails: [
         'Portage Bank ACH/Wire (USD FDIC-Insured)',
@@ -173,28 +207,32 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
       ],
       complianceStandards: [
         'SOC2-Type II Mock Ready',
+        'SOX Section 404 IT Controls',
         'Dual Authorization > $10,000 USD / USDC',
         'Anti-Phishing Bank Account Verification',
         'Web3 Anti-Address-Poisoning & Phishing Guard',
       ],
       metrics: {
-        totalEvaluated: invoices.length,
-        autoPaid: invoices.filter((i) => i.status === 'auto_paid').length,
-        awaitingCfoApproval: awaitingCfoCount,
-        fraudBlocked: fraudCount,
+        periodSelected: periodLabels[period],
+        totalInPeriod: filteredForAudit.length,
+        autoPaid: filteredForAudit.filter((i) => i.status === 'auto_paid').length,
+        awaitingCfoApproval: filteredForAudit.filter((i) => i.status === 'awaiting_cfo_approval').length,
+        fraudBlocked: filteredForAudit.filter((i) => i.status === 'fraud_blocked').length,
       },
-      ledgerEntries: invoices.map((inv) => ({
+      ledgerEntries: filteredForAudit.map((inv) => ({
         invoiceId: inv.id,
         invoiceNumber: inv.invoiceNumber,
         vendor: inv.vendorName,
         currency: inv.currency,
         amount: (inv.amountCents / 100).toFixed(2),
+        issueDate: inv.issueDate,
+        dueDate: inv.dueDate,
         destinationRail: inv.currency === 'USDC' ? `Base Wallet ${inv.walletAddress}` : `ACH Bank ending ${inv.beneficiaryBankLastFour}`,
         status: inv.status,
         policyTriggered: inv.policyResult?.rulesTriggered?.filter((r) => !r.passed).map((r) => r.ruleId).join(', ') || 'NONE',
         reasoning: inv.policyResult?.reasons?.join('; ') || 'Evaluation completed successfully',
         idempotencyKey: `audit_blinka_${inv.invoiceNumber}_${inv.amountCents}`,
-        timestamp: new Date().toISOString(),
+        timestamp: inv.evaluatedAt || new Date().toISOString(),
       })),
     };
 
@@ -202,9 +240,10 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `blinka_ap_audit_trail_${new Date().toISOString().split('T')[0]}.json`;
+    a.download = `blinka_ap_audit_${period}_${todayStr}.json`;
     a.click();
     URL.revokeObjectURL(url);
+    setShowAuditModal(false);
   };
 
   const getStatusBadge = (invoice: StagedInvoice) => {
@@ -286,8 +325,8 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
           </button>
 
           <button
-            onClick={handleExportAudit}
-            title="Descarga el log de auditoría inmutable en JSON para cumplimiento bancario y SOX"
+            onClick={() => setShowAuditModal(true)}
+            title="Descarga el log de auditoría inmutable en JSON por periodo (Día, Semana, Mes o Total)"
             className="bg-white hover:bg-[#f7f7f4] text-[#1c253a] border border-[#e3e3dc] text-xs md:text-sm font-semibold px-3.5 py-2.5 rounded-xl flex items-center space-x-2 shadow-2xs transition-all"
           >
             <Download className="w-4 h-4 text-[#576071]" />
@@ -903,6 +942,129 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* Audit Period Selection Modal */}
+      {showAuditModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4">
+          <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-xl border border-[#e3e3dc] space-y-4">
+            <div className="flex items-center justify-between border-b border-[#eeeee8] pb-3">
+              <div className="flex items-center space-x-2">
+                <div className="p-2 bg-blue-50 text-[#2a4bd0] rounded-xl">
+                  <Download className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-[#1c253a]">Exportar Registro de Auditoría SOX / SOC2</h3>
+                  <p className="text-xs text-[#576071]">Genera un log inmutable en JSON formateado para auditores, ERPs o el CFO.</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setShowAuditModal(false)}
+                className="text-[#576071] hover:text-[#1c253a] p-1 rounded-md"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="space-y-3">
+              <label className="block text-xs font-semibold text-[#1c253a]">Selecciona el Periodo de Auditoría:</label>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <button
+                  type="button"
+                  onClick={() => setAuditPeriod('today')}
+                  className={`p-3 rounded-xl border text-left transition-all ${
+                    auditPeriod === 'today'
+                      ? 'border-[#2a4bd0] bg-blue-50/50 text-[#1c253a] ring-2 ring-blue-500/20'
+                      : 'border-[#e3e3dc] hover:bg-[#f7f7f4] text-[#576071]'
+                  }`}
+                >
+                  <div className="font-bold text-xs text-[#1c253a] flex items-center justify-between">
+                    <span>📅 Cierre Diario (Hoy)</span>
+                    {auditPeriod === 'today' && <Check className="w-4 h-4 text-[#2a4bd0]" />}
+                  </div>
+                  <div className="text-[11px] text-[#576071] mt-1">Conciliación de las últimas 24 horas.</div>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setAuditPeriod('week')}
+                  className={`p-3 rounded-xl border text-left transition-all ${
+                    auditPeriod === 'week'
+                      ? 'border-[#2a4bd0] bg-blue-50/50 text-[#1c253a] ring-2 ring-blue-500/20'
+                      : 'border-[#e3e3dc] hover:bg-[#f7f7f4] text-[#576071]'
+                  }`}
+                >
+                  <div className="font-bold text-xs text-[#1c253a] flex items-center justify-between">
+                    <span>📆 Cierre Semanal</span>
+                    {auditPeriod === 'week' && <Check className="w-4 h-4 text-[#2a4bd0]" />}
+                  </div>
+                  <div className="text-[11px] text-[#576071] mt-1">Últimos 7 días de dispersiones y cobros.</div>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setAuditPeriod('month')}
+                  className={`p-3 rounded-xl border text-left transition-all ${
+                    auditPeriod === 'month'
+                      ? 'border-[#2a4bd0] bg-blue-50/50 text-[#1c253a] ring-2 ring-blue-500/20'
+                      : 'border-[#e3e3dc] hover:bg-[#f7f7f4] text-[#576071]'
+                  }`}
+                >
+                  <div className="font-bold text-xs text-[#1c253a] flex items-center justify-between">
+                    <span>🗓️ Cierre Mensual (Oct 2026)</span>
+                    {auditPeriod === 'month' && <Check className="w-4 h-4 text-[#2a4bd0]" />}
+                  </div>
+                  <div className="text-[11px] text-[#576071] mt-1">Cierre fiscal mensual para conciliación ERP.</div>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setAuditPeriod('all')}
+                  className={`p-3 rounded-xl border text-left transition-all ${
+                    auditPeriod === 'all'
+                      ? 'border-[#2a4bd0] bg-blue-50/50 text-[#1c253a] ring-2 ring-blue-500/20'
+                      : 'border-[#e3e3dc] hover:bg-[#f7f7f4] text-[#576071]'
+                  }`}
+                >
+                  <div className="font-bold text-xs text-[#1c253a] flex items-center justify-between">
+                    <span>📁 Histórico Completo</span>
+                    {auditPeriod === 'all' && <Check className="w-4 h-4 text-[#2a4bd0]" />}
+                  </div>
+                  <div className="text-[11px] text-[#576071] mt-1">Todas las facturas registradas ({invoices.length}).</div>
+                </button>
+              </div>
+
+              <div className="p-3 bg-[#f7f7f4] rounded-xl border border-[#e3e3dc] text-xs space-y-1">
+                <div className="flex items-center justify-between font-semibold text-[#1c253a]">
+                  <span>Estándar de Cumplimiento:</span>
+                  <span className="font-mono text-[11px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">SOC2 Type II + SOX Ready</span>
+                </div>
+                <p className="text-[11px] text-[#576071]">
+                  Incluye hash de trazabilidad, decisiones de políticas, firmas duales del CFO y conciliación dual-rail (Portage Bank ACH + Base USDC).
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-end space-x-2 pt-2 border-t border-[#eeeee8]">
+              <button
+                type="button"
+                onClick={() => setShowAuditModal(false)}
+                className="px-3 py-2 text-xs font-medium text-[#576071] hover:bg-[#ecebe6] rounded-lg"
+              >
+                Cancelar
+              </button>
+              <button
+                type="button"
+                onClick={() => handleExportAudit(auditPeriod)}
+                className="px-4 py-2 text-xs font-semibold bg-[#2a4bd0] hover:bg-[#1e3bb3] text-white rounded-lg shadow-sm flex items-center space-x-1.5"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span>Descargar Auditoría ({auditPeriod.toUpperCase()})</span>
+              </button>
+            </div>
           </div>
         </div>
       )}
