@@ -382,7 +382,9 @@ server.tool(
     amountCents: z.number().positive().describe('Total invoice amount in cents (e.g. 245000 for $2,450.00)'),
     currency: z.string().default('USD').describe('Invoice currency (USD or USDC)'),
     dueDate: z.string().describe('Invoice due date (ISO 8601 or YYYY-MM-DD)'),
-    beneficiaryBankLastFour: z.string().optional().describe('Beneficiary account last 4 digits on invoice for anti-phishing match'),
+    beneficiaryBankLastFour: z.string().optional().describe('Beneficiary account last 4 digits on invoice for anti-phishing match (Fiat ACH/Wire)'),
+    walletAddress: z.string().optional().describe('Beneficiary crypto wallet address (e.g. 0x... for USDC on Base Network) for Web3 anti-phishing match'),
+    network: z.string().optional().describe('Blockchain network for crypto payout (e.g. Base, Solana, Ethereum)'),
     description: z.string().optional().describe('Line items or service description'),
   },
   async (args) => {
@@ -432,7 +434,9 @@ server.tool(
     amountCents: z.number().positive().describe('Invoice amount in cents'),
     currency: z.string().default('USD').describe('Currency (USD or USDC)'),
     dueDate: z.string().describe('Payment due date'),
-    beneficiaryBankLastFour: z.string().optional().describe('Bank account ending on invoice to prevent bank-switch phishing'),
+    beneficiaryBankLastFour: z.string().optional().describe('Bank account ending on invoice to prevent bank-switch phishing (Fiat)'),
+    walletAddress: z.string().optional().describe('Beneficiary crypto wallet address to prevent address poisoning phishing (Crypto)'),
+    network: z.string().optional().describe('Blockchain network (Base, Solana, etc.)'),
   },
   async (args) => {
     try {
@@ -506,6 +510,45 @@ server.tool(
     } catch (e: any) {
       return {
         content: [{ type: 'text', text: `Payout execution error: ${e.message}` }],
+        isError: true,
+      };
+    }
+  }
+);
+
+// -------------------------------------------------------------
+// TOOL 12: blinka_verify_inbound_payment (Dual Rail: Fiat & Crypto Pay-ins)
+// -------------------------------------------------------------
+server.tool(
+  'blinka_verify_inbound_payment',
+  'Dual-Rail Pay-in Verification: Validates whether an incoming client payment has been received and confirmed in Blinka via traditional Fiat (USD ACH/Fedwire via Portage Bank FDIC) or Crypto (USDC on Base Network blockchain). Reconciles amounts, sender, reference memo, or transaction hash.',
+  {
+    amountCents: z.number().positive().describe('Expected payment amount in cents (e.g. 500000 for $5,000.00)'),
+    currency: z.enum(['USD', 'USDC']).default('USD').describe('Payment currency: USD (Fiat) or USDC (Crypto Stablecoin)'),
+    invoiceNumber: z.string().optional().describe('Optional invoice number expected in payment memo or reference notes'),
+    clientName: z.string().optional().describe('Name of the client who allegedly sent the payment'),
+    txHashOrMemo: z.string().optional().describe('Blockchain transaction hash (0x...) or wire reference number'),
+  },
+  async (args) => {
+    try {
+      const result = await client.verifyInboundPayment({
+        amountCents: args.amountCents,
+        currency: args.currency,
+        invoiceNumber: args.invoiceNumber,
+        clientName: args.clientName,
+        txHashOrMemo: args.txHashOrMemo,
+      });
+      return {
+        content: [
+          {
+            type: 'text',
+            text: JSON.stringify(result, null, 2),
+          },
+        ],
+      };
+    } catch (e: any) {
+      return {
+        content: [{ type: 'text', text: `Inbound verification error: ${e.message}` }],
         isError: true,
       };
     }

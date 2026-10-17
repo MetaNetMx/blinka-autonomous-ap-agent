@@ -157,6 +157,22 @@ export const INITIAL_TRANSACTIONS: Transaction[] = [
     createdAt: '2026-10-12T16:45:00Z',
     executedAt: '2026-10-13T08:30:00Z',
   },
+  {
+    id: 'tx_payin_usdc_01',
+    accountId: 'acc_usdc_multichain_3310',
+    transferId: null,
+    kind: 'PAYIN',
+    status: 'COMPLETED',
+    counterpartyName: 'OpenAI Foundation LLC',
+    method: 'BASE_USDC',
+    amountCents: 500000, // +$5,000.00 USDC
+    currency: 'USDC',
+    memo: 'AI Research Grant Q3',
+    notes: 'Invoice #INV-OPENAI-9901 | txHash: 0x8a92f01c4482',
+    feeCents: 5,
+    createdAt: '2026-10-15T12:00:00Z',
+    executedAt: '2026-10-15T12:01:00Z',
+  },
 ];
 
 export const INITIAL_COUNTERPARTIES: Counterparty[] = [
@@ -285,6 +301,32 @@ export const INITIAL_COUNTERPARTIES: Counterparty[] = [
       },
     ],
   },
+  {
+    id: 'cp_alchemy_nodes',
+    legalEntityId: INITIAL_LEGAL_ENTITY.id,
+    type: 'business',
+    name: 'Alchemy Infrastructure Inc',
+    email: 'billing@alchemy.com',
+    status: 'active',
+    createdAt: '2026-06-15T00:00:00Z',
+    payoutMethods: [
+      {
+        id: 'pm_alchemy_base_1',
+        counterpartyId: 'cp_alchemy_nodes',
+        rail: 'blockchainWallet',
+        methodType: 'CRYPTO_ADDRESS',
+        accountEnding: '43e7',
+        walletAddress: '0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7',
+        network: 'Base',
+        approval: {
+          status: 'approved',
+          approvedBy: 'founder@acmeglobal.co',
+          approvedAt: '2026-06-15T10:00:00Z',
+        },
+        createdAt: '2026-06-15T09:00:00Z',
+      },
+    ],
+  },
 ];
 
 export const DEMO_PRESET_INVOICES: StagedInvoice[] = [
@@ -343,5 +385,37 @@ export const DEMO_PRESET_INVOICES: StagedInvoice[] = [
     routingNumber: '026009593',
     status: 'pending_evaluation',
     notes: 'Duplicate invoice test: already processed in prior cycle.',
+  },
+  {
+    id: 'inv_preset_crypto_alchemy',
+    invoiceNumber: 'INV-ALCHEMY-2026-01',
+    vendorName: 'Alchemy Infrastructure Inc',
+    amountCents: 185000, // 1,850.00 USDC
+    currency: 'USDC',
+    issueDate: '2026-10-15',
+    dueDate: '2026-10-29',
+    description: 'Web3 RPC Dedicated Node Cluster (Base Network)',
+    beneficiaryBankLastFour: '43e7',
+    routingNumber: 'BASE_NETWORK',
+    walletAddress: '0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7',
+    network: 'Base',
+    status: 'pending_evaluation',
+    notes: '⚡ CRIPTO: Liquidación instantánea en USDC sobre Base Network. Billetera verificada.',
+  },
+  {
+    id: 'inv_preset_crypto_poisoning',
+    invoiceNumber: 'INV-WEB3-POISONED-88',
+    vendorName: 'Alchemy Infrastructure Inc',
+    amountCents: 890000, // 8,900.00 USDC
+    currency: 'USDC',
+    issueDate: '2026-10-16',
+    dueDate: '2026-10-23',
+    description: 'Smart Contract Audit & Gas Subsidy (Spoofed Address)',
+    beneficiaryBankLastFour: '9999',
+    routingNumber: 'BASE_NETWORK',
+    walletAddress: '0xDEADBEEF44120000000000000000000000009999', // MISMATCH!
+    network: 'Base',
+    status: 'pending_evaluation',
+    notes: '🚨 ALERTA CRIPTO: Dirección de wallet no coincide con la registrada. Intento de Address Poisoning.',
   },
 ];

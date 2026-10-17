@@ -1,6 +1,8 @@
 import {
   Account,
   Counterparty,
+  InboundPaymentVerificationInput,
+  InboundPaymentVerificationResult,
   InvoiceReconciliationInput,
   PayoutMethod,
   PolicyEvaluationResult,
@@ -254,6 +256,17 @@ export class BlinkaClient {
       reconciliation,
       policy,
     };
+  }
+
+  async verifyInboundPayment(
+    input: InboundPaymentVerificationInput
+  ): Promise<InboundPaymentVerificationResult> {
+    const context = {
+      accounts: this.accounts,
+      counterparties: this.counterparties,
+      transactions: this.transactions,
+    };
+    return BlinkaPolicyEngine.verifyInboundPayment(input, context);
   }
 
   async executeVendorPayment(data: {

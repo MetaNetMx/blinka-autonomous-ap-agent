@@ -157,6 +157,22 @@ export const INITIAL_TRANSACTIONS: Transaction[] = [
     createdAt: '2026-10-12T16:45:00Z',
     executedAt: '2026-10-13T08:30:00Z',
   },
+  {
+    id: 'tx_payin_usdc_01',
+    accountId: 'acc_usdc_multichain_3310',
+    transferId: null,
+    kind: 'PAYIN',
+    status: 'COMPLETED',
+    counterpartyName: 'OpenAI Foundation LLC',
+    method: 'BASE_USDC',
+    amountCents: 500000, // +$5,000.00 USDC
+    currency: 'USDC',
+    memo: 'AI Research Grant Q3',
+    notes: 'Invoice #INV-OPENAI-9901 | txHash: 0x8a92f01c4482',
+    feeCents: 5,
+    createdAt: '2026-10-15T12:00:00Z',
+    executedAt: '2026-10-15T12:01:00Z',
+  },
 ];
 
 export const INITIAL_COUNTERPARTIES: Counterparty[] = [
@@ -232,6 +248,32 @@ export const INITIAL_COUNTERPARTIES: Counterparty[] = [
           approvedAt: '2026-06-01T08:00:00Z',
         },
         createdAt: '2026-06-01T08:00:00Z',
+      },
+    ],
+  },
+  {
+    id: 'cp_alchemy_nodes',
+    legalEntityId: INITIAL_LEGAL_ENTITY.id,
+    type: 'business',
+    name: 'Alchemy Infrastructure Inc',
+    email: 'billing@alchemy.com',
+    status: 'active',
+    createdAt: '2026-06-15T00:00:00Z',
+    payoutMethods: [
+      {
+        id: 'pm_alchemy_base_1',
+        counterpartyId: 'cp_alchemy_nodes',
+        rail: 'blockchainWallet',
+        methodType: 'CRYPTO_ADDRESS',
+        accountEnding: '43e7',
+        walletAddress: '0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7',
+        network: 'Base',
+        approval: {
+          status: 'approved',
+          approvedBy: 'founder@acmeglobal.co',
+          approvedAt: '2026-06-15T10:00:00Z',
+        },
+        createdAt: '2026-06-15T09:00:00Z',
       },
     ],
   },

@@ -17,8 +17,16 @@ import {
   Info,
   Download,
   Zap,
+  Search,
+  ArrowDownLeft,
+  Coins,
+  Building2,
 } from 'lucide-react';
-import { StagedInvoice } from '../blinka-core/types';
+import {
+  StagedInvoice,
+  InboundPaymentVerificationInput,
+  InboundPaymentVerificationResult,
+} from '../blinka-core/types';
 import confetti from 'canvas-confetti';
 
 interface AutonomousAPInboxProps {
@@ -27,6 +35,7 @@ interface AutonomousAPInboxProps {
   onCfoApprove: (invoiceId: string) => void;
   onAddCustomInvoice: (inv: Omit<StagedInvoice, 'id' | 'status'>) => void;
   onProcessAll: () => void;
+  onVerifyInbound?: (input: InboundPaymentVerificationInput) => InboundPaymentVerificationResult;
 }
 
 export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
@@ -35,43 +44,67 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
   onCfoApprove,
   onAddCustomInvoice,
   onProcessAll,
+  onVerifyInbound,
 }) => {
   const [selectedInvoice, setSelectedInvoice] = useState<StagedInvoice | null>(null);
   const [showUploadModal, setShowUploadModal] = useState(false);
+  const [showVerifyModal, setShowVerifyModal] = useState(false);
   const [expandedRowId, setExpandedRowId] = useState<string | null>(null);
+  const [currencyFilter, setCurrencyFilter] = useState<'ALL' | 'USD' | 'USDC'>('ALL');
 
   // New Invoice Form state
   const [vendorName, setVendorName] = useState('');
   const [invoiceNumber, setInvoiceNumber] = useState('');
   const [amountUsd, setAmountUsd] = useState('');
+  const [currency, setCurrency] = useState<'USD' | 'USDC'>('USD');
   const [bankLastFour, setBankLastFour] = useState('');
+  const [walletAddress, setWalletAddress] = useState('');
   const [description, setDescription] = useState('');
+
+  // Inbound Pay-in Verification Modal state
+  const [payinCurrency, setPayinCurrency] = useState<'USD' | 'USDC'>('USDC');
+  const [payinAmount, setPayinAmount] = useState('5000');
+  const [payinClient, setPayinClient] = useState('OpenAI Inc');
+  const [payinRef, setPayinRef] = useState('');
+  const [payinResult, setPayinResult] = useState<InboundPaymentVerificationResult | null>(null);
 
   const pendingCount = invoices.filter((i) => i.status === 'pending_evaluation').length;
   const awaitingCfoCount = invoices.filter((i) => i.status === 'awaiting_cfo_approval').length;
   const fraudCount = invoices.filter((i) => i.status === 'fraud_blocked').length;
 
+  const usdCount = invoices.filter((i) => i.currency === 'USD').length;
+  const usdcCount = invoices.filter((i) => i.currency === 'USDC').length;
+
+  const filteredInvoices = invoices.filter((inv) => {
+    if (currencyFilter === 'USD') return inv.currency === 'USD';
+    if (currencyFilter === 'USDC') return inv.currency === 'USDC';
+    return true;
+  });
+
   const handleCreateCustomInvoice = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!vendorName || !invoiceNumber || !amountUsd || !bankLastFour) return;
+    if (!vendorName || !invoiceNumber || !amountUsd) return;
 
     onAddCustomInvoice({
       invoiceNumber,
       vendorName,
       amountCents: Math.round(parseFloat(amountUsd) * 100),
-      currency: 'USD',
+      currency,
       issueDate: new Date().toISOString().split('T')[0],
       dueDate: new Date(Date.now() + 14 * 86400000).toISOString().split('T')[0],
       description: description || 'Servicios profesionales o SaaS',
-      beneficiaryBankLastFour: bankLastFour,
-      routingNumber: '021000021',
-      notes: 'Factura ingresada manualmente para auditoría',
+      beneficiaryBankLastFour: currency === 'USD' ? (bankLastFour || '4141') : undefined,
+      routingNumber: currency === 'USD' ? '021000021' : undefined,
+      walletAddress: currency === 'USDC' ? (walletAddress || '0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7') : undefined,
+      network: currency === 'USDC' ? 'Base' : undefined,
+      notes: `Factura ${currency} ingresada manualmente para auditoría`,
     });
 
     setVendorName('');
     setInvoiceNumber('');
     setAmountUsd('');
     setBankLastFour('');
+    setWalletAddress('');
     setDescription('');
     setShowUploadModal(false);
   };
@@ -86,12 +119,64 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
     });
   };
 
+  const handleRunVerification = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    if (!onVerifyInbound) return;
+
+    const parsedCents = Math.round(parseFloat(payinAmount || '0') * 100);
+    const res = onVerifyInbound({
+      currency: payinCurrency,
+      amountCents: parsedCents,
+      clientName: payinClient.trim() || undefined,
+      txHashOrMemo: payinRef.trim() || undefined,
+    });
+
+    setPayinResult(res);
+    if (res.verified) {
+      confetti({
+        particleCount: 30,
+        spread: 60,
+        origin: { y: 0.5 },
+        colors: ['#6366f1', '#10b981'],
+      });
+    }
+  };
+
+  const handlePresetPayin = (preset: 'openai' | 'yc' | 'fake') => {
+    if (preset === 'openai') {
+      setPayinCurrency('USDC');
+      setPayinAmount('5000');
+      setPayinClient('OpenAI Inc');
+      setPayinRef('0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7');
+    } else if (preset === 'yc') {
+      setPayinCurrency('USD');
+      setPayinAmount('500000');
+      setPayinClient('Y Combinator');
+      setPayinRef('YC-SAFE-2026');
+    } else {
+      setPayinCurrency('USDC');
+      setPayinAmount('12500');
+      setPayinClient('Fake Entity Phantom');
+      setPayinRef('0x0000000000000000');
+    }
+    setPayinResult(null);
+  };
+
   const handleExportAudit = () => {
     const auditData = {
-      title: 'Blinka Autonomous AP Agent - Registro Inmutable de Auditoría',
+      title: 'Blinka Autonomous AP Agent - Registro Inmutable de Auditoría Dual-Rail',
       exportTimestamp: new Date().toISOString(),
       agentArchitecture: 'Deterministic Policy Engine + Anthropic Model Context Protocol (MCP)',
-      complianceStandards: ['SOC2-Type II Mock Ready', 'Dual Authorization > $10,000 USD', 'Anti-Phishing Bank Verification'],
+      settlementRails: [
+        'Portage Bank ACH/Wire (USD FDIC-Insured)',
+        'Base Network Multi-chain Gateway (USDC)',
+      ],
+      complianceStandards: [
+        'SOC2-Type II Mock Ready',
+        'Dual Authorization > $10,000 USD / USDC',
+        'Anti-Phishing Bank Account Verification',
+        'Web3 Anti-Address-Poisoning & Phishing Guard',
+      ],
       metrics: {
         totalEvaluated: invoices.length,
         autoPaid: invoices.filter((i) => i.status === 'auto_paid').length,
@@ -102,10 +187,11 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
         invoiceId: inv.id,
         invoiceNumber: inv.invoiceNumber,
         vendor: inv.vendorName,
-        amountUsd: (inv.amountCents / 100).toFixed(2),
-        beneficiaryBankEnding: inv.beneficiaryBankLastFour,
+        currency: inv.currency,
+        amount: (inv.amountCents / 100).toFixed(2),
+        destinationRail: inv.currency === 'USDC' ? `Base Wallet ${inv.walletAddress}` : `ACH Bank ending ${inv.beneficiaryBankLastFour}`,
         status: inv.status,
-        policyTriggered: inv.policyResult?.rulesTriggered?.filter(r => !r.passed).map(r => r.ruleId).join(', ') || 'NONE',
+        policyTriggered: inv.policyResult?.rulesTriggered?.filter((r) => !r.passed).map((r) => r.ruleId).join(', ') || 'NONE',
         reasoning: inv.policyResult?.reasons?.join('; ') || 'Evaluation completed successfully',
         idempotencyKey: `audit_blinka_${inv.invoiceNumber}_${inv.amountCents}`,
         timestamp: new Date().toISOString(),
@@ -127,7 +213,7 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
         return (
           <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
             <CheckCircle2 className="w-3.5 h-3.5 mr-1 text-emerald-600" />
-            Pagado Autónomamente (ACH)
+            {invoice.currency === 'USDC' ? 'Liquidado en Base USDC ⚡' : 'Pagado Autónomamente (ACH)'}
           </span>
         );
       case 'awaiting_cfo_approval':
@@ -141,7 +227,7 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
         return (
           <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-red-50 text-red-700 border border-red-200 animate-pulse">
             <ShieldAlert className="w-3.5 h-3.5 mr-1 text-red-600" />
-            BLOQUEADO: Fraude / Bank Mismatch
+            {invoice.currency === 'USDC' ? 'BLOQUEADO: Address Poisoning' : 'BLOQUEADO: Phishing / Mismatch'}
           </span>
         );
       case 'duplicate_rejected':
@@ -163,22 +249,21 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
 
   return (
     <div className="space-y-6">
-      
       {/* Header & Quick Action Bar */}
       <div className="blinka-card p-6 bg-white flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center space-x-2">
-            <h2 className="text-xl font-bold text-[#1c253a]">Bandeja de Entrada Autónoma (AP)</h2>
+            <h2 className="text-xl font-bold text-[#1c253a]">Bandeja de Entrada Autónoma (AP & Pay-ins)</h2>
             <span className="text-xs px-2 py-0.5 rounded-full bg-slate-100 text-[#576071] font-semibold">
               {invoices.length} Facturas
             </span>
           </div>
           <p className="text-xs md:text-sm text-[#576071] mt-1">
-            Motor de conciliación con verificación de cuenta bancaria anti-phishing y dispersión programada.
+            Motor de conciliación dual-rail: verificación de dispersiones (ACH y Base USDC) y validación de cobros entrantes.
           </p>
         </div>
 
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 flex-wrap gap-2">
           {pendingCount > 0 && (
             <button
               onClick={onProcessAll}
@@ -190,12 +275,23 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
           )}
 
           <button
+            onClick={() => {
+              setShowVerifyModal(true);
+              setPayinResult(null);
+            }}
+            className="bg-indigo-600 hover:bg-indigo-700 text-white text-xs md:text-sm font-semibold px-3.5 py-2.5 rounded-xl flex items-center space-x-2 shadow-sm transition-all"
+          >
+            <ShieldCheck className="w-4 h-4 text-white" />
+            <span>Verificar Cobro Entrante</span>
+          </button>
+
+          <button
             onClick={handleExportAudit}
             title="Descarga el log de auditoría inmutable en JSON para cumplimiento bancario y SOX"
             className="bg-white hover:bg-[#f7f7f4] text-[#1c253a] border border-[#e3e3dc] text-xs md:text-sm font-semibold px-3.5 py-2.5 rounded-xl flex items-center space-x-2 shadow-2xs transition-all"
           >
             <Download className="w-4 h-4 text-[#576071]" />
-            <span>Exportar Auditoría</span>
+            <span className="hidden sm:inline">Exportar Auditoría</span>
           </button>
 
           <button
@@ -208,21 +304,58 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
         </div>
       </div>
 
-      {/* Metric Pills */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <div className="bg-blue-50/60 border border-blue-200 rounded-xl p-3 flex items-center justify-between">
-          <div className="text-xs text-blue-900 font-medium">Por Evaluar</div>
-          <div className="text-lg font-bold text-[#2a4bd0]">{pendingCount}</div>
+      {/* Metric Pills & Currency Filter Bar */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        {/* Metric Pills */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 flex-1">
+          <div className="bg-blue-50/60 border border-blue-200 rounded-xl p-3 flex items-center justify-between">
+            <div className="text-xs text-blue-900 font-medium">Por Evaluar</div>
+            <div className="text-lg font-bold text-[#2a4bd0]">{pendingCount}</div>
+          </div>
+
+          <div className="bg-amber-50/60 border border-amber-200 rounded-xl p-3 flex items-center justify-between">
+            <div className="text-xs text-amber-900 font-medium">En Espera Firma CFO</div>
+            <div className="text-lg font-bold text-amber-600">{awaitingCfoCount}</div>
+          </div>
+
+          <div className="bg-red-50/60 border border-red-200 rounded-xl p-3 flex items-center justify-between">
+            <div className="text-xs text-red-900 font-medium">Amenazas Neutralizadas</div>
+            <div className="text-lg font-bold text-red-600">{fraudCount}</div>
+          </div>
         </div>
 
-        <div className="bg-amber-50/60 border border-amber-200 rounded-xl p-3 flex items-center justify-between">
-          <div className="text-xs text-amber-900 font-medium">En Espera de Firma CFO</div>
-          <div className="text-lg font-bold text-amber-600">{awaitingCfoCount}</div>
-        </div>
-
-        <div className="bg-red-50/60 border border-red-200 rounded-xl p-3 flex items-center justify-between">
-          <div className="text-xs text-red-900 font-medium">Amenazas de Fraude Neutralizadas</div>
-          <div className="text-lg font-bold text-red-600">{fraudCount}</div>
+        {/* Currency Filter Tabs */}
+        <div className="flex items-center space-x-1 bg-[#f0f0eb] p-1 rounded-xl self-start sm:self-auto border border-[#e3e3dc]">
+          <button
+            onClick={() => setCurrencyFilter('ALL')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              currencyFilter === 'ALL'
+                ? 'bg-white text-[#1c253a] shadow-2xs'
+                : 'text-[#576071] hover:text-[#1c253a]'
+            }`}
+          >
+            Todas ({invoices.length})
+          </button>
+          <button
+            onClick={() => setCurrencyFilter('USD')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center space-x-1 ${
+              currencyFilter === 'USD'
+                ? 'bg-white text-[#1c253a] shadow-2xs'
+                : 'text-[#576071] hover:text-[#1c253a]'
+            }`}
+          >
+            <span>💵 Fiat USD ({usdCount})</span>
+          </button>
+          <button
+            onClick={() => setCurrencyFilter('USDC')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center space-x-1 ${
+              currencyFilter === 'USDC'
+                ? 'bg-white text-indigo-700 shadow-2xs'
+                : 'text-[#576071] hover:text-indigo-700'
+            }`}
+          >
+            <span>⚡ Cripto USDC ({usdcCount})</span>
+          </button>
         </div>
       </div>
 
@@ -234,13 +367,15 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
           </div>
           <div>
             <div className="flex items-center space-x-2">
-              <h4 className="text-sm font-semibold text-slate-100">Facturas de Demostración para el Pitch</h4>
+              <h4 className="text-sm font-semibold text-slate-100">Facturas de Demostración para el Pitch (Dual-Rail)</h4>
               <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-indigo-500/30 text-indigo-200 border border-indigo-400/30">
                 <Zap className="w-3 h-3 mr-1 text-amber-400" />
                 Loop Determinista: -94% tokens
               </span>
             </div>
-            <p className="text-xs text-slate-400">Descarga los PDFs oficiales para demostrar la auto-aprobación ACH vs el bloqueo inmediato de phishing.</p>
+            <p className="text-xs text-slate-400">
+              Prueba la auto-aprobación ACH/USDC vs bloqueo inmediato de phishing y address poisoning.
+            </p>
           </div>
         </div>
         <div className="flex items-center gap-2 flex-wrap">
@@ -250,7 +385,7 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
             rel="noreferrer"
             className="inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30 border border-emerald-500/40 transition-colors"
           >
-            <span>Factura AWS ($2,450 - Auto-aprobada)</span>
+            <span>AWS ($2,450 ACH)</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
           <a
@@ -259,9 +394,12 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
             rel="noreferrer"
             className="inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-red-500/20 text-red-300 hover:bg-red-500/30 border border-red-500/40 transition-colors"
           >
-            <span>Factura Phishing ($14,250 - Alerta Fraude)</span>
+            <span>Phishing Bank Mismatch</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
+          <div className="inline-flex items-center space-x-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-indigo-500/20 text-indigo-200 border border-indigo-500/40">
+            <span>⚡ Alchemy USDC en Base</span>
+          </div>
         </div>
       </div>
 
@@ -272,7 +410,7 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
             <thead className="bg-[#f7f7f4] text-[#576071] text-xs font-semibold uppercase tracking-wider border-b border-[#e3e3dc]">
               <tr>
                 <th className="px-6 py-3.5">Factura / Proveedor</th>
-                <th className="px-6 py-3.5">Cuenta Destino</th>
+                <th className="px-6 py-3.5">Riel & Destino</th>
                 <th className="px-6 py-3.5">Vencimiento</th>
                 <th className="px-6 py-3.5">Estado / Decisión</th>
                 <th className="px-6 py-3.5 text-right">Monto</th>
@@ -280,21 +418,53 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
               </tr>
             </thead>
             <tbody className="divide-y divide-[#eeeee8]">
-              {invoices.map((inv) => {
+              {filteredInvoices.map((inv) => {
                 const isExpanded = expandedRowId === inv.id;
+                const isCrypto = inv.currency === 'USDC';
+
                 return (
                   <React.Fragment key={inv.id}>
                     <tr className="hover:bg-[#fcfcf9] transition-colors">
                       <td className="px-6 py-4">
-                        <div className="font-bold text-[#1c253a]">{inv.vendorName}</div>
+                        <div className="flex items-center space-x-2">
+                          <span className="font-bold text-[#1c253a]">{inv.vendorName}</span>
+                          {isCrypto && (
+                            <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-indigo-100 text-indigo-800">
+                              Base USDC
+                            </span>
+                          )}
+                        </div>
                         <div className="text-xs text-[#576071] font-mono">{inv.invoiceNumber}</div>
                         <div className="text-xs text-[#576071] mt-0.5 truncate max-w-xs">{inv.description}</div>
                       </td>
 
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-xs font-mono font-medium text-[#1c253a] bg-[#f7f7f4] px-2 py-1 rounded inline-block border border-[#e3e3dc]">
-                          •••• {inv.beneficiaryBankLastFour}
-                        </div>
+                        {isCrypto ? (
+                          <div className="flex flex-col space-y-1">
+                            <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200 w-fit">
+                              <Zap className="w-3 h-3 mr-1 text-indigo-600" />
+                              Base Network
+                            </span>
+                            <span
+                              className="text-xs font-mono font-medium text-[#1c253a] bg-[#f7f7f4] px-2 py-0.5 rounded inline-block border border-[#e3e3dc] truncate max-w-[140px]"
+                              title={inv.walletAddress || '0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7'}
+                            >
+                              {inv.walletAddress
+                                ? `${inv.walletAddress.slice(0, 6)}...${inv.walletAddress.slice(-4)}`
+                                : '0x8920...43e7'}
+                            </span>
+                          </div>
+                        ) : (
+                          <div className="flex flex-col space-y-1">
+                            <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 w-fit">
+                              <Building2 className="w-3 h-3 mr-1 text-emerald-600" />
+                              ACH / Fedwire
+                            </span>
+                            <span className="text-xs font-mono font-medium text-[#1c253a] bg-[#f7f7f4] px-2 py-0.5 rounded inline-block border border-[#e3e3dc]">
+                              •••• {inv.beneficiaryBankLastFour || '4141'}
+                            </span>
+                          </div>
+                        )}
                       </td>
 
                       <td className="px-6 py-4 whitespace-nowrap text-xs text-[#576071]">
@@ -350,13 +520,18 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
                           <div className="bg-white border border-[#e3e3dc] rounded-xl p-4 space-y-3">
                             <div className="flex items-center justify-between border-b border-[#eeeee8] pb-2">
                               <span className="text-xs font-bold text-[#1c253a] uppercase tracking-wide">
-                                🛡️ Informe de Auditoría de Políticas Blinka
+                                🛡️ Informe de Auditoría de Políticas Blinka ({inv.currency === 'USDC' ? 'Base USDC' : 'ACH Fiat'})
                               </span>
                               {inv.policyResult && (
-                                <span className={`text-xs font-bold px-2 py-0.5 rounded ${
-                                  inv.policyResult.score >= 80 ? 'bg-emerald-100 text-emerald-800' :
-                                  inv.policyResult.score >= 50 ? 'bg-amber-100 text-amber-800' : 'bg-red-100 text-red-800'
-                                }`}>
+                                <span
+                                  className={`text-xs font-bold px-2 py-0.5 rounded ${
+                                    inv.policyResult.score >= 80
+                                      ? 'bg-emerald-100 text-emerald-800'
+                                      : inv.policyResult.score >= 50
+                                      ? 'bg-amber-100 text-amber-800'
+                                      : 'bg-red-100 text-red-800'
+                                  }`}
+                                >
                                   Confianza: {inv.policyResult.score}/100
                                 </span>
                               )}
@@ -376,7 +551,9 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
                                     <div
                                       key={idx}
                                       className={`flex items-start space-x-2 text-xs p-2 rounded-lg ${
-                                        rule.passed ? 'bg-emerald-50/70 text-emerald-900 border border-emerald-100' : 'bg-red-50/70 text-red-900 border border-red-100'
+                                        rule.passed
+                                          ? 'bg-emerald-50/70 text-emerald-900 border border-emerald-100'
+                                          : 'bg-red-50/70 text-red-900 border border-red-100'
                                       }`}
                                     >
                                       {rule.passed ? (
@@ -404,7 +581,8 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
 
                             {inv.payoutTransactionId && (
                               <div className="text-xs font-mono text-emerald-700 bg-emerald-50 p-2 rounded border border-emerald-200">
-                                Transacción de Liquidación: <strong>{inv.payoutTransactionId}</strong> (ACH Settled)
+                                Transacción de Liquidación: <strong>{inv.payoutTransactionId}</strong> (
+                                {inv.currency === 'USDC' ? 'Base USDC Settled' : 'ACH Settled'})
                               </div>
                             )}
                           </div>
@@ -418,6 +596,182 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
           </table>
         </div>
       </div>
+
+      {/* Inbound Pay-in Verification Modal */}
+      {showVerifyModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4">
+          <div className="bg-white rounded-2xl max-w-xl w-full p-6 shadow-xl border border-[#e3e3dc] space-y-4">
+            <div className="flex items-center justify-between border-b border-[#eeeee8] pb-3">
+              <div className="flex items-center space-x-2">
+                <div className="p-2 bg-indigo-50 text-indigo-600 rounded-xl">
+                  <ArrowDownLeft className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-[#1c253a]">Verificar Cobro Entrante (Pay-in)</h3>
+                  <p className="text-xs text-[#576071]">Comprueba si un cliente o fondo ya depositó en Fiat (USD) o Cripto (USDC Base).</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setShowVerifyModal(false)}
+                className="text-[#576071] hover:text-[#1c253a] p-1 rounded-md"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Test Presets for Quick Demo */}
+            <div>
+              <span className="text-[11px] font-semibold text-[#576071] uppercase tracking-wider block mb-2">
+                Casos de Demostración Rápida:
+              </span>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  onClick={() => handlePresetPayin('openai')}
+                  className="text-xs px-2.5 py-1.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 rounded-lg font-medium transition-all"
+                >
+                  ⚡ OpenAI ($5,000 USDC en Base)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handlePresetPayin('yc')}
+                  className="text-xs px-2.5 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 rounded-lg font-medium transition-all"
+                >
+                  💵 Y Combinator ($500k USD Wire)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handlePresetPayin('fake')}
+                  className="text-xs px-2.5 py-1.5 bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 rounded-lg font-medium transition-all"
+                >
+                  🚨 Fake Payment ($12.5k no existente)
+                </button>
+              </div>
+            </div>
+
+            <form onSubmit={handleRunVerification} className="space-y-3 pt-2">
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-semibold text-[#1c253a] mb-1">Riel / Moneda</label>
+                  <select
+                    value={payinCurrency}
+                    onChange={(e) => setPayinCurrency(e.target.value as 'USD' | 'USDC')}
+                    className="w-full text-xs p-2.5 rounded-lg border border-[#e3e3dc] focus:outline-indigo-600 bg-white"
+                  >
+                    <option value="USDC">⚡ USDC (Base Network)</option>
+                    <option value="USD">💵 USD (Portage Bank ACH/Wire)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-[#1c253a] mb-1">Monto Esperado ({payinCurrency})</label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    required
+                    placeholder="5000.00"
+                    value={payinAmount}
+                    onChange={(e) => setPayinAmount(e.target.value)}
+                    className="w-full text-xs p-2.5 rounded-lg border border-[#e3e3dc] focus:outline-indigo-600"
+                  >
+                  </input>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-[#1c253a] mb-1">Nombre del Cliente / Remitente</label>
+                <input
+                  type="text"
+                  placeholder="Ej. OpenAI Inc / Y Combinator / Acme"
+                  value={payinClient}
+                  onChange={(e) => setPayinClient(e.target.value)}
+                  className="w-full text-xs p-2.5 rounded-lg border border-[#e3e3dc] focus:outline-indigo-600"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-[#1c253a] mb-1">
+                  Hash Tx Blockchain / Referencia de Transferencia (Opcional)
+                </label>
+                <input
+                  type="text"
+                  placeholder="0x8920... o REF-2026-PAYIN"
+                  value={payinRef}
+                  onChange={(e) => setPayinRef(e.target.value)}
+                  className="w-full text-xs p-2.5 rounded-lg border border-[#e3e3dc] focus:outline-indigo-600 font-mono text-[11px]"
+                />
+              </div>
+
+              <div className="flex items-center justify-end space-x-2 pt-2 border-t border-[#eeeee8]">
+                <button
+                  type="button"
+                  onClick={() => setShowVerifyModal(false)}
+                  className="px-3 py-2 text-xs font-medium text-[#576071] hover:bg-[#ecebe6] rounded-lg"
+                >
+                  Cerrar
+                </button>
+                <button
+                  type="submit"
+                  className="px-4 py-2 text-xs font-semibold bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg shadow-sm flex items-center space-x-1.5"
+                >
+                  <Search className="w-3.5 h-3.5" />
+                  <span>Verificar en Ledger Blinka</span>
+                </button>
+              </div>
+            </form>
+
+            {/* Verification Result Display */}
+            {payinResult && (
+              <div
+                className={`p-4 rounded-xl border space-y-2 mt-3 ${
+                  payinResult.verified
+                    ? 'bg-emerald-50/80 border-emerald-300 text-emerald-950'
+                    : payinResult.status === 'AMOUNT_MISMATCH'
+                    ? 'bg-amber-50/80 border-amber-300 text-amber-950'
+                    : 'bg-red-50/80 border-red-300 text-red-950'
+                }`}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-2 font-bold text-xs uppercase tracking-wide">
+                    {payinResult.verified ? (
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    ) : (
+                      <AlertTriangle className="w-4 h-4 text-red-600" />
+                    )}
+                    <span>Estado: {payinResult.status}</span>
+                  </div>
+                  <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-white/70 border border-current">
+                    Riel: {payinResult.railUsed}
+                  </span>
+                </div>
+
+                <p className="text-xs font-medium">{payinResult.notes}</p>
+
+                {payinResult.verified && (
+                  <div className="grid grid-cols-2 gap-2 text-[11px] font-mono bg-white/60 p-2.5 rounded-lg border border-emerald-200 mt-2">
+                    <div>
+                      <strong>Monto Acreditado:</strong> ${(payinResult.amountReceivedCents / 100).toLocaleString(undefined, { minimumFractionDigits: 2 })} {payinResult.currency}
+                    </div>
+                    <div>
+                      <strong>Cuenta Destino:</strong> {payinResult.destinationAccount}
+                    </div>
+                    {payinResult.transactionId && (
+                      <div className="col-span-2 truncate">
+                        <strong>Tx ID:</strong> {payinResult.transactionId}
+                      </div>
+                    )}
+                    {payinResult.txHashOrReference && (
+                      <div className="col-span-2 truncate">
+                        <strong>Hash / Ref:</strong> {payinResult.txHashOrReference}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Manual Upload Modal */}
       {showUploadModal && (
@@ -439,7 +793,7 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
                 <input
                   type="text"
                   required
-                  placeholder="Ej. GitHub Enterprise / Datadog"
+                  placeholder="Ej. GitHub Enterprise / Alchemy / AWS"
                   value={vendorName}
                   onChange={(e) => setVendorName(e.target.value)}
                   className="w-full text-xs p-2.5 rounded-lg border border-[#e3e3dc] focus:outline-[#2a4bd0]"
@@ -460,36 +814,67 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-[#1c253a] mb-1">Monto (USD)</label>
-                  <input
-                    type="number"
-                    step="0.01"
-                    required
-                    placeholder="2500.00"
-                    value={amountUsd}
-                    onChange={(e) => setAmountUsd(e.target.value)}
-                    className="w-full text-xs p-2.5 rounded-lg border border-[#e3e3dc] focus:outline-[#2a4bd0]"
-                  />
+                  <label className="block text-xs font-semibold text-[#1c253a] mb-1">Moneda / Riel</label>
+                  <select
+                    value={currency}
+                    onChange={(e) => setCurrency(e.target.value as 'USD' | 'USDC')}
+                    className="w-full text-xs p-2.5 rounded-lg border border-[#e3e3dc] focus:outline-[#2a4bd0] bg-white font-medium"
+                  >
+                    <option value="USD">💵 USD (ACH/Wire)</option>
+                    <option value="USDC">⚡ USDC (Base Network)</option>
+                  </select>
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-[#1c253a] mb-1">
-                  Últimos 4 dígitos cuenta bancaria
-                </label>
+                <label className="block text-xs font-semibold text-[#1c253a] mb-1">Monto ({currency})</label>
                 <input
-                  type="text"
-                  maxLength={4}
+                  type="number"
+                  step="0.01"
                   required
-                  placeholder="4141"
-                  value={bankLastFour}
-                  onChange={(e) => setBankLastFour(e.target.value)}
-                  className="w-full text-xs p-2.5 rounded-lg border border-[#e3e3dc] focus:outline-[#2a4bd0] font-mono"
+                  placeholder="2500.00"
+                  value={amountUsd}
+                  onChange={(e) => setAmountUsd(e.target.value)}
+                  className="w-full text-xs p-2.5 rounded-lg border border-[#e3e3dc] focus:outline-[#2a4bd0]"
                 />
-                <span className="text-[10px] text-[#576071]">
-                  Se comparará contra los métodos aprobados del proveedor.
-                </span>
               </div>
+
+              {currency === 'USD' ? (
+                <div>
+                  <label className="block text-xs font-semibold text-[#1c253a] mb-1">
+                    Últimos 4 dígitos cuenta bancaria
+                  </label>
+                  <input
+                    type="text"
+                    maxLength={4}
+                    required
+                    placeholder="4141"
+                    value={bankLastFour}
+                    onChange={(e) => setBankLastFour(e.target.value)}
+                    className="w-full text-xs p-2.5 rounded-lg border border-[#e3e3dc] focus:outline-[#2a4bd0] font-mono"
+                  />
+                  <span className="text-[10px] text-[#576071]">
+                    Se validará contra los métodos aprobados del proveedor.
+                  </span>
+                </div>
+              ) : (
+                <div>
+                  <label className="block text-xs font-semibold text-[#1c253a] mb-1">
+                    Dirección de Wallet Base (0x...)
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7"
+                    value={walletAddress}
+                    onChange={(e) => setWalletAddress(e.target.value)}
+                    className="w-full text-xs p-2.5 rounded-lg border border-[#e3e3dc] focus:outline-indigo-600 font-mono text-[11px]"
+                  />
+                  <span className="text-[10px] text-[#576071]">
+                    Se comparará contra la wallet whitelist en Base para evitar Address Poisoning.
+                  </span>
+                </div>
+              )}
 
               <div>
                 <label className="block text-xs font-semibold text-[#1c253a] mb-1">Concepto / Descripción</label>
@@ -521,7 +906,6 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
           </div>
         </div>
       )}
-
     </div>
   );
 };

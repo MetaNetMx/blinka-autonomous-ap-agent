@@ -86,7 +86,7 @@ export interface PayoutMethod {
   id: string;
   counterpartyId: string;
   rail: PayoutRail;
-  methodType: 'ACH' | 'WIRE' | 'CRYPTO' | 'SPEI' | 'PIX' | 'BRE_B';
+  methodType: 'ACH' | 'WIRE' | 'CRYPTO' | 'CRYPTO_ADDRESS' | 'SPEI' | 'PIX' | 'BRE_B';
   accountEnding: string;
   routingNumber?: string;
   walletAddress?: string;
@@ -131,6 +131,32 @@ export interface InvoiceReconciliationInput {
   taxId?: string;
   description?: string;
   beneficiaryBankLastFour?: string;
+  routingNumber?: string;
+  walletAddress?: string;
+  network?: string;
+  railType?: 'ACH' | 'WIRE' | 'CRYPTO_ADDRESS' | 'BRE_B';
+}
+
+export interface InboundPaymentVerificationInput {
+  invoiceNumber?: string;
+  clientName?: string;
+  amountCents: number;
+  currency: 'USD' | 'USDC';
+  paymentRail?: 'FIAT_ACH' | 'FIAT_WIRE' | 'CRYPTO_BASE_USDC';
+  txHashOrMemo?: string;
+}
+
+export interface InboundPaymentVerificationResult {
+  verified: boolean;
+  status: 'CONFIRMED' | 'PENDING_SETTLEMENT' | 'NOT_FOUND' | 'AMOUNT_MISMATCH';
+  currency: 'USD' | 'USDC';
+  railUsed: string;
+  amountReceivedCents: number;
+  destinationAccount: string;
+  transactionId?: string;
+  txHashOrReference?: string;
+  settledAt?: string;
+  notes: string;
 }
 
 export interface PolicyEvaluationResult {

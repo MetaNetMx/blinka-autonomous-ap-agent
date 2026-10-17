@@ -1,4 +1,12 @@
-import { Account, Counterparty, InvoiceReconciliationInput, PolicyEvaluationResult, Transaction } from './types.js';
+import {
+  Account,
+  Counterparty,
+  InboundPaymentVerificationInput,
+  InboundPaymentVerificationResult,
+  InvoiceReconciliationInput,
+  PolicyEvaluationResult,
+  Transaction,
+} from './types.js';
 
 export interface PolicyContext {
   accounts: Account[];
@@ -144,7 +152,7 @@ export class BlinkaPolicyEngine {
       );
       approvedPayoutMethod = approvedMethods.length > 0;
 
-      // Check if invoice provides bank account ending and matches
+      // Check if invoice provides bank account ending and matches (Fiat ACH/Wire)
       if (invoice.beneficiaryBankLastFour) {
         const matchesBank = approvedMethods.some(
           (m) => m.accountEnding === invoice.beneficiaryBankLastFour
@@ -158,6 +166,25 @@ export class BlinkaPolicyEngine {
           });
           reasons.push(
             `Alerta de seguridad: La cuenta bancaria de la factura (*${invoice.beneficiaryBankLastFour}) no coincide con los métodos bancarios aprobados para este proveedor.`
+          );
+        }
+      }
+
+      // Check if invoice provides crypto wallet address and matches (Crypto USDC on Base/Solana)
+      if (invoice.walletAddress) {
+        const normalizedWallet = invoice.walletAddress.toLowerCase().trim();
+        const matchesWallet = approvedMethods.some(
+          (m) => m.walletAddress && m.walletAddress.toLowerCase().trim() === normalizedWallet
+        );
+        if (!matchesWallet) {
+          rulesTriggered.push({
+            ruleId: 'GUARD_CRYPTO_WALLET_MATCH',
+            description: 'La dirección de billetera cripto (USDC / Base) debe coincidir con la registrada en Blinka',
+            passed: false,
+            severity: 'CRITICAL',
+          });
+          reasons.push(
+            `Alerta de Ciberseguridad Web3: La dirección de wallet (${invoice.walletAddress}) no coincide con la billetera verificada para este proveedor. Posible ataque de Address Poisoning o Phishing.`
           );
         }
       }
@@ -252,5 +279,80 @@ export class BlinkaPolicyEngine {
         suggestedAction: 'Generar transferencia en estado "draft" y notificar para doble factor de aprobación en app.blinka.co.',
       };
     }
+  }
+
+  /**
+   * Validates inbound payments (Pay-ins) received in either Fiat (USD ACH/Wire) or Crypto (USDC on Base)
+   */
+  static verifyInboundPayment(
+    input: InboundPaymentVerificationInput,
+    context: PolicyContext
+  ): InboundPaymentVerificationResult {
+    const targetCurrency = input.currency || 'USD';
+    const inboundTxs = context.transactions.filter(
+      (tx) => tx.kind === 'PAYIN' && tx.currency === targetCurrency
+    );
+
+    // Search by memo / txHash / invoice number / clientName / amount
+    const matchedTx = inboundTxs.find((tx) => {
+      const matchAmount = Math.abs(tx.amountCents) === input.amountCents;
+      if (!matchAmount) return false;
+
+      if (input.invoiceNumber && (tx.notes?.includes(input.invoiceNumber) || tx.memo?.includes(input.invoiceNumber))) {
+        return true;
+      }
+      if (input.txHashOrMemo && (tx.notes?.includes(input.txHashOrMemo) || tx.memo?.includes(input.txHashOrMemo))) {
+        return true;
+      }
+      if (input.clientName && tx.counterpartyName?.toLowerCase().includes(input.clientName.toLowerCase())) {
+        return true;
+      }
+      return true; // Match by exact amount and currency
+    });
+
+    if (matchedTx) {
+      const isSettled = matchedTx.status === 'COMPLETED';
+      return {
+        verified: isSettled,
+        status: isSettled ? 'CONFIRMED' : 'PENDING_SETTLEMENT',
+        currency: targetCurrency,
+        railUsed: targetCurrency === 'USDC' ? 'Base Network (USDC Blockchain)' : 'Portage Bank ACH/Wire (USD FDIC)',
+        amountReceivedCents: Math.abs(matchedTx.amountCents),
+        destinationAccount: matchedTx.accountId,
+        transactionId: matchedTx.id,
+        txHashOrReference: matchedTx.notes || matchedTx.memo || 'N/A',
+        settledAt: matchedTx.executedAt,
+        notes: isSettled
+          ? `Pago de $${(Math.abs(matchedTx.amountCents) / 100).toFixed(2)} ${targetCurrency} verificado y acreditado exitosamente.`
+          : `Pago detectado en tránsito pero en espera de confirmación bancaria/blockchain.`,
+      };
+    }
+
+    // Check if partial or different amount exists for client
+    const partialTx = inboundTxs.find((tx) =>
+      input.clientName ? tx.counterpartyName?.toLowerCase().includes(input.clientName.toLowerCase()) : false
+    );
+    if (partialTx) {
+      return {
+        verified: false,
+        status: 'AMOUNT_MISMATCH',
+        currency: targetCurrency,
+        railUsed: targetCurrency === 'USDC' ? 'Base Network (USDC Blockchain)' : 'Portage Bank ACH/Wire',
+        amountReceivedCents: Math.abs(partialTx.amountCents),
+        destinationAccount: partialTx.accountId,
+        transactionId: partialTx.id,
+        notes: `Se recibió un pago de '${partialTx.counterpartyName}', pero por monto diferente: esperado $${(input.amountCents / 100).toFixed(2)} ${targetCurrency}, recibido $${(Math.abs(partialTx.amountCents) / 100).toFixed(2)} ${targetCurrency}.`,
+      };
+    }
+
+    return {
+      verified: false,
+      status: 'NOT_FOUND',
+      currency: targetCurrency,
+      railUsed: targetCurrency === 'USDC' ? 'Base Network (USDC Blockchain)' : 'Portage Bank ACH/Wire',
+      amountReceivedCents: 0,
+      destinationAccount: targetCurrency === 'USDC' ? 'acc_usdc_multichain_3310' : 'acc_usd_primary_4821',
+      notes: `No se encontró ningún depósito entrante de $${(input.amountCents / 100).toFixed(2)} ${targetCurrency} en las cuentas de Blinka.`,
+    };
   }
 }

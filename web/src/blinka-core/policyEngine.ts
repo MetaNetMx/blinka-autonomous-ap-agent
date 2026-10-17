@@ -1,4 +1,12 @@
-import { Counterparty, InvoiceReconciliationInput, PayoutMethod, PolicyEvaluationResult } from './types';
+import {
+  Counterparty,
+  InboundPaymentVerificationInput,
+  InboundPaymentVerificationResult,
+  InvoiceReconciliationInput,
+  PayoutMethod,
+  PolicyEvaluationResult,
+  Transaction,
+} from './types';
 
 export const POLICY_RULES = {
   MAX_AUTO_APPROVE_CENTS: 500000, // $5,000.00 USD
@@ -84,6 +92,41 @@ export function evaluatePaymentPolicy(
       rulesTriggered.push({
         ruleId: 'RULE_BANK_MATCH_CONFIRMED',
         description: `Verified bank ending ${invoice.beneficiaryBankLastFour} matches approved payout method ${matchingMethod.id}`,
+        passed: true,
+        severity: 'LOW',
+      });
+    }
+  }
+
+  // Rule 3b: Anti-Phishing Web3 Crypto Wallet Verification (USDC on Base/Solana)
+  if (counterparty && invoice.walletAddress) {
+    const normalizedWallet = invoice.walletAddress.toLowerCase().trim();
+    const matchingWalletMethod = counterparty.payoutMethods.find(
+      (pm) => pm.walletAddress && pm.walletAddress.toLowerCase().trim() === normalizedWallet
+    );
+
+    if (!matchingWalletMethod) {
+      rulesTriggered.push({
+        ruleId: 'RULE_FRAUD_WALLET_MISMATCH',
+        description: `CRITICAL: Crypto invoice specifies wallet ${invoice.walletAddress}, but verified wallet on file for ${counterparty.name} is ${counterparty.payoutMethods.map(m => m.walletAddress).filter(Boolean).join(', ') || 'none'}`,
+        passed: false,
+        severity: 'CRITICAL',
+      });
+      reasons.push(
+        `🚨 WEB3 ADDRESS POISONING / PHISHING ALERT: Crypto wallet ${invoice.walletAddress} does NOT match approved wallet on file for ${counterparty.name}.`
+      );
+      score = 0;
+      return {
+        decision: 'REJECT',
+        score: 0,
+        reasons,
+        rulesTriggered,
+        suggestedAction: 'IMMEDIATELY FREEZE CRYPTO DISBURSEMENT & NOTIFY SECURITY: Potential address poisoning or private key compromise.',
+      };
+    } else {
+      rulesTriggered.push({
+        ruleId: 'RULE_CRYPTO_WALLET_CONFIRMED',
+        description: `Verified Base Network wallet ${invoice.walletAddress.slice(0, 8)}... matches approved payout method`,
         passed: true,
         severity: 'LOW',
       });
@@ -187,5 +230,75 @@ export function evaluatePaymentPolicy(
     reasons,
     rulesTriggered,
     suggestedAction,
+  };
+}
+
+export function verifyInboundPayment(
+  input: InboundPaymentVerificationInput,
+  transactions: Transaction[]
+): InboundPaymentVerificationResult {
+  const targetCurrency = input.currency || 'USD';
+  const inboundTxs = transactions.filter(
+    (tx) => tx.kind === 'PAYIN' && tx.currency === targetCurrency
+  );
+
+  const matchedTx = inboundTxs.find((tx) => {
+    const matchAmount = Math.abs(tx.amountCents) === input.amountCents;
+    if (!matchAmount) return false;
+
+    if (input.invoiceNumber && (tx.notes?.includes(input.invoiceNumber) || tx.memo?.includes(input.invoiceNumber))) {
+      return true;
+    }
+    if (input.txHashOrMemo && (tx.notes?.includes(input.txHashOrMemo) || tx.memo?.includes(input.txHashOrMemo))) {
+      return true;
+    }
+    if (input.clientName && tx.counterpartyName?.toLowerCase().includes(input.clientName.toLowerCase())) {
+      return true;
+    }
+    return true;
+  });
+
+  if (matchedTx) {
+    const isSettled = matchedTx.status === 'COMPLETED';
+    return {
+      verified: isSettled,
+      status: isSettled ? 'CONFIRMED' : 'PENDING_SETTLEMENT',
+      currency: targetCurrency,
+      railUsed: targetCurrency === 'USDC' ? 'Base Network (USDC Blockchain)' : 'Portage Bank ACH/Wire (USD FDIC)',
+      amountReceivedCents: Math.abs(matchedTx.amountCents),
+      destinationAccount: matchedTx.accountId,
+      transactionId: matchedTx.id,
+      txHashOrReference: matchedTx.notes || matchedTx.memo || 'N/A',
+      settledAt: matchedTx.executedAt,
+      notes: isSettled
+        ? `Pago entrante de $${(Math.abs(matchedTx.amountCents) / 100).toFixed(2)} ${targetCurrency} verificado y confirmado en Blinka.`
+        : `Pago entrante detectado en tránsito, pendiente de liquidación.`,
+    };
+  }
+
+  const partialTx = inboundTxs.find((tx) =>
+    input.clientName ? tx.counterpartyName?.toLowerCase().includes(input.clientName.toLowerCase()) : false
+  );
+  if (partialTx) {
+    return {
+      verified: false,
+      status: 'AMOUNT_MISMATCH',
+      currency: targetCurrency,
+      railUsed: targetCurrency === 'USDC' ? 'Base Network (USDC Blockchain)' : 'Portage Bank ACH/Wire',
+      amountReceivedCents: Math.abs(partialTx.amountCents),
+      destinationAccount: partialTx.accountId,
+      transactionId: partialTx.id,
+      notes: `Depósito encontrado de '${partialTx.counterpartyName}', pero monto no coincide: esperado $${(input.amountCents / 100).toFixed(2)} ${targetCurrency}, recibido $${(Math.abs(partialTx.amountCents) / 100).toFixed(2)} ${targetCurrency}.`,
+    };
+  }
+
+  return {
+    verified: false,
+    status: 'NOT_FOUND',
+    currency: targetCurrency,
+    railUsed: targetCurrency === 'USDC' ? 'Base Network (USDC Blockchain)' : 'Portage Bank ACH/Wire',
+    amountReceivedCents: 0,
+    destinationAccount: targetCurrency === 'USDC' ? 'acc_usdc_multichain_3310' : 'acc_usd_primary_4821',
+    notes: `No se encontró ningún depósito entrante de $${(input.amountCents / 100).toFixed(2)} ${targetCurrency} en el ledger de Blinka.`,
   };
 }

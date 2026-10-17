@@ -7,7 +7,9 @@ import {
   Transaction,
   Transfer,
   InvoiceReconciliationInput,
-  PolicyEvaluationResult
+  PolicyEvaluationResult,
+  InboundPaymentVerificationInput,
+  InboundPaymentVerificationResult,
 } from './types';
 import {
   INITIAL_ACCOUNTS,
@@ -16,7 +18,7 @@ import {
   DEMO_PRESET_INVOICES,
   INITIAL_LEGAL_ENTITY,
 } from './mockData';
-import { evaluatePaymentPolicy } from './policyEngine';
+import { evaluatePaymentPolicy, verifyInboundPayment } from './policyEngine';
 
 const STORAGE_KEY = 'blinka_ap_agent_state_v1';
 
@@ -276,31 +278,37 @@ export function useBlinkaStore() {
       inv.status = 'awaiting_cfo_approval';
     } else {
       // AUTO_APPROVE: Execute payout immediately!
-      const primaryAccount = globalState.accounts.find((a) => a.id === 'acc_usd_primary_4821') || globalState.accounts[0];
-      if (primaryAccount.balance < inv.amountCents) {
+      const isCrypto = inv.currency === 'USDC';
+      const targetAccount = isCrypto
+        ? (globalState.accounts.find((a) => a.settlementStrategy === 'USDC') || globalState.accounts[0])
+        : (globalState.accounts.find((a) => a.id === 'acc_usd_primary_4821') || globalState.accounts[0]);
+
+      if (targetAccount.balance < inv.amountCents) {
         inv.status = 'awaiting_cfo_approval';
-        inv.notes = 'Approved by policy, but primary checking account requires funding or sweep.';
+        inv.notes = `Approved by policy, but ${isCrypto ? 'USDC wallet' : 'checking account'} requires funding or sweep.`;
       } else {
-        primaryAccount.balance -= inv.amountCents;
-        if (primaryAccount.tokenBalances.length > 0) {
-          primaryAccount.tokenBalances[0].balance -= inv.amountCents;
+        targetAccount.balance -= inv.amountCents;
+        if (targetAccount.tokenBalances.length > 0) {
+          targetAccount.tokenBalances[0].balance -= inv.amountCents;
         }
 
         const now = new Date().toISOString();
         const txId = `tx_payout_${Date.now()}`;
         const payoutTx: Transaction = {
           id: txId,
-          accountId: primaryAccount.id,
+          accountId: targetAccount.id,
           transferId: `tr_${Date.now()}`,
           kind: 'PAYOUT',
           status: 'COMPLETED',
           counterpartyName: inv.vendorName,
-          method: payoutMethod ? payoutMethod.methodType : 'ACH',
+          method: isCrypto ? 'USDC_TRANSFER' : (payoutMethod ? payoutMethod.methodType : 'ACH'),
           amountCents: inv.amountCents,
           currency: inv.currency,
           memo: `Autonomous AP: ${inv.invoiceNumber}`,
-          notes: `Auto-dispatched via Blinka API to bank ending in ${inv.beneficiaryBankLastFour}`,
-          feeCents: 25,
+          notes: isCrypto
+            ? `Auto-dispatched via Blinka Base Network to wallet ${inv.walletAddress || '0xVerifiedVault'}`
+            : `Auto-dispatched via Blinka API to bank ending in ${inv.beneficiaryBankLastFour}`,
+          feeCents: isCrypto ? 2 : 25,
           createdAt: now,
           executedAt: now,
         };
@@ -320,31 +328,37 @@ export function useBlinkaStore() {
     if (!inv) throw new Error('Invoice not found');
     if (inv.status !== 'awaiting_cfo_approval') throw new Error('Invoice is not awaiting approval');
 
-    const primaryAccount = globalState.accounts.find((a) => a.id === 'acc_usd_primary_4821') || globalState.accounts[0];
-    if (primaryAccount.balance < inv.amountCents) {
-      throw new Error(`Insufficient funds: Checking has $${(primaryAccount.balance / 100).toLocaleString()}, payment requires $${(inv.amountCents / 100).toLocaleString()}`);
+    const isCrypto = inv.currency === 'USDC';
+    const targetAccount = isCrypto
+      ? (globalState.accounts.find((a) => a.settlementStrategy === 'USDC') || globalState.accounts[0])
+      : (globalState.accounts.find((a) => a.id === 'acc_usd_primary_4821') || globalState.accounts[0]);
+
+    if (targetAccount.balance < inv.amountCents) {
+      throw new Error(`Insufficient funds: ${isCrypto ? 'USDC Vault' : 'Checking'} has $${(targetAccount.balance / 100).toLocaleString()}, payment requires $${(inv.amountCents / 100).toLocaleString()}`);
     }
 
-    primaryAccount.balance -= inv.amountCents;
-    if (primaryAccount.tokenBalances.length > 0) {
-      primaryAccount.tokenBalances[0].balance -= inv.amountCents;
+    targetAccount.balance -= inv.amountCents;
+    if (targetAccount.tokenBalances.length > 0) {
+      targetAccount.tokenBalances[0].balance -= inv.amountCents;
     }
 
     const now = new Date().toISOString();
     const txId = `tx_cfo_approved_${Date.now()}`;
     const payoutTx: Transaction = {
       id: txId,
-      accountId: primaryAccount.id,
+      accountId: targetAccount.id,
       transferId: `tr_${Date.now()}`,
       kind: 'PAYOUT',
       status: 'COMPLETED',
       counterpartyName: inv.vendorName,
-      method: 'WIRE',
+      method: isCrypto ? 'USDC_TRANSFER' : 'WIRE',
       amountCents: inv.amountCents,
       currency: inv.currency,
       memo: `CFO Approved AP: ${inv.invoiceNumber}`,
-      notes: `Dual-authorization by ${approverName} via Blinka Security Dashboard`,
-      feeCents: 1500,
+      notes: isCrypto
+        ? `Dual-authorization by ${approverName} via Blinka Base Network crypto gateway`
+        : `Dual-authorization by ${approverName} via Blinka Security Dashboard`,
+      feeCents: isCrypto ? 5 : 1500,
       createdAt: now,
       executedAt: now,
     };
@@ -359,6 +373,10 @@ export function useBlinkaStore() {
     return inv;
   };
 
+  const verifyInboundPaymentAction = (input: InboundPaymentVerificationInput): InboundPaymentVerificationResult => {
+    return verifyInboundPayment(input, globalState.transactions);
+  };
+
   return {
     state,
     resetToDefaults,
@@ -371,5 +389,6 @@ export function useBlinkaStore() {
     stageInvoice,
     evaluateAndProcessInvoice,
     cfoApproveInvoice,
+    verifyInboundPaymentAction,
   };
 }

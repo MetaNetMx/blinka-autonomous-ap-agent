@@ -126,6 +126,7 @@ export function App() {
               showToast(`Factura ${inv.invoiceNumber} registrada en la bandeja.`);
             }}
             onProcessAll={handleProcessAllInvoices}
+            onVerifyInbound={store.verifyInboundPaymentAction}
           />
         )}
 

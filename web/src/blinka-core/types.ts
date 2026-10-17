@@ -86,7 +86,7 @@ export interface PayoutMethod {
   id: string;
   counterpartyId: string;
   rail: PayoutRail;
-  methodType: 'ACH' | 'WIRE' | 'CRYPTO' | 'SPEI' | 'PIX' | 'BRE_B';
+  methodType: 'ACH' | 'WIRE' | 'CRYPTO' | 'CRYPTO_ADDRESS' | 'SPEI' | 'PIX' | 'BRE_B';
   accountEnding: string;
   routingNumber?: string;
   walletAddress?: string;
@@ -132,6 +132,29 @@ export interface InvoiceReconciliationInput {
   description?: string;
   beneficiaryBankLastFour?: string;
   routingNumber?: string;
+  walletAddress?: string;
+  network?: string;
+}
+
+export interface InboundPaymentVerificationInput {
+  invoiceNumber?: string;
+  clientName?: string;
+  amountCents: number;
+  currency: 'USD' | 'USDC';
+  txHashOrMemo?: string;
+}
+
+export interface InboundPaymentVerificationResult {
+  verified: boolean;
+  status: 'CONFIRMED' | 'PENDING_SETTLEMENT' | 'NOT_FOUND' | 'AMOUNT_MISMATCH';
+  currency: 'USD' | 'USDC';
+  railUsed: string;
+  amountReceivedCents: number;
+  destinationAccount: string;
+  transactionId?: string;
+  txHashOrReference?: string;
+  settledAt?: string;
+  notes: string;
 }
 
 export interface PolicyEvaluationResult {
@@ -156,8 +179,10 @@ export interface StagedInvoice {
   issueDate: string;
   dueDate: string;
   description: string;
-  beneficiaryBankLastFour: string;
-  routingNumber: string;
+  beneficiaryBankLastFour?: string;
+  routingNumber?: string;
+  walletAddress?: string;
+  network?: string;
   status: 'pending_evaluation' | 'auto_paid' | 'awaiting_cfo_approval' | 'fraud_blocked' | 'duplicate_rejected';
   policyResult?: PolicyEvaluationResult;
   payoutTransactionId?: string;
