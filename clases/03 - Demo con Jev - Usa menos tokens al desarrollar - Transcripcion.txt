@@ -1,0 +1,1279 @@
+# Demo con Jev - Usa menos tokens al desarrollar (2026-10-15)
+URL: https://www.youtube.com/watch?v=EbztG-aww9I
+
+[00:01:10] Hola, ¿cómo están? Muy buenas tardes a
+[00:01:12] todos y todas. Ya estamos en nuestra
+[00:01:15] primera conferencia del día. Eh, tenemos
+[00:01:19] eh una super charla en el cual nos va a
+[00:01:22] acompañar Alfredo. Pero antes de eso
+[00:01:25] vamos a dar algunos anuncios para que
+[00:01:27] ustedes estén al tanto de cómo vamos.
+[00:01:29] Vale, recuerden que eh hasta el día de
+[00:01:32] mañana tenemos lasciones habilitadas
+[00:01:34] para que puedan inscribirse en el
+[00:01:36] jacatón. Pueden hacerlo de forma
+[00:01:38] individual o grupal. Eh, recomendamos
+[00:01:41] que lo puedan hacer de forma grupal, sin
+[00:01:43] embargo, vamos a tener unos canales
+[00:01:45] habilitados para que puedan realizar eh
+[00:01:47] la búsqueda de equipo en dado caso de
+[00:01:49] que no lo tengan. Recuerden que el día
+[00:01:51] eh 15 de octubre a las 5 pm tenemos
+[00:01:55] nuestra sesión de kickoff en donde vamos
+[00:01:57] a poder mostrarles a ustedes cuáles son
+[00:01:59] los retos y cuáles son las expresas
+[00:02:01] aliadas. Y algo muy importante también
+[00:02:05] es que tenemos unos créditos de Lovable.
+[00:02:07] ¿Cómo se van a ver esos créditos de
+[00:02:09] lobable? Bueno, primero no son para
+[00:02:12] todos, son para aquellos que no tienen
+[00:02:14] experiencia en desarrollo, para que no
+[00:02:16] se sientan un poco atrás o para que no
+[00:02:18] se sientan que están en desventajas con
+[00:02:20] otros desarrolladores o personas que
+[00:02:22] están participando en el hackaton. Eh,
+[00:02:25] ¿cómo los vamos a elegir? Bueno, a
+[00:02:27] ustedes les va a llegar un correo, un un
+[00:02:30] formulario en sus correos en donde
+[00:02:32] [carraspeo] van a poder eh responder
+[00:02:34] algunas preguntas. Desde ahí vamos a
+[00:02:36] seleccionar las personas que van a poder
+[00:02:37] acceder a estos créditos y se serán
+[00:02:39] notificadas. Entonces, muy importante
+[00:02:42] que lo tengan presente. Solamente
+[00:02:43] tenemos 120 cupos, si no estoy mal. Y
+[00:02:47] bueno, eh para que lo tengan allí muy a
+[00:02:50] la mano eh y para las personas que no
+[00:02:52] tienen experiencia en desarrollo pueden
+[00:02:54] acceder a esta gran oportunidad que
+[00:02:56] tienen. Ahora sí les vamos a dar inicio
+[00:03:01] a la sesión. Tenemos a Alfredo, que nos
+[00:03:04] va a acompañar el día de hoy con una
+[00:03:05] charla acerca de cómo utilizamos eh
+[00:03:09] Jeff, ¿vale?, para utilizar menos token
+[00:03:12] al momento de desarrollar. Entonces le
+[00:03:14] doy la palabra a Alfredo para que nos
+[00:03:17] pueda enseñar todo lo que sabe.
+[00:03:19] Bienvenido, Alfredo.
+[00:03:30] Este, les estaré explicando un poquito
+[00:03:33] cómo lo me ha ayudado, lo he estado
+[00:03:35] utilizando este más [carraspeo] que nada
+[00:03:38] en en mi día a día, en el desarrollo
+[00:03:41] donde tengo que optimizar tiempos y
+[00:03:44] obviamente tomando decisiones. En este
+[00:03:47] caso utilizaré Jef
+[00:03:50] ahí. Confírmenme si se ve bien la
+[00:03:52] pantalla.
+[00:03:53] [carraspeo]
+[00:03:53] Aquí, como comentaba,
+[00:03:58] Jeff va a ser quien nos ayuda a decidir.
+[00:04:00] Cloud nos va a ayudar a a generar el
+[00:04:02] código
+[00:04:04] y obviamente aquí el el código lo que
+[00:04:07] nosotros definamos va a poner las reglas
+[00:04:10] para que Jeff nos nos ayude.
+[00:04:14] Un poquito antes de de iniciar me
+[00:04:17] presento. Me llamo Alfredo,
+[00:04:19] desarrollador de software desde hace ya
+[00:04:20] 9 años, involucrado en diferentes tipos
+[00:04:24] de proyectos, tanto de web como móviles
+[00:04:27] y un poco de hacking.
+[00:04:29] Yo actualmente estoy en en México, por
+[00:04:32] eso me mi me gustó tanto por el código,
+[00:04:34] los tacos, tatuajes y viajes y al menos
+[00:04:38] un lema que siempre me he llevado
+[00:04:41] conmigo es de que si yo no lo sé, lo
+[00:04:43] aprendemos juntos. Entonces, procuro
+[00:04:46] compartir lo que sé como cómo
+[00:04:48] retroalimentarme de ello.
+[00:04:52] Entonces, [carraspeo]
+[00:04:54] pregúntale
+[00:04:55] a la lo justo. ¿A qué me refiero? Por
+[00:04:59] mucho que actualmente utilizamos muchos
+[00:05:03] o pocos tokens, nos nos conlleva
+[00:05:06] demasiado consumo y gasto. O sea, esto
+[00:05:10] lo hemos tratado de [carraspeo] de
+[00:05:13] optimizar. Hay diferentes herramientas
+[00:05:15] que nos han ayudado, sin embargo,
+[00:05:17] ahorita con la salida de Jef y ya muchas
+[00:05:21] otras herramientas que veo que que
+[00:05:22] también están involucrándose diferentes
+[00:05:25] empresas, podemos optimizar las
+[00:05:28] decisiones y decisiones
+[00:05:30] más simples que usualmente algunos
+[00:05:32] modelos como podría ser Sonet, Opus o
+[00:05:36] algún otro conlleva más tiempo o le
+[00:05:39] conlleva más gasto.
+[00:05:43] ¿Vale?
+[00:05:45] El problema es el PR y el parseo.
+[00:05:49] Casi todos usamos los LMS igual. Nos
+[00:05:53] pasamos un texto largo, le pedimos una
+[00:05:56] respuesta en Jason y lo paramos. Ese es
+[00:05:59] como que el flujo actualmente que se
+[00:06:02] lleva con un LM. Por ejemplo, ordena
+[00:06:05] estas 10 subtareas y respóndeme en
+[00:06:07] Jason.
+[00:06:08] Entonces,
+[00:06:10] lo que nosotros le estamos pidiendo o le
+[00:06:13] pedimos en este caso a Opus es que
+[00:06:16] ordenara 10 tickets de sus tareas
+[00:06:20] y del otro lado lo único que le estamos
+[00:06:22] pidiendo es que
+[00:06:27] nos nos permita una decisión, mejor
+[00:06:30] dicho, le preguntamos diferentes
+[00:06:31] preguntas al mismo tiempo y nos lo va a
+[00:06:34] dar Jeev. Digamos que Jeep va a ser
+[00:06:37] nuestro if inteligente, nuestro
+[00:06:41] nuestra mano [carraspeo] derecha para
+[00:06:42] tomar decisiones y nos va a dar la y va
+[00:06:45] a tomar la decisión por nosotros. Algo
+[00:06:48] importante de JEV es de que es un modelo
+[00:06:50] probabilístico. Muchas veces no nos va a
+[00:06:54] dar la misma respuesta
+[00:06:56] este cuando lo [carraspeo] consultemos
+[00:06:58] más de una vez.
+[00:07:00] Así cuando preguntemos el cielo de qué
+[00:07:03] color es hoy, nos puede dar una
+[00:07:05] probabilidad con una respuesta diferente
+[00:07:08] cada vez.
+[00:07:10] Como mencionaba, una decisión no
+[00:07:12] necesita una redacción y necesita una
+[00:07:15] probabilidad y una regla. Aquí nosotros
+[00:07:18] la regla se la vamos a definir
+[00:07:21] desde el inicio. Por [carraspeo]
+[00:07:23] ejemplo, si como si fuese
+[00:07:28] el la probabilidad del clima, Jeff
+[00:07:30] podría tomar las diferentes
+[00:07:33] este reglas que tiene [carraspeo] lo del
+[00:07:36] cambio climático actualmente un día como
+[00:07:38] hoy y decirnos hay una probabilidad de
+[00:07:42] que esté soleado hoy en tal región.
+[00:07:47] Pero esto ya nosotros lo estamos
+[00:07:48] marcando desde un estudio previo o las
+[00:07:51] reglas que ya contiene que nosotros le
+[00:07:53] le definamos.
+[00:07:58] Las tres ideas en este caso para la el
+[00:08:02] ejemplo que vamos a a estar revisando es
+[00:08:05] que Jeff va a decidir de una manera
+[00:08:07] barata y calibrado preguntas cerradas
+[00:08:10] que devuelvan probabilidades, no texto,
+[00:08:13] esto también es muy importante. Jef no
+[00:08:16] nos va a devolver texto, no nos va a
+[00:08:18] corregir código, solamente nos va a
+[00:08:20] ayudar a a tomar decisiones
+[00:08:23] [carraspeo] o incluso ordenar nuestros
+[00:08:25] tickets. caso de que tengamos que darle
+[00:08:28] una prioridad a una tarea.
+[00:08:30] En el segundo caso, cloud nos va a
+[00:08:33] ayudar a generar el código. Vamos a
+[00:08:35] tomar una tarea, un ticket, lo vamos a a
+[00:08:39] priorizar [carraspeo] con Y, con cloud
+[00:08:41] vamos a utilizar Sonet para hacer un
+[00:08:44] refactor y obviamente con el código,
+[00:08:46] como menciona el código manda el orden,
+[00:08:49] los umbrales, los motivos y los chequeos
+[00:08:51] y el bloqueo del merch.
+[00:08:54] Muy importante que todo este todo al
+[00:08:57] final del flujo tenga decisión nuestra,
+[00:09:00] no le dejemos todo a la IA.
+[00:09:02] Y como mencionaba, preguntarle a la IA
+[00:09:05] lo justo, no es necesario que estemos
+[00:09:09] sobrecargando de decisiones a a unos o
+[00:09:13] 20 modelos que tenga nada más que
+[00:09:16] ordenar una lista o ordenar nuestras
+[00:09:19] prioridades.
+[00:09:23] para eso vamos a utilizar Jef.
+[00:09:26] Pero empezando desde este punto, ¿qué es
+[00:09:29] Jef? Obviamente es nuestro modelo de
+[00:09:33] inteligencia artificial
+[00:09:35] que nos va a ayudar a tomar decisiones
+[00:09:37] con preguntas exactas, a lo mejor nada
+[00:09:40] más de opción por preguntas de opción
+[00:09:41] múltiple, preguntas de sí y no
+[00:09:45] [carraspeo] y probabilidades con score,
+[00:09:48] como lo mencionaba a lo mejor el el
+[00:09:50] [carraspeo] clima hoy.
+[00:09:52] Acá de este lado viene un estado que es
+[00:09:55] lo que le vamos a nosotros nosotros a
+[00:09:57] compartir. En este caso es un objeto,
+[00:10:00] viene por título y la descripción. La
+[00:10:03] descripción es lo que va a contener todo
+[00:10:05] ese fragmento de nuestro prompt. Como
+[00:10:08] menciona aquí, no dice si trae IVA, por
+[00:10:10] ejemplo, es una tienda de e-commerce
+[00:10:14] y [carraspeo] en nuestro ticket tenemos
+[00:10:15] que corregir si viene o no viene el IVA
+[00:10:18] en nuestro costo total del producto.
+[00:10:22] Acá de este lado en las preguntas nos va
+[00:10:25] a devolver o le vamos a definir el tipo
+[00:10:28] de preguntas, si es nulo, en el que
+[00:10:30] contesta sí y no, en algunos casos es
+[00:10:34] cero y uno, ¿verdadero o falso,
+[00:10:38] la diferentes opciones en caso de que se
+[00:10:41] necesiten
+[00:10:43] [carraspeo] y la la y el impacto que
+[00:10:46] podría tener, en este caso es un score
+[00:10:50] si tiene un impacto alto para priorizar
+[00:10:53] de entre nuestras tareas. Eso es lo que
+[00:10:56] va a estar respondiéndonos [carraspeo]
+[00:10:58] y las probabilidades, obviamente sin
+[00:11:02] texto, como mencionaba, el nul es sí o
+[00:11:05] no, probabilidad de que sea sí,
+[00:11:07] probabilidad de que sea no. las
+[00:11:09] diferentes opciones y la distribución
+[00:11:11] que puede tener
+[00:11:13] y el score, el nivel de confianza que
+[00:11:15] nos puede proporcionar esta esta
+[00:11:18] decisión que nos está arrojando y como
+[00:11:21] mencionaba, puede ser este es
+[00:11:24] probabilístico,
+[00:11:26] no es determinista, eso es eso es
+[00:11:28] importante, no es un modelo determinista
+[00:11:31] porque no nos no va a ser tan exacto,
+[00:11:34] nos va a devolver una probabilidad casi
+[00:11:37] exacta. Podría ser el 90 99%, sin
+[00:11:40] embargo, nunca va a estar al 100, a
+[00:11:43] menos de que más adelante
+[00:11:45] desarrolladores lo [carraspeo] lo
+[00:11:47] corrijan.
+[00:11:49] Como mencionaba, Jeff no escribe, no
+[00:11:52] explica y no genera código. De 1 millón
+[00:11:55] de tokens por 1 millón de tokens cuesta
+[00:11:57] lo que 0.042.
+[00:12:00] En este caso,
+[00:12:03] la [carraspeo] salida es totalmente
+[00:12:04] gratis. Entonces, al momento en que
+[00:12:06] nosotros le estemos compartiendo nuestro
+[00:12:09] prompt completo, el cual se divide por
+[00:12:11] diferentes tokens tokens, por por
+[00:12:14] [carraspeo] fragmentos de texto,
+[00:12:17] nos va a devolver gratis. Realmente nada
+[00:12:20] más va a ser el consumo al momento de
+[00:12:23] realizar la la decisión, lo asimila y
+[00:12:26] nos lo va a devolver gratis.
+[00:12:29] Ahí ya no hay ya no hay este digamos que
+[00:12:31] devolución.
+[00:12:33] Importante
+[00:12:35] cuándo usar Jef y cuándo no.
+[00:12:39] Cuando sí, por ejemplo, este DIF confía
+[00:12:42] en un confía en un precio del cliente.
+[00:12:45] Por ejemplo, en este en este cambio,
+[00:12:48] menciona decisiones cerradas, clasificar
+[00:12:51] y priorizar. Eso es importante, eso sí
+[00:12:53] lo puede hacer, verificar y hacer de
+[00:12:55] gate. Es decir, que puede aprobar, puede
+[00:12:58] revisar o puede bloquear según las
+[00:13:00] reglas que nosotros le estemos
+[00:13:01] compartiendo.
+[00:13:03] [carraspeo] Podemos este compartirle
+[00:13:05] reglas a lo mejor para la revisión de un
+[00:13:07] PR, un p request y todo esto puede este
+[00:13:12] puede ayudarnos a a decirnos si puede
+[00:13:15] pasar el PR o no va a pasar.
+[00:13:18] También se puede utilizar el elegir una
+[00:13:20] ruta, por ejemplo, qué modelo utilizar o
+[00:13:24] qué persona atiende, digamos, para esta
+[00:13:27] tarea. Si para esta tarea necesito un
+[00:13:30] análisis
+[00:13:32] más concreto o sí, más concreto, a lo
+[00:13:35] mejor me menciona que puedo utilizar
+[00:13:37] OPUS, pero para esta otra [carraspeo]
+[00:13:41] este tarea en la que tengo que
+[00:13:43] desarrollar, tal vez me devuelva una
+[00:13:45] opción como Sonet o algún otro.
+[00:13:48] Y nada más estoy mencionando algunos.
+[00:13:51] Este nos puede a lo mejor ahí crea un
+[00:13:54] poquito la la ayuda
+[00:13:57] cuando no sabemos qué modelo de
+[00:13:59] inteligencia utilizar en y en qué
+[00:14:01] momento. Si lo vamos a utilizar para
+[00:14:04] análisis de negocio, análisis de ticket
+[00:14:06] o lo vamos a utilizar para desarrollar
+[00:14:09] código.
+[00:14:11] ¿Cuándo no lo vamos a utilizar?
+[00:14:13] Obviamente escribe el refactor del del
+[00:14:17] ticket.
+[00:14:18] [carraspeo] Obviamente no nos devuelve
+[00:14:20] nada, no nos devuelve texto, no nos
+[00:14:22] devuelve, no va a hacer un cambio
+[00:14:24] nuestro código,
+[00:14:26] absolutamente nada. Entonces, no es
+[00:14:29] necesario, no lo necesitamos.
+[00:14:32] Específicamente nos va a ayudar a tomar
+[00:14:34] decisiones.
+[00:14:36] [carraspeo] Tenemos otros modelos que
+[00:14:38] nos van a ayudar para eso,
+[00:14:41] otras herramientas.
+[00:14:44] Y por ejemplo, si una persona experta le
+[00:14:47] respondería en un segundo, es una
+[00:14:49] pregunta para Jeff. Si alguien experto
+[00:14:52] en el tema, un ejemplo en la revisión de
+[00:14:55] un pull request.
+[00:14:58] Si ya tenemos quién nos ayude, sin
+[00:15:00] embargo, podremos designar designarle
+[00:15:02] esa tarea ayer. Nos podría ayudar para
+[00:15:05] hacerlo un poquito más ágil. Y no solo
+[00:15:08] ágil y barato, puede ser más rápido
+[00:15:12] porque no solo se puede revisar un pull
+[00:15:14] request, sino puede revisar muchos en
+[00:15:17] paralelo.
+[00:15:19] A diferencia de otros modelos que va
+[00:15:21] haciéndolo como de manera secuencial,
+[00:15:24] este a este year podemos compartirle a
+[00:15:26] lo mejor cinco pull request y a la par
+[00:15:28] irlos revisando al mismo tiempo y lo que
+[00:15:31] devuelve obviamente va a ser mucho más
+[00:15:33] rápido y menos costoso.
+[00:15:37] Y ahora sí, un poquito de lo que
+[00:15:40] estuvimos revisando con y
+[00:15:46] por acá tengo mi código.
+[00:15:51] [carraspeo] Vaya, poco de esto,
+[00:15:55] de lo que vamos a ver son cinco pasos.
+[00:15:59] Va a ser el ticket, que aquí lo tenemos.
+[00:16:03] esto que sería que convierta, que se vea
+[00:16:05] bien en móvil y podamos tocarlo. Es un
+[00:16:08] ticket cualquiera, lo podemos encontrar
+[00:16:09] en Gira, lo podemos encontrar en Ocean o
+[00:16:12] en algún sistema que tengamos para
+[00:16:14] ordenar estas tareas.
+[00:16:16] Nosotros ya lo tenemos aquí nada más
+[00:16:19] para el ejemplo
+[00:16:21] [carraspeo] y lo vamos nos va a ayudar a
+[00:16:24] priorizarlo.
+[00:16:26] Luego el refactor vamos a utilizar Sonet
+[00:16:29] y la revisión del pull request después
+[00:16:31] de haber hecho este cambio nos va a
+[00:16:33] ayudar de igual forma y obviamente vamos
+[00:16:36] a ver un poco el antes y después.
+[00:16:40] De este lado, como bien se ha trabajado
+[00:16:43] en algunos casos con Cloud, tenemos
+[00:16:45] nuestras reglas, nuestras reglas de
+[00:16:47] negocio. Aquí tenemos tanto la parte del
+[00:16:50] dinero, el carrito, qué es lo que debe
+[00:16:52] de tener los contratos con la API.
+[00:16:57] Esto importante lo tenemos en una
+[00:16:58] carpeta. Aquí lo vamos a estar
+[00:17:00] manejando. En legacy, accesibilidad, el
+[00:17:04] HTML
+[00:17:06] y textos de la UI.
+[00:17:08] En este en este caso va a ser en español
+[00:17:11] de
+[00:17:14] y toda la información que nos podemos
+[00:17:16] utilizar para este [carraspeo]
+[00:17:18] este ejemplo.
+[00:17:22] Ahora
+[00:17:24] vamos a
+[00:17:26] ejecutar este otro comando para no
+[00:17:35] acá. Miren, aquí ya tengo un comando que
+[00:17:39] es prioritize y obviamente le vamos a
+[00:17:42] compartir el ticket de 142 y esto con je
+[00:17:46] nos va a ayudar a priorizar.
+[00:17:49] Hm. Ah, okay. Aquí hay un un tema.
+[00:17:54] Estoy utilizando replay. Debería ser
+[00:17:57] record porque utiliza como que
+[00:17:59] diferentes
+[00:18:01] diferentes modos ya y es importante que
+[00:18:03] haya salido ahorita.
+[00:18:06] ¿Por qué? Porque replay va a utilizar,
+[00:18:08] en este caso no utiliza red y responde
+[00:18:11] desde recordings, algo que ya se haya
+[00:18:13] grabado previamente.
+[00:18:15] Y en record esto nos va a ser la llamada
+[00:18:17] a la API y va a guardar respuestas en
+[00:18:20] recordings y en el live simplemente
+[00:18:22] realiza las peticiones y no va a guardar
+[00:18:25] nada. En este caso sí lo vamos a
+[00:18:27] guardar.
+[00:18:29] Qué bueno que salió este este errorcillo
+[00:18:31] para verlo. Y acá,
+[00:18:35] si se dan cuenta, acá de verdad fue
+[00:18:39] rápido y ya nos dio prioridades por su
+[00:18:41] tarea.
+[00:18:43] Si vamos acá al 142,
+[00:18:47] vemos que tenemos por punto 1, punto dos
+[00:18:51] hasta el punto 10.
+[00:18:54] Punto 10. Y aquí ya nos lo ordena.
+[00:18:58] por el tipo de tarea, por la su tarea,
+[00:19:01] su título, el dinero que se está si
+[00:19:04] esto, mejor dicho, lo está ordenando
+[00:19:08] por [carraspeo] por categorías, en este
+[00:19:10] caso si maneja dinero, si se bloquea, si
+[00:19:13] esto corresponde al legal o si es de
+[00:19:15] manera estética. Un ejemplo y el el más
+[00:19:19] rápido a acceder es este del el botón
+[00:19:23] del carrito naranja, que es meramente
+[00:19:26] visual. solo es estético y este ya me da
+[00:19:29] una probabilidad del 0.81.
+[00:19:33] Obviamente es más orientado al estético.
+[00:19:36] Hay otros tickets, por ejemplo, el punto
+[00:19:39] 4, que es precio raro en la PP
+[00:19:44] y aquí obviamente va a estar utilizando
+[00:19:46] dinero. No es bloqueante, pero sí
+[00:19:49] atiende un tema legal y meramente no es
+[00:19:52] estético. [carraspeo] Otros más, el
+[00:19:55] selector de variantes no actualiza
+[00:19:57] stock, igual menciona dinero. Sí puede
+[00:20:01] ser un bloqueante. empieza a subir un
+[00:20:02] poco. Acá no atiende nada legal y no es
+[00:20:06] nada estético y así lo va a ir
+[00:20:10] ordenando por diferentes categorías,
+[00:20:13] diferentes probabilidades o
+[00:20:16] sí probabilidad en la que nos nos genere
+[00:20:20] para cada categoría y lo va ordenando
+[00:20:23] conforme a esas reglas.
+[00:20:26] Esas reglas ya se las compartimos, ya se
+[00:20:28] las impusimos. Entonces, ya puede con
+[00:20:30] eso con eso se basa para darnos algo.
+[00:20:35] Y en este caso, por ejemplo, motivos que
+[00:20:38] los escribe el código. En este caso ya
+[00:20:40] nos ayuda algún otro modelo. Menciona
+[00:20:43] que toca dinero y es legal o de
+[00:20:46] cumplimento. [carraspeo] Es decir, con
+[00:20:49] apoyo de otro modelo
+[00:20:51] nos nos está devolviendo este texto y
+[00:20:53] nos está devolviendo qué es lo que el
+[00:20:56] motivo del por qué este ticket. En este
+[00:20:59] caso toca dinero y es legal o de
+[00:21:01] cumplimiento. Obviamente nos devuelve la
+[00:21:03] probabilidad.
+[00:21:05] Y aquí menciona va arriba por regla.
+[00:21:09] ¿Qué va arriba por regla?
+[00:21:12] Por lo por lo mismo que las los dos
+[00:21:14] categorías que están muy elevadas,
+[00:21:17] que es en este caso
+[00:21:19] menciona. Hola. nos han llegado varias
+[00:21:21] quejas de que en la página del producto
+[00:21:23] el precio sale como tal y luego en el
+[00:21:25] carrito sale distinto.
+[00:21:28] Eso es algo importante que para es
+[00:21:32] importante atender y atender de primera
+[00:21:34] instancia porque tiene muy elevado en en
+[00:21:38] dos categorías
+[00:21:40] y así sucesivamente nos va a ir
+[00:21:42] ordenando nuestros tickets. y en algún
+[00:21:45] momento nos vemos un poco atorados, a lo
+[00:21:47] mejor con alguna feature, alguna hu y
+[00:21:50] tenemos que dividirla en diferentes
+[00:21:52] tareas. Ya cuando tengamos estas
+[00:21:54] [carraspeo] diferentes tareas, podríamos
+[00:21:56] preguntarle a Jeff ordenarlas.
+[00:22:00] Realmente nosotros le vamos a compartir
+[00:22:03] [carraspeo] cuál va a ser la categoría
+[00:22:05] para que nos lo ordene y eso lo va a
+[00:22:08] hacer ahora sí que de manera
+[00:22:10] inteligente. Como había mencionado, es
+[00:22:12] nuestro if inteligente. Este if ya nos
+[00:22:16] va a devolver un poquito más rápido.
+[00:22:19] Y en este caso lo que fue el costo
+[00:22:23] simplemente fue
+[00:22:25] 0.001423
+[00:22:28] de dólar. fueron 21 request y fueron
+[00:22:31] 30,000 tokens, o sea, fue bastantes
+[00:22:34] tokens por todo el texto que le estamos
+[00:22:36] compartiendo al prompt o al momento que
+[00:22:39] yo ejecuté el el comando. Sin embargo,
+[00:22:42] la respuesta fue no tiene un costo
+[00:22:46] y el consumo, al menos de entrada, es
+[00:22:49] muy muy mínimo a comparación de algunos
+[00:22:51] otros.
+[00:22:58] vamos a hacer la comparación.
+[00:23:03] Voy a bajar un poco. Tengo este otro,
+[00:23:07] pero voy a utilizar opus.
+[00:23:11] Aquí ya está ejecutando con opus. Sin
+[00:23:15] embargo, vemos que es un poquito más
+[00:23:17] tardado.
+[00:23:20] Si nos tarda un poquito, no pasa nada.
+[00:23:22] Igual si se sienten cómodos pueden
+[00:23:24] utilizarlo.
+[00:23:26] [carraspeo] Y ojo lo que es el Jef más
+[00:23:29] el código de de lo que nosotros le
+[00:23:31] estaremos compartiendo.
+[00:23:34] El precio obviamente está bastante bien.
+[00:23:37] De este lado sí es más consumo.
+[00:23:42] Lo que fuese urgente o por inyección o
+[00:23:45] checkout.
+[00:23:46] Eso está bien. Acá la velocidad, el
+[00:23:49] tiempo de respuesta, obviamente porque
+[00:23:51] ya es
+[00:23:53] ya [carraspeo] es ya tiene sus reglas
+[00:23:55] establecidas ya.
+[00:23:58] Ya para él es más fácil elegir cuál sí y
+[00:24:00] cuál no. Obviamente con las reglas que
+[00:24:03] nosotros le imponemos y lo que le
+[00:24:05] estamos compartiendo o le estamos
+[00:24:07] preguntando.
+[00:24:09] En este caso fue 0.59 59 segundos, casi
+[00:24:13] el minuto,
+[00:24:15] perdón, casi un segundo y en este caso
+[00:24:19] fueron 6 segundos 71 71.
+[00:24:23] Y el consumo, por ejemplo, en presión
+[00:24:25] lista, lo que consume Jef es esto a
+[00:24:29] comparación de Opus,
+[00:24:31] costo que reporta Cloud Code. Acá sí,
+[00:24:34] Opus va a utilizar Cloud Code. Acá no es
+[00:24:37] no es generador de código y los tokens
+[00:24:41] de entrada obviamente va van va a entrar
+[00:24:44] muchos más, sin embargo [carraspeo]
+[00:24:46] sigue siendo mucho mayor. Y en cuanto a
+[00:24:49] los tokens de salida, que en esto
+[00:24:51] también genera un consumo, al menos para
+[00:24:53] Opus son 535. Para Jeff es totalmente
+[00:24:58] gratuito, no pasa nada. Y aquí puede
+[00:25:00] hacer muchas request. Por ejemplo,
+[00:25:02] [risas] en este caso
+[00:25:04] hizo las 21 request al mismo tiempo.
+[00:25:08] La la [carraspeo] todas las decisiones
+[00:25:09] las tomó al instante,
+[00:25:11] sin embargo, Opus nada más hizo una y
+[00:25:14] con base a eso empezó [carraspeo] a
+[00:25:16] determinar.
+[00:25:19] Menciona aquí que Opus costó el 26
+[00:25:24] veces más de lo que Jeev y tardó 11.4 4
+[00:25:27] más
+[00:25:30] en el orden que Opus mencionó o que
+[00:25:33] propuso, por ejemplo, lo de los tickets,
+[00:25:36] puso primero el punto CCO, en este caso
+[00:25:39] el selector de variantes, después el 6 4
+[00:25:43] 1 2 y sucesivamente.
+[00:25:45] Y en el orden de Jeff, que en este caso
+[00:25:48] es el cuatro, después 5 6
+[00:25:52] lo ordenó de diferente manera y
+[00:25:54] obviamente las que están excluidas es la
+[00:25:56] 10,
+[00:25:59] que en este caso es nada más un son
+[00:26:02] cupones con minúscula en el checkout.
+[00:26:08] Ahora,
+[00:26:11] hasta aquí esto ya nos ha ayudado
+[00:26:14] bastante. Ya tenemos a lo mejor una
+[00:26:17] definición un poquito más clara de lo
+[00:26:19] que nos puede ayudar.
+[00:26:23] Vamos a hacer
+[00:26:25] un refactor. Este refactor lo vamos a
+[00:26:27] utilizar con
+[00:26:31] con este con un skill.
+[00:26:38] para no saturar ruido.
+[00:26:44] Esto lo voy a dejar tantito abierto.
+[00:26:45] Aquí voy a
+[00:26:47] a levantar el servidor
+[00:27:00] dónde está del otro lado.
+[00:27:04] Aquí está, aquí está nuestra tienda,
+[00:27:07] nuestro server ficticio.
+[00:27:11] Si se dan cuenta, también tiene sus
+[00:27:12] fallas. Por acá está este botón. Lo del
+[00:27:17] agregar al carrito, lo que era muy
+[00:27:20] urgente para algunos era el que
+[00:27:22] estuviera en color naranja,
+[00:27:25] entre otros detalles.
+[00:27:28] Y punto importante que es de la
+[00:27:30] priorización es lo del IVA. Aquí es el
+[00:27:33] el valor que tenemos actualmente.
+[00:27:36] Si nosotros tomamos
+[00:27:40] a Ah, perdón, vamos a abrir nuestro
+[00:27:42] cloud.
+[00:27:47] Vamos a pasarle este prom. Esta skill ya
+[00:27:51] la tenemos hecha. Nada más es como para
+[00:27:54] que cambie de de rama y realiz.
+[00:28:03] Esto obviamente va a tardar un ratito,
+[00:28:06] va a hacer cambios importantes en
+[00:28:08] nuestro código.
+[00:28:10] De hecho, si vemos un poquito
+[00:28:14] lo que nos fue generando
+[00:28:16] [carraspeo][tos] Jef, en lo que esto
+[00:28:18] trabaja,
+[00:28:21] por ejemplo, acá nuestro Jason que
+[00:28:24] generó, que son nuestras request. Miren,
+[00:28:28] [carraspeo] aquí viene el estado y el
+[00:28:30] contexto. En el scope es el producto, el
+[00:28:33] detalle del producto en esta página y
+[00:28:36] obviamente le pasa el slog.
+[00:28:38] Hay una imagen, una galería, muestra
+[00:28:41] tanto el precio, el stock, el agregar al
+[00:28:44] carrito y lo que está fuera del scope lo
+[00:28:46] que menciona es el listado del catálogo,
+[00:28:50] el carrito de la página
+[00:28:52] y el checkout,
+[00:28:54] el user account y el backofice. Aquí más
+[00:28:57] abajo dentro de la evidencia que
+[00:29:00] nosotros también estamos compartiendo.
+[00:29:02] Por ejemplo, del lado del backend, la
+[00:29:05] PDP hace cuatro request en cascada es
+[00:29:08] del producto, variantes, stock y
+[00:29:10] reseñas.
+[00:29:13] Estos el aceptance criteria son los
+[00:29:15] criterios que va a aceptar Jef
+[00:29:19] para asignarle la respuesta, ¿sí o no? o
+[00:29:22] qué categoría
+[00:29:24] este debería de de agregarle. En este
+[00:29:27] caso devuelve producto, variantes en su
+[00:29:30] stock, el contrario vive en package
+[00:29:33] contract
+[00:29:35] points viejos siguen respondiendo con
+[00:29:36] header, por ejemplo, aquí hay importante
+[00:29:40] que está deprecado y un test de contrato
+[00:29:43] en verde. [carraspeo]
+[00:29:46] A ver, antes de seguir con esto,
+[00:29:51] ya quedó la rama. que es lo que va a ser
+[00:29:53] nuestro refactor en este commit
+[00:29:56] podemos ejecutar nuestro nuestros test.
+[00:30:00] Aquí Sonet ya lo hizo. ¿Qué cambió? El
+[00:30:03] servidor calcula el precio final con IVA
+[00:30:06] en centavos y lo manda en el campo nuevo
+[00:30:08] que es prise money.
+[00:30:11] Vamos a ver un poco
+[00:30:14] esto.
+[00:30:16] Si se dan cuenta, aquí ya lo ya lo
+[00:30:19] devuelve bien. Ya es un valor con IVA,
+[00:30:22] incluso aquí ya viene lo del incluido.
+[00:30:25] Ya no dice 1200 y cacho.
+[00:30:28] Esto ya está este con el IVA [carraspeo]
+[00:30:32] y obviamente
+[00:30:33] el valor de en pesos.
+[00:30:39] Aquí
+[00:30:41] ya tenemos
+[00:30:44] nuestro refactor,
+[00:30:46] pero vamos a ver un poco
+[00:30:50] con otro
+[00:30:52] comando. ¿Cuánto nos costó?
+[00:30:56] Vamos a abrir esto.
+[00:30:59] [carraspeo][tos]
+[00:31:00] Lo que fue en este re factor con Sonet
+[00:31:03] nos costó de entrada 400,000 tokens. Fue
+[00:31:06] bastante de salida fueron 17 y el costo
+[00:31:10] real fue esto.
+[00:31:14] Prácticamente los mismos tokens que si
+[00:31:16] hubiéramos utilizado Opus
+[00:31:19] y obviamente estimación tokens a precio
+[00:31:21] de Opus. Esto nada más es como para
+[00:31:22] hacer la la comparación.
+[00:31:26] Esto ya lo tenemos. [tos]
+[00:31:30] Ah, perdón,
+[00:31:33] estimado y lo que nos devolvió esto es
+[00:31:36] un costo bastante alto
+[00:31:39] y en este tipo de de cosas, al momento
+[00:31:43] que estamos desarrollando,
+[00:31:45] le hemos empezado a dejar mucho a la IA
+[00:31:49] que tome decisiones, en este caso
+[00:31:51] priorizar y eso nos consume demasiado
+[00:31:54] muchas veces o he visto comentarios
+[00:31:56] donde mientras Entre más tokens
+[00:32:00] tengamos,
+[00:32:03] más lo vamos a consumir o nos volvemos
+[00:32:05] locos y hasta donde tope nuestros tokens
+[00:32:08] o hasta donde tope el costo del de la
+[00:32:11] cuenta. Muchas veces ya estamos
+[00:32:13] consumiendo
+[00:32:15] dinero, a lo mejor nuestro o lo que no
+[00:32:18] es nuestro y solo por pedirle que que
+[00:32:21] que me ordene una lista. En este caso
+[00:32:23] fue la lista de prioridades.
+[00:32:29] Ah, vale,
+[00:32:34] tengo por acá
+[00:32:37] una rama
+[00:32:38] igual para el ejemplo.
+[00:32:42] Este lo voy a a limpiar un poco
+[00:32:46] y tengo acá un review.
+[00:32:50] Este review
+[00:32:52] va a realizar un pull request o una o un
+[00:32:56] check desde la rama refactor hacia main
+[00:33:01] utilizando Jeff. En este caso Jeff ya
+[00:33:04] tiene un skill con la que lo va a
+[00:33:07] revisar y obviamente lo va a revisar de
+[00:33:10] manera local.
+[00:33:11] Esto es bastante importante también o
+[00:33:14] algo que también me ha ayudado
+[00:33:17] a no estar haciendo revisiones manuales
+[00:33:21] o sí automatizadas,
+[00:33:24] sin embargo,
+[00:33:27] este podemos dejárselo igual a algún
+[00:33:30] otro modelo y nos va a crear costo. Si
+[00:33:32] se lo dejamos a Jeff para hacer un una
+[00:33:35] revisión de un pull request
+[00:33:38] subi o antes de subirlo de manera local
+[00:33:41] y a lo mejor más adelante automatizar en
+[00:33:44] estos pull request en alguno de nuestros
+[00:33:46] repositorios, nos costaría menos.
+[00:33:51] Aquí vamos a ver un poco de este lado
+[00:33:58] acá.
+[00:33:59] Veamos, porque esto
+[00:34:02] nos lo nos lo ha ido guardando Je
+[00:34:07] mismo lo menciono, la revisión local
+[00:34:09] desde la Roma M y Refactor PDP trap.
+[00:34:12] ¿Por qué trap? porque por ahí tenía una
+[00:34:15] trampa en la que [carraspeo] nos va nos
+[00:34:18] va a atorar,
+[00:34:20] nos va a este detener por un un tarea en
+[00:34:22] específico, un comit, por ejemplo, aquí
+[00:34:25] en este en este caso que es product
+[00:34:29] description, este commit nos lo va a
+[00:34:32] detener de todos los commits que subimos
+[00:34:35] de nuestro refactor, este, exactamente
+[00:34:39] este cambio nos lo va a bloquear. ¿Por
+[00:34:42] qué? HTML sin sanitizar tiene la
+[00:34:45] probabilidad de 0.98,
+[00:34:48] no corresponde a la subtarea.
+[00:34:51] Y obviamente, ¿qué es lo que está
+[00:34:53] agregándose? Danger
+[00:34:55] set inner HTML.
+[00:34:58] Recuerdan que por acá agregamos o
+[00:35:02] teníamos unas reglas.
+[00:35:05] Por aquí estaba el
+[00:35:08] reglas de negocio acá.
+[00:35:12] dentro de las reglas de negocio no
+[00:35:14] negociables, importante porque se lo
+[00:35:16] definimos a cloud desde el inicio,
+[00:35:19] es esto. Nada de Danger Set inner HTML
+[00:35:24] con datos dice, "Si de verdad hace falta
+[00:35:26] HTML, sanitízalo."
+[00:35:29] Eso es importante porque si nosotros
+[00:35:31] realizamos el refactor, cloud debió
+[00:35:34] haber hecho la la
+[00:35:37] la
+[00:35:39] indicación de que esto no es negociable.
+[00:35:41] Esto ya debería de saberlo. A lo mejor
+[00:35:44] alguien manualmente metió mano y se le
+[00:35:47] hizo un poquito fácil, pero eso no está
+[00:35:50] en las reglas. Y acá hay varios puntos
+[00:35:53] que se pueden
+[00:35:56] se pueden ir revisando. Hay varios que
+[00:35:59] pues se tienen que revisar. Por ejemplo,
+[00:36:02] si nosotros estamos en la tarea del 142
+[00:36:05] o de las subtareas, todo esto no
+[00:36:08] corresponde lo que es el app test.
+[00:36:12] Acá hay uno que son páginas. Este sí,
+[00:36:14] product page quita accesibilidad y no
+[00:36:18] corresponde a la subtarea, pero si
+[00:36:21] implica ahí un un bloqueo, bueno,
+[00:36:23] medianamente un bloqueo, solamente te
+[00:36:25] pide revisarlo. Solo el que sí o sí es
+[00:36:28] importante es el del final que mencion
+[00:36:31] bloquear.
+[00:36:33] Después de que Jef hizo toda esta
+[00:36:35] revisión, toda esta revisión de pull
+[00:36:37] request, ya nos lo nos lo devuelve en
+[00:36:41] este en esta tablita.
+[00:36:44] por commit, todo commit que hayamos
+[00:36:46] hecho.
+[00:36:48] De hecho, aquí aunque se repitan,
+[00:36:50] [carraspeo] ya lo muestra, ya nos dice
+[00:36:53] qué fue lo que se se cambió,
+[00:36:56] se aprueba. Sí, por acá tiene el
+[00:37:00] allazgore y el baseline. Baseline,
+[00:37:02] obviamente, porque no cosas que se
+[00:37:05] pueden utilizar y que no se puede
+[00:37:06] utilizar.
+[00:37:09] Acá de este lado, comentarios para
+[00:37:11] humanos, mencionar, bloquear, lo
+[00:37:14] encontró la revisión local, chequeos
+[00:37:16] tanto en código más y sí hizo la
+[00:37:19] revisión, pero al momento de hacer la
+[00:37:21] revisión checó las reglas que nosotros
+[00:37:25] impusimos. En este caso fue esta parte
+[00:37:27] de cloud de nuestro punto de memoria
+[00:37:32] y sí o sí lo toma en cuenta. Estas
+[00:37:34] reglas son las que va a tomar en cuenta
+[00:37:36] Jeff [carraspeo][tos]
+[00:37:37] para decidir si pasa o no pasa, si lo
+[00:37:40] cataloga como bien o mal, o nos dice sí
+[00:37:44] a esto o no a esto. Entonces
+[00:37:47] son cosas que sí sí va a tomar de
+[00:37:50] nuestro proyecto, reglas que nosotros ya
+[00:37:53] le impusimos, aunque sepamos cuál puede
+[00:37:56] ser la respuesta,
+[00:37:58] él va a tomar la decisión por nosotros.
+[00:38:02] Entonces, eso es bastante importante.
+[00:38:06] Ahora vamos a hacer el merch. Vamos a
+[00:38:10] intentar hacer esto
+[00:38:14] como si no no hubiera pasado nada o no
+[00:38:16] hubiéramos revisado ese reporte.
+[00:38:21] Le vamos a pedir a a Cloud que haga el
+[00:38:24] merch
+[00:38:26] de Refactor hacia main.
+[00:38:29] Obviamente esto no debe de pasar, esto
+[00:38:32] no lo hagan porque si están en un
+[00:38:34] proyecto productivo a lo mejor no hay
+[00:38:36] reglas suficientes como para detenerlo,
+[00:38:38] entonces lo va lo va a realizar.
+[00:38:42] Acá miren,
+[00:38:46] el hook de revisión bloqueó el merch,
+[00:38:48] eso es importante, así que no se hizo.
+[00:38:51] Jeff dio el veredicto de bloquear para
+[00:38:54] el refactor PDP trap y no intentó
+[00:38:57] rodearlo. Eso es importante. Nosotros
+[00:38:59] también pudimos definir las reglas de
+[00:39:02] que no solo nuestro hook esté atento a
+[00:39:06] lo que puede hacer o no pueda hacer.
+[00:39:09] Como Jeff dijo, ¿sabes qué? Hay un
+[00:39:13] bloqueante en este pull request en
+[00:39:15] dentro de uno de los comits.
+[00:39:18] Tampoco lo hagas. Es decir, Jeff también
+[00:39:21] decidió si pasa o no pasa a hacer merch.
+[00:39:24] Acá, por ejemplo, ya también nos
+[00:39:26] devuelven los hallazgos.
+[00:39:29] Lo que decíamos,
+[00:39:31] lo del HTML [carraspeo] con una
+[00:39:33] probabilidad de 0.98.
+[00:39:36] Esto me parece que lo teníamos
+[00:39:39] acá. Sí, aquí está sin sanitizar 0.98 la
+[00:39:45] probabilidad de que está mal y de que de
+[00:39:48] que debe estar bloqueado. Y dice es el
+[00:39:51] tipo de cosa que cloud prohíbe. HTML con
+[00:39:54] datos sin sanitizar. También aparece en
+[00:39:57] details tab.
+[00:39:59] con probabilidad de 057.
+[00:40:01] Este es otro.
+[00:40:04] Miren, aquí está Dil está. Sin embargo,
+[00:40:07] como tiene una probabilidad menor,
+[00:40:11] lo deja nada más te pide que lo revise
+[00:40:13] acá por ser [carraspeo] mucho mayor o
+[00:40:16] casi el 90% de que sí es, si te pide
+[00:40:20] bloquearlo. Acá lo mismo que comentaba
+[00:40:23] Jef es probabilístico. Jef les va a
+[00:40:26] decir, puede que sea sí como puede que
+[00:40:30] sea no. Aquí ya está tirándole a que sí
+[00:40:32] es está mal, sin embargo, no está del
+[00:40:35] todo seguro.
+[00:40:38] Acá ob este hay otras cosas, el cambio
+[00:40:42] parece quitar accesibilidad.
+[00:40:44] Este este commit también [carraspeo]
+[00:40:47] es breaks up contract y todos los
+[00:40:50] commits, muchas marcas bajasamente
+[00:40:53] de esto. Es probable que la rama traiga
+[00:40:56] cambios que no corresponden a su tarea
+[00:40:58] declarada en cada comit.
+[00:41:00] Es decir, aunque le hayamos definido un
+[00:41:04] un texto a nuestro commit, no trae los
+[00:41:06] cambios que debería que corresponde.
+[00:41:09] Y acá este reporte está en reports view.
+[00:41:12] Vamos a ver un poco de esto
+[00:41:15] porque esto ya también esta revisión nos
+[00:41:18] la [carraspeo] hizo completa
+[00:41:21] para mostrárselo. Y aquí está
+[00:41:25] muestra lo que es que se puede aprobar.
+[00:41:33] Ah, no me permite buscarlo. Esto debería
+[00:41:36] estar hasta abajo. Aquí está lo que
+[00:41:39] mencionábamos. Esto está bloqueado.
+[00:41:43] ¿Recuerdan lo que mencioné de la
+[00:41:45] probabilidad? Hace un momento decía
+[00:41:48] 0.59.
+[00:41:50] En esta
+[00:41:52] [carraspeo] sí, en esta revisión hizo
+[00:41:55] 0.59 59 y acá lo tiene como 0.57.
+[00:41:59] Puede ir cambiando.
+[00:42:03] De hecho, acá mismo, si se fijan, esto
+[00:42:06] de que no corresponde a la su tarea,
+[00:42:08] aquí está 0.05
+[00:42:11] y de este lado, en esta revisión, le
+[00:42:13] puso 0.04.
+[00:42:15] Al final del día sigue siendo la misma
+[00:42:16] rama
+[00:42:19] y los mismos cambios. Y esto es lo que
+[00:42:21] nos está devolviendo. Es probabilístico,
+[00:42:24] no nos va a dar un 100 exacto.
+[00:42:28] Acá en la descripción [carraspeo] del
+[00:42:30] PR, la evidencia y no política, hay
+[00:42:33] varios puntos que se pueden ir tocando,
+[00:42:35] que se pueden tratar.
+[00:42:38] Esto ya no lo podemos tomar en cuenta.
+[00:42:46] cuando todo está bien, realmente nadie
+[00:42:49] escribe nada.
+[00:42:54] Por acá está el otro comando.
+[00:43:01] Miren
+[00:43:04] aquí al momento de que ejecuto este
+[00:43:06] comando para los fixtures,
+[00:43:10] esta es otra revisión [carraspeo]
+[00:43:13] de estos tickets.
+[00:43:15] Descripción con tal. El PR dice ya
+[00:43:18] aprobado por seguridad. Esperado.
+[00:43:21] Bloquear. Jef dice que está bloqueado y
+[00:43:25] el reg de la carpeta también.
+[00:43:29] El total se calcula en el cliente y se
+[00:43:30] manda al carrito. Eso es parte de las
+[00:43:33] tareas también está bloqueado. Es decir,
+[00:43:35] no sea en el de la carpeta. Si está
+[00:43:40] en esta otra parte cambio en ofensivo,
+[00:43:42] en pricing igual se [carraspeo] puede
+[00:43:45] aprobar. Sin embargo, Jeff todavía sigue
+[00:43:48] en dudas.
+[00:43:50] y el regex también.
+[00:43:52] Esto ya también nos lo categoriza Jeff,
+[00:43:56] nos ayuda de este lado y utilizando el
+[00:43:58] regx,
+[00:44:00] esto es importante. Si vamos a hacer
+[00:44:02] búsqueda o clasificar, también podemos
+[00:44:04] utilizar regx y el regx va a ser nuestra
+[00:44:08] punto de verdad para
+[00:44:12] acá nuestros falsos positivos exactos y
+[00:44:16] rec el costo que fue Jef.
+[00:44:22] importantísimo. Voy a limpiar un poco
+[00:44:24] esta
+[00:44:26] consola.
+[00:44:29] Voy a
+[00:44:32] hacer un cambio por acá
+[00:44:35] de rama. Este ya es el que está
+[00:44:37] guardado. Y vamos a hacer un compare.
+[00:44:44] Este comando también va a ser la misma
+[00:44:46] comparación.
+[00:44:48] Esto de hecho me me pareció bastante
+[00:44:52] interesante porque cambiando, esta rama
+[00:44:55] ya tiene los cambios de necesarios.
+[00:44:59] Y esta herramienta nos permite hacer la
+[00:45:01] comparación del antes y después de
+[00:45:04] nuestros cambios.
+[00:45:06] Lo voy a abrir
+[00:45:09] y si se dan cuenta, aquí ya tienen el
+[00:45:12] IVA. Aquí no tiene el IVA. es parte
+[00:45:16] importante aquí la tipografía y y el y
+[00:45:19] el subrayado o el marcado de los
+[00:45:21] cuadritos de los checkbox
+[00:45:24] no están suficientemente marcados, no
+[00:45:26] tiene una línea un guideline, por decir,
+[00:45:29] una línea de estilos. Incluso
+[00:45:33] acá ya se ve mejor, se ve mejor
+[00:45:36] presentado. El botón del carrito ya está
+[00:45:39] naranja y si se dan cuenta, el botón
+[00:45:41] tiene otro orden a lo que es comparado a
+[00:45:46] Acá ya no existe nuestra cookie de de
+[00:45:50] de bueno, nuestra alerta de que que
+[00:45:53] [carraspeo] tiene este que usamos
+[00:45:55] cookies, perdón,
+[00:45:58] porque ya lo habíamos seleccionado, ya
+[00:45:59] se ya se tenía aquí, ya tiene este
+[00:46:02] banner. Obviamente todo está mejor
+[00:46:04] presentado, lo que es nuestro tag
+[00:46:08] anterior o nuestro commit
+[00:46:11] donde no teníamos estos cambios
+[00:46:14] comparado a esto. Esto pues obviamente
+[00:46:17] ya nos devuelve un poquito
+[00:46:21] las las respuestas y y lo nos das
+[00:46:25] métricas tanto cuántas request se hace
+[00:46:28] acá. Esto es lo que nos ayudó en
+[00:46:30] refactor ya está. Hasta ver el precio.
+[00:46:34] Ya se renderiza más rápido, carga
+[00:46:36] completa en menos tiempo, accesibilidad.
+[00:46:39] Esto nos ayuda
+[00:46:43] acá [carraspeo] también, aunque aquí es
+[00:46:45] un poquito más cargado.
+[00:46:47] Y líneas de product page, importante
+[00:46:50] cuando estamos desarrollando ciertos
+[00:46:52] componentes, tiene cierta cantidad de
+[00:46:54] líneas. Previamente lo tenemos en 481
+[00:46:57] líneas de código.
+[00:46:59] En el refactor se logró a reducir hasta
+[00:47:01] 99.
+[00:47:03] Y está está también está interesante el
+[00:47:06] el ver el antes y el después. Ya también
+[00:47:09] es responsivo
+[00:47:11] con ese refactor. [carraspeo]
+[00:47:14] Entonces ya tenemos toda esa parte y ya
+[00:47:17] lo está ya lo este podemos visualizar.
+[00:47:21] Ya hizo nuestro refactor, para nosotros
+[00:47:24] está bien. Ya también pasa las pruebas,
+[00:47:27] no [carraspeo] solo en consola, sino
+[00:47:29] también visualmente.
+[00:47:33] Y por acá vamos a
+[00:47:35] ejecutar un uno más
+[00:47:41] que va a ser nuestro
+[00:47:43] dashboard.
+[00:47:45] Vamos a abrir este esta consola. Vamos a
+[00:47:48] cerrarla.
+[00:47:57] Ahora este dashboard ya nos devuelve un
+[00:48:01] poco lo que
+[00:48:04] lo que estuvimos ahorrando, lo que
+[00:48:05] estuvimos gastando en este ejemplo,
+[00:48:09] tanto en Jef como en Opus.
+[00:48:12] Criterio de éxito acá de este lado y el
+[00:48:16] costo de una priorización.
+[00:48:18] En este caso priorizamos con Opus, nos
+[00:48:21] dio este costo comparado con JEV. Es
+[00:48:25] bastante
+[00:48:26] la diferencia.
+[00:48:28] Obviamente menciona que se hizo en
+[00:48:30] inglés, es mucho más rápido. Recuerden
+[00:48:33] que los LLMs consumen menos tokens
+[00:48:36] cuando se leen las los PRs en inglés.
+[00:48:40] Y acá
+[00:48:42] nos menciona tanto el método, los
+[00:48:44] criterios, ¿qué criterios tomó? Tomó
+[00:48:47] todos. Yo pues nada más tomo cuatro de
+[00:48:50] cinco.
+[00:48:52] El precio top, lo que es urgente,
+[00:48:55] inyección ignorada,
+[00:48:57] este el checkout excluido y el tiempo.
+[00:49:01] El tiempo y costo. Si se dan cuenta, lo
+[00:49:03] que habíamos visto al inicio, fueron
+[00:49:05] 6.71 segundos cuando Jeev nos devolvió
+[00:49:09] en 0.59.
+[00:49:13] Y el costo, vuelvo a a recalcarlo, si es
+[00:49:16] menor, muchas veces sí nos nos volamos
+[00:49:19] un poquito de estar utilizando
+[00:49:21] esto. En el refactor, el costo real fue
+[00:49:26] dos, no, 0.227
+[00:49:30] mismos tokens que con Opus. Y esto nada
+[00:49:33] más en la parte del refactor, obviamente
+[00:49:36] esto comparando entre Sonic y
+[00:49:38] [carraspeo] la estimación con Opus. Sin
+[00:49:40] embargo,
+[00:49:42] solamente es el ejemplo. Al final del
+[00:49:44] día Jeff no nos ayudó en esto. Previo a
+[00:49:46] eso, sí,
+[00:49:48] en la revisión del PR local,
+[00:49:52] esto ya ya le interesa a Jef.
+[00:49:56] y
+[00:49:57] sí, obviamente con Ian [carraspeo] nos
+[00:50:00] dio una buena respuesta al mismo al
+[00:50:03] igual que mía y costó de revisar a los
+[00:50:06] fixtures. En este caso, al solo revisar
+[00:50:12] nuestro,
+[00:50:14] perdón, nuestro nuestro pull request y
+[00:50:17] el reg de carpeta, aquí todo lo que
+[00:50:19] estuvo revisando con estos
+[00:50:23] aquí en las tablas y las métricas lo que
+[00:50:26] estuvo consumiendo
+[00:50:30] y antes y el después, obviamente lo que
+[00:50:32] ya habíamos visto, los bills de
+[00:50:34] producción, móvil, red, simulado, todo
+[00:50:37] lo que nos devolvió también Lhouse, la
+[00:50:39] herramienta de Lighthouse
+[00:50:44] y en costo total de lo que se gastó en
+[00:50:47] esta demo,
+[00:50:49] lo que fue de Sonet,
+[00:50:52] sí llega a ser un costo menor, ni
+[00:50:54] siquiera llega a lo que es un dó sin
+[00:50:57] embargo, el hecho de que nosotros
+[00:50:58] estemos
+[00:51:00] utilizando promps todos los días para
+[00:51:03] nuestro desarrollo sí va marcando un
+[00:51:06] poco la diferencia. Por mucho que que
+[00:51:08] [carraspeo] tengamos a lo mejor un plan
+[00:51:11] máximo,
+[00:51:13] sí habría que pensar en el futuro qué sí
+[00:51:16] y qué no deberíamos estar utilizando o
+[00:51:18] derrochando en estos tokens o en estos
+[00:51:21] consumos. Ahorita solo vemos centavos,
+[00:51:26] empresas grandes, enormes de más de 1000
+[00:51:30] o 100,000 personas, utilizando las
+[00:51:33] mismas herramientas, el consumo se
+[00:51:35] vuelve muchísimo mayor. Entonces,
+[00:51:38] [carraspeo] ya no estamos hablando de
+[00:51:39] centavos, hablamos de miles, millones de
+[00:51:42] dólares, lo que sea. Entonces, esto
+[00:51:45] ayuda a muchos, no solo a los
+[00:51:47] desarrolladores, también la parte de
+[00:51:49] negocio creo que también interesará un
+[00:51:52] poco cómo reducirlo.
+[00:51:55] Entonces [carraspeo]
+[00:51:57] nos ayuda de esta parte acá la tablita
+[00:52:00] de las llamadas que se hicieron. A pesar
+[00:52:02] de que ah esto es esto es importante,
+[00:52:05] tanto Sonet como Opus se hicieron una
+[00:52:08] sola llamada
+[00:52:10] a comparación de Jeff. Jeff se hizo
+[00:52:12] múltiples llamadas, fueron 2001
+[00:52:15] llamadas.
+[00:52:16] el consumo de tantos tokens, los de
+[00:52:18] salida, y el consumo comparado a
+[00:52:22] Imagínense si esto consume una sola
+[00:52:24] llamada y lo que mencionaba
+[00:52:26] Opus o Sony se le hacen múltiples
+[00:52:28] llamadas en una empresa con múltiples
+[00:52:31] desarrolladores,
+[00:52:32] se vuelve se vuelve una locura al
+[00:52:35] momento de estar desarrollando.
+[00:52:42] ¿Y
+[00:52:45] qué? ¿Qué es lo que vimos? Mejor dicho,
+[00:52:49] lo que íbamos a ver, lo que vemos fue el
+[00:52:51] ticket, la priorización, el refactor, la
+[00:52:54] revisión y el antes y después.
+[00:52:57] Esas métricas nos ayudan mucho a
+[00:52:59] entender la parte de cuánto se está
+[00:53:01] consumiendo, en qué lo vamos a utilizar,
+[00:53:04] [carraspeo] las reglas que nosotros le
+[00:53:05] estamos definiendo. parte importante es
+[00:53:09] desde cloud MD o desde los settings de
+[00:53:12] cloud,
+[00:53:13] en este caso lo que fue el git merch lo
+[00:53:16] detuvo y la revisó y el git push main
+[00:53:19] que fue revisión con je y de este lado
+[00:53:23] lo que fue los lo del IVA y lo de la
+[00:53:26] accesibilidad,
+[00:53:29] el modo replay que es ya lo habíamos
+[00:53:32] comentado hace rato, ahorita lo
+[00:53:35] utilizamos en recording para que fuera
+[00:53:36] grabando. y guardando los reportes en el
+[00:53:39] replay, ya cuando tenemos cierta
+[00:53:41] cantidad de reportes, podemos utilizarlo
+[00:53:44] sin red.
+[00:53:46] Eso también nos consume menos tokens
+[00:53:50] para tomar decisiones.
+[00:53:53] En este caso, el agente propone, el
+[00:53:55] merch lo decide, lo decide en el código
+[00:53:58] y una persona, en este caso la persona
+[00:54:00] sería yo y el código que nosotros
+[00:54:02] estamos definiendo que son las recturas.
+[00:54:07] Lo que mencionaba, ¿qué fue lo que pasó?
+[00:54:09] El antes y el [carraspeo] después.
+[00:54:11] bajó los request, la accesibilidad fue
+[00:54:14] mayor
+[00:54:16] y [carraspeo] no le no le asignamos
+[00:54:18] todas las tareas a un solo modelo.
+[00:54:20] Aunque tengamos múltiples agentes,
+[00:54:23] procuremos dividir tareas al final del
+[00:54:25] día. Para eso se hacen diferentes
+[00:54:28] modelos de inteligencia artificial y
+[00:54:30] nosotros sacarles provecho.
+[00:54:33] En este caso tomar decisiones con Jef,
+[00:54:35] crear código con Sonet, este, revisar
+[00:54:39] cosas de ahora sí que los detalles del
+[00:54:41] negocio con Opus o al menos sería un
+[00:54:44] ejemplo que yo podré utilizar. se pueden
+[00:54:47] utilizar 1 muchos otros modelos.
+[00:54:50] para esto lo vamos a estar utilizando.
+[00:54:55] ¿Cuánto cuesta cada decisión o cuánto
+[00:54:56] costó lo que fue la priorización,
+[00:54:59] refactor y el revisar?
+[00:55:02] Aquí me parece que no lo puse porque va
+[00:55:05] variando según las las métricas o lo que
+[00:55:09] le vaya compartiendo
+[00:55:12] y pues compartiéndoles unas ideas pues
+[00:55:15] puedes ayudarles a revisar, clasificar y
+[00:55:18] etiquetar código público,
+[00:55:21] devoluciones, chequeos con código de si
+[00:55:24] o no amerita hacer una devolución en
+[00:55:26] e-commerce.
+[00:55:28] Catálogos detecta lo que la ficha
+[00:55:30] promete de más.
+[00:55:32] Acá de este lado Claus escribe soporte.
+[00:55:35] En soporte podría estar interesante para
+[00:55:38] revisar qué tickets de soporte se pueden
+[00:55:41] priorizar y qué nivel de priorización se
+[00:55:44] le puede dar. Precios acá de este lado,
+[00:55:47] pues nos muestra el total con IVA.
+[00:55:50] Y en el carrito porque abandonan, Jeff
+[00:55:53] clasifica
+[00:55:54] [carraspeo] el código cuenta y Haiku
+[00:55:57] resume. En este caso Jeff va a
+[00:55:59] clasificar ya en métricas a lo mejor de
+[00:56:01] marketing, de dónde está, dónde está
+[00:56:05] abandonando la gente, dónde se detiene,
+[00:56:07] cuáles son los calltion que más se
+[00:56:10] [carraspeo] cliquean, entre otras cosas.
+[00:56:13] Esto nada más
+[00:56:16] este como como [carraspeo] dudas, como
+[00:56:19] ideas. Entonces,
+[00:56:22] hasta aquí tenemos un chance de
+[00:56:24] preguntas si gustan.
+[00:56:30] Bueno, sí tenemos algunas preguntas,
+[00:56:33] Alfredo. Yo creo que todos quedamos
+[00:56:35] sorprendidos con el poder de Jeff. Yo
+[00:56:38] espero que sea un sentimiento en común.
+[00:56:40] Quedo, [carraspeo] wow.
+[00:56:42] [risas]
+[00:56:42] Bueno, en la primera pregunta la voy a
+[00:56:44] dejar por aquí. Yo creo que tú las la
+[00:56:46] puedes ver allí. Es una pregunta de
+[00:56:50] Jonathan y [resoplido] nos comenta lo
+[00:56:52] siguiente. Alfredo, ¿tendrá este
+[00:56:54] repositorio para validarlo y tratar de
+[00:56:56] ejecutarlo de forma local?
+[00:56:58] Sí, sí, sí, sí. Ahorita se los comparto,
+[00:57:00] lo tengo en mis repositorios, entonces
+[00:57:02] ahorita se los comparto.
+[00:57:06] Listo.
+[00:57:07] Aquí hay otra pregunta de Roberto.
+[00:57:12] Las priorizaciones son editables a las
+[00:57:14] necesidades del proyecto.
+[00:57:16] Es correcto. Nosotros podemos definir el
+[00:57:19] cómo o el por qué se debe de mejor
+[00:57:22] dicho, las categorías en las que se
+[00:57:24] puede priorizar y Jeff nada más toma la
+[00:57:27] decisión. Jeff solo te va a decir sí, no
+[00:57:31] y este y listo. En este caso nosotros le
+[00:57:34] vamos a definir por qué sí y por qué no.
+[00:57:38] Entonces eso lo sí si sí nos lo podemos
+[00:57:41] definir según el proyecto que queramos.
+[00:57:46] Okay.
+[00:57:48] Jonathan nos preguntas si las reglas,
+[00:57:51] bueno, ¿cuáles son las reglas para
+[00:57:53] definir esa priorization?
+[00:57:56] esa priorización
+[00:57:58] primero este lo lo toma mucho en cuenta
+[00:58:01] en las reglas que vamos definiendo en
+[00:58:04] nuestro proyecto. En este caso lo se los
+[00:58:06] mostré en cloud.md,
+[00:58:09] [carraspeo] ahí viene la sanitización
+[00:58:10] del HTML y tomó en cuenta eso. Eso es
+[00:58:14] una parte. También tienen otros bloques
+[00:58:16] para definirle qué sí puede tomar en
+[00:58:19] cuenta y qué no puede tomar en cuenta.
+[00:58:21] [resoplido]
+[00:58:26] Vale. Eh, Guren nos pregunta,
+[00:58:30] "Hola, Alfredo. Uno de los usos
+[00:58:32] interesantes que veo de Jeff es la
+[00:58:34] autverificación de los resultados de del
+[00:58:36] laboratorio clínico. Para ello, el
+[00:58:38] modelo necesitaría conocer valores de
+[00:58:40] referencia según el género.
+[00:58:44] justamente si ya tienes esa referencia
+[00:58:47] precisamente puede ir tomando decisiones
+[00:58:50] y esa decisión como menciona sí puede
+[00:58:53] revisarlo y clasificarlo. Al final del
+[00:58:55] día no va a ser al 100% porque es
+[00:58:58] probabilístico.
+[00:59:00] Como vieron, igual va cambiando a veces
+[00:59:02] el dato.
+[00:59:06] Vale.
+[00:59:07] Bueno, pues la última pregunta nos
+[00:59:12] relacionan un poco los datos, ¿no? Sería
+[00:59:14] el dedicado el tema de los datos
+[00:59:16] privados del paciente. Eh, creo que está
+[00:59:19] relacionado con la pregunta que hizo,
+[00:59:21] ¿no? Pregunta anterior. Ahí creería que
+[00:59:23] sería importante definir una política de
+[00:59:26] privacidad y este para tanto cloud como
+[00:59:29] para nuestros agentes.
+[00:59:32] ¿Qué [carraspeo] puede leer y qué no? En
+[00:59:34] este caso también a Jeff, qué puede leer
+[00:59:36] y qué no. y solamente basarse en ciertos
+[00:59:39] datos específicos. Sí, comprendo el
+[00:59:41] punto de de que sea delicado, sin
+[00:59:43] embargo, podemos definir ese esas
+[00:59:46] políticas de privacidad para cualquier
+[00:59:48] agente, para cualquier este modelo.
+[00:59:52] ¿Listo? Perfecto. Bueno, eh
+[00:59:58] una última preguntica de Marcelo. La
+[01:00:01] decisión de qué modelo Ll utilizar tiene
+[01:00:04] criterios definidos por el humano?
+[01:00:07] contigo.
+[01:00:08] Este, [carraspeo] sí, pero yo me pondría
+[01:00:12] un poquito ahí este me pondría un
+[01:00:14] poquito creativo a a hacer este análisis
+[01:00:18] con otros LLMs para saber quién me ayuda
+[01:00:22] más o a quién utilizo más para
+[01:00:26] para manejar código, manejar este
+[01:00:28] análisis de datos o lo que sea.
+[01:00:31] Primera parte si es por criterio humano,
+[01:00:35] porque al final del día nosotros
+[01:00:36] decidimos las reglas y él nada más
+[01:00:38] decide si no o qué opción o cómo
+[01:00:41] categorizar.
+[01:00:44] Listo, perfecto. Bueno, pues mil
+[01:00:46] gracias, Alfredo, por esta gran charla.
+[01:00:49] Yo creo que todos quedamos maravillados
+[01:00:51] con el poder de Jeff. Eh, y bueno, pues
+[01:00:55] hasta aquí como tal finalista finaliza
+[01:00:58] esta primera charla del día. Recuerden
+[01:01:00] que ahora más tarde tenemos otra charla
+[01:01:03] para que se puedan unir. Les recuerdo
+[01:01:05] nuevamente que tienen plazo hasta mañana
+[01:01:08] para poder inscribirse a la hacat.
+[01:01:10] Tenemos 120 cupos para créditos en
+[01:01:13] lovable, solamente para aquellos que no
+[01:01:15] son desarrolladores, ustedes van a estar
+[01:01:17] recibiendo a sus correos un formulario
+[01:01:20] eh que van a poder diligenciar y de
+[01:01:23] acuerdo a esa información vamos a elegir
+[01:01:25] a las personas que van a ser
+[01:01:26] seleccionadas para este beneficio. Nos
+[01:01:28] vemos más tarde y muchas gracias a todos
+[01:01:30] por estar aquí. Un abrazo, que estés muy
+[01:01:32] bien.

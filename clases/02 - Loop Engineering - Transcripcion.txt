@@ -1,0 +1,1494 @@
+# Loop Engineering (2026-10-14)
+URL: https://www.youtube.com/watch?v=3yEb_V8-Tss
+
+[00:00:09] Bueno, buenas noches, bienvenidos a
+[00:00:11] todos. Qué bueno verlos por acá. Ya
+[00:00:14] estoy viendo que hay personitas que nos
+[00:00:16] saludan desde Argentina. Eh, por el
+[00:00:18] momento nos pueden ir poniendo ahí en
+[00:00:19] los comentarios desde dónde nos están
+[00:00:21] viendo. Y bueno, les quiero dar una gran
+[00:00:24] bienvenida a esta charla que es la
+[00:00:26] segunda, eh, que son de nuestras eh
+[00:00:29] sesiones de preparación para el jacatón
+[00:00:31] de 30x. Y antes de arrancar les quiero
+[00:00:34] contar muy rápidamente que [resoplido]
+[00:00:36] eh estas ediciones existen para que
+[00:00:38] lleguen al hackaton con las bases claras
+[00:00:40] y con las herramientas que van a poder
+[00:00:42] usar desde el primer minuto en el
+[00:00:44] hackaton. Y este inicia oficialmente el
+[00:00:48] viernes 16 de octubre a las 5 pm, hora
+[00:00:50] Colombia. Este hackaton es 100% virtual
+[00:00:53] y pueden participar desde donde estén,
+[00:00:55] desde Argentina, México,
+[00:00:58] eh no sé, desde Perú y eh el en el
+[00:01:02] kickoff del viernes eh van a poder
+[00:01:06] entender todos los retos que van a ver,
+[00:01:08] las empresas, eh todo con lo que vamos a
+[00:01:11] necesitar trabajar para que se vayan
+[00:01:13] preparando y armando sus equipos. Si
+[00:01:16] todavía hay alguien aquí que no se ha
+[00:01:17] inscrito aún está a tiempo, eh, tienen
+[00:01:20] hasta el jueves 15 de octubre y el
+[00:01:22] enlace está en la descripción de este
+[00:01:24] video y también lo vamos a estar
+[00:01:25] compartiendo por el chat en un momento.
+[00:01:28] Si conocen a alguien que le guste
+[00:01:29] construir, programar, diseñar o que le
+[00:01:31] interese la la pueden compartir el
+[00:01:33] enlace porque pues eh nos interesa que
+[00:01:37] se unan cada vez más participantes
+[00:01:39] [resoplido] y eh que participen en
+[00:01:42] grupo. pueden en esta ocasión participar
+[00:01:45] individualmente si así lo prefieren,
+[00:01:46] pero siempre preferimos que participen
+[00:01:48] en grupo para que hayan mejores ideas y
+[00:01:51] mejores productos. Y bueno, durante la
+[00:01:53] charla van a poder dejar sus preguntas
+[00:01:55] en el chat y al final vamos a tener un
+[00:01:57] espacio para responderles. Sin más les
+[00:01:59] presento a Juan Ortega, nuestro software
+[00:02:01] engineer de 30X, que nos va a hablar de
+[00:02:03] Looping Engineering. Y bueno, Juan,
+[00:02:05] bienvenido.
+[00:02:07] Bueno, S. Ahí me confirma. ¿Se escucha
+[00:02:09] bien? Se escucha super bien.
+[00:02:11] Listo. Dale. Bueno, buenas tardes a
+[00:02:14] todos. Eh, voy a dar una pequeña charla
+[00:02:16] sobre engineering.
+[00:02:19] E voy a hablar de verificadores y cómo
+[00:02:22] nos van a servir para sobre todo que los
+[00:02:24] agentes puedan hacer tareas un poquito
+[00:02:27] más largas, más complejas, eh, y como
+[00:02:30] dice título, como que puedan correr
+[00:02:31] incluso por horas. e haciendo como el
+[00:02:35] nuance ahí, eh, loop engineering, como
+[00:02:37] la avanza tan rápido. Eh, era un
+[00:02:40] concepto que salaba hace como uno o dos
+[00:02:42] meses. Ahorita seguramente
+[00:02:44] eh van cambiando como de conceptos, pero
+[00:02:46] lo que les voy a tratar de expresar es
+[00:02:48] algo como que se aplica a hoy y
+[00:02:50] seguramente se va a seguir aplicando a
+[00:02:52] futuro, así también como el concepto que
+[00:02:55] sale cada día.
+[00:02:58] E bueno, mi nombre es Juan Ortega, yo
+[00:03:00] soy software engineer e me gradué ya
+[00:03:03] hace 6 añitos, 5 añitos de la
+[00:03:05] universidad eh de la Universidad de los
+[00:03:08] Andes, una universidad aquí en Colombia.
+[00:03:09] Yo soy eh me gusta mucho construir
+[00:03:13] productos, me gusta mucho armar
+[00:03:15] jacatones, eh tanto participar en ellas
+[00:03:19] como e cómo organizarlas.
+[00:03:23] Eh, por ejemplo, hace poquito eh junto
+[00:03:26] con mi equipo ganamos la Platanos Hack
+[00:03:28] aquí en Colombia, que es una de
+[00:03:30] lasatones como más valoradas aquí en
+[00:03:33] América Latina. Y de hecho nos vamos
+[00:03:35] ahorita en noviembre a participar a a
+[00:03:38] Chile, que es como la sede principal.
+[00:03:40] E trabajo en 30x. Eh, aquí estoy
+[00:03:44] encargado sobre todo de la parte de eh
+[00:03:47] agentes eh para llamadas, sobre todo
+[00:03:50] para venta, agentes de para ventas.
+[00:03:53] Estoy encargado también de la parte de
+[00:03:56] media cómo optimizar con IA un poco
+[00:04:00] nuestro proceso de creación de
+[00:04:01] contenido.
+[00:04:04] E y un fun fact puede ser que eh
+[00:04:08] cuando era chico, unos 12 años eh no
+[00:04:13] había mucho dinero, entonces nos tocaba
+[00:04:16] eh bueno, como que aprendí por grupos de
+[00:04:19] Facebook a vender internet gratis como
+[00:04:22] de telefonía. Eh, como que los portales
+[00:04:25] de pago, los antes, ahorita es un
+[00:04:27] poquito más seguro igual se puede, pero
+[00:04:29] normalmente cuando no tenía saldo te
+[00:04:31] llevan un portal cautivo.
+[00:04:33] Eh, lo que nos dimos cuenta o lo que se
+[00:04:35] dieron cuenta la gente, yo solo como que
+[00:04:37] medio copiaba, era que tú te puedes
+[00:04:39] bypasear esos portales de pago y
+[00:04:41] entonces lo que uno hacía era vender
+[00:04:43] internet gratis a los niños eh, cuando
+[00:04:45] tenías como 12 años.
+[00:04:47] Eh, pues creo que desde siempre me gustó
+[00:04:51] ese tipo de cosas, como crear cosas como
+[00:04:54] eh y como cacharrear, decimos, aquí en
+[00:04:57] Colombia, como ser muy curioso.
+[00:05:00] Eh, bueno, ya entrando en tema, e
+[00:05:04] hace, bueno, ya esto ya es junio, ¿no?
+[00:05:07] en en en era IA. Esto es hace mucho
+[00:05:09] tiempo, pero en junio 2026, Boris
+[00:05:12] Cherney, que es el eh creador de Cloud
+[00:05:14] Code, dijo algo como que él no promtea
+[00:05:19] directamente
+[00:05:21] a los agentes como Crowd Code o pues o
+[00:05:25] se usan otros como Codex o como eh
+[00:05:29] otros, no lo hace directamente, no
+[00:05:31] escriba, digamos, sus prompts, sino que
+[00:05:33] su trabajo es hacer eh los loops, que es
+[00:05:38] de lo que vamos a hablar hoy.
+[00:05:42] Entonces, eh de hecho acá habían dos,
+[00:05:44] pero bueno. Listo. Entonces, la manera
+[00:05:46] en la que solemos trabajar normalmente
+[00:05:49] es así. Entonces, nosotros somos este de
+[00:05:53] la derecha, nosotros lo le mandamos un
+[00:05:56] prompt. Entonces, no sé, créame una
+[00:05:59] página eh
+[00:06:02] clon de Facebook, no sé, o le mandamos
+[00:06:05] cualquier tipo de prompt o cualquier
+[00:06:06] pregunta.
+[00:06:08] La gente va va a entender ese prompt,
+[00:06:11] pasar por el LLM, eh llamar a
+[00:06:14] herramientas, puede ser web search,
+[00:06:16] puede ser una base de conocimientos y te
+[00:06:19] va a devolver la respuesta directamente
+[00:06:21] a ti. Entonces tú eres un poco este cua
+[00:06:25] o esta persona que va a decidir si esa
+[00:06:27] respuesta tiene sentido, ¿no? Entonces,
+[00:06:31] em normalmente es así. Entonces tú vas
+[00:06:34] revisando, según eso vas iterando,
+[00:06:36] iterando, iterando, iterando.
+[00:06:37] Dependiendo de qué tan bien o qué tan
+[00:06:39] mal sea la respuesta, tú eres el que vas
+[00:06:41] ajustando un poco y vas dándole como ese
+[00:06:44] loop. Eh, y bueno, para mostrarles un
+[00:06:48] poquito el ejemplo de hoy, usé loops,
+[00:06:50] usé un loop para copiar Apple, bueno,
+[00:06:54] para copiar la página de de MacBook Pro.
+[00:06:58] Entonces, alguna de esas dos es como la
+[00:07:00] copia que hice hace como una horita que
+[00:07:03] no sabían que usar un loop para
+[00:07:04] mostrarles. Y la otra es la página
+[00:07:06] original.
+[00:07:08] Entonces, ahorita les voy a mostrar un
+[00:07:09] poco cuál es la idea detrás de de esto.
+[00:07:13] Entonces, ¿qué qué es un loop? Eh, un
+[00:07:16] loop es un poco salir nosotros de ese de
+[00:07:22] esa forma como manual de hacerla y darle
+[00:07:26] a la gente las herramientas para que él
+[00:07:28] mismo pueda eh decidir un poco qué tan
+[00:07:32] bien o qué tan mal o qué tan cerca está
+[00:07:35] una solución. ¿Sí? Entonces, al
+[00:07:38] principio uno está aquí dentro,
+[00:07:41] pero luego si integramos algo que se
+[00:07:44] llaman verificadores,
+[00:07:46] e le vamos a dar a la a la gente las
+[00:07:49] herramientas, el contexto para que él
+[00:07:52] mismo pueda e
+[00:07:55] decidir si está bien el trabajo un poco.
+[00:07:58] Entonces, la idea es salir salir,
+[00:08:00] digamos, de este de este lupcito que
+[00:08:03] está dentro y nosotros armar esas
+[00:08:05] herramientas, ese contexto para que la
+[00:08:07] gente mismo pueda iterar. Es como la
+[00:08:11] idea detrás de del loop. Entonces, eso
+[00:08:14] está muy muy encaminado a cloud e a
+[00:08:17] cloud code sobre todo, pero seguramente
+[00:08:20] aquí los comandos que les vaya a decir o
+[00:08:22] como las ideas más los conceptos son
+[00:08:25] aplicables a los demás. Entonces, si
+[00:08:28] usan code, si usan Open Code con
+[00:08:30] cualquier modelo abierto, etcétera, eh
+[00:08:33] igual sería sería aplicable. Entonces,
+[00:08:35] por ejemplo, eh la forma más como
+[00:08:38] sencilla
+[00:08:39] de hacer un loop es simplemente escribir
+[00:08:42] slashg,
+[00:08:44] eh decirle la acción que queremos hacer
+[00:08:47] eh y darle una condición de parada.
+[00:08:49] Entonces, si ustedes vienen del mundo de
+[00:08:52] programación, ahí era simplemente uno
+[00:08:55] puede poner un buleano, como decir, eh,
+[00:08:57] acaba cuando esta variable o esto se
+[00:09:00] cumpla o no se cumpla, ¿cierto? E o tú
+[00:09:04] puedas decir algo como acaba luego de
+[00:09:06] correr cinco veces. Entonces, digamos,
+[00:09:08] puede ser es una condición de parada.
+[00:09:11] Podemos poner cosas como para si ahí
+[00:09:14] está este riesgo y tus máximos intentos
+[00:09:17] son X o n en este caso. ¿Por qué? Porque
+[00:09:20] a veces como pasa en programación
+[00:09:22] tradicional, si vienen de ese mundo, uno
+[00:09:24] podría incluso generar eh bucles
+[00:09:27] infinitos. Si es que el verificador está
+[00:09:29] mal diseñado, uno podría hacer que la IA
+[00:09:32] siga y siga y siga y siga. Entonces,
+[00:09:34] como que poner un número de intentos
+[00:09:36] normalmente máximo es normalmente una
+[00:09:38] buena idea también por tema de costos,
+[00:09:40] ¿no? E
+[00:09:43] entonces el loop que hice para copiar la
+[00:09:47] página de Apple, la de la MacBook, se
+[00:09:49] veía algo así. es un poquito más
+[00:09:50] complejo, pero en en sencillos era como
+[00:09:53] copia uno a uno eh apple.com/mbook
+[00:09:58] Pro. Eh, lo que quería es que se
+[00:10:01] replicara
+[00:10:02] todo. Entonces, como que copia
+[00:10:06] exactamente los mismos assets, como que
+[00:10:08] descárgalos, copia exactamente el mismo
+[00:10:10] estilo CSS, que es como el esqueleto de
+[00:10:14] estilos que tiene la la
+[00:10:18] página original, eh, y cree este archivo
+[00:10:22] ejecutable que se llama verify.sh,
+[00:10:25] que es para correrlo en en la terminal.
+[00:10:27] En realidad lo hizo Cloud, eh, y sería
+[00:10:32] para si eh por alguna razón el toca el
+[00:10:36] verificador como para que pase, que de
+[00:10:38] hecho son cosas que a veces eh los
+[00:10:40] agentes cuando les das instrucciones
+[00:10:42] como muy fuertes a veces quieren como
+[00:10:44] alucinar y cambiar las reglas para
+[00:10:46] cumplir el objetivo.
+[00:10:49] que de hecho como metiendo ahí un
+[00:10:51] paréntesis fue algo que pasó hace poco
+[00:10:53] con Open AI, que tenían
+[00:10:56] eh unos agentes en un entorno cerrado y
+[00:10:59] su tarea era hackear un sistema.
+[00:11:03] Entonces, los agentes al ver que no
+[00:11:04] podían hacer eso, se empezaron a
+[00:11:06] comunicar entre sí y salir de ese
+[00:11:07] entorno aislado y
+[00:11:10] hacer cosas como por fuera para hacer
+[00:11:13] que esas verificaciones fueran para
+[00:11:15] entender las verificaciones por detrás y
+[00:11:18] pasar como por un shortcut, como por un
+[00:11:20] camino que no pensaban los desarrollos
+[00:11:22] que se podía hacer. Entonces, como que
+[00:11:24] toca tener cuidado un poquito cada vez
+[00:11:25] más con los agentes.
+[00:11:28] Entonces, un poquito para hablarles más
+[00:11:30] de este verify.shsh, eh, simplemente son
+[00:11:33] como guardas o son como mini
+[00:11:36] verificaciones que se hacen para saber
+[00:11:39] qué tan cerca está mi versión de
+[00:11:41] apple.com a la versión de apple.com
+[00:11:45] real. Entonces, por ejemplo, una regla
+[00:11:47] es eh no debe haber requests fuera de
+[00:11:50] local host mientras lo estaba haciendo
+[00:11:51] en la máquina. Entonces, cada imagen,
+[00:11:54] cada set, ¿no? Cada imagen, video,
+[00:11:55] fuente, eh de la página original la
+[00:11:59] quería también en la copia. Eh,
+[00:12:03] lo estructura, entonces como que no
+[00:12:04] puedes hacer eh como que el alto de la
+[00:12:07] página no debe variar más de 0.5%.
+[00:12:10] Eh, el DOM, que es como este archivo
+[00:12:12] gigante donde están todos los los las
+[00:12:14] referencias y las y los assets, eh, las
+[00:12:17] referencias de los assets, no puede
+[00:12:19] variar más de un 2%.
+[00:12:21] Eh, no deben haber imágenes rotas y todo
+[00:12:24] esto, digamos que se puede escribir en
+[00:12:27] código. El mismo cloud te puede ayudar o
+[00:12:29] el mismo codex te puede ayudar a crear
+[00:12:30] estos verificadores. También, por
+[00:12:33] ejemplo, otra cosa que decía, sirve
+[00:12:35] mucho, toma capturas. Entonces, toma
+[00:12:37] capturas de diferentes partes de
+[00:12:40] apple.com
+[00:12:41] y ve verificando cada vez contra lo que
+[00:12:44] yo tengo. Y como acá algo que me sirvió
+[00:12:47] mucho y Cloud mismo se dio cuenta, fue
+[00:12:50] este verificador que hice y probar
+[00:12:54] si servía verificando con el mismo
+[00:12:56] Apple, entonces debería dar algo muy
+[00:12:58] similar si estoy verificando Apple
+[00:13:00] contra Apple. Ahí, ahí me sirve para
+[00:13:01] saber qué tan bueno es el verificador un
+[00:13:04] poco
+[00:13:05] y lo que va a devolver es un verdict
+[00:13:08] como un veredicto. Entonces va a decir
+[00:13:11] las razones en orden como de importancia
+[00:13:13] y las capturas eh como de diferencia.
+[00:13:17] Entonces, ¿quieres saber? Eh, lo que te
+[00:13:19] va a decir el verificador es eh tú
+[00:13:21] intentaste esto y esto es lo que yo
+[00:13:24] entiendo que hay de diferencia entre tu
+[00:13:27] versión y la versión como fiel, la de
+[00:13:29] Apple R. Entonces, aquí el verificador
+[00:13:31] lo que hace es eso, como decirle qué tan
+[00:13:33] lejos o qué tan cerca de eh una réplica
+[00:13:36] uno a uno con Apple.
+[00:13:40] Bueno, entonces aquí
+[00:13:42] primero, antes de hacer un loop
+[00:13:43] deberíamos pensar cuándo vale la pena
+[00:13:45] hacer un loop. Entonces,
+[00:13:48] e la la frase más sencilla sería solo
+[00:13:51] deberíamos crear eh
+[00:13:54] un un loop cuando se puede describir el
+[00:13:56] verificador con una frase objetiva.
+[00:13:59] Entonces, ¿qué quiere decir esto? que eh
+[00:14:04] debemos pensar muy bien en qué va a ser
+[00:14:06] esa condición que hace
+[00:14:08] y que sea lo suficientemente como
+[00:14:10] difícil para la eh para que él se
+[00:14:14] equivoque un poco, como que tú quieres
+[00:14:15] que Cloud no la haga la primera, porque
+[00:14:18] lo que te da la primera normalmente no
+[00:14:19] es lo que quieres. Entonces, tú quieres
+[00:14:21] quieres hacer ese verificador lo más eh
+[00:14:25] duro posible
+[00:14:27] para que él mismo tenga las herramientas
+[00:14:29] de ir mejorando un poco. Entonces, si es
+[00:14:31] solo algo de un prompt que sale rápido,
+[00:14:34] no necesitas un loop. Es como la la idea
+[00:14:36] aquí.
+[00:14:38] Entonces, como que hay varias capas en
+[00:14:39] los que uno puede hacer verificadores y
+[00:14:42] entre más determinístico sea que
+[00:14:46] determinista quiere decir que
+[00:14:50] hm es siempre lo mismo, por decirlo así,
+[00:14:52] digamos, que no es eh como la IA, que
+[00:14:55] cada vez que tú le das un promptía te
+[00:14:58] puede volver como funciona la IA es no
+[00:15:00] determinista, te devuelve otra cosa cada
+[00:15:03] vez. Entonces, como funcionan los
+[00:15:05] modelos de IA tienen como unas
+[00:15:07] eh partes que hacen que por temperatura,
+[00:15:11] por otras cosas como avanzadas siempre
+[00:15:13] te devuelvan otra cosa. En cambio, el
+[00:15:14] código es determinista normalmente, ¿no?
+[00:15:18] Entonces, tú lo que quieres es eso. Como
+[00:15:20] por ejemplo, un test determinista puede
+[00:15:22] ser, yo quiero que mis eh cinco test
+[00:15:25] pasen, yo quiero que eh builde, o sea,
+[00:15:30] como que compile correctamente.
+[00:15:33] Yo quiero que el esquema sea válido.
+[00:15:37] Entonces, esto es como si o no. Si no
+[00:15:40] hay como puntos medios. O pasan todos
+[00:15:42] los test o no pasan, o el esquema es
+[00:15:45] válido o no es válido, o tengo un exit
+[00:15:48] code válido o no. Entonces, como que
+[00:15:50] siempre queremos que sean deterministas
+[00:15:52] y no solo eso, sino queremos que esos
+[00:15:55] test deterministas o estos perficadores
+[00:15:57] deterministas sean lo más eh
+[00:16:01] restrictivos posibles. Entonces, no es
+[00:16:03] solo porque a Cloud le encanta, o sea,
+[00:16:05] no sé si se han dado cuenta, pero a
+[00:16:06] Cloud le encanta hacer tests,
+[00:16:09] pero normalmente no son tan buenos.
+[00:16:11] Entonces, como que Cloud te va a decir,
+[00:16:13] "Sí, yo hice 383
+[00:16:15] test y todos pasaron. hice 80 PRs, todos
+[00:16:19] se emergiaron y pues la ella está
+[00:16:21] entrenada para decirte que está bien.
+[00:16:24] Sí, como que está entrenada para que tú
+[00:16:26] digas, "Ey, qué bacano."
+[00:16:29] Pero donde entra el juicio y donde entra
+[00:16:31] como un poco eh el criterio del
+[00:16:34] desarrollador o el builder es en darse
+[00:16:37] cuenta que no es cierto como que en qué
+[00:16:39] partes la te está mintiendo y como que
+[00:16:42] gran parte de luchar contra eso es crear
+[00:16:45] justamente estos verificadores
+[00:16:47] deterministas, si lo puedes hacer e
+[00:16:52] para ir en contra un poco de lo que te
+[00:16:54] da la gente, como darle, o sea, hacerle
+[00:16:56] le fricción a la gente. Eh, otra otra
+[00:17:00] forma de hacerlo son los esquemas, que
+[00:17:01] es un poco un poco lo determinista, que
+[00:17:04] simplemente quiere decir que eh yo
+[00:17:06] quiero que mi output, lo que sale, tenga
+[00:17:09] este formato exacto. Entonces, como que
+[00:17:10] yo lo quiero exactamente, si vienen del
+[00:17:12] mundo de programación, como exactamente
+[00:17:14] con esta estructura de clase, eh, o esta
+[00:17:17] estructura de Jason, etcétera. ¿Vale?
+[00:17:23] Otra cosa, tú puedes poner, por ejemplo,
+[00:17:25] un modelo como verificador.
+[00:17:28] Entonces, ¿qué sería en este caso? Sería
+[00:17:30] tener otro agente adicional del agente
+[00:17:33] que construye, cuyo único objetivo sea
+[00:17:36] verificar. ¿Sí? Entonces,
+[00:17:40] es bueno, pero no es tan recomendado
+[00:17:42] porque entonces estamos evaluando algo
+[00:17:45] no determinista con algo no
+[00:17:46] determinista. Entonces el el agente que
+[00:17:50] evalúa también puede alucinar. Sí.
+[00:17:53] Entonces como que la mejor combinación
+[00:17:55] es que sea un agente, pero también tenga
+[00:17:58] estos checks deterministas.
+[00:18:01] Y bueno, el último perificador un poco
+[00:18:04] es volver a lo antes, ¿no? Como que es
+[00:18:06] el humano. El humano es el que dice,
+[00:18:08] "Ey, esto sí está bien o esto no está
+[00:18:10] bien, etcétera.
+[00:18:13] E y acá está un poquito como cómo fue
+[00:18:17] iterando mi versión de la copia de Mac,
+[00:18:21] de la página de Apple.
+[00:18:23] Eh, entonces lo que te daba este
+[00:18:25] verify.shsh
+[00:18:28] qué tanta div diferencia había entre lo
+[00:18:32] que yo estaba construyendo, lo que Cloud
+[00:18:34] estaba construyendo versus la página
+[00:18:36] real. Entonces, al principio iba a ser
+[00:18:38] totalmente diferente, casi 100%. Luego,
+[00:18:41] en el primer loop va a ser algo como,
+[00:18:43] "Okay, ya descargué algunos archivos."
+[00:18:45] Luego se dio cuenta que no había
+[00:18:46] descargado los videos, luego se dio
+[00:18:49] cuenta de una cookie de país que no
+[00:18:50] estaba, etcétera. Entonces, la idea es
+[00:18:54] esa, como que cada vez eh va mejorando
+[00:18:58] lo que estaba haciendo antes.
+[00:19:02] Em Ah, bueno, cómo algo que sirve mucho
+[00:19:06] al hacer loops es darle manos, por decir
+[00:19:09] así, a la gente. Entonces, una forma de
+[00:19:11] hacerlo
+[00:19:12] es eh instalar algún alguna herramienta
+[00:19:16] que te permita que le permita a la
+[00:19:18] gente, de hecho, controlar el navegador.
+[00:19:21] Entonces, una de las más usadas se llama
+[00:19:24] Agent Browser, que es un CLI o un
+[00:19:27] commandline interface de Versel.
+[00:19:30] Entonces, lo que hace por detrás es
+[00:19:32] levantarte un Chrome, eh, que puede ser
+[00:19:36] visible o no visible, que eso se llama
+[00:19:37] headless o no headless.
+[00:19:39] e en el cual el agente mismo va
+[00:19:42] controlando el browser.
+[00:19:46] Es mucho más liviano que otras opciones.
+[00:19:48] ¿Por qué? porque por detrás usa algo que
+[00:19:51] se llama e no me acuerdo si se llaman
+[00:19:55] links de accesibilidad,
+[00:19:57] pero como la idea sencilla es que no
+[00:19:59] carga todas las todos los assets
+[00:20:01] necesariamente, que eso es lo pesado,
+[00:20:03] como cargar todas las imágenes, cargar
+[00:20:05] todo el DOM, todos los estilos, sino lo
+[00:20:08] que él carga son las estructuras de
+[00:20:12] accesibilidad. Por ejemplo, él sabe que
+[00:20:14] acá hay un botón, él sabe que este es el
+[00:20:16] botón uno, botón dos, botón tres, como
+[00:20:18] que si hay un form, si hay como un
+[00:20:20] formulario, puede saber que esta es la
+[00:20:22] parte donde va el nombre, donde va la
+[00:20:23] contraseña, etcétera. Entonces, como que
+[00:20:25] está optimizado justamente para agentes
+[00:20:28] que por lo que sabemos necesitamos no
+[00:20:31] sobrecargarlos con contexto, sino
+[00:20:34] cargarlos con contexto que valga mucho
+[00:20:35] la pena. En este caso, como que agenter
+[00:20:37] sería lo que más les recomendaría si
+[00:20:39] quieren hacer este tipo de cosas.
+[00:20:41] E
+[00:20:43] por ejemplo, aquí el ejemplo fue solo
+[00:20:44] meramente frontend, meramente visual,
+[00:20:47] pero tú con agent browser puedes hacer
+[00:20:49] cosas mucho más interesantes. Por
+[00:20:50] ejemplo, puedes replicar o hacer
+[00:20:53] scraping, que es como lo que hace por
+[00:20:55] debajo la página, las llamadas de API.
+[00:20:57] Puedes usar agent browser para
+[00:20:59] interceptarlas y saber cómo funciona por
+[00:21:02] debajo y hacer como una réplica un poco
+[00:21:04] como ingeniería inversa. Entonces es es
+[00:21:06] super bacán. Y otras opciones, igual si
+[00:21:08] no quieren usar browser descargar eh el
+[00:21:11] MCP de Chrome o CDP, que es como otro
+[00:21:14] mecanismo que a veces funciona un
+[00:21:16] poquito mejor.
+[00:21:18] Eh, y estos comandos son un poco los
+[00:21:20] comandos que usaba en realidad Cloud, yo
+[00:21:22] no. Entonces, por ejemplo, él le decía,
+[00:21:26] eh,
+[00:21:27] no sé, quiero eh hacer eh como una
+[00:21:32] como una sesión donde yo friseo los
+[00:21:35] videos y las animaciones para tomarle
+[00:21:37] captura, como que lo que hace acá. Eh,
+[00:21:40] yo quiero comparar zonas eh zonas
+[00:21:43] específicas
+[00:21:45] eh de la página con la página nuestra en
+[00:21:49] términos de brillo, en términos de
+[00:21:50] contraste, en términos de eh assets, por
+[00:21:53] ejemplo.
+[00:21:55] E y pues acá hay como un resumen de cómo
+[00:21:58] fue cambiando el verificador, o sea,
+[00:21:59] también no es solo como crear el
+[00:22:00] verificador y ya te olvidas, sino que
+[00:22:03] ahora nuestro trabajo es iterar este es
+[00:22:05] como el meta, la meta iteración. Ahora
+[00:22:08] estás iterando, pero el verificador.
+[00:22:11] Entonces, lo que me fui dando cuenta es
+[00:22:12] que eh estaba como al principio solo
+[00:22:15] estaba diseñado para una pantalla, como
+[00:22:18] para un eh viewport se llama. Después eh
+[00:22:23] como que ya fue una versión ya con más
+[00:22:25] más viewports. Luego se dio cuenta que
+[00:22:29] aún pedía archivos a la página original,
+[00:22:31] entonces los descargó.
+[00:22:33] Eh,
+[00:22:35] y y lo otro y lo otro fue como eh como
+[00:22:39] esos checks, o sea, lo que fui haciendo
+[00:22:42] fue mejorando los checks, como las
+[00:22:44] verificaciones un poco.
+[00:22:46] Entonces, acá se puede ver un poquito
+[00:22:48] más visualmente cómo
+[00:22:51] va cambiando la página mía con respecto
+[00:22:55] a la original.
+[00:22:57] Entonces, cada vez va bajando este
+[00:23:01] este
+[00:23:02] [carraspeo]
+[00:23:03] porcentaje que va diciendo como que la
+[00:23:05] diferencia. Entonces, la diferencia cada
+[00:23:07] vez va siendo menor, cada vez va
+[00:23:09] mejorando y como iterando en esa parte
+[00:23:11] que esto con un solo prompt es muy
+[00:23:13] complicado que lo vayas a lograr.
+[00:23:15] Entonces, eh con un buen verificador
+[00:23:18] seguramente si yo les paso mi
+[00:23:19] verificador y ustedes quieren hacer el
+[00:23:21] prompt seguramente les va a salir como
+[00:23:22] en one shot prompt. Seguramente no no va
+[00:23:25] a ser como seguramente
+[00:23:28] corto, nos va a demorar poquitos
+[00:23:29] minutos, pero lo va a sacar muy muy muy
+[00:23:31] fiel a la página real.
+[00:23:35] Em,
+[00:23:36] entonces nada, como que al final eh lo
+[00:23:41] que ustedes tienen que tener mucho
+[00:23:42] cuidado son estos verificadores
+[00:23:46] que no verifican un poco, nunca suene
+[00:23:48] chistoso. Entonces, como estos test que
+[00:23:52] dicen que están en verde, pero en
+[00:23:53] realidad no pasa lo que tú quieres que
+[00:23:56] pase, ¿no? Entonces, por ejemplo, algo
+[00:23:59] algún check verde que no me sirve mucho
+[00:24:01] es, por ejemplo, la página desplegó. Sí,
+[00:24:05] o sea, está bien que la página
+[00:24:06] despliegue, pero eso es muy muy general.
+[00:24:09] O sea, los verificadores son buenos en
+[00:24:11] la medida que sean específicos.
+[00:24:13] La página se desplegó, tuvo un 200, que
+[00:24:16] es un código eh de sucess, eh apareció,
+[00:24:20] no sé, este eh este asset en el DOM,
+[00:24:25] como que entre más específico puedan
+[00:24:27] hacer los verificadores mejor. Esa es un
+[00:24:30] poco la idea. Ah, bueno. Y les puedo
+[00:24:32] mostrar entonces esta es la página
+[00:24:34] original, la de Apple, Apple MacBook
+[00:24:37] Pro.
+[00:24:38] Entonces tiene cositas bacanas como este
+[00:24:41] carrusel que está muy bonito
+[00:24:44] o tiene
+[00:24:46] eh esto. Esto está superlindo
+[00:24:50] y bueno, es un poco la idea.
+[00:24:53] Y este de acá
+[00:24:58] es mi versión. Entonces está lo subí a
+[00:25:02] Versel
+[00:25:04] y ¿qué va a ser? En teoría va a ser muy
+[00:25:07] parecida. Entonces está el carrusel,
+[00:25:09] ¿cierto?
+[00:25:12] Está este cosito que se abre, está esto.
+[00:25:19] Entonces, esto sirve mucho si ustedes
+[00:25:20] quieren hacer un clon de alguna app,
+[00:25:23] como que si se quieren copiar a Cenly,
+[00:25:25] bueno, no lo hagan, pero si quisieran
+[00:25:27] copiar a Calenly presuntamente
+[00:25:30] está muy bueno porque entonces puedes
+[00:25:32] hacer ingeniería inversa de qué funciona
+[00:25:35] por detrás, qué no, etcétera.
+[00:25:38] Eh, bueno, y volviendo,
+[00:25:41] eh, no sé si hay preguntas hasta acá,
+[00:25:43] ahorita les quiero dar como unos bonus y
+[00:25:45] unos consejos para ganar jacatones
+[00:25:48] ahí, Juliana, no sé si hay preguntas.
+[00:25:50] Sí, si hay unas preguntas,
+[00:25:53] eh, aquí Juan, no sé si lo estás viendo,
+[00:25:56] dice, "¿Y ese loop lo hiciste con Cloud?
+[00:25:58] ¿Te deja duplicar una web sin decir que
+[00:26:01] no puede?"
+[00:26:02] Sí, sí, sí, sí. No, o sea, tú tienes que
+[00:26:04] decirle tipo, "No, no, no estoy haciendo
+[00:26:06] fishing, no. Eh, o bueno, ni siquiera le
+[00:26:10] dije eso, o sea, le dije que era como
+[00:26:11] para una presentación como con cosas
+[00:26:13] educativas y va eh y es y es para eso,
+[00:26:17] ¿no? No no no me voy a hacer pasar por
+[00:26:18] Apple, ¿no? Esperen.
+[00:26:21] Eh, sí. Y entonces tú le pides a cloud,
+[00:26:23] o sea, la idea no es como que tú codees
+[00:26:25] el verificador de cero, sino tú darle
+[00:26:28] como la idea de que debería tener este
+[00:26:31] verificador, como que cuáles son mis
+[00:26:32] condiciones de esto está bien, esto está
+[00:26:36] mal, le falta esta parte. Sí. Entonces
+[00:26:39] es es como esa capa humana que sabe qué
+[00:26:42] es eh lo que está bien. Por ejemplo, es
+[00:26:45] cómo te das cuenta algo muy fácil es haz
+[00:26:47] un prompt normalito de cómo lo harías y
+[00:26:50] date cuenta todo lo que le falta para
+[00:26:52] que llegue al estado que tú quisieras.
+[00:26:53] Como que, ¿qué es exactamente eso que
+[00:26:55] hace la diferencia entre lo que tú
+[00:26:58] esperas ver y lo que te bota eh cloud al
+[00:27:01] primer prompt? Entonces, como que ser
+[00:27:02] muy muy muy
+[00:27:04] específico ahí. Ahí sirve mucho eh
+[00:27:07] hablar con Cloud y pedirle eso en el
+[00:27:08] verificador.
+[00:27:12] Eso.
+[00:27:13] Y aquí Roberto te pregunta loops con
+[00:27:16] Tools.
+[00:27:18] No, no entendí la pregunta.
+[00:27:21] Loops con tools.
+[00:27:22] Sí. Ajá.
+[00:27:24] Loops con tools. Loops con tools.
+[00:27:26] ¿Qué estás haciendo loops con tools?
+[00:27:29] Pues no sé si te refieras a que uno
+[00:27:32] podría armar algún MCP o algún
+[00:27:36] Sí, uno podría ser como un MCP, si es a
+[00:27:38] lo que te refieres tal vez que por
+[00:27:41] detrás eh sea el verificador y que el
+[00:27:44] agente pueda llamar este NCP eh con las
+[00:27:46] tools de saber qué tan bien o qué tan
+[00:27:48] mal está haciendo el trabajo y como que
+[00:27:50] se arme ahí el el look. Creo que se
+[00:27:52] refiere a eso. Igual si si la si hace el
+[00:27:55] followup question, eh, lo responde.
+[00:27:57] Okay. Mira, aquí dijo, "¿Cuándo
+[00:28:00] recomiendas realizar un loop?
+[00:28:02] [resoplido] ¿Lo recomiendas integrar con
+[00:28:04] n cantidad de tools?
+[00:28:09] Yo digo que son independientes. Yo diría
+[00:28:10] que no. más allá como de las tools o de
+[00:28:13] los la cantidad de verificadores o de
+[00:28:16] tools es la complejidad de la tarea que
+[00:28:18] tienes. Entonces, por ejemplo, con qué
+[00:28:21] he visto que funciona muy bien, eh,
+[00:28:23] espera a ver si está acá. Ah, no quedó.
+[00:28:27] Pero, ¿con qué con qué he visto que
+[00:28:30] funciona muy bien? Copiando páginas.
+[00:28:32] Entonces, lo que hicimos acá, copiando
+[00:28:34] páginas, sirve muy bien. Eh, sirve muy
+[00:28:37] bien copiando también backends porque tú
+[00:28:40] puedes analizar las requests por debajo
+[00:28:42] cómo cómo funcionan y copiar esa lógica
+[00:28:45] también.
+[00:28:49] una aplicación que les tengo también,
+[00:28:51] que tal vez no es la mejor práctica,
+[00:28:53] pero algo que me ha servido mucho es eh
+[00:28:57] hay un canal en 30x la gente pide
+[00:28:59] cositas, como de Hopsot, que es un CRM.
+[00:29:03] Eh, normalmente son cositas comerciales,
+[00:29:06] eh, y son super mamonas de hacer.
+[00:29:09] Entonces, yo tengo un loop corriendo
+[00:29:11] cada x minutos que va solucionando solo
+[00:29:15] las los tickets, por ejemplo. Entonces,
+[00:29:18] por detrás lo que usa es un skill que
+[00:29:20] tiene como que hacer en cada caso.
+[00:29:22] Entonces, si esto es, por ejemplo, una
+[00:29:24] edición de factura, eh, es este path y
+[00:29:28] es como check. Pero si este caso es como
+[00:29:30] un bug, eh, ya tiene como otro ahí tiene
+[00:29:35] como un human in the loop, que soy yo,
+[00:29:37] que decide qué hacer.
+[00:29:38] O si, por ejemplo, es un refund de 30x
+[00:29:43] no es refunds, pero eh si es un refund,
+[00:29:46] entonces lo que pasa es que tiene que
+[00:29:47] haber una prueba al humano y ahí sí lo
+[00:29:49] hace. Entonces sería mucho más
+[00:29:52] escalable, digamos, subirlo a
+[00:29:56] a un agente como online, porque corre
+[00:30:00] como un poco en mi computador, pero es
+[00:30:02] mucho más barato correrlo en los
+[00:30:04] computadores con las suscripciones. ¿Por
+[00:30:05] qué? porque las suscripciones subsidian
+[00:30:08] muchos tokens. En cambio, si tú correras
+[00:30:11] solo por API y las cosas es es mucho más
+[00:30:14] escalable, pero es mucho más caro.
+[00:30:15] Entonces, como que es más que todo por
+[00:30:17] eso. Eh, ¿qué más? ¿Para qué más uso
+[00:30:20] esto?
+[00:30:25] normalmente cuando es una tarea un poco
+[00:30:26] más complicada, ¿no? Entonces,
+[00:30:28] normalmente cuando tú sabes que cloud no
+[00:30:30] te la va a sacar al principio, o sea, no
+[00:30:31] te la va a a sacar en un promise, sino
+[00:30:35] que es algo mucho más complicado. Y lo
+[00:30:38] que sirve muchísimo, además como el loop
+[00:30:39] y todo esto es definir muy bien el
+[00:30:41] problema. Entonces, eh lo que yo hago
+[00:30:44] mucho, hay un hay un tip que les doy, es
+[00:30:48] cuando definan el problema, que si
+[00:30:51] vienen del mundo técnico definen un PRD,
+[00:30:54] es e pedirle a la IA que les pregunte a
+[00:30:57] ustedes. Entonces, hay cosas que uno
+[00:30:59] asume
+[00:31:02] eh que la conoce, pero no. O hay cosas
+[00:31:05] que uno ni siquiera
+[00:31:07] no tiene en cuenta. Sí. Entonces, hay
+[00:31:09] cosas que la IA te puede ayudar a
+[00:31:11] alinearte y a definir eh, al momento que
+[00:31:14] tú le dices, "Okay, hazme, por ejemplo,
+[00:31:16] lo que hago mucho, mucho, mucho, mucho
+[00:31:17] es decirle, alineémonos,
+[00:31:21] hazme unas cinco rondas de preguntas de
+[00:31:23] lo que eh no queda claro, ¿no?
+[00:31:27] Seguramente después de esas cinco rondas
+[00:31:28] de preguntas, el producto final que te
+[00:31:31] dé cloud va a ser mucho, mucho, mucho
+[00:31:32] mejor que si no lo hicieras.
+[00:31:35] E yo creo que eso sería la respuesta.
+[00:31:37] Creo que me extendí un poquito.
+[00:31:40] Okay. Y aquí nos preguntan, ¿cuántos
+[00:31:44] tokens te gastaste para hacer ese look
+[00:31:46] ese económico al usar el verificador?
+[00:31:48] Ya. Por ejemplo, acá eh a ver, espera.
+[00:31:55] No sé exactamente, pero
+[00:31:59] ah, esto de estar mal, ¿no? O se me
+[00:32:01] reseteó.
+[00:32:04] No me acabé la suscripción. Esta es una
+[00:32:05] suscripción como de $100. Eh, eso sí, o
+[00:32:09] sea, algo que pasa en IA es
+[00:32:12] ya no alcanza normalmente las
+[00:32:14] suscripciones de 20, como hay hay un gap
+[00:32:18] muy grande entre una suscripción, por
+[00:32:19] ejemplo, de $ y una de 100,
+[00:32:23] eh, porque no es lineal, creo que la de
+[00:32:25] 100 te da no como cinco veces más, sino
+[00:32:27] como más x veces que una de 20, no es
+[00:32:31] lineal.
+[00:32:32] Eh, para hacer este tipo de cosas
+[00:32:35] necesitas al menos yo iría al menos una
+[00:32:37] suscripción eh
+[00:32:41] eh o de $100 de un modelo como Cloud,
+[00:32:44] que son de los caros. O otra opción es
+[00:32:47] es estos modelos que son más baratos,
+[00:32:50] por ejemplo, los chinos, por ejemplo,
+[00:32:52] GLM, creo que es uno de Z.Ii,
+[00:32:57] eh otros que sean un poquito más
+[00:32:58] baratos. Pues yo iría como me iría por
+[00:33:00] esas dos opciones, pero sí no no les voy
+[00:33:03] a mentir como decirle, "No, esto lo
+[00:33:04] hacen con $10, no, normalmente no."
+[00:33:09] Okay. Y por aquí Carlos dice, "El modelo
+[00:33:12] aprende al ejecut al ejecutar el bl."
+[00:33:15] El modelo aprende,
+[00:33:18] o sea, depende qué definas cómo
+[00:33:20] aprender, porque al final los LLM son
+[00:33:22] una máquina de
+[00:33:25] de darte el próximo token más probable,
+[00:33:27] ¿no? Entonces, como que no hay una, al
+[00:33:29] menos hasta ahora no se ha descubierto
+[00:33:31] que tean como un cerebro, por decirlo
+[00:33:33] así, pero en el sentido de el modelo
+[00:33:38] recibe el input de lo que le hace falta
+[00:33:41] para llegar al estado que necesita, eso
+[00:33:43] sí. Eso es muy valioso. Es muy valioso
+[00:33:46] porque ya no tienes que ser tú el que le
+[00:33:48] digas, "Te falta esto, esto, esto, esto,
+[00:33:50] ajusta aquí, aquí, aquí, aquí, aquí."
+[00:33:52] Sino tú creaste la herramienta o tal vez
+[00:33:55] a eso se refería como el la tool para
+[00:33:57] decirle a la a la gente qué le falta,
+[00:34:00] eh, en qué está bien, eh, como que dónde
+[00:34:03] está el dif. Sí. Entonces, en ese
+[00:34:06] sentido sí aprende.
+[00:34:11] Listo. Y aquí Pedro dice, "¿Qué
+[00:34:13] diferencia hay entre el loop y el
+[00:34:15] harness? Veo que tienen mucho en común,
+[00:34:16] sobre todo cuando tienen roadmap y lo
+[00:34:19] mandas en autopiloto.
+[00:34:21] Sí, yo diría que loop simplemente es
+[00:34:23] como una forma de harness, como que una
+[00:34:25] aplicación del harness, como que hay
+[00:34:26] varias capas que tú puedes tener de un
+[00:34:28] harness, empezando, por ejemplo, al usar
+[00:34:31] Cloud Code, Cloud Code ya tiene su
+[00:34:32] harness, que es el de Cloud Code. Eh, es
+[00:34:36] como todo lo un harness es toda capa que
+[00:34:38] esté por encima de el uso directo del
+[00:34:42] LLM, que sería un poco por API.
+[00:34:44] Todo lo que tú hagas encima, quieras o
+[00:34:46] no, es un harness, o sea, un prompt,
+[00:34:49] como la forma en que promteas puede ser
+[00:34:51] un harness, eh, como que cloud code en
+[00:34:54] sí es un hardness.
+[00:34:56] e estas skills como super eh hay unos
+[00:35:00] nombres, por ejemplo, ahorita está
+[00:35:02] descontinuado, pero hay uno que se llama
+[00:35:03] Get Shit Down, eh, o de MATP, o sea, hay
+[00:35:08] mucha gente que saca como estos harness
+[00:35:12] e para definir el problema, para crear
+[00:35:14] los PRDs, para saber como eh qué hacer
+[00:35:19] en el próximo paso. Aquí más allá de
+[00:35:21] usar uno otro es es probar, ¿no?
+[00:35:24] Entonces experimentar.
+[00:35:26] Eh, lo que me lo que me ha sucedido a mí
+[00:35:28] es que a veces a veces me va mejor con
+[00:35:30] harness mucho más robustos y a veces me
+[00:35:33] va mejor como simplemente prompteándole
+[00:35:35] directamente porque cada vez un poco los
+[00:35:36] modelos se vuelven más inteligentes y
+[00:35:38] cada vez necesitas menos estas capas
+[00:35:40] adicionales eh de hards.
+[00:35:46] Listo. Aquí Samuel pregunta, "El verify
+[00:35:49] es un archivo largo, ¿verdad? Ese lo
+[00:35:52] generamos con IA." Sí, sí, sí, sí. O
+[00:35:55] sea, se lo pides, se lo pides a Cloud y
+[00:35:57] lo que le le vas a pedir un poco es eh
+[00:36:01] como que genera un verificador.
+[00:36:03] Entonces, tú tienes como que ser
+[00:36:04] explícito en que no sea un verificador
+[00:36:05] fácil, o sea, tú quieres añadirle
+[00:36:07] fricción a a cloud o a tu Llm confianza.
+[00:36:13] Eh, este tenía como lo que les conté,
+[00:36:16] ¿no? Entonces, tenía partes de verifica
+[00:36:18] que los archivos sean exactamente estos.
+[00:36:23] Verifica que no hayan llamadas externas,
+[00:36:25] verifica que las capturas de pantalla
+[00:36:27] coincidan, verifica que el contraste
+[00:36:30] exacto sea igual. Si tomo como capturas
+[00:36:34] de las secciones específicas, un
+[00:36:35] segundito.
+[00:36:37] Sí.
+[00:36:39] Eh, entonces no lo tienes que crear a
+[00:36:41] mano, lo pides con eh
+[00:36:45] lo pides con cloud, pero lo que sí debe
+[00:36:47] pasar es que sea lo suficientemente
+[00:36:50] friccionante para el modelo para que él
+[00:36:52] tenga una herramienta para mejorar un
+[00:36:54] poco.
+[00:36:57] Genial. Aquí te preguntan, ¿cómo evitas
+[00:36:59] los mínimos locales o máximos locales?
+[00:37:05] Creo que se refiere a optimización.
+[00:37:13] no entiendo muy bien la pregunta, la
+[00:37:14] verdad, te soy sincera.
+[00:37:17] Okay, si quieres aquí el LP, puedes como
+[00:37:21] poner
+[00:37:23] como se cómo se
+[00:37:27] Dale, si quieres voy haciendo lo del
+[00:37:28] bonus y ahorita que la reformule
+[00:37:30] seguimos.
+[00:37:31] Entonces, eh, consejos para jacatones.
+[00:37:33] Yo he participado ya en varias, eh he
+[00:37:36] ganado una, entonces tampoco cógelo con
+[00:37:39] una con una pinza. Eh pero bueno.
+[00:37:42] Entonces, ¿qué les recomendaría yo?
+[00:37:45] Primero que todo, yo creo que es el
+[00:37:46] consejo mucho, mucho, mucho más
+[00:37:48] importante eh
+[00:37:51] de todos es lo primero que ustedes
+[00:37:53] definen va a ser lo que se va a mostrar,
+[00:37:56] ¿no? Entonces, normalmente en los
+[00:37:58] acatones no tienes 10 minutos para
+[00:38:00] mostrar, no tienes 15 minutos para
+[00:38:02] mostrar, tienes normalmente, por
+[00:38:03] ejemplo, en la que yo participé en
+[00:38:05] plátan nos fueron 3 minutos.
+[00:38:08] Entonces uno en vez de hacerlo como
+[00:38:11] idea, hago esto, hago esto, hago esto,
+[00:38:13] hago esto y al final el pitch y al final
+[00:38:15] el demo, como he visto y como he tenido
+[00:38:18] mejores resultados en general, es
+[00:38:20] haciéndolo al revés, hacerlo como
+[00:38:21] ingeniería inversa. es cómo me imagino
+[00:38:24] este demo con altas probabilidades de
+[00:38:27] ganar, si obviamente lo que quieren es
+[00:38:28] ganar, eh, y de ser un buen producto,
+[00:38:31] obviamente, además de ganar, eh, cómo
+[00:38:34] debería verse para que ganara un poco,
+[00:38:39] ¿sí?
+[00:38:41] ¿Qué debería tener? ¿Qué go factor
+[00:38:42] debería tener? ¿Cómo debería ser esto?
+[00:38:45] ¿No? Y cuando se tenga eso definido, que
+[00:38:48] es como lo más complicado, de hecho, ahí
+[00:38:51] empiezan a trabajar como Badwords eh
+[00:38:55] hacia atrás. Entonces, si esto es lo que
+[00:38:57] tengo a lo que tengo que llegar, ¿qué es
+[00:39:00] lo que necesito construir para mostrar
+[00:39:02] esto? Es un poco la idea. Entonces, ¿por
+[00:39:05] qué? Porque a veces, y me ha pasado
+[00:39:07] mucho, sobre todo en las primeras
+[00:39:08] cagatones, que uno construye muchas
+[00:39:12] cosas a veces que no van a aparecer en
+[00:39:14] el demo y lo que no aparece en el demo,
+[00:39:17] quieras o no, es muy poco visible. O
+[00:39:20] sea, no a menos que haya como una capa
+[00:39:23] como superdallada
+[00:39:25] de alguien que revise muy muy
+[00:39:27] detenidamente qué se hizo, que
+[00:39:30] normalmente no pasa porque son muchos
+[00:39:32] proyectos. Eh, lo que no va en el demo
+[00:39:36] no va. Es como yo diría que es una regla
+[00:39:39] casi que dura.
+[00:39:42] y entonces es eso como construyan
+[00:39:44] primero, imagínense cómo debería ser ese
+[00:39:48] demo, ese pitch para ganar, para
+[00:39:52] competir eh muy bien y trabajen hacia
+[00:39:56] atrás, ¿no? Esa es un poco la idea.
+[00:40:02] dos, yo les diría antes de hacer como la
+[00:40:06] primera línea de código es
+[00:40:10] entender muy bien el el problema. Es
+[00:40:12] como s de del libro, ¿no? Pero entender
+[00:40:15] muy bien cuál es el problema real.
+[00:40:17] Entonces eso va y con IA siento que es
+[00:40:20] mucho más fácil. Entonces, por ejemplo,
+[00:40:24] eh les digo un poquito la historia de de
+[00:40:27] Walki que fue con el proyecto que
+[00:40:29] participamos.
+[00:40:30] E en la Platanus nos dieron también acá
+[00:40:34] como como van a hacer acá los temas y
+[00:40:36] como los eh los tracks en la misma
+[00:40:39] Jacatón.
+[00:40:41] Eh ahí había un track que era de
+[00:40:43] emergencias y eh hace poquito había
+[00:40:46] pasado el terremoto en en Colombia.
+[00:40:51] Entonces nosotros dijimos eh seguramente
+[00:40:54] uno de los proyectos más retadores y que
+[00:40:55] más impacto vaya a tener va a ser uno en
+[00:40:58] emergencias. Vámonos por ahí.
+[00:41:02] ahí como nuestra primera idea fue,
+[00:41:05] queremos algo para salvar a las personas
+[00:41:08] que están debajo, o sea, porque es lo
+[00:41:09] primero que uno piensa, ¿no? Las
+[00:41:10] personas que están debajo de los
+[00:41:11] escombros, las personas que se necesitan
+[00:41:14] rescatar, etcétera, ¿no? E
+[00:41:18] y eso fue como nuestro primera nuestra
+[00:41:19] primera idea. Pero entonces lo que
+[00:41:21] hicimos, algo muy importante que tiene
+[00:41:22] mucho valor es que hicimos la
+[00:41:24] investigación, ¿sí? Entonces
+[00:41:26] investigamos como que qué es lo que se
+[00:41:28] usa hoy para salvar ese tipo de
+[00:41:30] personas, cuáles son las limitaciones,
+[00:41:32] eh contra qué estamos compitiendo, ¿no?
+[00:41:34] Porque no sé ustedes, pero yo no como
+[00:41:37] que yo no era experto en terremotos,
+[00:41:39] entonces eh no la idea es tampoco
+[00:41:42] volverse experto en terremotos, pero
+[00:41:44] tener como un sense de qué existe hoy,
+[00:41:47] como que eso es el estado del arte, que
+[00:41:49] se ha intentado y cuáles siguen siendo
+[00:41:51] los problemas, ¿no? Normalmente las
+[00:41:53] cosas ya existen, ¿no? Por ejemplo, en
+[00:41:56] este caso ya existía eh y de hecho
+[00:41:59] tuvimos que pivotear. ¿Por qué?
+[00:42:02] porque lo que ya existía eh
+[00:42:07] no era fácilmente replicable para lo que
+[00:42:09] queríamos construir. Les doy un ejemplo.
+[00:42:13] como haciéndolo muy muy sencillo, cuando
+[00:42:14] la gente está debajo de una de varios
+[00:42:17] métodos de concreto, se crea una cosa
+[00:42:19] que se llama una jaula de Farad, que
+[00:42:21] quiere decir que las redes de
+[00:42:23] comunicación, así sea Bluetooth, así sea
+[00:42:26] Wi-Fi, así sea casi que cualquier cosa,
+[00:42:30] no pasa, ¿no? Entonces, como que ahí se
+[00:42:33] acaba un poco todo lo que queríamos
+[00:42:34] armar porque no pasa, o sea, no pasa la
+[00:42:37] la red. Entonces, ¿contra qué estábamos
+[00:42:40] compitiendo? Estábamos compitiendo
+[00:42:41] contra eh la gente gritando, porque la
+[00:42:44] gente puede gritar eh y que la escuche
+[00:42:48] el sonido. Estábamos compitiendo con eh
+[00:42:51] algo parecido a lo que usan los doctores
+[00:42:52] para escucharte el corazón, eh, que son
+[00:42:55] un equipos super especializados.
+[00:42:57] Estábamos compitiendo contra perros de
+[00:42:59] rescate. Sí.
+[00:43:01] Eh, entonces lo que nos dimos cuenta era
+[00:43:03] que las las herramientas como que
+[00:43:06] nuestra opción de lo que estábamos
+[00:43:07] pensando como eh como hacer eh algo
+[00:43:11] parecido a Find My iPhone de Apple como
+[00:43:14] hacer mesh entre Bluetooth de celular,
+[00:43:17] no iba a servir ahí, o sea, no era la
+[00:43:20] mejor alternativa.
+[00:43:22] Entonces, por eso pivoteamos a otro eh
+[00:43:27] a otra idea que va iba por el mismo
+[00:43:29] lado, pero no necesariamente para las
+[00:43:31] personas que estaban debajo de los
+[00:43:32] escombros, sino es este otro problema
+[00:43:35] que al investigar como que nos dimos
+[00:43:36] cuenta que existía y es que normalmente
+[00:43:38] cuando eh hay un terremoto o una
+[00:43:42] emergencia, las redes o se saturan o se
+[00:43:45] caen. Entonces, algo que pasó en
+[00:43:46] Venezuela fue que se cayó este cable. A
+[00:43:50] ver si les puedo mostrar. cable
+[00:43:52] interoceánico,
+[00:43:55] internet
+[00:43:57] se cayó, o sea, este cable que es como
+[00:43:59] no si sabían, pero hay un cable debajo
+[00:44:01] de del mar que conecta el internet entre
+[00:44:05] como entre áreas super grandes.
+[00:44:07] Entonces, esto esto estaba conectado a
+[00:44:09] Venezuela, literalmente se se rompió.
+[00:44:11] Eh, entonces como que la mitad de
+[00:44:14] Venezuela o algo así se quedó sin
+[00:44:16] internet. Por eso es que veíamos como
+[00:44:18] estos Starlinks y la vaina. Entonces, lo
+[00:44:20] que nos dimos cuenta en resumen es que
+[00:44:24] se caía esta red y las opciones que
+[00:44:27] habían de comunicación eran muy pocas o
+[00:44:29] eran nulas. Y el problema de esta
+[00:44:32] comunicación entre eh dispositivo a
+[00:44:35] dispositivo es que la el rango es muy
+[00:44:38] poquito. Entonces, tú puedes tener
+[00:44:39] Wi-Fi, pero si te alejas, no sé, 30 m ya
+[00:44:42] no tienes Wi-Fi. Puedes tener Bluetooth,
+[00:44:45] pero si te alejas más de, no sé, 10 m,
+[00:44:47] bueno, depende la de la tecnología de
+[00:44:48] Bluetooth, pero más de 50 m, no te va a
+[00:44:50] dar ninguna de las tecnologías que traen
+[00:44:52] los celulares. Entonces, lo que armamos
+[00:44:54] nosotros es eh primero investigamos que
+[00:44:57] existían un tipo de antenas de radio eh
+[00:45:00] que usaban la tecnología de radio para
+[00:45:02] comunicarse entre sí y eh podían estar a
+[00:45:07] kilómetros de distancia, ¿no? Entonces
+[00:45:10] uno puede hacer algo que entre las
+[00:45:13] antenas puedan comunicarse a kilómetros
+[00:45:15] de distancia y esas mismas antenitas
+[00:45:17] traían por dentro eh Wi-Fi también.
+[00:45:20] Entonces, las personas podían
+[00:45:21] comunicarse eh a través del Wi-Fi y a
+[00:45:24] través de las antenas para distancias
+[00:45:26] largas, las antenas, para distancias
+[00:45:27] cortas, el Wi-Fi. Con esto uno puede
+[00:45:30] hacer cosas interesantes. De hecho, el
+[00:45:31] demo que hicimos fue algo como, imagina
+[00:45:33] que alguien necesita una grúa, eh, que
+[00:45:37] hay un rescatista que quiere pedir una
+[00:45:39] grúa, pero normalmente el el rescatista
+[00:45:41] está en un lugar, el centro de
+[00:45:44] operaciones está en otro lugar,
+[00:45:45] normalmente no va a estar cerca y la
+[00:45:47] grúa está en otro lugar. Entonces, lo
+[00:45:49] que hicimos nosotros fue como esta capa
+[00:45:51] encima de la infraestructura de hardware
+[00:45:54] para que esas comunicaciones fueran
+[00:45:55] posibles. Ahí el reto era interesante
+[00:45:57] porque tú eh para eh usar estas antenas
+[00:46:03] no tienes mucha no puedes transmitir
+[00:46:05] muchas mucha información, o sea, no es
+[00:46:06] como un chat de WhatsApp, es como un más
+[00:46:09] bien un telégrafo, o sea, envías como
+[00:46:10] ayuda crúa, eh, urgente, no sé. Sí, como
+[00:46:14] que y podías mandar lo acá lo que
+[00:46:16] hicimos es que podías mandar también la
+[00:46:18] ubicación de GPS, que la ubicación de
+[00:46:19] GPS si tienen internet, digo, si no hay
+[00:46:22] internet eh, pero tienen el celular con
+[00:46:25] GPS, normalmente tienen tienen eh esto
+[00:46:28] habilitado. Entonces, como que ese fue
+[00:46:30] el proyecto que hicimos para en resumen,
+[00:46:33] era como la infraestructura de hardware
+[00:46:35] y software para emergencias un poco como
+[00:46:37] para que se pudieran comunicar.
+[00:46:39] Pero a lo que quiero llegar más que
+[00:46:40] contarles eso es nosotros llegamos ahí
+[00:46:43] no porque quisiéramos en un principio
+[00:46:45] estar ahí, sino porque hicimos la
+[00:46:47] investigación que nos decía, "Ey, este
+[00:46:49] no es el camino, pero existe esta otra
+[00:46:52] cosa que puede que sí sea el camino."
+[00:46:54] ¿Sí? E entonces acá es muy importante
+[00:46:58] qué existe y dónde falla, ¿no? Entonces,
+[00:47:00] ¿qué existía? existía Bluetooth, Wi-Fi,
+[00:47:03] etcétera. Y todas las soluciones que
+[00:47:05] necesitaban eh que usaban esto, pues se
+[00:47:09] se cortaban por los muros, lo que
+[00:47:11] decíamos, y para distancias largas eh un
+[00:47:15] poco no funcionaban, porque digamos si
+[00:47:16] era Android, tú necesitas que eh todas
+[00:47:21] las todos los celulares Android tengan
+[00:47:22] preinstalada esta aplicación o si es iOS
+[00:47:25] pues ellos solo se comunican entre iOS.
+[00:47:27] Esa era un poquito la idea detrás de de
+[00:47:29] Wie.
+[00:47:31] Y no, espera, si hay tres o cuatro.
+[00:47:34] Bueno, eh cuatro. Entonces, el tercero
+[00:47:36] es eh resolver un problema. Entonces,
+[00:47:40] algo que nos gusta mucho y sobre todo
+[00:47:43] con i es muy fácil ahora construir, eh
+[00:47:46] nos da la sensación de que más es mejor,
+[00:47:49] pero no. Entonces es un poco también un
+[00:47:52] poco de libro, como que no quiero ser
+[00:47:54] repetitivo, pero entre mejor resuelvan
+[00:47:57] una sola cosa es mejor.
+[00:48:00] Eh, enfóquense en un dolor, o sea,
+[00:48:03] exploraron a hagan como la el la tarea
+[00:48:06] de explorar, de investigar dónde hoy
+[00:48:11] falla la cosa. Entonces, por ejemplo,
+[00:48:14] uno podría pensar en hacer un agente de
+[00:48:16] voz, si como que quieras o no, hacer un
+[00:48:20] agente de voz en 2026, en octubre 2026,
+[00:48:23] no es complicado. Sí, como que si tú
+[00:48:26] tienes Cloud Code, si tú tienes alguna
+[00:48:27] IA y tienes algo de dinero para probar
+[00:48:31] API de Levabs o cualquiera, pues hacer
+[00:48:33] un agente de voz no es complicado.
+[00:48:36] Lo complicado es que ese agente de voz
+[00:48:39] funcione bajo las condiciones del
+[00:48:41] negocio. ¿Sí? Entonces, por ejemplo, si
+[00:48:42] es un agente de voz en 30x, lo
+[00:48:45] complicado no es que exista, lo
+[00:48:46] complicado es que la información esté
+[00:48:49] actualizada, que la información esté
+[00:48:50] consistente, que la gente no te diga
+[00:48:52] vale eh $1,000 cuando en realidad vale
+[00:48:55] $3,000. Que la gente no te diga fechas
+[00:48:57] equivocadas, que la gente al momento de
+[00:48:59] agendar a una llamada la agende bien, eh
+[00:49:03] que la gente no te califique mal a las
+[00:49:05] personas y las manda a etapas que no
+[00:49:07] son. Sí. Entonces, como que los
+[00:49:10] problemas normalmente salen ya cuando
+[00:49:11] los pones en producción y y mucho eso
+[00:49:15] sirve también lo que le digo, la
+[00:49:17] investigación.
+[00:49:19] Entonces, si pueden, de hecho, no sé las
+[00:49:20] verticales que van a salir, pero si
+[00:49:22] pueden, sirven demasiado conseguir a
+[00:49:24] alguien que esté dentro del nicho.
+[00:49:26] Entonces, si ustedes van a resolver un
+[00:49:27] problema de venta, si pueden conseguirse
+[00:49:30] algún comercial, excelente. Si ustedes
+[00:49:33] van a resolver un problema de medicina,
+[00:49:34] si pueden conseguir alguien en el área
+[00:49:36] de medicina, un médico, así se haga una
+[00:49:38] entrevista o lo que sea, las personas
+[00:49:40] que ya están en la vertical saben
+[00:49:42] exactamente dónde es que fallan las
+[00:49:43] soluciones que ya existen. Entonces es
+[00:49:46] muy muy buen como insight.
+[00:49:48] e concéntrese mucho en el demo, eh, no
+[00:49:53] solo como en diseñarlo bien, sino en que
+[00:49:55] funcione. Por ejemplo, en nuestro demo,
+[00:49:57] algo que hicimos interesante, que fue
+[00:49:59] arriesgado, pero fue muy interesante, es
+[00:50:00] que fue fue que dijimos, "Hola, esto es
+[00:50:03] walki." Es un sistema de eh para
+[00:50:07] comunicarse cuando no hay internet a
+[00:50:09] través de sistemas de hardware, de
+[00:50:12] radio. Entonces, nosotros estamos aquí,
+[00:50:14] pero mis compañeros están afuera del
+[00:50:16] edificio. Hicimos como que todos se
+[00:50:17] voltearan, eh, y estaban como al otro
+[00:50:20] lado de la calle, como que probamos en
+[00:50:22] vivo que sin internet podíamos
+[00:50:25] comunicarnos a más de, no sé, 100 m.
+[00:50:28] Entonces, como que eso
+[00:50:30] más que decir, porque una cosa es yo
+[00:50:32] decir que sirve, ¿no? Y otra cosa es
+[00:50:35] mostrar que sirve. Entonces, como que
+[00:50:37] siempre elijan esto, como que aunque sea
+[00:50:40] más arriesgado, siempre tienen que
+[00:50:42] intentar mostrar el demoncional como en
+[00:50:44] vivo. Eso es muy muy muy importante. No
+[00:50:47] se lleven la presentación diciendo
+[00:50:48] solamente yo hago esto, esto, esto,
+[00:50:51] esto, esto, sino muestren cómo funciona.
+[00:50:54] Y más bien lo que uno puede hacer como
+[00:50:56] muy poquito tiempo, usar el espacio de
+[00:50:58] preguntas para que si hay cosas que no
+[00:51:01] quedan claras del demo, ahí ustedes
+[00:51:04] aprovechan. Incluso pueden ser como ir
+[00:51:06] un poquito más allá y ya saber como que
+[00:51:07] dejar los gaps
+[00:51:09] eh de antemano para ustedes mismos saber
+[00:51:12] qué les van a preguntar, como que dejar
+[00:51:14] el anzuelo ahí para saber qué les van a
+[00:51:16] preguntar y usar eso para responder muy
+[00:51:18] bien, porque eso también ayuda mucho
+[00:51:20] como que la gente responda con
+[00:51:22] autoridad, con lo que es.
+[00:51:24] Y bueno, lo que les digo, entonces cada
+[00:51:26] feature extra es algo que se puede
+[00:51:27] romper en vivo. Entonces, concéntrese en
+[00:51:29] este en este core feature que le llaman
+[00:51:32] y y como que comitéen hacia él un poco.
+[00:51:38] Y ya como van a trabajar en equipo,
+[00:51:39] seguramente eh como he visto que
+[00:51:42] funciona mejor es que sea lo más aislado
+[00:51:45] en términos de agentes personas
+[00:51:47] posibles. Entonces, ¿a qué me refiero?
+[00:51:49] Normalmente los agentes
+[00:51:53] ya son muy buenos haciendo frontend,
+[00:51:55] haciendo backend y conectando el
+[00:51:58] frontend y backet. Sí. Entonces,
+[00:52:00] normalmente es algo que nos ha pasado
+[00:52:02] mucho es que alguien hacía el frontend y
+[00:52:04] alguien hacía el backend y después es
+[00:52:06] como el lío entre que los agentes
+[00:52:08] entiendan y lo conecten. ¿Sí? Entonces,
+[00:52:12] lo que me ha servido a mí, igual cójanlo
+[00:52:14] como con una pinza, es que el mismo
+[00:52:16] agente tenga el contexto del frontend,
+[00:52:19] del backend y lo una él mismo, porque él
+[00:52:22] como si él mismo lo construyó, tiene el
+[00:52:23] contexto de cómo debería de ser la mejor
+[00:52:25] o la manera óptima de conectarlos.
+[00:52:28] pueden tener más bien otros agentes, por
+[00:52:30] ejemplo, para investigación,
+[00:52:32] para Q&A, etcétera, para cómo hacer el
+[00:52:36] pitch, para, no sé, para armar las
+[00:52:38] slides, etcétera. Traten que no se
+[00:52:41] pisen, es como la idea.
+[00:52:44] Y así como si son más técnicos, pues
+[00:52:46] pueden hacer algo que se llama work
+[00:52:48] trees, que es armar como un environment,
+[00:52:51] como un ambiente
+[00:52:54] para tener múltiples ramas al tiempo y
+[00:52:56] por carpetas.
+[00:53:00] Eso y como que no le no le pierdan peso
+[00:53:04] a lo que es el pitch, el demo es como de
+[00:53:06] lo más importante. O sea, normalmente
+[00:53:08] las jacatones y esto es tal vez voy a en
+[00:53:09] contra de esto, pero normalmente las
+[00:53:11] cacatones te van a decir que vale 10% o
+[00:53:13] 15%, pero no porque
+[00:53:16] lo que te, o sea, lo que muestras en el
+[00:53:19] pitch o en el demo es prácticamente todo
+[00:53:21] lo que vas a mostrar. Entonces, póngale
+[00:53:23] mucho, mucho, mucho, pero mucho énfasis
+[00:53:25] a eso,
+[00:53:27] ¿eh?
+[00:53:28] Aquí dejo un pequeño kit como de que me
+[00:53:31] armó cloud, no sé qué tan buen esté.
+[00:53:33] Vamos a ver
+[00:53:35] que es un poquito un resumen de lo que
+[00:53:36] les hablé hoy, eh,
+[00:53:39] que acá hay como loops para promptear,
+[00:53:42] está como lo que les decía ahí en
+[00:53:43] browser,
+[00:53:45] está como meter como añadir los MCPs,
+[00:53:48] eh, bueno, y más cositas
+[00:53:52] y y y no sé si quieran [carraspeo] ahí
+[00:53:55] tomarle dejo 5 segundos igual creo que
+[00:53:57] pueden pausar en YouTube, ¿verdad?
+[00:54:00] [resoplido]
+[00:54:01] Y bueno, y les comento también eh yo
+[00:54:03] tengo una startup que se llama Bisa
+[00:54:05] Gente y lo que hacemos es eh yo empecé
+[00:54:08] como adelantando citas Bisa americana
+[00:54:10] porque adelanté la mía y creé como el
+[00:54:13] sistema para adelantar citas de visa. Eh
+[00:54:16] y ahorita también estoy asociado con una
+[00:54:18] persona que sabe mucho del tema de
+[00:54:20] migración. Eh, entonces también hacemos
+[00:54:22] la parte de asesoría. De hecho, tenemos
+[00:54:24] un programa que se llama 45 días o
+[00:54:27] menos, en el que eh como que la promesa
+[00:54:29] es que en antes de 45 días tienes como
+[00:54:33] tu primera cita en la embajada. Entonces
+[00:54:35] como que esa es la idea. Es mucho más
+[00:54:37] para Colombia sobre todo. Igual me
+[00:54:39] pueden escribir si de pronto sirve para
+[00:54:41] otros para otros países. Eh, yo creo que
+[00:54:44] eso sería todo. Ya si tienen preguntas o
+[00:54:46] cualquier cosita, me dicen.
+[00:54:50] Listo. Genial. Muchísimas gracias por
+[00:54:52] esta charla. tan valiosa, Juan, de
+[00:54:55] verdad que muy provechosa para todos los
+[00:54:56] que pudieron estar acá y para los que
+[00:54:58] vean la grabación.
+[00:55:00] Eh, vamos a hacer cuatro pregunticas más
+[00:55:03] y eh con esto finalizamos la sesión.
+[00:55:06] Entonces, por aquí te preguntan cómo
+[00:55:07] manejas el consumo de tokens, si en
+[00:55:09] medio del loop termina, ¿desargas
+[00:55:11] modelos o compras más tokens?
+[00:55:15] Normalmente lo que les decía, entonces
+[00:55:16] como que lo fácil sería decirles, no,
+[00:55:19] con cualquier tipo de suscripción se
+[00:55:20] puede o así.
+[00:55:23] Eh, lo que he visto en práctica es si
+[00:55:25] usas modelos como estadounidenses, ¿no?
+[00:55:28] Como americanos, como eh Cloud, como
+[00:55:31] Codex, así, yo recomendaría mínimo una
+[00:55:33] suscripción de $100 eh así sea
+[00:55:36] compartida como entre más de una persona
+[00:55:38] que dicen que no se puede, pero es es a
+[00:55:41] veces lo que lo que he tratado de hacer.
+[00:55:45] Eh, dos, tú puedes al momento de hacer
+[00:55:47] el loop ponerle un límite, un límite
+[00:55:49] como iteraciones, como un límite de
+[00:55:52] tokens.
+[00:55:56] lo que suelo hacer es, o sea, en
+[00:55:58] realidad lo que suelo hacer no es nada
+[00:56:00] como del otro mundo, es como que uso la
+[00:56:03] suscripción del trabajo, la que nos da
+[00:56:05] en 30x y si digamos llego al límite, lo
+[00:56:08] que hago lo que hago es usar una
+[00:56:09] personal, eh, o sea, no ahí no hay como
+[00:56:13] otra salida a menos que use como modelos
+[00:56:16] chinos, lo que le decía la otra vez,
+[00:56:19] puedes usar como GLM o usar, por
+[00:56:22] ejemplo, Open Router. que ahí traes
+[00:56:23] bastantes modelos y probar como que
+[00:56:25] probar qué es lo que te funciona un
+[00:56:27] poco. Ah, bueno, algo que sirve mucho,
+[00:56:30] entonces uno cuando hace agentes y
+[00:56:33] delega tareas a subagentes, que siento
+[00:56:35] que a veces eh es bastante útil, lo que
+[00:56:38] hago es que normalmente mi sesión
+[00:56:41] principal la manejo en el mejor modelo
+[00:56:43] posible de la época, que en este caso es
+[00:56:45] Opus 5.
+[00:56:48] Pero los suagentes normalmente les doy
+[00:56:52] modelos más baratos. Entonces, por
+[00:56:53] ejemplo, si es cloud, ya no es un Opus,
+[00:56:57] sino es un Sonet.
+[00:56:59] Eh, algo que no uso casi nunca es un
+[00:57:02] Haiku, porque eso es como muy mucho
+[00:57:04] mucho más eh tonto, por decirlo así. Eh,
+[00:57:09] entonces eso es lo que suele hacer
+[00:57:12] Eh, entonces ahí el resumen sería usar
+[00:57:15] modelos más baratos para subagentes, eh
+[00:57:19] usar siempre que se puedan una
+[00:57:21] suscripción en vez de API porque
+[00:57:22] subsidian tokens y eh usar modelos
+[00:57:26] chinos si si ven que es, o sea,
+[00:57:29] normalmente son un poco más baratos.
+[00:57:32] Sería eso.
+[00:57:34] Okay. Aquí Daniel dice, "¿Es especificas
+[00:57:36] un nivel de effort para algún paso en
+[00:57:38] específico del loop?"
+[00:57:41] Sí. Ah, de hecho yo no lo uso mucho. Eh,
+[00:57:44] creo que lo tengo en normal, no lo heo.
+[00:57:47] La verdad yo iría que si vale mucho la
+[00:57:50] pena, eh, donde yo pondría más effort
+[00:57:54] sería en armar del perficador. Eh, creo
+[00:57:57] que es la parte más importante. la parte
+[00:57:59] como que ejecutan, no necesariamente
+[00:58:02] tienes que hacerlo tan bueno, porque si
+[00:58:03] tu verificador es muy bueno y es muy
+[00:58:06] como friccionante,
+[00:58:08] tu modelo que ejecuta le queda mucho más
+[00:58:10] fácil porque es como un junior, ¿no?
+[00:58:12] Entonces alguien te va, o sea, el sñor
+[00:58:14] te va a decir, "Ey, eso te quedó mal,
+[00:58:16] eso te quedó mal, hazlo por este lado."
+[00:58:18] Entonces, como que no es necesario un
+[00:58:20] nivel de esfuerzo tan grande en el
+[00:58:21] ejecutor, sino más bien en cuando creen
+[00:58:24] eeren el verificador.
+[00:58:29] Listo. Aquí preguntan, "¿La web que
+[00:58:31] mostraste de ejemplo es similar a lo que
+[00:58:33] hace lo que se hace con reingeniería en
+[00:58:35] los videojuegos, verdad?
+[00:58:37] Sí, un poco. O sea, esto es a nivel muy
+[00:58:39] básico,
+[00:58:41] pero pero sí, entonces lo que hace la
+[00:58:44] gente es es super loco porque entonces
+[00:58:46] tú puedes tener un juego eh
+[00:58:50] y en base al o con base en el
+[00:58:52] ejecutable, por ejemplo, la otra vez vi
+[00:58:54] alguien que hizo el
+[00:58:57] ¿cómo se llama? la ingeniería inversa de
+[00:58:59] GTA San Andreas o de GTA City
+[00:59:03] y es super loco porque ellos como que
+[00:59:05] cogen el el juego, lo pasan a código,
+[00:59:10] que hay unas unos programas para hacer
+[00:59:11] eso y luego analizan el código y por
+[00:59:13] ejemplo pueden hacer mods. Así es como
+[00:59:14] nacen los mods. Eh, reingeniería
+[00:59:19] empresa, creo que es GTA by City. Creo
+[00:59:22] que el San Andreas también lo hicieron.
+[00:59:26] es como que hay videos completos de
+[00:59:28] gente analizando
+[00:59:30] eh cómo funciona el código, cómo lo
+[00:59:33] decompilaron,
+[00:59:35] como es un poco la idea es la ingeniería
+[00:59:37] inversa y es un mundo muy bonito, como
+[00:59:39] que aprendes mucho de cómo funcionan las
+[00:59:41] cosas por detrás. Eh, no sé qué tan
+[00:59:43] legal sea, pero es bacán.
+[00:59:48] Okay. Okay. Aquí preguntan, "¿Tener
+[00:59:51] suscripción prueba es limitante en el
+[00:59:52] desempeño para la competencia?"
+[00:59:57] O se alguien te diría no.
+[01:00:00] Yo te diría, tienes es como es como
+[01:00:03] decir que la meritocracia no existe. Si
+[01:00:04] ya me pongo más filosófico, es como eh
+[01:00:08] en el mundo de IA si
+[01:00:11] tienes más, o sea, no es no estoy
+[01:00:13] diciendo como que no puedas ganar o como
+[01:00:15] que no puedas hacer un buen producto,
+[01:00:18] pero es como la meritocasia. Entonces la
+[01:00:19] gente, alguien va a empezar como en el
+[01:00:22] kilómetro 3 y tú vas a empezar en el
+[01:00:23] kilómetro 0 o en el menos3 si no tienes
+[01:00:27] las herramientas necesarias para para
+[01:00:29] hacerlo. No sé si hay ahí, Juliana, si
+[01:00:32] de pronto vamos a dar eh suscripciones
+[01:00:35] de pronto o algún tipo de tokens, pero
+[01:00:38] igualmente si no yo les diría pueden
+[01:00:40] ganar o pueden participar en un muy buen
+[01:00:43] nivel, pero sería mentira decirles eh
+[01:00:48] tienen las mismas oportunidades que
+[01:00:51] alguien que tiene suscripciones
+[01:00:52] ilimitadas de tokens, o sea, es no
+[01:00:55] funciona así.
+[01:00:57] Okay, listo. Entonces, con esto llegamos
+[01:01:00] al final de la sesión de práctica del
+[01:01:03] día de hoy. Eh, muchísimas gracias,
+[01:01:06] Juan, por compartir todo esto con
+[01:01:08] nosotros y gracias a los que se
+[01:01:09] conectaron y dejaron sus preguntas en el
+[01:01:11] chat. Y bueno, antes de irnos, unos
+[01:01:14] recordatorios rápidos. Las inscripciones
+[01:01:16] cierran este jueves 15 de octubre. Eh,
+[01:01:19] si alguno que está aquí no se ha
+[01:01:20] inscrito, el enlace está en la
+[01:01:22] descripción del video y lo dejaremos
+[01:01:24] aquí en el chat de nuevo. Eh, el
+[01:01:28] hackaton arranca oficialmente este
+[01:01:30] viernes 16 de octubre a las 5 pm y eh
+[01:01:35] allí en el kickoff vamos a dar todo el
+[01:01:37] tema de retos de las empresas que van a
+[01:01:40] estar participando
+[01:01:42] y todo lo necesario que van a necesitar
+[01:01:44] para la participación durante el
+[01:01:46] hackaton. Y eh recuerden que toda mañana
+[01:01:49] y el jueves tendremos más sesiones de
+[01:01:51] preparación para danas del hackaton y si
+[01:01:53] por alguna razón no pudieron estar en
+[01:01:55] alguna, van a poder ver las grabaciones
+[01:01:57] en este canal y en el mismo link eh que
+[01:02:00] se mandó para que vieran la sesión. Y si
+[01:02:03] Juan, si tenemos eh créditos, en este
+[01:02:06] caso tenemos créditos de Loball, que eh
+[01:02:09] les va a estar llegando por el correo.
+[01:02:11] La idea de estos créditos tenemos solo
+[01:02:13] para 120 personas. Eh, es que es para
+[01:02:17] personas que no eh son desarrolladores o
+[01:02:20] se sienten muy confiados en este tema de
+[01:02:21] desarrollar para que puedan pues llevar
+[01:02:24] su creatividad más allá y no se sientan
+[01:02:26] un paso atrás de quienes ya desarrollan.
+[01:02:29] Y bueno, muchísimas gracias por estar
+[01:02:31] aquí. Espero que nos veamos en la
+[01:02:33] siguiente,
+[01:02:34] hay una cosita, puse el LinkedIn en el
+[01:02:36] chat, no sé si aparece en YouTube, eh,
+[01:02:39] como de mi LinkedIn, si quieren
+[01:02:41] agregarme, eh, ahí lo dejo o para
+[01:02:43] sale, pero si quieres envíamelo a mí
+[01:02:46] para yo pasarlo.
+[01:02:47] Ya, ya te lo te lo mando por WhatsApp y
+[01:02:49] por si quieren agregarme a LinkedIn, ahí
+[01:02:52] te lo mandé por Whats.
+[01:02:54] Listo,
+[01:02:58] aquí en el chat les estoy dejando el
+[01:02:59] linkin de Juan para que puedan ver todo
+[01:03:02] lo que hace y aprendan de todo lo que
+[01:03:05] sabe también.
+[01:03:07] ¿Listo?
+[01:03:09] Entonces, bueno, muchísimas gracias por
+[01:03:10] estar aquí. Muchas gracias, Juan, por
+[01:03:11] esta sesión tan valiosa.
+[01:03:13] Vale, Juliana, muchas gracias a todos.
+[01:03:14] Que estén muy bien. Nos vemos.
+[01:03:16] Vale, gracias.

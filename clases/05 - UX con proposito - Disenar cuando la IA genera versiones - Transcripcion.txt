@@ -1,0 +1,1239 @@
+# UX con proposito - Disenar cuando la IA genera versiones (2026-10-16)
+URL: https://www.youtube.com/watch?v=ByOGwoOrJNM
+
+[00:00:21] Hola, ¿qué tal? Muy buenas tardes a
+[00:00:24] todos y todas. Estamos aquí en nuestra
+[00:00:26] primera sesión del día de hoy, una
+[00:00:28] charla sobre cómo diseñar USI con
+[00:00:30] propósito con todo el tema inteligencia
+[00:00:32] artificial. Nos estará acompañando Isaac
+[00:00:35] Fernández. Eh, antes de dar inicio a la
+[00:00:38] charla quiero anunciarles algunos temas
+[00:00:41] muy importantes. Sabemos que ya estamos
+[00:00:44] muy cerca de iniciar el jacatón.
+[00:00:46] Recuerden que todos tienen tiempo de
+[00:00:48] poder inscribirse. Les voy a pasar por
+[00:00:49] el chat la información para que puedan
+[00:00:51] inscribir sus equipos o para que se
+[00:00:53] puedan inscribir de forma individual. El
+[00:00:55] jacatón es totalmente online, entonces
+[00:00:57] pueden invitar a cualquier persona que
+[00:01:00] tenga ganas de construir con
+[00:01:01] inteligencia artificial, eh que sepan de
+[00:01:04] tecnología o incluso que no sepan o que
+[00:01:07] no estén en este rubro. Entonces pueden
+[00:01:09] hacer sin ningún problema. pueden ser
+[00:01:11] comunicadores, líderes, emprendedores,
+[00:01:14] cualquier persona que esté interesada en
+[00:01:15] ser parte de la jacatón lo puedan hacer.
+[00:01:18] Eh, el día de mañana en el kickof de las
+[00:01:21] 5 eh de la tarde, hora Colombia, vamos a
+[00:01:25] realizar como tal la presentación de los
+[00:01:27] retos, de cuáles son los premios de las
+[00:01:30] empresas aliadas. Entonces, es muy
+[00:01:32] importante que puedan asistir, que
+[00:01:34] puedan estar allí presentes para
+[00:01:36] resolver cualquier duda, pregunta.
+[00:01:38] Recuerden que si no tienen equipo eh
+[00:01:40] pueden eh hacer su equipo por medio de
+[00:01:44] nuestros canales que van a estar
+[00:01:45] disponibles para que allí puedan formar
+[00:01:47] los equipos que quieran integrar.
+[00:01:50] Entonces, ya con esto vamos a dar inicio
+[00:01:53] a la charla. Le doy la palabra a Isaac
+[00:01:55] para que nos cuente un poco de lo que
+[00:01:57] sabe y bueno, espero que puedan aprender
+[00:01:58] un montón y la disfruten.
+[00:02:03] Sí, ¿qué tal? ¿Cómo están? ¿Me escuchan
+[00:02:04] bien ahí? Muchísimas gracias. Ya les voy
+[00:02:07] a compartir acá la presentación eh por
+[00:02:11] acá. Bueno, muy honrado por estar por
+[00:02:14] segunda vez en el Hagatón de 30X. Eh,
+[00:02:18] esto es un poco más especial porque allí
+[00:02:20] también nos hemos sumado con como
+[00:02:22] aliados eh desde Venezuela para tener
+[00:02:25] allí un espacio físico también eh
+[00:02:27] opcional eh y pues que también los que
+[00:02:31] están compitiendo puedan tener esa
+[00:02:33] posibilidad también de conectar eh en
+[00:02:35] persona. Estoy intentando compartir. A
+[00:02:38] ver,
+[00:02:40] no sé si ya se ve bien, pero ya estamos
+[00:02:46] perfecto. Entonces, nada, e me alegra
+[00:02:50] mucho poder hacer esta charla antes del
+[00:02:52] de los retos porque le da eh un sentido
+[00:02:55] distinto también a la presentación. Eh,
+[00:02:59] es importante entender que esto es un
+[00:03:01] proceso muy breve el tema del hackaton y
+[00:03:05] que por lo tanto partimos de mucho
+[00:03:07] supuesto, de muchas ideas, pero también
+[00:03:09] de un tiempo escaso donde tenemos que
+[00:03:11] ser muy buenos podendo decidir y a mi
+[00:03:14] parecer esa decisión temprana e
+[00:03:17] inteligente hace que los resultados
+[00:03:19] también se vean e luego en en los
+[00:03:24] resultados que tenemos como premios y
+[00:03:26] participación, ¿no? Entonces, el espacio
+[00:03:29] de hoy es diseño con inteligencia
+[00:03:31] artificial, sin perder el propósito. Yo
+[00:03:34] lo enfoco un poco más allá del diseño
+[00:03:36] visual, porque diseño es al final todo
+[00:03:38] el proceso que tenemos al intentar
+[00:03:40] solucionar un problema desde que vemos
+[00:03:43] la situación hasta cómo lo abordamos.
+[00:03:46] Eh, y fíjense que evidentemente es un
+[00:03:49] tiempo muy interesante porque muchas
+[00:03:51] cosas que dábamos por sentados
+[00:03:53] anteriormente
+[00:03:54] eh, están cambiando, ¿no? Y ahí es
+[00:03:57] importante que hagamos énfasis. Mi
+[00:03:59] nombre es Isaac Fernández, soy líder de
+[00:04:01] UEX en Arquia, una empresa con base en
+[00:04:03] Medellín que se dedica a automatizar
+[00:04:05] procesos de las compañías para que
+[00:04:07] trabajen mejor y fundador de Asilo
+[00:04:09] Digital, que es una comunidad
+[00:04:11] tecnológica que tenemos acá en Venezuela
+[00:04:13] desde el año 2021. Acá, bueno, he tenido
+[00:04:16] experiencia en distintas áreas, sobre
+[00:04:18] todo e-commerce, eh, y ahora pues como
+[00:04:21] muchos de ustedes, eh, entregando un
+[00:04:24] poco más allá eh del diseño y de la y de
+[00:04:28] la idea, ya que tenemos esta posibilidad
+[00:04:30] de poder entregar mucho más rápido,
+[00:04:33] siendo mucho más eficientes. Y eso
+[00:04:35] siempre es interesante, ¿no? porque les
+[00:04:37] cambia un poco la la dinámica que antes
+[00:04:39] teníamos de un proceso quizás eh muy
+[00:04:42] estricto de muchos roles y acá este
+[00:04:45] modelo que viene ahora es muy distinto
+[00:04:47] en su naturaleza.
+[00:04:49] Entonces eh a mí me encanta siempre
+[00:04:52] empezar hablando de design thinking
+[00:04:54] porque es como esta metodología que le
+[00:04:55] dio un poco orden a esas formas de
+[00:04:57] trabajar. sin un framework o sin una
+[00:05:00] estructura, cada quien iba por su lado,
+[00:05:02] evidentemente no sabíamos bien cómo
+[00:05:05] despachar innovación, cómo poderla
+[00:05:08] comunicar, cómo poder transmitir y
+[00:05:10] digamos que fue uno de los marcos de de
+[00:05:12] acción y de ejecución de actividades que
+[00:05:14] nos dio como esa posibilidad de podernos
+[00:05:17] primero organizar y segundo poder
+[00:05:19] también entender los procesos cíclicos
+[00:05:21] que conlleva crear un producto nuevo o
+[00:05:24] evolucionar o iterar un producto ya
+[00:05:26] existente. Entonces es interesante
+[00:05:28] porque uno de los conceptos que vi
+[00:05:30] inicialmente cuando empecé en UX y que
+[00:05:33] al sol de hoy se creía
+[00:05:36] que iba a desaparecer o que iba a a
+[00:05:39] reestructurarse. Sin embargo, lo que
+[00:05:42] está pasando es que algunas áreas o
+[00:05:44] algunos puntos en particular están
+[00:05:47] siendo mucho más importante ahora que
+[00:05:50] antes. Y aquí hago énfasis en builders,
+[00:05:54] creadores, desarrolladores, eh porque lo
+[00:05:56] he visto en un montón de espacios en
+[00:05:58] Jacatones y en otro tipo de actividades
+[00:06:01] donde estamos, sí, construyendo cada vez
+[00:06:04] más rápido y estamos construyendo un
+[00:06:06] montón de soluciones. Las estadísticas
+[00:06:08] lo dicen, el nivel de aplicaciones que
+[00:06:10] se despachan hoy en la App Store y en la
+[00:06:13] Play Store es la más grande que hemos
+[00:06:15] tenido en nuestra historia, pero a la
+[00:06:17] vez eso no significa que hemos tenido un
+[00:06:18] mayor uso de estos productos digitales.
+[00:06:21] Entonces ahí la brecha se va separando
+[00:06:23] porque estamos creando muy rápido,
+[00:06:25] estamos creando productos muy buenos,
+[00:06:28] pero estamos creando productos que
+[00:06:29] quizás la gente no quiere. Y ahí el reto
+[00:06:31] que conversamos siempre con los
+[00:06:32] desarrolladores y builders es cómo
+[00:06:35] construyo un producto que realmente le
+[00:06:38] pegue a esa solución, que realmente la
+[00:06:40] la entienda, la solucione y tener un
+[00:06:43] espacio donde poder iterar también eh
+[00:06:47] para poder llegar a ese punto donde
+[00:06:48] todos queremos. Entonces, en el estado
+[00:06:50] actual, este proceso que conocemos como
+[00:06:53] design thinking de empatía, definición,
+[00:06:56] idea prototipado y probar nos enseñó un
+[00:06:59] montón a salirnos un poco del esquema
+[00:07:00] corporativo y entender que podemos
+[00:07:03] fallar en la primera iteración, pero
+[00:07:04] vienen otras más y siempre tenemos que
+[00:07:07] partir del de la empatía, ¿no?, de esa
+[00:07:09] investigación con el usuario, de
+[00:07:11] intentar empaparme el problema, de
+[00:07:13] entender y de hacerme todas las
+[00:07:14] preguntas correctas, que es donde yo
+[00:07:16] siento que nos está haciendo mucha
+[00:07:18] falta. Si yo quisiera que se lleven algo
+[00:07:21] de esta charla es que estamos creando,
+[00:07:23] pero ojalá desarrollemos también esa
+[00:07:25] habilidad de poder entender mejor los
+[00:07:28] problemas, de irnos al fondo del de la
+[00:07:31] información y de poder entender un
+[00:07:33] poquito más hacia dónde vamos a
+[00:07:35] construir. Entonces, acá lo que pasa hoy
+[00:07:37] es que las dos primeras etapas, que es
+[00:07:39] la empatía y la definición, son más
+[00:07:42] importantes que nunca, porque ya el
+[00:07:44] prototipado, digamos que tiene una
+[00:07:47] ejecución mucho más rápida y podemos
+[00:07:49] validar un producto en minutos,
+[00:07:50] básicamente. Entonces esa definición y
+[00:07:54] sobre todo la importancia que le demos a
+[00:07:56] a estas primeras etapas de empatía y
+[00:07:58] definición es lo que además hace que la
+[00:08:01] iteración y el prototipo y demás tengan
+[00:08:04] menos ciclos y repeticiones. Si si
+[00:08:06] dedicamos más tiempo a entender el
+[00:08:08] problema y no paso directamente al
+[00:08:10] código, seguramente voy a requerir menos
+[00:08:13] pruebas de producto, menos cambios y
+[00:08:16] demás, porque ya entendí muy bien el
+[00:08:18] problema, ya entendí cuáles son esos
+[00:08:20] puntos de dolor, ya entendí cómo la
+[00:08:21] gente lo resuelve y yo creo que es un
+[00:08:23] punto interesante que se puedan llevar
+[00:08:26] en también esta competición y y todo lo
+[00:08:29] que viene más adelante. Y partiendo
+[00:08:31] también de este mismo marco de acción,
+[00:08:33] tenemos evidentemente eh una toma de
+[00:08:37] decisiones que dicen los especialistas,
+[00:08:39] que es cómo realmente sé que mi producto
+[00:08:41] puede evolucionar o cómo sé que una idea
+[00:08:43] es buena, cómo sé que una solución puede
+[00:08:46] pasar de la idea a realmente la
+[00:08:48] ejecución, ¿no? Eh, y acá están como
+[00:08:51] tres áreas que también se han ido como
+[00:08:54] han ido evolucionando.
+[00:08:56] En principio la deseabilidad, que es la
+[00:08:59] parte humana, como que de estas personas
+[00:09:02] que están viviendo el problema, que
+[00:09:04] tanto lo desean, realmente tu solución
+[00:09:06] va a cambiar su forma de trabajar o
+[00:09:09] simplemente
+[00:09:10] ellos pueden buscar una alternativa y
+[00:09:12] van bien con su work around, que es como
+[00:09:14] llamamos nosotros también a soluciones
+[00:09:16] alternativas, la viabilidad de negocio,
+[00:09:19] que he visto que muchos desarrolladores
+[00:09:21] están entrando y estamos entrando en
+[00:09:23] negocio porque también
+[00:09:26] nos ha permitido la facilidad a nivel de
+[00:09:28] código entrar en nuevos términos que
+[00:09:30] antes era básicamente trasladable a otra
+[00:09:33] persona que nos daba el requerimiento,
+[00:09:35] nos decía, "Mira, el jefe quiere esto."
+[00:09:38] Eh, le preguntábamos por qué y no podían
+[00:09:40] justificar, pero era parte del trabajo
+[00:09:42] solamente estar enfocado en el producto.
+[00:09:45] Eso cambia ahora y también entramos en
+[00:09:46] viabilidad en temas de negocio, entramos
+[00:09:49] también en deseabilidad con la parte de
+[00:09:50] investigación. No quiero decir que una
+[00:09:52] persona debe hacer todo, pero sí tenemos
+[00:09:54] un poquito más de campos para aprender y
+[00:09:57] para aplicar. Y la factibilidad, que es
+[00:10:00] la parte técnica, que acá siempre
+[00:10:01] entraba el desarrollador y le decían,
+[00:10:03] "Ey, tengo este requerimiento, eh,
+[00:10:06] creemos que puede funcionar para la
+[00:10:08] empresa o creo que esta idea puede andar
+[00:10:10] bastante bien." Y ahí sí llegaba la
+[00:10:12] parte del desarrollador donde él decía,
+[00:10:14] "Mira, yo creo que eso técnicamente
+[00:10:16] es o no es viable. puede tomar uno, tres
+[00:10:20] o 5 meses. A nivel técnico, necesitamos
+[00:10:22] estos permisos, esta gestión, incluso
+[00:10:24] del punto de vista legal y la
+[00:10:26] factibilidad justamente también se ha
+[00:10:28] visto beneficiada. O sea, muchas de las
+[00:10:31] cosas que hace 2 años creíamos que
+[00:10:33] podían tomar mucho tiempo, hoy están en
+[00:10:35] gran parte resueltas, se crean otros
+[00:10:37] problemas como la estandarización, pero
+[00:10:39] es interesante que este tercer factor eh
+[00:10:43] sí está un poco más resuelto que el
+[00:10:46] resto, ¿no? Y la parte humana siempre es
+[00:10:48] compleja y la parte de negocio siempre
+[00:10:49] va evolucionando. Entonces, también es
+[00:10:51] interesante cómo se van desarrollando.
+[00:10:56] Esto es un poquito también de lo que
+[00:10:57] hablé en la en el hackaton pasado, pero
+[00:11:01] incluye esta parte porque creo que es
+[00:11:03] importante responder la pregunta de qué
+[00:11:07] debo construir, o sea, cómo sé yo y es
+[00:11:09] una de las cosas que vi también
+[00:11:11] investigando un poco en en sesiones
+[00:11:13] pasadas, cómo sabe el hacker o o el
+[00:11:16] builder eh a dónde apuntar la solución,
+[00:11:19] si hay tantos retos que le van a
+[00:11:20] presentar, si hay tantas soluciones a
+[00:11:22] las cuales andar, unas más aburridas que
+[00:11:24] otras. como siempre, pero eh yo creo que
+[00:11:28] hay unas formas de ir digamos despejando
+[00:11:30] un poco la X y es lo que un poco habla
+[00:11:32] Jaret Friedman de de White Combinator,
+[00:11:35] donde él habla de que uno de los errores
+[00:11:37] que se cometen principalmente es tener
+[00:11:40] la solución y luego buscar un problema,
+[00:11:42] ¿no? Lo que llaman solución en busca de
+[00:11:44] un problema. Ya la solución es un
+[00:11:46] chatbot y yo lo que hago es buscar un
+[00:11:47] problema al cual conectarle el chatbot y
+[00:11:49] ahí eh increíblemente ya tengo la
+[00:11:52] solución. Suena interesante, pero no
+[00:11:55] funciona tan así. Creo que incluso a la
+[00:11:58] inversa de cómo debería ser, hay muy
+[00:12:01] pocas cosas en el emprendimiento que son
+[00:12:03] estrictas. Eh, y yo siento que una de
+[00:12:05] esas es seguir como el camino para
+[00:12:07] hallar la solución
+[00:12:10] y de reconocer el problema. Siento que
+[00:12:12] dependiendo de qué también hagas eso,
+[00:12:15] muchas cosas, mucho tiempo, mucha
+[00:12:17] tranquilidad puede ser ahorrado y y
+[00:12:19] puedes ganarlo también desde ese punto
+[00:12:21] de vista. Entonces, la primera
+[00:12:23] recomendación con este error es empieza
+[00:12:25] con el problema y luego vea la solución.
+[00:12:28] Suena tonto, pero nos lo recordamos
+[00:12:30] constantemente, incluso quienes
+[00:12:31] trabajamos de esto. Y nunca empecemos
+[00:12:34] desde la solución al problema, porque eh
+[00:12:37] vamos a hacer una relación que no tiene
+[00:12:39] sentido realmente con lo que la gente
+[00:12:41] está buscando. Eh, hay una frase que
+[00:12:44] dice que si a tu solución no le importa
+[00:12:46] a la gente, a la gente no le va a
+[00:12:47] importar tu solución. Y eso también
+[00:12:49] aplica para competencias como esta,
+[00:12:51] donde vamos a tener también stakeholders
+[00:12:53] o empresas patrocinantes que están pues
+[00:12:56] pendientes de que evidentemente sus
+[00:12:58] retos sean resueltos y abordados de una
+[00:13:00] forma inteligente y desde perspectivas
+[00:13:02] que quizás ellos no hayan tenido
+[00:13:04] previamente. La segunda es la idea
+[00:13:06] trampa, ¿no? Como estas ideas que vemos
+[00:13:08] super buenas, sencillas, fáciles de
+[00:13:10] aplicar y que vemos que tienen una
+[00:13:12] barrera de entrada muy baja y un gran
+[00:13:14] beneficio. Pero estas ideas trampa
+[00:13:16] tienen por lo general
+[00:13:19] cosas en su estructura
+[00:13:21] que le dan como problemas mucho más
+[00:13:25] adelante, ¿no? Hay varios ejemplos de
+[00:13:28] ideas trampas. Eh, por ejemplo, esas
+[00:13:32] aplicaciones las que los emprendedores
+[00:13:34] suelen hacer casi todos al mismo tiempo,
+[00:13:37] como lo veo ahora como con aplicaciones
+[00:13:39] de finanzas personales.
+[00:13:41] Una de las de las aplicaciones trampa
+[00:13:43] también oas trampa son estas
+[00:13:45] aplicaciones sociales como para agendar
+[00:13:47] planes, porque evidentemente todos
+[00:13:50] necesitamos agendar planes en algún
+[00:13:51] punto, no sabemos qué hacer, pero hay
+[00:13:54] cosas a nivel de modelo de negocio que
+[00:13:56] no están resueltas y que se vuelven
+[00:13:57] complejas después que las vamos viendo.
+[00:14:01] Eh, entonces ahí es importante
+[00:14:02] considerar eso. La parte tres es no
+[00:14:04] evaluar la idea,
+[00:14:06] emocionarme con la idea, tener un
+[00:14:08] momentoca y luego ir adelante sin
+[00:14:11] cuestionarme qué tan buena es esta idea,
+[00:14:14] quién la hizo antes, cómo le fue al que
+[00:14:16] la hizo antes. Son preguntas que tenemos
+[00:14:19] que hacernos y que le dan como más valor
+[00:14:21] y además vean la ganancia de todo esto.
+[00:14:23] Nos va reforzando el pitch, o sea, esto
+[00:14:25] es 100% desde el día uno vas creando ese
+[00:14:28] pitch a través de las decisiones que vas
+[00:14:30] tomando y también entender que como en
+[00:14:32] la vida las cosas que decimos que no
+[00:14:35] también hablan mucho de lo que queremos.
+[00:14:37] Y bueno, la parte cuatro es esperar la
+[00:14:38] idea perfecta, que como es un hackat, no
+[00:14:40] tenemos demasiado tiempo para eso. De
+[00:14:42] hecho, no tenemos nada de tiempo. Eh,
+[00:14:45] entonces si esperas la idea perfecta,
+[00:14:48] evidentemente vas a estar en un bloqueo
+[00:14:49] durante los primeros días y vas a tener
+[00:14:51] que resolver corriendo en los últimos.
+[00:14:54] Eh, lo más interesante sería poder acá,
+[00:14:56] y esto es una recomendación para todos
+[00:14:58] eh los que están viendo la charla y
+[00:15:00] ojalá les pueda funcionar, eh conseguir
+[00:15:03] un espacio de trabajo confiable donde
+[00:15:06] puedan pivotear sin tener que salirse de
+[00:15:09] ese marco de trabajo, ¿okay? Ya lo van a
+[00:15:11] ver con los retos y demás y van a decir
+[00:15:13] como que, okay, en este espacio de
+[00:15:15] trabajo podemos podemos ejecutar la
+[00:15:17] solución y bueno, no importa si
+[00:15:19] cambiamos eh una idea otra, puede
+[00:15:21] evolucionar en el tiempo en el que
+[00:15:23] estamos. Pero estamos en el mismo en la
+[00:15:25] misma área. Y es importante también una
+[00:15:28] de las cosas que habla White Combinator
+[00:15:30] también a nivel de de startups es que
+[00:15:33] agarres la solución donde seas mejor tú
+[00:15:36] y tu equipo porque vas a tener de por sí
+[00:15:38] una ventaja competitiva muy interesante.
+[00:15:41] Entonces allí les dejo esos tips para ya
+[00:15:43] cuando les vengan los retos más adelante
+[00:15:46] puedan acordarse de esta lámina y decir
+[00:15:48] como que, okay, esto tiene sentido,
+[00:15:50] quizás no y y vamos a a seguir por este
+[00:15:53] camino.
+[00:15:55] Y recordatorio otra vez constante, el
+[00:15:57] usuario no es uno. A esto no me refiero
+[00:15:59] a que no es una persona, sino que uno
+[00:16:02] mismo no es el usuario. Por más que
+[00:16:04] hagamos ejercicios de voy a actuar como
+[00:16:07] él y demás, eh hay un universo de
+[00:16:11] personas que realmente les duele este
+[00:16:13] problema, que lo necesitan, que puede
+[00:16:15] ser un gran cambio para su actividad
+[00:16:17] cotidiana y es importante poderlos
+[00:16:19] considerar, evidentemente, o no
+[00:16:21] importante, obligatorio
+[00:16:23] eh, sobre todo en este tipo de cosas. Yo
+[00:16:25] los invito a a ir a redes sociales,
+[00:16:28] comunidades y demás para que puedan
+[00:16:30] validar ideas. Eh, y les va a dar,
+[00:16:32] evidentemente, una
+[00:16:34] connotación distinta, eh, mucho más
+[00:16:37] fundamentada a todo lo que están
+[00:16:38] haciendo. En el caso de los Acaton en
+[00:16:40] particular o en particular este, tenemos
+[00:16:44] jurados, los cuales van a velar,
+[00:16:46] evidentemente, porque los retos sean
+[00:16:48] cumplidos de la forma en que ellos les
+[00:16:50] beneficie para poder seguir trabajando
+[00:16:52] mejor. Y ahí tenemos un espacio
+[00:16:55] seguramente muy corto para hacer las
+[00:16:57] preguntas correctas y de eso va a
+[00:16:59] definir pues gran parte de lo que viene.
+[00:17:01] ¿Quién usa el producto o la solución que
+[00:17:04] están buscando de obtener? ¿Quién lo va
+[00:17:07] a usar? ¿Quién aprueba esto? ¿Quién lo
+[00:17:09] opera diariamente? ¿Cuántos son las
+[00:17:12] personas que intervienen? ¿Quién evalúa?
+[00:17:14] Eh, ¿qué tan agudo es el problema, si es
+[00:17:16] un problema que está ahí, pero a la vez
+[00:17:18] no me afecta tanto, o es un problema que
+[00:17:20] realmente me está paralizando la
+[00:17:22] operación o que realmente hace que mis
+[00:17:24] flujos de trabajo no sean tan eficientes
+[00:17:26] como deberían? Esto es tan importante
+[00:17:28] que puede cambiar la regla de juego de
+[00:17:30] un negocio y de una industria completa.
+[00:17:33] E y ya vamos a hablar un poquito de cómo
+[00:17:36] la solución no solamente está en las
+[00:17:37] cosas divertidas, sino que también en
+[00:17:39] esas áreas aburridas. tenemos mucho oro
+[00:17:42] por por alcanzar. Si en este proceso eh
+[00:17:47] tienen dudas de cómo conseguir o o
+[00:17:51] aterrizar tantas ideas que van a tener
+[00:17:53] seguramente con sus equipos, esta es una
+[00:17:56] de las metodologías que les puede
+[00:17:57] servir, que es básicamente un árbol de
+[00:18:00] oportunidades y soluciones. Empiezan con
+[00:18:02] el resultado que quieren obtener, que es
+[00:18:04] la parte tope. Luego van viendo las
+[00:18:06] distintas oportunidades que se ven a
+[00:18:09] nivel de necesidades, expectativas del
+[00:18:12] usuario final e todo lo que pueda ser
+[00:18:16] mejor. Luego la solución que es cómo yo
+[00:18:18] voy a resolver ese problema y luego de
+[00:18:21] eso entramos con supuestos. Ha pasado
+[00:18:24] mucho porque también he mentoreado en
+[00:18:26] hackatones que eh muchas personas
+[00:18:29] pierden mucho tiempo intentando ponerse
+[00:18:31] de acuerdo y definir hacia dónde quieren
+[00:18:34] apuntar la solución.
+[00:18:36] Gran parte esto sucede porque no
+[00:18:37] aterrizan las ideas y las tienen solo en
+[00:18:40] en la cabeza y conversan sobre eso, pero
+[00:18:43] no tienen un tablero o una forma para
+[00:18:45] poderlo visualizar. Cuando tú tienes
+[00:18:47] algo visual, tú puedes entender un mejor
+[00:18:49] eh de mejor forma cómo funciona, cuáles
+[00:18:52] son las áreas donde tengo oportunidad de
+[00:18:54] mejora. Y esto evidentemente también se
+[00:18:56] puede hacer con inteligencia artificial
+[00:18:58] y te ahorras un montón de tiempo. Eh, yo
+[00:19:02] de verdad he visto que los e los mejores
+[00:19:06] productos empiezan con una gran eh labor
+[00:19:09] en fundamentos eh y no corren
+[00:19:11] directamente a la a la al lanzamiento
+[00:19:13] del código o a todo lo que sea. De igual
+[00:19:16] forma, si van a prototipar, no gasten
+[00:19:18] demasiado tiempo, no piensen en estilos,
+[00:19:21] no piensen en qué font van a usar, no
+[00:19:22] piensen en qué efecto o animación va a
+[00:19:25] tener la solución que van a tener.
+[00:19:27] Enfóquese en la información en lo más
+[00:19:30] plano posible, como si fuera un TXT, y
+[00:19:33] ya luego ven cómo aplicarle el HTML a
+[00:19:35] eso, eh, porque si no se van perdiendo,
+[00:19:39] eh, mucho, se va perdiendo el enfoque y
+[00:19:41] yo creo que es gran parte de esto, es
+[00:19:43] mantener ese enfoque.
+[00:19:46] Una de las cosas que yo he visto también
+[00:19:48] dentro de estas competencias, incluso
+[00:19:50] dentro de las industrias en las cuales
+[00:19:52] vivo, es el benchmark y la necesidad de
+[00:19:55] empaparse de contexto. E cuando ustedes
+[00:19:58] van un hackaton, gran parte de la
+[00:20:01] información te la dan los competidores,
+[00:20:04] eh, perdón, las empresas que están
+[00:20:05] organizando y demás, pero te vas a dar
+[00:20:08] cuenta que esa información no es
+[00:20:10] suficiente.
+[00:20:11] Tienes una información o un encabezado
+[00:20:13] de un problema, una descripción muy
+[00:20:15] breve, quizás puedas tener un poco quién
+[00:20:18] lo sufre, pero vas a tener demasiadas
+[00:20:20] preguntas porque no te van a dar toda la
+[00:20:23] información. Y para mucha gente eso es
+[00:20:25] un punto difícil de manejar porque pega
+[00:20:29] la ansiedad y demás la frustración. Acá
+[00:20:31] es importante que podamos entender esto.
+[00:20:33] Vas a tener información interna que te
+[00:20:35] van a dar en el hackaton, pero tú puedes
+[00:20:37] buscar en el universo de datos de
+[00:20:39] internet y en información que tenemos.
+[00:20:41] para poder también reducir esa brecha de
+[00:20:44] error que vas a tener. Entonces, si mi
+[00:20:47] reto es sobre, no sé, cómo mejorar un
+[00:20:50] onboarding para obtener un seguro, vas a
+[00:20:53] tener una información muy breve,
+[00:20:54] seguramente de parte de la empresa que
+[00:20:56] hace el sponsorship, pero tú puedes
+[00:20:58] buscar cuál es el estado actual de los
+[00:21:00] seguros eh en tu país, en la región y en
+[00:21:04] el mundo. Puedes intentar entender
+[00:21:06] cuáles son las startups o las empresas
+[00:21:08] emergentes que más están dando de que
+[00:21:10] hablar en esa área. Puedes entender un
+[00:21:13] poco cuáles son los patrones que
+[00:21:14] explican un poquito el área de los
+[00:21:16] seguros. Puedes entender un poco más
+[00:21:18] cuáles son los términos que utilizan
+[00:21:19] como la prima, entre otros.
+[00:21:22] y ya vas a ir especializándote, o sea,
+[00:21:25] ser tienes que hacerte especialista en
+[00:21:28] muy poco tiempo. Evidentemente no vas a
+[00:21:30] llegar a tener la misma información que
+[00:21:32] alguien que tiene 5 o 10 años trabajando
+[00:21:34] en la industria, pero vas a tener
+[00:21:35] algunas cosas que relacionar y eso te va
+[00:21:37] a dar muy buena información. Eh, también
+[00:21:40] es importante que si, por ejemplo, una
+[00:21:42] empresa o un sponsorship está ofreciendo
+[00:21:46] un reto eh que está sufriendo quizás en
+[00:21:49] su plataforma, me ha pasado que mucha
+[00:21:51] gente no ha entrado en su plataforma
+[00:21:53] realmente. ¿Sabes? Si empresa me dice,
+[00:21:56] "Tengo un problema con el onboarding,
+[00:21:58] eh, ¿por qué no vas al al onboarding de
+[00:22:01] la empresa para entender cómo funciona
+[00:22:03] hoy?"
+[00:22:05] Y suena tonto, pero muchas veces lo lo
+[00:22:08] damos por sentado o vemos otras cosas y
+[00:22:10] estamos muy enfocados en la solución
+[00:22:12] cuando en realidad lo que tenemos que
+[00:22:13] hacer es ser muy curiosos y hacernos las
+[00:22:15] preguntas correctas. Por suerte también
+[00:22:18] la ella es muy buena haciendo benchmark
+[00:22:21] eh competitivo eh a nivel de propuesta
+[00:22:24] de valor, entre otras cosas, haciendo
+[00:22:27] supuestos. Eh, y tenemos también muchas
+[00:22:29] cosas interesantes como los datos
+[00:22:31] sintétricos que han salido eh en los
+[00:22:34] últimos años y no han sido nada malos
+[00:22:36] también para soluciones. ¿Okay?
+[00:22:39] Entonces, lo que les decía también
+[00:22:40] anteriormente es que la oportunidad, que
+[00:22:45] puede ser esa solución que tú tienes eh
+[00:22:48] realmente eh puede estar en ese lado
+[00:22:51] tedioso, aburrido, ese proceso
+[00:22:55] engorroso, sumamente lento, ralentizado,
+[00:22:59] que nadie quiere atender. ¿Por qué?
+[00:23:01] porque es tan complejo que nadie quiere
+[00:23:04] lanzarse ese reto y todos dicen como que
+[00:23:07] eso está ahí, ha funcionado, vamos a
+[00:23:10] seguir con otras cosas que pueden ser
+[00:23:12] mucho más productivas. Eh, y es un
+[00:23:15] concepto interesante, ¿no? Como poder
+[00:23:17] ver dentro de lo aburrido también qué
+[00:23:20] cosas pueden mejorar. Hay un caso muy
+[00:23:23] interesante acá que es Stripe, que es la
+[00:23:25] plataforma donde pues muchos reciben
+[00:23:28] pagos porque te conectas y tiene un
+[00:23:30] flujo de checkout. muy interesante,
+[00:23:32] sobre todo los SAS, software as a
+[00:23:34] service o cualquier tipo de producto en
+[00:23:37] realidad que esté por internet, eh
+[00:23:40] utiliza Stripe por detrás para poder
+[00:23:42] cobrar. En su en su inicio muchos
+[00:23:45] emprendedores sabían que necesitaban
+[00:23:47] cobrar más fácilmente, que necesitaban
+[00:23:50] un checkout sencillo para poder
+[00:23:52] monetizar sus soluciones, pero muy pocos
+[00:23:55] emprendieron en el área en la que
+[00:23:57] emprendió Stripe porque tenía que ver
+[00:23:59] con hablar con un banco, con tener este
+[00:24:02] tipo de relaciones bancarias que no son
+[00:24:04] tan divertidas, evidentemente.
+[00:24:07] Entonces, había mucha gente con el
+[00:24:09] problema, muy pocos los querían
+[00:24:11] solucionar y ahí nace también gran parte
+[00:24:13] de esa diferenciación.
+[00:24:16] Hay modelos que cuestan mucho al inicio
+[00:24:18] y luego se van facilitando y otros que
+[00:24:20] se ven muy sencillos de inicio, pero
+[00:24:22] cuando te vas metiendo dentro de
+[00:24:24] infraestructura y otras áreas, te das
+[00:24:26] cuenta que no es tan sencillo como
+[00:24:28] parece.
+[00:24:30] Entonces, eh es muy interesante poder
+[00:24:34] ampliar, ¿no?, eh el espectro de las
+[00:24:37] cosas que podemos entender dentro de un
+[00:24:38] producto. Eh y también gran parte de lo
+[00:24:41] que podamos entender alrededor de esto,
+[00:24:44] eh nos va a dar diferencia y nos va a
+[00:24:47] dar una ventaja sobre lo que estamos
+[00:24:48] haciendo.
+[00:24:52] siguiendo con el mismo orden de cosas
+[00:24:56] las cuales yo tengo certeza y otras de
+[00:24:59] las cuales no tengo nada de información.
+[00:25:03] Eh, es importante también entender que
+[00:25:06] hay formas de trabajar con eso. Sí, hay
+[00:25:09] formas de lidiar con la incertidumbre. Y
+[00:25:12] yo creo que un poco también la realidad
+[00:25:14] del emprendedor hoy, ya sea solo founder
+[00:25:17] o en grupo o lo que sea o incluso en una
+[00:25:20] empresa tradicional es que realmente
+[00:25:22] nadie sabe hacia dónde va porque muchas
+[00:25:25] cosas han cambiado y siguen cambiando
+[00:25:28] muy rápidamente.
+[00:25:30] Pero es interesante ver cómo podemos
+[00:25:32] aterrizar un poquito eh hacia dónde
+[00:25:35] dirigir la atención. Entonces, veamos un
+[00:25:38] poco esta matriz de supuestos.
+[00:25:40] dentro de la matría de supuesto, tenemos
+[00:25:42] una eh digamos una organización XY donde
+[00:25:48] por lo general tenemos cosas que son
+[00:25:51] importantes y que conocemos que es muy
+[00:25:54] valioso poderlas entender para el modelo
+[00:25:56] de negocio, para lo que estoy haciendo
+[00:25:58] como proyecto. Hay cosas que son
+[00:26:00] importantes, pero que no conozco y que
+[00:26:04] fíjense la relevancia que tiene, ¿no?
+[00:26:05] Cuáles son esas cosas que yo hoy por hoy
+[00:26:08] no tengo claridad.
+[00:26:10] Pero son importantes para entender qué
+[00:26:12] tan escalable, viable y oportuna es mi
+[00:26:16] solución.
+[00:26:18] Hay también supuestos que no son
+[00:26:20] importantes y que yo los conozco. Sí.
+[00:26:23] Eh, ya vamos a ver un poco los ejemplos
+[00:26:25] y hay supuestos desconocidos y que no
+[00:26:28] son importantes.
+[00:26:30] Vamos a ir de menos a más. Los
+[00:26:33] supuestos. Supuestos entendiendo como
+[00:26:36] cosas, factos, hechos. estadísticas,
+[00:26:41] insights,
+[00:26:43] cualquier cosa que tenga que ver con eh
+[00:26:45] evidencias sobre un hecho, situación o
+[00:26:48] problema en particular, desde lo menos
+[00:26:51] importante a lo más importante. Las
+[00:26:53] cosas que son desconocidas, pero que a
+[00:26:55] la vez no son importantes para mi idea,
+[00:26:57] realmente podemos pasarlas. Sí, no les
+[00:27:00] pongamos demasiada atención. Eh, esas
+[00:27:03] cosas seguramente no son relevantes para
+[00:27:05] nuestra idea, para nuestro proyecto y
+[00:27:08] posiblemente no cambien nada en nuestro
+[00:27:11] curso de acción, eh, no afecten ni
+[00:27:14] positiva ni negativamente.
+[00:27:17] Entonces, estas cosas las descartamos,
+[00:27:18] ¿no?, que es el cuadrante de abajo y a
+[00:27:20] la derecha. Por ejemplo, los usuarios
+[00:27:23] prefieren recibir avisos por WhatsApp
+[00:27:25] que por correo. Es un tema de habilidad,
+[00:27:28] es un tema de de cómo la gente utiliza
+[00:27:30] el producto, pero no puede cambiar
+[00:27:32] demasiado nuestra forma de ver el
+[00:27:34] producto o la solución. Siguiendo al a
+[00:27:37] la parte tres, las cosas que conocemos y
+[00:27:41] que no son importantes también pueden
+[00:27:44] esperar porque digamos que tiene un
+[00:27:45] impacto o inexistente o muy bajo en la
+[00:27:48] solución que vamos a tener. No es que
+[00:27:51] algo que esté aquí, si yo no lo sé, mi
+[00:27:54] idea puede ser un fracaso, o sea, es
+[00:27:55] algo que realmente es de bajo riesgo.
+[00:27:57] Entonces, por ejemplo, la mayoría de los
+[00:27:59] usuarios accede con el teléfono.
+[00:28:02] Es un dato quizás vanity, que no impacta
+[00:28:05] demasiado en mi en mi día a día. Y
+[00:28:08] bueno, son cosas que pueden esperar más
+[00:28:10] adelante para conocer y que
+[00:28:11] evidentemente no esatón tampoco es tan
+[00:28:14] tan relevante que tengas todo mapeado,
+[00:28:16] sino actuar muy bien con lo que tienes.
+[00:28:19] Yendo ya a la parte dos, tenemos
+[00:28:23] supuestos que son importantes, pero que
+[00:28:26] son desconocidos.
+[00:28:28] Eso es lo primero que tenemos que
+[00:28:29] validar. ¿Qué cosas del reto? ¿Qué cosas
+[00:28:33] del modelo de negocio? No sé hoy, pero
+[00:28:36] son importantes para que el jurado me
+[00:28:38] evalúe bien, pero son importantes para
+[00:28:40] que esta idea realmente le haga sentido
+[00:28:42] al jurado, que le haga sentido para que
+[00:28:45] la solución pase de ronda, para que la
+[00:28:47] solución sirva y mucho más importante
+[00:28:51] para que la gente lo utilice. Entonces,
+[00:28:53] por ejemplo, tenemos acá los usuarios
+[00:28:55] van a cambiar su forma de trabajar para
+[00:28:57] adoptar la solución, un tema de
+[00:28:59] adopción.
+[00:29:01] Saber esto es super importante si están
+[00:29:03] preparados para recibir un cambio en el
+[00:29:05] software, cómo va a ser ese onboarding,
+[00:29:07] cómo poder trabajar esta solución dentro
+[00:29:10] de un flujo de trabajo que ya existe y
+[00:29:12] que mucha gente está posiblemente cómoda
+[00:29:15] con eso, aunque no sea lo más óptimo.
+[00:29:17] Entonces, las cosas que son importantes
+[00:29:19] y que no desconozco, vayan por eso desde
+[00:29:22] ya, desde el día uno, desde el día cero,
+[00:29:25] eh, porque son cosas que seguramente van
+[00:29:27] a cambiar su forma de ejecutar la idea,
+[00:29:31] de bueno, poder ser un proyecto normal y
+[00:29:33] genérico, hacer una solución que
+[00:29:35] realmente despierte el interés. Y a la
+[00:29:37] última pues son las cosas que son
+[00:29:39] importantes y y conocidas que son cosas
+[00:29:42] sobre las cuales tenemos que construir.
+[00:29:45] ¿Okay? ¿Por qué? porque tenemos certezas
+[00:29:48] sobre estas cosas y son hechos tangibles
+[00:29:52] y reales que nos van a dar validez a lo
+[00:29:54] que estamos haciendo. ¿Okay? [carraspeo]
+[00:29:57] Entonces, por ejemplo, acá la empresa ya
+[00:30:00] gasta tiempo o dinero resolviendo esto a
+[00:30:02] mano. Si es un proceso donde la empresa
+[00:30:04] gasta plata, dinero, tiempo, dedicación
+[00:30:07] y esfuerzo y le toma 7 días cuando en
+[00:30:10] realidad el tiempo óptimo serían dos,
+[00:30:12] sabemos que es un hecho importante y
+[00:30:14] conocido que tenemos que actuar sobre
+[00:30:16] ello, o sea, que tenemos que ver incluso
+[00:30:19] profundizar cuánto es ese tiempo, cuánto
+[00:30:21] es porcentaje de reducción que podemos
+[00:30:23] lograr. Eh, y aquí fíjense que si
+[00:30:26] descartamos las cosas que no son
+[00:30:28] importantes, uy, uf, nos relajamos un
+[00:30:31] poco más, eh, sabemos un poco más hacia
+[00:30:35] dónde construir y también la idea tiene
+[00:30:37] pues un área de acción mucho más cerrada
+[00:30:40] que también es importante poderla
+[00:30:41] entender.
+[00:30:43] Esto va atado con algo que les dije
+[00:30:45] anteriormente, que es construyan en lo
+[00:30:48] que sean buenos, vean cuáles son los
+[00:30:51] retos y en lo que son buenos como
+[00:30:53] capacidades de equipo. Vayan por eso.
+[00:30:56] Ustedes son libres de elegir lo que
+[00:30:58] quieran, pero esa es mi recomendación
+[00:31:00] porque también las cosas que conoces y
+[00:31:03] que son importantes van a estar
+[00:31:05] relacionadas a eso. ¿Okay?
+[00:31:08] Em,
+[00:31:10] gran parte de esta charla y las
+[00:31:12] preguntas que le estoy haciendo y las
+[00:31:14] definiciones que les estoy brindando
+[00:31:17] es un resumen de lo que ustedes deberían
+[00:31:21] tener y responderse
+[00:31:24] para poder ejecutar una solución. ¿Okay?
+[00:31:27] Entonces, este es básicamente el resumen
+[00:31:29] de un poquito de lo que hemos hablado. Y
+[00:31:32] responder estas dudas ya tiene muchas
+[00:31:35] cosas resueltas para ti. Tiene resuelto
+[00:31:37] gran parte del pitch, porque acá tienes
+[00:31:40] el por qué, porque aquí tienes el cómo,
+[00:31:42] porque acá tienes quién está detrás del
+[00:31:44] problema, porque acá tienes eh un poco
+[00:31:47] cuáles son esas cosas que toca revisar.
+[00:31:50] Entonces, vamos a ver una por una. El
+[00:31:52] resultado, ¿qué número quiere mover el
+[00:31:54] patrocinador?
+[00:31:56] ¿Qué
+[00:31:58] problema, qué dolor busca resolver la
+[00:32:01] empresa que está dejando un reto dentro
+[00:32:04] de este jacato?
+[00:32:06] Eh, eso es importante poderlo conocer
+[00:32:08] porque volviendo y voy a volver a la
+[00:32:11] lámina de el mapa de soluciones, el
+[00:32:15] árbol, fíjense que todo empieza desde el
+[00:32:17] resultado y luego voy viendo las
+[00:32:18] oportunidades. ¿Okay?
+[00:32:20] Entonces,
+[00:32:22] eh esa es la número uno, que es el
+[00:32:23] resultado, los roles. ¿Quién es esa
+[00:32:27] persona? O sea, ¿quién se va a ver
+[00:32:28] beneficiado por esto? ¿Es el jefe? ¿Es
+[00:32:30] el supervisor? ¿Es el operador? ¿Son los
+[00:32:32] usuarios? ¿Quién quién quién realmente
+[00:32:35] es el que va a usar esto? ¿Qué tanto lo
+[00:32:37] utiliza? ¿Dónde lo utiliza? ¿Cómo es ese
+[00:32:39] contexto donde lo utiliza? Eh, y les va
+[00:32:42] a dar, evidentemente, un enfoque
+[00:32:44] integral de ese perfil, quién lo usa,
+[00:32:47] quién aprueba y demás. El problema real,
+[00:32:50] ¿qué hay detrás de lo que pide el brief?
+[00:32:53] O sea, me das una me das un problema, me
+[00:32:56] dices quién lo está sufriendo, pero ¿qué
+[00:32:59] hay detrás? ¿Qué hizo al sponsor
+[00:33:02] priorizar ese problema? ¿Cuánto les
+[00:33:04] cuesta ese problema al mes o al año? Que
+[00:33:06] es mucho más grande poderlo ver así. Eh,
+[00:33:10] es importante porque siento que el
+[00:33:13] espacio de consultas va a ser breve
+[00:33:15] siempre y hacer las preguntas correctas
+[00:33:17] le va a dar esa mejor solución.
+[00:33:19] Entonces, claro, hay muchos problemas
+[00:33:21] que podemos intuir y que vamos a tener
+[00:33:23] hipótesis, pero si ustedes lo pueden
+[00:33:25] confirmar, eh, va a ser mucho más fácil.
+[00:33:28] La otra pregunta es, ¿por qué ahora que
+[00:33:30] lo hace posible o necesario? Que son dos
+[00:33:32] cosas distintas. una solución posible.
+[00:33:35] es una solución que, bueno, entra a tu
+[00:33:37] vida y qué chévere que sea posible, eh,
+[00:33:40] me ofrece valor, pero necesario,
+[00:33:43] necesario tener una connotación mucho
+[00:33:46] más grande y evidentemente creo que ahí
+[00:33:49] se ve mucho más también el beneficio.
+[00:33:52] Entonces es importante entender por qué
+[00:33:54] hoy por qué hoy esa empresa está viendo
+[00:33:57] ese problema, ¿qué está pasando en su
+[00:34:00] mercado con los competidores, qué está
+[00:34:02] pasando en el país a nivel global? ¿Qué
+[00:34:05] dudas pueden tener? Vamos un poquito
+[00:34:07] también más allá. El otro es el supuesto
+[00:34:10] más riesgoso, ¿no? Como de valor.
+[00:34:13] Realmente mi idea cuando ya la tenga
+[00:34:15] pensada le sirve. Realmente lo van a
+[00:34:18] usar. O sea, esta gente de verdad va a
+[00:34:20] cambiar su flujo de trabajo por el cual
+[00:34:22] ya estás acostumbrado para poder eh
+[00:34:25] integrar un nuevo flujo de trabajo.
+[00:34:28] ¿Cómo los validamos? O sea, ¿cómo yo en
+[00:34:29] tres días puedo saber si esto realmente
+[00:34:31] es útil o no? Porque al momento de hacer
+[00:34:34] el pitch tiene que estar muy seguro de
+[00:34:35] tu solución.
+[00:34:37] Y la mejor forma de estar seguro y de no
+[00:34:39] ponerte nervioso es entender mucho lo de
+[00:34:42] lo que estás hablando. ¿Okay? Entonces,
+[00:34:45] e al momento de la adopción, yo creo que
+[00:34:49] la gente siempre va a estar dispuesta a
+[00:34:52] aceptar un producto que mejore su vida
+[00:34:56] siempre y cuando le otorgue un
+[00:34:57] beneficio. Si más bien va a demorar
+[00:35:01] tiempo más del anterior, evidentemente
+[00:35:05] la persona va a hacer resistencia o no
+[00:35:08] va a estar interesada en la solución,
+[00:35:10] entre otras cosas.
+[00:35:12] Hay una que dice nuestra ficha de
+[00:35:14] innovación, pero se las voy a comentar
+[00:35:15] en la siguiente lámina. Y la última es
+[00:35:18] el team y el reto, cómo hace fit, o sea,
+[00:35:23] cómo encaja el equipo y el reto, que es
+[00:35:26] lo que les comentaba también de cómo
+[00:35:29] poder elegir un reto en el cual eres muy
+[00:35:32] bueno. Tú, tus compañeros, ¿dónde creen
+[00:35:35] que pueden desempeñarse mejor? Y ahí la
+[00:35:37] pregunta es, ¿qué tanto sabemos de esto?
+[00:35:40] eh para quizás entender y ir despejando
+[00:35:44] la X con respecto a hacia dónde me voy a
+[00:35:47] ir, qué reto voy a voy a voy a
+[00:35:49] seleccionar.
+[00:35:52] Eh, unos unos expertos interesantes
+[00:35:55] hablan de que cuando innovamos o cuando
+[00:35:57] hacemos productos tenemos solamente tres
+[00:36:00] fichas de innovación y hay que saber muy
+[00:36:03] bien cuándo utilizarlas, cuándo cambiar
+[00:36:05] el juego, cuándo poner una idea que
+[00:36:08] cambie un poquito el orden. En el caso
+[00:36:11] nuestro tenemos solamente una ficha de
+[00:36:12] innovación, ¿no? Y la pregunta es,
+[00:36:14] ¿dónde la vas a poner? Si tienes un
+[00:36:17] cupón para innovar, ¿dónde lo vas a
+[00:36:20] poner? En el stack, en el stack
+[00:36:22] tecnológico seguramente lo vas a
+[00:36:24] resolver muy sencillo o quizás pues
+[00:36:27] vayas a compartir el código, pero no
+[00:36:30] haya una gran profundidad allí con el
+[00:36:33] poco tiempo que hay. Ya después vas a
+[00:36:35] tener un tiempo de implementación
+[00:36:37] seguramente si ganas.
+[00:36:39] Pero, ¿dónde vas a gastar esa ficha? Yo
+[00:36:41] te invito a gastarlo en el problema, o
+[00:36:43] sea, en entender,
+[00:36:45] en identificar el insight mejor que el
+[00:36:48] resto, en hacerte especialista en esos
+[00:36:50] pocos días que vas a tener, en hacer las
+[00:36:53] preguntas correctas para diferenciarte
+[00:36:55] del resto de los competidores,
+[00:36:57] eh, y que eso evidentemente te dé una
+[00:37:00] madurez y un entendimiento del problema
+[00:37:03] tan grande que tus ideas vayan muy
+[00:37:05] alineadas y sean muy eficientes con eso.
+[00:37:08] ¿Sabes que gastes menos tokens? Ese es
+[00:37:11] mi objetivo hoy, que gastes menos
+[00:37:13] tokens, que le tengas que hacer menos
+[00:37:15] prompts a la IA, que evites hacer
+[00:37:18] 10aciones,
+[00:37:20] eh,
+[00:37:22] sabes, que salgas un poco de esa
+[00:37:23] conversación y entres realmente en el
+[00:37:27] problema, en lo que vamos a hacer y cómo
+[00:37:29] esto le va a aportar valor a alguien que
+[00:37:32] todos los días puede que use tu
+[00:37:33] producto. Y cuando uno construye
+[00:37:35] productos, eso es lo más lindo que hay
+[00:37:38] realmente, ver cómo este impacta.
+[00:37:40] impacta en el día a día, te das cuenta
+[00:37:41] que incluso los componentes más pequeños
+[00:37:44] hacen grandes cambios cuando trabajas en
+[00:37:46] sistemas de escala. Eh, y yo creo que
+[00:37:49] eso es muy valioso de poderlo entender y
+[00:37:51] que se lleven, evidentemente.
+[00:37:54] Ya con eso finalizo acá mi presentación.
+[00:37:56] Les dejo el código QR de mi LinkedIn
+[00:37:59] para cualquier consulta, poder conectar,
+[00:38:02] eh
+[00:38:03] seguir en contacto. También voy a estar
+[00:38:06] dentro de este hackatom eh dando
+[00:38:08] mentorías a nivel de producto,
+[00:38:10] definición de propuesta de valor, pitch
+[00:38:12] y un poco lo que les pueda ayudar.
+[00:38:15] Entonces, bueno, muy agradecido este
+[00:38:17] espacio. Espero les sea muy útil y
+[00:38:19] bueno, cualquier cosa allí estamos en
+[00:38:21] contacto para cualquier cosa en los que
+[00:38:23] les pueda ayudar. Muchas gracias.
+[00:38:26] Gracias, Isaac. Bueno, tenemos dos
+[00:38:29] preguntas. Ya vamos a iniciar con el
+[00:38:30] espacio para preguntas en el chat.
+[00:38:34] Y bueno, la primera pregunta es de
+[00:38:37] Ricardo.
+[00:38:39] Eh, ¿qué opinas de los empresarios que
+[00:38:41] quieren utilizar y usar herramientas
+[00:38:44] gratuitas a sabiendas que pagar trae sus
+[00:38:46] beneficios?
+[00:38:47] Sí, depende mucho del rango de
+[00:38:50] empresario en el cual te encuentres,
+[00:38:51] ¿no? Cuando eres un empresario pequeño,
+[00:38:54] buscas aminorar los costos en lo máximo
+[00:38:56] posible. Tú dices, esto que puedo gastar
+[00:38:59] en este sistema el siguiente mes me
+[00:39:01] puede servir para pagarle a mi
+[00:39:03] colaborador. Entonces, buscas de estirar
+[00:39:06] los gastos lo máximo posible. Yo creo
+[00:39:09] que la la decisión de poder usar una
+[00:39:12] plataforma paga es cuando ya entras a un
+[00:39:13] nivel de poderlo costear, un nivel de
+[00:39:16] madurez, un nivel de compromiso con tus
+[00:39:18] clientes, donde ya sabes que no puedes
+[00:39:20] ofrecer una infraestructura gratuita
+[00:39:22] porque se queda corta. Pero para
+[00:39:24] validar, yo creo que es importante e
+[00:39:27] incluso interesante poder abaratar los
+[00:39:29] costos, porque si fracasa la idea y la
+[00:39:32] empresa cierra, pues el lamento va a ser
+[00:39:35] menor. Entonces, yo creo que depende
+[00:39:37] mucho de esa etapa y para los
+[00:39:40] emprendedores que están iniciando y los
+[00:39:41] builders, muchos de ellos pues tienen
+[00:39:44] esta mentalidad y yo creo que es muy
+[00:39:45] ganadora. Tenemos que ser muy
+[00:39:47] eficientes. Muchos usan planes
+[00:39:48] educativos, muchos se meten en hackatons
+[00:39:51] para recibir beneficios, muchos están en
+[00:39:53] comunidades para lo mismo y es parte
+[00:39:54] también del camino que tenemos que que
+[00:39:57] tomar, ¿no? Ser muy eficientes, eh, y
+[00:39:59] rendir la plata.
+[00:40:04] Perfecto. Bueno, otra pregunta de
+[00:40:09] Eh, lo otro es que muchos empresarios
+[00:40:12] asumen o piensan que porque es la
+[00:40:13] primera versión del desarrollo del
+[00:40:16] desarrollador debe cobrar poco nada.
+[00:40:19] Sí, yo yo también he visto mucho esto,
+[00:40:22] Ricardo. Yo creo que hay hay varias
+[00:40:24] cosas que pueden definir esto. Yo creo
+[00:40:26] que un empresario, un emprendedor que
+[00:40:29] busque un desarrollador que no cobre,
+[00:40:33] pues tiene que saber qué desarrollador
+[00:40:35] buscar, ¿no? tiene que ser una persona
+[00:40:36] que esté aprendiendo, quizás que vea
+[00:40:39] otro tipo de interés, como por ejemplo
+[00:40:41] desarrollar un portafolio, tener un
+[00:40:43] producto real, que es también gran parte
+[00:40:45] de los que trabajamos en tecnología,
+[00:40:46] necesitamos tener ese respaldo real de
+[00:40:49] lo que estamos haciendo para poderlo
+[00:40:51] mostrar después a empleadores, distintos
+[00:40:53] socios y demás. Entonces, eh yo creo que
+[00:40:56] hay que ser justos con la paga,
+[00:40:58] evidentemente.
+[00:41:00] Eh si quieres un producto de calidad,
+[00:41:02] tienes que invertir en él, tienes que
+[00:41:05] estar a la altura, evidentemente, el
+[00:41:06] resultado que vas a a esperar y pues
+[00:41:10] hacer mucho con poco también a veces se
+[00:41:13] vuelve un gran riesgo porque, bueno, tus
+[00:41:16] colaboradores no están al 100% y yo creo
+[00:41:19] que mucho el éxito de una empresa
+[00:41:20] también depende de qué también estén tus
+[00:41:22] colaboradores. Si estás generando mucho,
+[00:41:24] pero tus colaboradores no. Yo creo que
+[00:41:26] eso se va a notar y la idea que tenemos
+[00:41:29] hoy y que esperamos para todos es que
+[00:41:31] puedan tener pues un equilibrio también
+[00:41:34] dentro de todo lo que hacen.
+[00:41:37] Perfecto. Gracias Isaac. Bueno, otra
+[00:41:40] pregunta de Angi. ¿Cómo evitar que la
+[00:41:43] velocidad de la inteligencia artificial
+[00:41:45] nos haga validar nuestras propias ideas
+[00:41:47] en lugar de descubrir necesidades reales
+[00:41:49] del usuario? Está muy buena. Ang, yo
+[00:41:52] creo que eh hay que ver la la
+[00:41:55] inteligencia artificial como medio y no
+[00:41:57] como el resultado en sí. Sí, o sea, los
+[00:41:58] problemas siguen existiendo y van a
+[00:42:00] seguir existiendo. Ya existían antes. Lo
+[00:42:02] que ha cambiado es la forma en como lo
+[00:42:04] vamos atendiendo. Eh, te pongo el caso
+[00:42:07] de los de los diseñadores. Nosotros
+[00:42:09] invertíamos, por ejemplo, mucho tiempo
+[00:42:11] investigando y después invertíamos
+[00:42:13] bastante tiempo diseñando y después
+[00:42:16] invertíamos tiempo probando esos diseños
+[00:42:18] que hacíamos. Entonces, eh gran parte de
+[00:42:22] lo que hacíamos antes, que es diseñar,
+[00:42:25] se ha reducido, evidentemente, porque
+[00:42:27] muchas herramientas nos han facilitado
+[00:42:29] el trabajo y eso nos hace incluso que
+[00:42:32] tengamos más tiempo para el lado humano,
+[00:42:34] que es, yo creo que es la perspectiva
+[00:42:36] más interesante de hoy y e es el
+[00:42:39] approach que yo creo que hay que tomar.
+[00:42:41] El tiempo que yo me ahorro como
+[00:42:43] emprendedor o como diseñador o como
+[00:42:45] builder desarrollando, yo no puedo
+[00:42:48] dedicarlo a desarrollar más o a
+[00:42:51] tomármelo libre, sino a intentar
+[00:42:54] entender qué son esas cosas que me hacen
+[00:42:56] falta. Sí, al lado humano. Entonces, si
+[00:42:58] antes tardaba 3 meses en desarrollar y
+[00:43:01] ahora tarda uno, bueno, felicidades.
+[00:43:02] Tienes dos meses para investigar, para
+[00:43:04] sentarte con un café con tu usuario,
+[00:43:06] para ir con un inversionista y para
+[00:43:08] hacer más cosas de las que antes tenías
+[00:43:10] planeadas. Entonces, yo creo que hay que
+[00:43:13] recordar siempre porque hacemos lo que
+[00:43:14] hacemos. Eh, eso es clave. incluso gente
+[00:43:18] que trabaja en esta área, incluyéndome
+[00:43:20] en UEX y tal, que nuestra área dice
+[00:43:23] usuario, lo damos por sentado porque
+[00:43:25] estamos muy metidos en la operación,
+[00:43:27] pero hay que siempre volver a a ese a
+[00:43:30] ese hecho porque
+[00:43:33] es costo de negocio, no hablar con el
+[00:43:35] usuario, no validar y es costo también a
+[00:43:38] nivel de tiempo nuestro, eh, porque más
+[00:43:40] adelante nos va nos va a pasar factura.
+[00:43:47] Perfecto. Vamos con otras dos preguntas.
+[00:43:52] Eh, la siguiente es, ¿cómo podemos hacer
+[00:43:55] entender a un pequeño empresario que
+[00:43:57] tiene acceso a cloud o a GPT y cree que
+[00:43:59] sabe más que un asesor porque hace
+[00:44:00] preguntas a un LLM y tiene ciertos
+[00:44:03] sesgos?
+[00:44:05] Eso está muy bueno. Bueno, los los
+[00:44:06] pequeños empresarios, como ya
+[00:44:08] hablábamos, también buscan la forma de
+[00:44:10] poder
+[00:44:12] reducir costos y yo creo que también el
+[00:44:16] nivel de sesgos es bastante grande, ¿no?
+[00:44:18] Porque es como la frase común. Yo hablé
+[00:44:20] con Gemini y Gemini me dijo que este es
+[00:44:23] el flujo de trabajo, así que vamos con
+[00:44:25] esto. Y también me ha pasado mucho que
+[00:44:28] enviamos cotizaciones y las revisa la
+[00:44:30] IA. Entonces, el cliente nos nos
+[00:44:33] responde con inteligencia artificial y
+[00:44:35] nunca eh es él participando realmente.
+[00:44:39] Yo creo que la pregunta real que hay que
+[00:44:40] hacerse es si él realmente es tu
+[00:44:41] cliente. Sí. Eh, porque por lo general
+[00:44:45] si hay muchos sesgos, si tiene acceso a
+[00:44:48] cloud, chat GPT y valida o basa sus
+[00:44:51] decisiones en esto, es muy complicado de
+[00:44:54] poderlo manejar. Eh, entonces hay que
+[00:44:57] ser muy estratégico, buscar el lado
+[00:44:59] humano también, como les decía, eh si
+[00:45:02] pueden romper la parte digital e ir en
+[00:45:04] persona, ver cómo poder manejar esto ya
+[00:45:07] a nivel de habilidades blandas. Creo que
+[00:45:08] sería muy interesante, pero es un reto
+[00:45:10] que tenemos todos hoy realmente, o sea,
+[00:45:12] cómo poder eh relacionarnos mejor con
+[00:45:15] gente que pues nos lanza todo con
+[00:45:17] inteligencia artificial y cree que sabe
+[00:45:19] más que nosotros. Ahí es que nos toca a
+[00:45:21] nosotros poder también hablar un poco de
+[00:45:24] nuestro trabajo, el tiempo de
+[00:45:26] experiencia y que ellos vean que no
+[00:45:28] somos alguien que le está mintiendo,
+[00:45:29] sino que somos un aliado que le va a
+[00:45:31] hacer ahorrar tiempo y que les va a
+[00:45:33] hacer ahorrar también dinero.
+[00:45:37] ¿Vale? Y nuestra última pregunta de
+[00:45:41] Roberto.
+[00:45:42] Para la competencia, si usamos Versel,
+[00:45:44] ¿qué recomiendas en el uso de Versel en
+[00:45:46] el supuesto de tener listo el
+[00:45:48] entendimiento del problema?
+[00:45:50] Sí. Bueno, yo creo que est es una parte
+[00:45:52] más técnica. Mi área es más como diseño
+[00:45:54] de producto, investigación y demás.
+[00:45:57] Si tienes listo el supuesto y el
+[00:46:00] entendimiento del problema, ya como te
+[00:46:02] digo, el stack está en gran parte
+[00:46:05] resuelto.
+[00:46:06] Entonces, enfócate un poco más en por lo
+[00:46:10] menos en en esa primera etapa, en
+[00:46:13] entender un poquito más, no
+[00:46:14] infraestructura, sino personas y luego
+[00:46:16] vas más adelante hacia el stack en
+[00:46:19] Versel, evidentemente todo el tema de
+[00:46:21] poder hostear, probar y demás, pero yo
+[00:46:24] creo que hay que darle mucho más énfasis
+[00:46:28] a al problema que al stack realmente.
+[00:46:35] Perfecto. Gracias, Isaac. Tenemos otras
+[00:46:38] preguntas.
+[00:46:41] Las respondemos, Isaac, lo que tú me
+[00:46:43] dias.
+[00:46:43] Vamos, vamos. Yo, yo tengo tiempo.
+[00:46:45] Ah, vale, perfecto. Entonces, vamos a
+[00:46:47] responder las otras. Vale, entonces la
+[00:46:50] otra es, ¿qué opina de usar ese bebé en
+[00:46:53] el jacatón?
+[00:46:56] Muy muy técnica para mí que no soy
+[00:46:58] desarrollador. [risas]
+[00:47:01] Hagan preguntas de diseño.
+[00:47:05] Una de Ricardo en ese orden de ideas,
+[00:47:07] ¿cuál sería el ticket adecuado mensual
+[00:47:09] en una app SAS?
+[00:47:12] No, depende mucho del del SAS. O sea,
+[00:47:16] hay gente que puede pagar una
+[00:47:17] suscripción
+[00:47:19] eh alta, otras que son muy de bajo
+[00:47:20] ticket, depende mucho del modelo de
+[00:47:22] negocio. Entonces eh yo creo que puede
+[00:47:25] variar esa validación de precios también
+[00:47:27] es parte de la investigación que
+[00:47:29] hacemos.
+[00:47:30] Eh, y mucho de la validación de cuánto
+[00:47:32] puede pagar es hacer benchmark, ver
+[00:47:35] cuántos cobran tus competidores, si
+[00:47:37] están en el mismo mercado, si ofrecen lo
+[00:47:39] mismo que tú y ya ver un poco eh alinear
+[00:47:43] esa estrategia de precios también a lo
+[00:47:44] que estamos haciendo, ¿no?, nosotros
+[00:47:46] como proyecto.
+[00:47:52] Creo que ya es la última. ¿Qué opina de
+[00:47:54] los usuarios que quiera automatizar su
+[00:47:56] desorden en lugar de resolverlos?
+[00:47:59] Lo lo bueno de automatizar es que la
+[00:48:01] gente ve que puede mejorar sus procesos,
+[00:48:04] o sea, y cuando lo vas a automatizar
+[00:48:05] entiendes que tuviste mucho tiempo con
+[00:48:08] un desastre en casa, ¿no? Uno dice como
+[00:48:10] que ah, esto siempre pudo ser mejor,
+[00:48:11] solo me hacía falta orden. Entonces,
+[00:48:16] eh yo creo que es ganancia automatizar,
+[00:48:20] o sea, buscar la forma de hacer las
+[00:48:22] mismas acciones con menos tiempo y con
+[00:48:25] menos esfuerzo, yo creo que es también
+[00:48:27] hacia dónde va el mundo, ¿no? Eh, en ser
+[00:48:31] muy usar una economía también a nivel de
+[00:48:34] la conducta que estamos empleando.
+[00:48:36] Entonces, no no lo veo como algo malo y
+[00:48:37] creo que es muy bueno que podamos
+[00:48:39] automatizar tanto procesos como como la
+[00:48:42] información que podamos tener.
+[00:48:46] Perfecto. Bueno, entonces eh con esto
+[00:48:50] finalizamos como tal la sesión. Gracias
+[00:48:53] a Isaac por compartirnos todo esto y a
+[00:48:55] los que estuvieron allí en el chat y en
+[00:48:57] la Meet, muy pendientes, muy atentos. Mu
+[00:48:59] gracias por eso. Antes de despedirnos,
+[00:49:03] eh quiero dar algunos anuncios
+[00:49:05] importantes para que tengan muy
+[00:49:07] presente. Son tres anuncios. El primero
+[00:49:09] es que las inscripciones del jacatón si
+[00:49:11] eran hoy jueves 15 de octubre. Si no se
+[00:49:15] han inscrito, pueden hacerlo por medio
+[00:49:17] del link que está en el en el video o si
+[00:49:20] no en el chat. Yo les dejé también el
+[00:49:21] link para que lo puedan hacer
+[00:49:22] rápidamente. Recuerden que pueden hacer
+[00:49:25] de forma individual o grupal. El segundo
+[00:49:28] anuncio es que la Jacatón arranca
+[00:49:30] oficialmente mañana viernes 16 de
+[00:49:32] octubre, hora eh Colombia, creo que
+[00:49:35] inicia las 5 hor Colombia. Entonces,
+[00:49:37] para que estén muy atentos, no se
+[00:49:39] pierdan la sesión de kickof. Allí vamos
+[00:49:41] a dar como tal toda eh la información de
+[00:49:44] la Jacatón, los retos, las empresas
+[00:49:46] aliadas, vamos a brindar también eh cómo
+[00:49:49] se evaluar los proyectos. Entonces, es
+[00:49:51] fundamental su participación. Y
+[00:49:53] finalmente, el tercer recordatorio es
+[00:49:55] que eh tenemos más sesiones, ¿vale?,
+[00:49:58] para que se preparen. Si se perdieron
+[00:50:00] alguna sesión en el canal de YouTube van
+[00:50:03] a poder revisarlas o si no en el link
+[00:50:05] que nosotros les enviamos para unirse a
+[00:50:07] esta sesión también la van a poder
+[00:50:08] visualizar. Entonces, eh no se las
+[00:50:11] pierdan. Eh a las 7 tenemos una
+[00:50:14] masterclass por si se quieren unir
+[00:50:15] también. Y bueno, mil gracias a todos
+[00:50:18] los que están ahora mismo y los que
+[00:50:20] estuvieron presentes. Un abrazo y mil
+[00:50:22] gracias a Isaac también por ser parte de
+[00:50:24] esta charla. Chao, nos seguimos viendo.
+[00:50:26] Muy bien.

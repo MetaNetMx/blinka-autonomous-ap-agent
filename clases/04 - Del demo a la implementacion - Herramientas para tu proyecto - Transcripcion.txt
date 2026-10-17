@@ -1,0 +1,1876 @@
+# Del demo a la implementacion - Herramientas para tu proyecto (2026-10-15)
+URL: https://www.youtube.com/watch?v=z8a3AHd7VRQ
+
+[00:00:33] Bueno, buenas noches. Hola a todos,
+[00:00:35] ¿cómo están?
+[00:00:37] Eh, quiero que vayan poniendo por aquí
+[00:00:39] en el chat desde donde nos están viendo
+[00:00:43] mientras empezamos la sesión. Y bueno,
+[00:00:45] eh les quiero dar la bienvenida a esta
+[00:00:48] sesión que se llama del demo a la
+[00:00:49] implementación construye proyectos que
+[00:00:51] lleguen más lejos que una hackaton. Y
+[00:00:54] antes de arrancar les quiero contar
+[00:00:56] rápidamente que estas sesiones son
+[00:00:58] específicamente para que ustedes lleguen
+[00:01:00] super preparados al hackaton con las
+[00:01:02] bases claras y con herramientas que van
+[00:01:04] a poder usar desde el primer minuto. El
+[00:01:07] hackaton arranca oficialmente el viernes
+[00:01:10] 16 de octubre a las 5 pm hora Colombia y
+[00:01:13] es virtual, así que pueden participar
+[00:01:15] desde donde estén. Si están desde eh
+[00:01:18] Uruguay, desde Argentina, desde México,
+[00:01:22] van a poder participar sin ningún
+[00:01:24] problema.
+[00:01:26] En el kickoff del viernes les vamos a
+[00:01:29] dar toda la información de los retos y
+[00:01:31] las empresas con las que van a trabajar
+[00:01:33] para que se vayan preparando y armando
+[00:01:35] sus equipos.
+[00:01:37] Eh, si todavía no se han inscrito eh o
+[00:01:40] conocen a personas que saben que les
+[00:01:42] gustaría participar en la Hakat, pueden
+[00:01:44] enviarles el link que está en la
+[00:01:45] descripción y que les vamos a estar
+[00:01:47] enviando por el chat. Y eh las
+[00:01:50] inscripciones están abiertas hasta
+[00:01:52] mañana, jueves 15 de octubre.
+[00:01:55] Y eh bueno, eh
+[00:01:58] por aquí estoy viendo que nos ven desde
+[00:02:00] Venezuela. Qué chévere, desde Pippa,
+[00:02:03] desde Medellín.
+[00:02:06] Buenísimo.
+[00:02:08] Bueno, para comentarles que desde
+[00:02:12] el chat van a poder estar dejando sus
+[00:02:14] preguntas para que al final eh nos pueda
+[00:02:17] eh Sandra estar respondiendo todo esto.
+[00:02:21] Y también les quería comentar que eh por
+[00:02:24] favor estén pendientes de su correo, ya
+[00:02:26] que allí hemos enviado un par de correos
+[00:02:28] para que eh estén pendientes. Uno de
+[00:02:31] ellos es que a las personas que no son
+[00:02:33] desarrolladoras
+[00:02:35] eh les tenemos 120 créditos de lowable.
+[00:02:39] Esto quiere decir que tenemos para 120
+[00:02:40] personas eh disponible el código de
+[00:02:44] Lovaball para que lo puedan usar durante
+[00:02:46] la hackaton. Sabemos que pues hay muchas
+[00:02:48] personas que no están en todo este mundo
+[00:02:50] del desarrollo o no se sienten muy
+[00:02:53] hábiles allí, pero aún así tienen ideas
+[00:02:56] muy buenas y nos encantaría ver
+[00:02:57] igualmente esas ideas y que no se
+[00:03:00] sientan como en un poco desventaja con
+[00:03:03] las personas que sí saben de todo este
+[00:03:07] tema del desarrollo.
+[00:03:09] Sin más, los dejo con Sandra, nuestra
+[00:03:12] Head of Community aquí en 30X, que nos
+[00:03:15] va a hablar de cómo hacer, cómo pasar
+[00:03:19] del demo a la implementación.
+[00:03:23] Muchas gracias, Juli, por pasarme por
+[00:03:25] acá. Bueno, voy a comenzar a compartir
+[00:03:28] pantalla y pues antes de comenzar quiero
+[00:03:31] comentarles un poquito pues de mi
+[00:03:32] experiencia. Eh, no solamente hago
+[00:03:34] hackatons por acá en 30x, he tenido pues
+[00:03:37] experiencia llevando a cabo también
+[00:03:39] proyectos, bien sea como participante,
+[00:03:42] desde el lado de partners también dentro
+[00:03:44] de los hackatons. Entonces, hoy quiero
+[00:03:45] compartirles un poco pues mi experiencia
+[00:03:48] en cada uno de estos lados, no solamente
+[00:03:50] como participante, como organizadora,
+[00:03:52] sino también desde la parte de jurado y
+[00:03:54] partner que he podido hacer en
+[00:03:56] diferentes eh plataformas. Entonces,
+[00:03:59] adicional a eso, pues les cuento que he
+[00:04:01] estado en áreas como Grow, en varias
+[00:04:03] startups, sobre todo en el mundo de
+[00:04:05] blockchain, en empresas como Unisaplabs,
+[00:04:07] eh también de Research Protocol, entre
+[00:04:09] otras. Y bueno, esta es la experiencia
+[00:04:11] un poquito que les puedo compartir. He
+[00:04:13] tenido el gran placer de trabajar
+[00:04:15] también desarrollando productos en
+[00:04:17] varias de estas startups y pues hoy en
+[00:04:20] día en 30x también desde el equipo de
+[00:04:22] tecnología. Así que es un placer estar
+[00:04:24] por acá y comentarles un poquito pues
+[00:04:25] cómo pasar de simplemente un demo a
+[00:04:28] llevarlo lo más posible cercano a la
+[00:04:30] implementación porque queremos que sus
+[00:04:31] proyectos no solamente se queden en este
+[00:04:33] hackatom, sino que podamos tomarlo como
+[00:04:35] el punto de partida para que esto se
+[00:04:38] convierta en una implementación
+[00:04:39] directamente en las empresas con las que
+[00:04:41] estamos haciendo este hackaton y también
+[00:04:44] quién sabe, incluso se pueda convertir
+[00:04:45] en sus propios productos allá afuera y
+[00:04:47] se pueden convertir en fundadores y esto
+[00:04:49] lo puedan llevar a hacer mucho más que
+[00:04:51] simplemente un demo dentro de un Hatat.
+[00:04:54] Entonces, la idea acá es compartirles un
+[00:04:56] poquito esa experiencia y cómo qué
+[00:04:58] recomendaciones puedo darles en ese
+[00:04:59] sentido. Entonces, bueno, para iniciar
+[00:05:02] les voy a contar por qué me emocionó
+[00:05:04] mucho cuando Bilbao me comentó, Andrés
+[00:05:06] Bilbao en este caso, que queríamos hacer
+[00:05:08] hackatons. Me dijo, "Ey, tengo la idea
+[00:05:10] de hacer hackatons, vamos a lanzarnos a
+[00:05:12] hacerlo. Tú que tienes experiencia en
+[00:05:14] esto, lo podemos hacer." Y yo, "Claro
+[00:05:15] que sí." Y yo dije, "Ey, pero no hagamos
+[00:05:18] un hackaton simple donde simplemente uno
+[00:05:20] llega, utiliza la tecnología de unas
+[00:05:22] empresas, haces cualquier cosa y te vas.
+[00:05:25] no pasa más nada con ese demo. Quiero
+[00:05:27] que esto sea algo que podamos llevar
+[00:05:29] mucho más allá y por eso pues nos
+[00:05:31] estamos organizando con otras empresas
+[00:05:33] que traen sus propios retos y la idea es
+[00:05:35] que después estos se puedan convertir en
+[00:05:36] implementación y esto pues obviamente
+[00:05:39] también conlleva eh partners que tienen
+[00:05:41] su propia tecnología y la idea es que
+[00:05:43] después ellos puedan ver cómo estamos
+[00:05:45] utilizando esta tecnología para crear
+[00:05:47] más y mejores productos. Entonces, en
+[00:05:49] este caso quiero contarles la mayor
+[00:05:51] motivación que tengo en este sentido y
+[00:05:53] es que básicamente en la mayoría de
+[00:05:56] estos acatos en los que yo he
+[00:05:57] participado, organizado, he estado como
+[00:05:59] partner y demás, lamentablemente la
+[00:06:01] mayoría de los proyectos se quedan
+[00:06:02] solamente en el demo. Van, presentan y
+[00:06:05] pues hasta ahí, no sé, digamos, el
+[00:06:07] domingo entregan sus proyectos y no pasa
+[00:06:10] más nada. Incluso los que ganan obtienen
+[00:06:12] dinero, obtienen algo adicional, pero
+[00:06:15] pues lamentablemente no pasa más nada
+[00:06:17] con eso y eso es lo que queremos evitar
+[00:06:19] con este tipo de eh de proyectos y de
+[00:06:23] eventos. Entonces, les cuento un poco de
+[00:06:25] por qué tantos demos se quedan
+[00:06:27] justamente en eso, en un demo. ¿Cuántos
+[00:06:29] tantos proyectos se quedan solo en un
+[00:06:31] demo? Yo creo que hay tres tipos de
+[00:06:33] proyectos y sé que solo tengo acá dos,
+[00:06:35] pero les voy a contar porque el primero
+[00:06:37] pues casi ni merece mucho la pena
+[00:06:38] mencionarlo. Yo digo que el primer
+[00:06:40] proyecto es el proyecto ME. El proyecto
+[00:06:42] ME es literalmente eso, que cuando un
+[00:06:44] jurado lo ve dice, "M, bueno, me sigamos
+[00:06:46] adelante con los siguientes." Y son
+[00:06:48] proyectos que básicamente,
+[00:06:50] lamentablemente son eh básicamente
+[00:06:53] proyectos que toman el reto o esa idea
+[00:06:56] que tienen para
+[00:06:59] comentar, para comenzar a a trabajar. en
+[00:07:02] solucionarlo y lo único que hacen es
+[00:07:03] como mandarlo en este momento,
+[00:07:05] literalmente mandarlo a Cloud, a Codex,
+[00:07:08] a CHGPT o lo que sea y decir, "Listo,
+[00:07:11] eh, hazme una solución para esto y lo
+[00:07:13] que sea que Cloud les diga." Después van
+[00:07:15] y le dicen, "Bueno, constrúyela." Y
+[00:07:17] después eso es lo que entregan. Hazme el
+[00:07:19] pit, entrégalo. ¿Listo? Y si bien
+[00:07:21] nosotros los eh incentivamos a que
+[00:07:23] ustedes hagan todo lo que quieran con
+[00:07:25] inteligencia artificial, los
+[00:07:26] incentivamos también a que lo hagan con
+[00:07:28] criterio y que no solamente dejen que la
+[00:07:30] inteligencia artificial sea lo que tome
+[00:07:32] la sí tome el criterio desde el primero,
+[00:07:35] desde el primer paso hasta el último,
+[00:07:36] sino que vayamos un poco más allá,
+[00:07:38] porque si no, si ustedes agarran y
+[00:07:40] literalmente toman el brief de los retos
+[00:07:42] que les vamos a dar y le dicen a
+[00:07:43] inteligencia artificial, "Hazme una
+[00:07:45] solución", y se quedan con eso y no la
+[00:07:47] elevan, no aceleran más. de eso van a
+[00:07:49] tener la misma idea que tiene Juan,
+[00:07:51] Pedro, Felipe, María. Imagínense todos
+[00:07:53] los nombres que puedan hacer
+[00:07:55] literalmente lo mismo. Hoy en día
+[00:07:56] prácticamente esa es como la primera
+[00:07:58] opción que todos tenemos. Entonces la
+[00:08:00] idea es que no se queden en un proyecto
+[00:08:02] M, sino que pasemos a un proyecto A, un
+[00:08:04] proyecto B, después de preferencia un
+[00:08:05] proyecto B. Entonces, tenemos otros
+[00:08:07] proyectos que son los proyectos A, que
+[00:08:10] tienen muchas funcionalidades porque
+[00:08:12] creo que hoy en día que es tan fácil
+[00:08:14] crear cosas y construir cosas con
+[00:08:16] inteligencia artificial, lamentablemente
+[00:08:18] lo vemos como bueno, puedo hacerlo todo,
+[00:08:20] así que lo haré todo y más. El problema
+[00:08:22] allí es que cuando tenemos muchas
+[00:08:24] funcionalidades es difícil de entender
+[00:08:26] durante el demo y de hecho las empresas
+[00:08:28] que al final van a ser que juzguen sus
+[00:08:29] proyectos eh y decidan quién es el
+[00:08:31] ganador, básicamente la empresa puede
+[00:08:34] ver que es bueno, pero nunca va a llegar
+[00:08:36] ese momento que diga es lo es lo que
+[00:08:38] necesito o ese wow moment, pues ese
+[00:08:40] momento wow que deberíamos buscar llevar
+[00:08:43] hacia el jurado. Entonces podemos tener
+[00:08:45] aplausos o personas que digan, "Ah,
+[00:08:46] bien, está cool tu proyecto sigue
+[00:08:49] adelante." pero realmente no lo no van a
+[00:08:52] pensar en implementarlo. o podemos hacer
+[00:08:54] un proyecto B, que esto de hecho en
+[00:08:56] diferentes charlas, tanto en las que he
+[00:08:58] estado hosteando como en las que he
+[00:09:00] estado escuchando durante el hacat, creo
+[00:09:01] que prácticamente todos estamos
+[00:09:04] recomendando lo mismo y es que se
+[00:09:05] enfoquen en una cosa muy bien hecha, no
+[00:09:08] solamente vayan a crear un super
+[00:09:10] proyecto espectacular, megatrónico,
+[00:09:12] super wow, sino que nos enfoquemos en
+[00:09:15] que resuelva realmente el reto, un dolor
+[00:09:18] concreto y que podamos llegar a ese
+[00:09:20] momento wow en durante el primer minuto
+[00:09:22] del demo.
+[00:09:23] y que alguien cuando esté viéndolo, esté
+[00:09:25] juzgándolo, pueda decir, "Listo, esta
+[00:09:27] persona sí está pensando en cómo
+[00:09:29] resolver esto de verdad." Y el resultado
+[00:09:31] de eso no solamente para estaton, sino
+[00:09:33] para cualquier cosa que hagan, sobre
+[00:09:34] todo si quieren hacer en algún momento
+[00:09:35] consultorías o incluso si quieren
+[00:09:37] proponer un proyecto nuevo dentro de sus
+[00:09:39] empresas, va a ser que van a tener una,
+[00:09:42] en este caso del hackaton van a llegar a
+[00:09:44] finalistas, van a llegar a
+[00:09:45] implementarlo, mientras que en sus día a
+[00:09:48] día, por ejemplo, si son constructores,
+[00:09:50] si están haciendo tecnología para
+[00:09:52] clientes o directamente para las
+[00:09:53] empresas donde trabajan, van a llegar a
+[00:09:55] una segunda reunión a la cual pueden
+[00:09:57] agarrar y decir, "Listo, ya sé que esta
+[00:09:59] persona en ese en ese proyecto, en ese
+[00:10:02] demo, entendió lo que lo que estábamos
+[00:10:04] haciendo y ahora podemos avanzar y
+[00:10:06] llevar esto más allá de un solo demo.
+[00:10:10] Entonces, no se queden, por favor, en un
+[00:10:11] proyecto me vamos a pasar y elevar eso.
+[00:10:14] La pregunta que cualquier empresa se va
+[00:10:15] a hacer es si esto lo pueden poner a
+[00:10:17] funcionar de verdad. Y estas detrás de
+[00:10:20] esta pregunta hay muchas más, pero yo me
+[00:10:22] enfoco en tres en específico, que son
+[00:10:24] sobre todo las que se van a llevar a
+[00:10:25] cabo, por ejemplo, para las empresas
+[00:10:27] dentro de eh su momento de de hacer este
+[00:10:31] proceso de evaluación donde uno es
+[00:10:34] realmente resuelve el problema, el reto
+[00:10:35] que les propuse. Sí, no se va a romper
+[00:10:39] cuando lo use mi equipo. Y aquí es donde
+[00:10:40] el demo es bien importante porque pues
+[00:10:42] nosotros vamos a estar utilizando sus
+[00:10:44] proyectos, viendo que funcionen
+[00:10:45] perfectamente, etcétera. Y allí pues es
+[00:10:48] su momento para brillar porque entonces
+[00:10:50] los equipos técnicos van a poder ver e
+[00:10:52] si funciona y funciona tal como dice su
+[00:10:55] RMI o dice el proyecto que está
+[00:10:57] subiendo. Pero lo más importante es si
+[00:10:59] realmente va a ser útil para que el
+[00:11:01] equipo lo use después o para el usuario
+[00:11:04] o el quien sea el cliente final de cada
+[00:11:05] uno de los retos. Por ejemplo, si
+[00:11:07] nosotros les decimos, bueno, vamos a
+[00:11:09] mejorar la suit de ventas de X empresa o
+[00:11:12] el proceso de ventas utilizando
+[00:11:14] WhatsApp, por ejemplo, de una empresa en
+[00:11:15] específico, ustedes la idea es que
+[00:11:18] realmente puedan hacer un demo que te
+[00:11:20] muestre cómo desde el inicio hasta el
+[00:11:22] final funciona para el usuario en este
+[00:11:24] caso, y que desmuestre que no importa si
+[00:11:27] les preguntas una cosa otra o diferentes
+[00:11:30] preguntas eh que no son solo las que
+[00:11:33] utilizan ustedes en el demo, que puede
+[00:11:35] seguir funcionando sin ningún problema.
+[00:11:36] Y finalmente, ¿cuánto nos cuesta
+[00:11:38] operarlo y mantenerlo? Y esto lo vamos a
+[00:11:40] ver un poquito más adelante, un poquito
+[00:11:42] más a fondo, pero básicamente les va a
+[00:11:44] permitir demostrar que ustedes están un
+[00:11:46] pasito más allá y esto no es tan difícil
+[00:11:48] a nivel de que le pueden preguntar
+[00:11:50] literalmente a cualquier inteligencia
+[00:11:51] artificial que les ayude a estimar para
+[00:11:53] tantas posibilidades de eh usuarios y lo
+[00:11:56] pueden ayudar a y estas estas
+[00:11:59] inteligencias artificiales o estos LLM
+[00:12:01] les van a permitir responderlo de una
+[00:12:03] forma mucho más concreta. Y esto es
+[00:12:05] importante porque igual las empresas
+[00:12:07] pues obviamente trabajan con revenue,
+[00:12:08] trabajan con costos y la idea es que
+[00:12:10] ustedes le digan, "Ey, esto que te estoy
+[00:12:12] creando te puede generar tanto tanto
+[00:12:15] ahorro o te puede generar tanto retorno
+[00:12:17] de inversión o simplemente te va a
+[00:12:18] costar tanto poder mantenerlo y operarlo
+[00:12:21] en el tiempo.
+[00:12:23] Ahora bien, veamos cinco etapas sobre
+[00:12:25] cómo podemos llevar a cabo esta, por
+[00:12:28] ejemplo, el recorrido dentro de este
+[00:12:29] hackaton. Y esto se lo pueden llevar no
+[00:12:31] solamente para los haaton, sino para su
+[00:12:33] vida profesional en general, para poder
+[00:12:36] llevar a cabo un MVP desde entender el
+[00:12:39] reto hasta finalizar eh presentárselo a
+[00:12:42] la persona quien decide. Pero para mí la
+[00:12:44] parte más importante es la tercera que
+[00:12:46] va a ser hacerlo realmente
+[00:12:48] implementable. Entonces, vamos a ver.
+[00:12:50] Paso uno, entender el reto. Paso dos,
+[00:12:52] recortar y construir. Ya vamos a
+[00:12:54] entender por qué recortar. Paso tres,
+[00:12:56] hacerlo implementable. Y finalmente,
+[00:12:58] hacer un demo que no se rompa y un
+[00:13:00] pienes deciden. Entonces vamos a ver
+[00:13:04] cada una de estas partes. Yo les voy a
+[00:13:06] dejar acá un ejemplo que no es un reto
+[00:13:09] real de estas haaton. Eh, lo hice nada
+[00:13:11] más para esta sesión, pero es un ejemplo
+[00:13:13] de lo que pudiésemos encontrarlos. No
+[00:13:15] nos vamos a encontrar con un reto
+[00:13:17] similar, pero es un ejemplo de lo que
+[00:13:18] pudiésemos encontrarnos. y quiero que lo
+[00:13:20] vean para que comencemos a pensar en
+[00:13:22] cómo podríamos solucionarlo nosotros.
+[00:13:24] Entonces, tenemos el reto de ejemplo que
+[00:13:26] es Clínica Sanamar, una red ficticia de
+[00:13:29] 14 sedes de consulta médica en Bogotá,
+[00:13:32] Medellín, Barranquilla, con un problema
+[00:13:35] que es que los pacientes no llegan a sus
+[00:13:37] citas y ellos nos pueden dar información
+[00:13:39] sobre cuántas cuántas citas están siendo
+[00:13:41] agendadas al mes, en este caso 42,000.
+[00:13:44] El tema es que 21% de esos pacientes no
+[00:13:46] están llegando y no están cancelando y
+[00:13:48] capaz a nosotros digamos, "Ey, pero 21%
+[00:13:51] no es tanto, así que qué tan interesante
+[00:13:54] o fuerte es ese reto." Pero realmente
+[00:13:56] esto está causando 8800 citas perdidas
+[00:13:59] cada mes que se transforman en una
+[00:14:01] clínica en este caso en más de 290
+[00:14:03] millones de de pesos que se están
+[00:14:06] perdiendo y yo saqué la cuenta hace rato
+[00:14:08] de cuánto podría ser eso y son como
+[00:14:09] $90,000. Así que allí podemos pensar en,
+[00:14:13] bueno, si es algo que afecta bastante.
+[00:14:15] Entonces otra cosa que pueden tener es
+[00:14:17] más datos sueltos de Sanamar, tanto
+[00:14:19] datos sueltos de el reto que nosotros
+[00:14:21] podamos entregarle, obviamente quiero
+[00:14:23] decirles que no vamos a entregarle
+[00:14:25] solamente un slide por reto, vamos a
+[00:14:27] darle mayor información, entre ellas
+[00:14:29] pues van a conseguir algunos datos
+[00:14:30] sueltos como estos, pero adicional a eso
+[00:14:32] ustedes pueden buscar más información en
+[00:14:34] otras fuentes sobre esas empresas.
+[00:14:36] Entonces, en este caso, algunos datos
+[00:14:38] sueldos que tenemos es que tienen un
+[00:14:39] call center de seis personas, pueden
+[00:14:41] llamar un 40% de su de la agenda. Las
+[00:14:45] primeras citas con los especialistas
+[00:14:47] suelen tener 34% de inasistencia,
+[00:14:49] mientras que las de control, que son las
+[00:14:51] la segunda cita en adelante, eh tienen
+[00:14:53] apenas un 15% de inasistencia. Tenemos
+[00:14:57] la mayoría de pacientes registrados en
+[00:14:59] WhatsApp con su ficha. Eh, la lista de
+[00:15:02] espera se lleva un Excel. Esto es
+[00:15:04] interesante, nada más tiene un Excel por
+[00:15:06] sede. Los lunes antes de las 9 de la
+[00:15:08] mañana suele presentarse una
+[00:15:09] inasistencia más alta. Esto es lo
+[00:15:10] típico. La gente va, se va de rumba, se
+[00:15:12] va de fiesta y no va a su cita médica de
+[00:15:14] los lunes. La gerente de operaciones
+[00:15:17] reporta a la junta la ocupación de la
+[00:15:19] agenda médica y bueno, tenemos más datos
+[00:15:21] como que quienes viven más lejos suelen
+[00:15:23] eh faltar el doble, tienen un software
+[00:15:26] clínico que suele exportar las cosas que
+[00:15:28] que validan o que que tienen en uso. O
+[00:15:31] sea, todos los datos de las de las
+[00:15:33] personas que van a la clínica
+[00:15:34] básicamente lo pueden exportar en CSV,
+[00:15:37] pero no tiene IPI. En este momento tiene
+[00:15:40] un mensaje de 24 horas antes para
+[00:15:42] recordarle al paciente y el paciente en
+[00:15:45] estos momentos no puede responderlo,
+[00:15:46] solo verlo. Las citas agendadas con más
+[00:15:48] de 15 días de anticipación suelen ser
+[00:15:51] las que más tienen inasistencia. Y
+[00:15:53] tenemos un equipo de TI o de tecnología
+[00:15:55] que es de apenas de tres personas con
+[00:15:57] una meta en 2027 de abrir hasta cuatro
+[00:16:00] sedes más igual crecer eh sin crecer el
+[00:16:03] equipo eh administrativo en este caso.
+[00:16:05] Entonces, ¿por qué les doy todos estos
+[00:16:06] datos sueltos? porque vamos a ver cómo
+[00:16:08] podríamos solucionar algo como esto. Si
+[00:16:11] si no hacemos todos los pasos que les
+[00:16:12] mencioné previamente, podemos agarrar y
+[00:16:15] pasarle esto a Cloud, a cualquier
+[00:16:17] inteligencia artificial y nos puede
+[00:16:19] decir cualquier tipo de idea. El tema es
+[00:16:22] que pues realmente va a ser algo
+[00:16:24] bastante genérico. Incluso si ustedes me
+[00:16:26] preguntan desde esta slide sin mayor
+[00:16:28] información, yo diría, bueno, tenemos
+[00:16:30] que bombardear a los pacientes, ¿no?
+[00:16:32] Vamos a agarrar bombardear, me refiero a
+[00:16:34] bombardearlos de mensaje y vamos a
+[00:16:36] bombardear los de mensaje para que no se
+[00:16:37] olviden de su cita. Entonces, si antes
+[00:16:39] le mandábamos solo un mensaje, vamos a
+[00:16:40] mandarle 50 porque miren que nada más le
+[00:16:43] mandamos un mensaje 24 horas antes.
+[00:16:45] Pero, ¿qué tal si le mandamos entonces
+[00:16:47] 48 horas antes, eh 10 horas antes, eh 2
+[00:16:50] horas antes? Así no se van a olvidar y
+[00:16:52] listo. Puede ser una solución. Es la
+[00:16:54] mejor solución. Probablemente no lo
+[00:16:56] sabemos. Y si vamos y comenzamos a hacer
+[00:17:00] este flujo, podemos comenzar a ver las
+[00:17:03] posibles automatizaciones que podemos
+[00:17:05] hacer o mejoras que podemos hacerle si
+[00:17:07] indagamos más en este tipo de casos.
+[00:17:09] Vamos a ver si hay algún comentario acá
+[00:17:11] de qué de qué ideas tienen. Automatizar
+[00:17:15] los page recalls y lograr que el
+[00:17:17] paciente vaya a la cita. Está
+[00:17:19] interesante. Guren dice una una cadencia
+[00:17:21] moderada dependiendo de lo que autorice
+[00:17:23] el paciente y por el medio que autorice.
+[00:17:25] Muy bien. Ven que de repente lo que yo
+[00:17:26] digo que puede estar muy enfocado en que
+[00:17:28] vaya que vaya que vaya no es lo mejor
+[00:17:32] porque justamente el paciente puede
+[00:17:33] decir me están bombardeando y ahora no
+[00:17:35] quiero ir ni hoy ni mañana ni nunca a
+[00:17:36] esa clínica porque me van a perseguir
+[00:17:38] hasta la muerte y no es la idea.
+[00:17:40] Entonces vamos a dar el o vamos a ir a
+[00:17:43] la primera etapa o el primer paso que es
+[00:17:45] entender el reto antes de escribir
+[00:17:47] código. Esto ya lo vimos también con
+[00:17:48] Duber, pero vamos a repetirlo un poco
+[00:17:51] porque es bien importante que ustedes se
+[00:17:52] sienten de verdad a entender el reto
+[00:17:54] antes de simplemente construir cualquier
+[00:17:56] cosa. De nuevo, si simplemente
+[00:17:57] preguntan, ¿qué puedo construir para
+[00:17:59] esto? Les van a lanzar ideas sumamente
+[00:18:01] genéricas. Y si ustedes ven cualquier
+[00:18:03] hackton, van a ver que de 100 proyectos,
+[00:18:05] el 50% suele ser proyectos genéricos.
+[00:18:08] Entonces, yo no quiero que eso pase en
+[00:18:10] este hackaton. Yo quiero que ese esos
+[00:18:12] proyectos genéricos que básicamente es
+[00:18:14] de preguntarle a la inteligencia
+[00:18:16] artificial
+[00:18:17] se reduzca lo más posible. Entonces si
+[00:18:19] antes solía ser en la mayoría de
+[00:18:21] hackatons que vemos allá afuera es de
+[00:18:23] 50%, pues aquí que no sea más del 20.
+[00:18:26] Entonces lo primero, entender el reto
+[00:18:28] antes de de escribir el código. Vamos a
+[00:18:31] primero conseguir más información de lo
+[00:18:32] que me dan. Literalmente me dieron dos
+[00:18:34] slides y capaz incluso en algunas
+[00:18:36] situaciones ni siquiera me dan estos
+[00:18:38] datos sueltos. ¿Qué tal si yo, además de
+[00:18:41] lo que conozco de la clínica Sanamar, de
+[00:18:43] este reto que me dan y estos datos,
+[00:18:46] agarro y voy busco la web de la empresa,
+[00:18:50] documentos, eh lo que sea que reporten,
+[00:18:52] incluso hay algunas empresas que tienen
+[00:18:54] como reportes de eh sus resultados, eh
+[00:18:57] no sé, las los cofounders que tienen, el
+[00:19:00] CEO, el CTO, que comparten en redes y
+[00:19:02] tienen redes sociales, por ejemplo,
+[00:19:04] LinkedIn, demás, o sea, hay de todo. y
+[00:19:07] simplemente tomo todo esto y se lo puedo
+[00:19:09] mandar algo como notebook LM y le puedo
+[00:19:12] decir, "Okay, con este brief y con todo
+[00:19:14] esto que te estoy mandando de la
+[00:19:15] empresa, ayúdame a entender más a la
+[00:19:17] empresa. Ayúdame a entender qué le duele
+[00:19:19] de verdad y qué podemos hacer para que
+[00:19:21] este reto lo podamos solucionar de la
+[00:19:23] mejor forma posible. Y allí podemos,
+[00:19:26] ¿por qué les digo notebook LM? porque
+[00:19:27] literalmente podemos crearnos como una
+[00:19:30] clase sobre esa empresa para nosotros
+[00:19:31] mismos o incluso un podcast donde
+[00:19:34] agarran ustedes y dicen, "Bueno, tengo
+[00:19:35] toda esta información, me voy a ir a, no
+[00:19:37] sé, a lavar los platos o a hacer
+[00:19:39] cualquier cosa mientras esto se se está
+[00:19:41] haciendo y voy a escuchar este podcast y
+[00:19:44] voy a entender un poquito más de la
+[00:19:45] empresa como ustedes deseen hacerlo. Si
+[00:19:47] ustedes quieren escucharlo, leerlo,
+[00:19:49] verlo, pueden crear con Notebook LM
+[00:19:51] cualquiera de estas versiones. Y listo,
+[00:19:53] ya comprenden qué es, cómo está la
+[00:19:55] empresa y la comprenden mucho más de lo
+[00:19:58] que inicialmente les dieron en el brief.
+[00:20:00] Y nos vamos al segundo paso de esta
+[00:20:02] etapa uno, que son las referencias, qué
+[00:20:04] tropicalizar y qué elevar. Y ya les voy
+[00:20:06] a explicar estos dos conceptos de
+[00:20:07] tropicalizar y elevar. Lo primero es
+[00:20:10] buscar cómo se ha resuelto un problema
+[00:20:12] parecido en otros países y empresas. ¿Y
+[00:20:14] qué podemos cambiar para que funcione en
+[00:20:16] este caso? Capaz la clínica Sanamar, de
+[00:20:20] hecho, es muy probable que no sea la
+[00:20:22] única clínica que tiene este mismo
+[00:20:23] problema. es muy probable que haya ese
+[00:20:26] mismo problema hasta en una clínica en
+[00:20:27] Taiwán, China, en cualquier parte del
+[00:20:29] mundo. Y tal vez ya alguien lo ha
+[00:20:32] solucionado. Entonces nos buscamos
+[00:20:34] referencias y decimos, "Ah, mira, hay un
+[00:20:36] software que hace esto." Uy, pero este
+[00:20:37] software tiene como 50,000 eh views,
+[00:20:40] 50,000 features. Y resulta que
+[00:20:41] probablemente no lo usan tanto. O mira,
+[00:20:44] wow, este es sencillo y lo podemos usar
+[00:20:46] para traer para acá. Listo, se buscan
+[00:20:49] las referencias y lo importante acá es
+[00:20:51] no solamente decir, "Okay, voy a crear
+[00:20:53] un Chrome de esto." Por ejemplo, en el
+[00:20:55] mundo de las Stars escuchamos demasiado
+[00:20:56] el término somos el Uber D, somos el
+[00:20:59] duelingo D. Y el tema acá es que pues no
+[00:21:02] solamente nos queremos con ser el Uber
+[00:21:04] en versión médica, por ejemplo, o el
+[00:21:06] duelingo en versión médica, sino que
+[00:21:08] busquemos tropicalizarlo y elevarlo.
+[00:21:11] Ejemplo, lo que pueda funcionar en
+[00:21:12] China, en Estados Unidos, con algo
+[00:21:14] similar, puede que no funciona acá. Por
+[00:21:16] ejemplo, acá eh no sé, por ejemplo, en
+[00:21:18] Estados Unidos, la mayoría de personas
+[00:21:20] están acostumbradas a distancias
+[00:21:21] superlargas de 45 minutos en adelante
+[00:21:24] para llegar al McDonald's más cercano,
+[00:21:26] por ejemplo, mientras que acá estamos
+[00:21:28] más acostumbrados a, bueno, tener
+[00:21:29] transporte público para llegar a estos
+[00:21:31] lugares. Eh, mientras que en Estados
+[00:21:33] Unidos la mayoría de personas necesita
+[00:21:35] un carro propio y demás para poder
+[00:21:37] moverse de su casa hacia cualquier lado.
+[00:21:39] Entonces, ¿qué tal si al tropicalizar
+[00:21:41] esto nos damos cuenta que eh lo que
+[00:21:43] sirve en Estados Unidos no va a servir
+[00:21:44] acá? De esa misma manera, pero podemos
+[00:21:46] tropicalizarlo un poco y volverlo un
+[00:21:48] poquito más latino para nuestras
+[00:21:50] empresas a las que vamos a a servir en
+[00:21:52] este caso o a cualquier Sí. o capaz no
+[00:21:55] tropicalizarlo tanto, pero volverlo un
+[00:21:57] poquito más eh más acotado a la realidad
+[00:22:02] de la empresa, bien sea que le brinde
+[00:22:04] servicios a latinos o le brinde
+[00:22:05] servicios a personas en cualquier otra
+[00:22:07] parte o región del mundo. Y sobre todas
+[00:22:11] las cosas en estas referencias más que
+[00:22:12] pensar qué me puedo traer de todo esto y
+[00:22:15] sobre todo hacer ben matchming que es no
+[00:22:17] solamente ver lo que se hace en el mismo
+[00:22:19] lugar o en la misma industria, sino de
+[00:22:22] repente ver, bueno, esto es un problema
+[00:22:24] de clínicas, ¿qué tal si hago también
+[00:22:27] referencias a cosas que hagan en media,
+[00:22:29] en contenido? ¿Quién sabe? Capaz lo que
+[00:22:32] necesita la persona es que le mandemos
+[00:22:33] un mensajito con un video diciéndole,
+[00:22:35] "Ey, asiste, te está esperando tu
+[00:22:37] doctor." Y capaz la persona dice, "Wow,
+[00:22:39] debería ir porque mira que el doctor me
+[00:22:41] mandó hasta un mensaje personalizado."
+[00:22:42] Puede ser creado por sí, pero puede que
+[00:22:45] le llegue a dar mayor ganas a la persona
+[00:22:48] de decir, "Uy, sí, mira, el doctor me
+[00:22:49] está esperando, voy a ir." Pero ahí a lo
+[00:22:52] que me refiero es que no solamente nos
+[00:22:54] quedemos con lo que viene de la misma
+[00:22:55] industria, sino que busquemos más
+[00:22:57] información en otras industrias. De
+[00:22:59] hecho, tengo allí una experiencia
+[00:23:00] personal en uno de los últimos Acatons,
+[00:23:03] eh, donde justamente estuve
+[00:23:04] participando, eh, que ganamos uno de los
+[00:23:07] tracks y justamente lo que hicimos fue
+[00:23:10] tomar una referencia de una industria
+[00:23:12] sumamente opuesta a lo que estábamos
+[00:23:13] tratando de conseguir eh arreglar, en
+[00:23:16] este caso era de comercio agéntico o de
+[00:23:18] comercios entre agentes y lo que hicimos
+[00:23:20] fue buscar referencias de un marketplace
+[00:23:24] que existía para vender deals de entre
+[00:23:27] empresas. nada que ver con vender cosas
+[00:23:29] entre agentes, pero justamente lo que
+[00:23:31] tomamos fue como esta empresa hacía
+[00:23:33] sumamente fácil que cualquier empresa
+[00:23:36] pudiese utilizar su tecnología
+[00:23:38] simplemente con un iframe, que a veces
+[00:23:41] queremos complejizar demasiadas cosas eh
+[00:23:43] dentro de lo que estamos haciendo en un
+[00:23:45] hackaton y nosotros nos trajimos un
+[00:23:46] iframe para mejorar el comercio agéntico
+[00:23:49] y que cualquier web hoy en día pueda
+[00:23:50] conectar su web a que las las agentes
+[00:23:54] puedan pagarle directamente. Después les
+[00:23:56] puedo echar más cuentos sobre ese
+[00:23:58] proyecto si lo quieren utilizar, pero
+[00:24:00] esto es un ejemplo, o sea, nos trajimos
+[00:24:01] un marketplace que no tenía nada que ver
+[00:24:03] con lo que estábamos haciendo nosotros y
+[00:24:05] esto fue justamente gracias a la
+[00:24:07] experiencia que tenía cada una dentro
+[00:24:08] del equipo, porque nos pusimos a ver,
+[00:24:10] ey, ¿qué cosas que nosotras hayamos
+[00:24:13] probado como usuarias ha sido lo más
+[00:24:15] fácil? Entonces, piénsenlo de esa manera
+[00:24:17] antes de buscar justamente construir a
+[00:24:21] partir de eso. Y ahí es donde viene la
+[00:24:23] parte más importante, que es que elevar
+[00:24:25] de esa referencia que tenemos, ¿qué
+[00:24:27] podemos hacer mucho mejor? ¿Qué podemos
+[00:24:29] ahora implementar mucho mejor de lo que
+[00:24:32] ellos lo hacen para este caso en
+[00:24:34] específico? y mucho mejor nos quiere
+[00:24:35] decir, vamos a hacer algo técnicamente
+[00:24:38] sumamente increíble, sino más bien
+[00:24:40] buscar cómo hacer que esto se ve se
+[00:24:44] podamos traerlo a esta industria y
+[00:24:47] realmente nos sirva en esta industria en
+[00:24:49] específico. A veces elevar no es hacer
+[00:24:51] algo muchísimo mejor, sino justamente
+[00:24:53] mejorarlo para la industria en la que
+[00:24:54] estamos eh buscando arreglar algo. Acá
+[00:24:57] les dejo pues algunas ideas de que
+[00:25:00] pueden utilizar para este tipo de pasos,
+[00:25:03] por ejemplo, clity, codex, cualquier
+[00:25:05] área. literalmente pueden partir desde
+[00:25:07] búscame referencias que estén
+[00:25:09] resolviendo este tipo de problema hasta
+[00:25:12] búscame referencias que estén dentro de
+[00:25:16] esta industria y allí pueden buscar
+[00:25:18] cosas parecidas que no directamente
+[00:25:21] estén resolviendo el mismo reto, pero
+[00:25:23] que después puedan traer y tropicalizar
+[00:25:25] y elevar dentro de ese reto. Algo
+[00:25:27] importante acá es que lo que yo también
+[00:25:29] les recomendaría es que se casen con
+[00:25:31] algunas una o dos referencias
+[00:25:33] específicas y digan, "Bueno, de estas
+[00:25:35] dos que tenemos, yo quiero mejorar y
+[00:25:37] elevar estas de estas 10 que podemos
+[00:25:40] tener de referencia, yo me voy a enfocar
+[00:25:41] en estas dos, por ejemplo, y esas son
+[00:25:43] las que me enfoco en tropicalizar y
+[00:25:44] elevar. Y finalmente para finalizar esta
+[00:25:48] etapa nos ponemos listos para construir.
+[00:25:50] Básicamente decimos, "Listo, ya tengo
+[00:25:52] información, tengo un montón de infos de
+[00:25:55] la empresa, ya tengo un montón de
+[00:25:56] referencias y decidí dos que voy a
+[00:25:58] tropicalizar y elevar y ahora estoy
+[00:26:00] listo para construir. Ya tienes el
+[00:26:02] problema real escrito en tres líneas y
+[00:26:04] la métrica que vas a mover y eso es lo
+[00:26:06] que vas a tener en esta etapa uno, que
+[00:26:08] te va a permitir construir de la mejor
+[00:26:09] forma posible. Esto es bien importante o
+[00:26:12] esta etapa es super importante porque
+[00:26:14] les va a permitir realmente encontrar
+[00:26:16] cosas que antes no teníamos en cuenta.
+[00:26:19] Por ejemplo, si preguntamos qué le duele
+[00:26:21] más a esta empresa, dónde se concentra
+[00:26:23] realmente este problema o este o este
+[00:26:25] reto? ¿Qué métrica le puede importar más
+[00:26:27] a esta área en específico? ¿Y qué
+[00:26:29] métrica no está nombrando dentro de este
+[00:26:31] brief? Pero deberían tomar en cuenta
+[00:26:33] esta pregunta es muy importante porque
+[00:26:35] capaz la empresa ni siquiera sabe que
+[00:26:37] pueden solucionar con un mismo reto un
+[00:26:39] problema aún más grande y ustedes le
+[00:26:41] dicen, "Ey, yo además de solucionarte
+[00:26:43] este reto, mira, estoy enfocándome en
+[00:26:45] esta métrica que es aún más importante
+[00:26:47] para ti o para este tipo de empresas o
+[00:26:49] para este tipo de áreas. Por ejemplo, si
+[00:26:51] nosotras hacemos este tipo de preguntas
+[00:26:53] utilizando lo que les mostré previamente
+[00:26:54] sobre esta empresa ficticia, podemos ver
+[00:26:57] que el problema está concentrado en que
+[00:27:00] en la parte de las primeras citas con
+[00:27:02] especialistas. Entonces, en vez de
+[00:27:04] simplemente solucionar todas las citas
+[00:27:05] de la clínica, vamos a primero
+[00:27:07] enfocarnos en qué pasa con las citas que
+[00:27:09] son por primera vez con los
+[00:27:11] especialistas y sobre todo con aquellas
+[00:27:13] que están agendadas hace más de 15 días
+[00:27:15] y los pacientes viven lejos. Entonces
+[00:27:17] ahí vemos, oye, estas personas tienen
+[00:27:20] mayor posibilidad a no ir a esas citas.
+[00:27:22] ¿Qué podemos hacer para filtrarlos y
+[00:27:24] cuidar más a estos pacientes? Lo
+[00:27:27] segundo, cancelar no libera ese cupo.
+[00:27:29] Como la lista vive en un Excel, pues
+[00:27:31] literalmente me imagino que debe ser muy
+[00:27:33] tedioso para la persona que la persona
+[00:27:35] no llega o no responde o pues no sabemos
+[00:27:38] si va a cancelar o no y capaz no alcanza
+[00:27:40] a reasignarla a tiempo. Y finalmente, la
+[00:27:43] métrica que ellos están buscando es la
+[00:27:45] ocupación, porque una de las cosas que
+[00:27:47] les mostré acá es que lo que reporta en
+[00:27:50] este caso la gerente de ocupaciones es
+[00:27:52] la ocupación de la agenda médica y eso
+[00:27:54] es realmente la métrica que nosotros
+[00:27:55] deberíamos venderle a la empresa que
+[00:27:58] vamos a mover. Entonces, más allá de
+[00:28:00] cuánta inasistencia hay, tenemos que
+[00:28:03] responder por o buscar que la agenda
+[00:28:05] está ocupada y confirmada por esas
+[00:28:07] personas.
+[00:28:09] Entonces vamos a la etapa dos, que es
+[00:28:11] recortar ese alcance y construir rápido.
+[00:28:13] Vamos a hacer un PRD, que es básicamente
+[00:28:16] este request o este requerimiento de de
+[00:28:18] producto. Y lo que vamos a hacer con
+[00:28:21] esto es que ya tenemos toda esta
+[00:28:23] información, todo lo que nos ha dado
+[00:28:24] este reto. Ahora vamos a convertirlo en
+[00:28:27] una página que nosotros podamos saber
+[00:28:29] exactamente qué es lo que vamos a
+[00:28:31] construir. Entonces mandamos toda esta
+[00:28:32] información a Cloud, Codes, cualquiera
+[00:28:35] que sea el el agente con el que estén en
+[00:28:39] este momento construyendo su código o si
+[00:28:41] incluso no están construyendo código
+[00:28:42] ustedes, sino que solamente están
+[00:28:44] chateando con un LLM y después
+[00:28:46] construyen con lobable, por ejemplo,
+[00:28:48] perfecto, no hay problema. Pero tratemos
+[00:28:50] de hacer un OnePayer o una página sobre
+[00:28:52] lo que buscamos crear con un flujo
+[00:28:54] principal y sobre todo lo que va a
+[00:28:56] quedar por fuera de lo que nosotros
+[00:28:58] vamos a construir. Y segundo, nos vamos
+[00:29:01] a construir ese prototipo funcional.
+[00:29:03] Entonces, puedes hacerlo con tu propio
+[00:29:04] código, con Cloud Code, con cualquier
+[00:29:07] otro editor o puedes usar, por ejemplo,
+[00:29:09] en este caso, eh, si son personas que no
+[00:29:11] son desarrolladores o le tienen todavía
+[00:29:12] un poquito de miedo a esto, que les juro
+[00:29:14] que no es tan difícil, pueden irse con
+[00:29:17] lowable y comenzar a construir
+[00:29:19] utilizando eh utilizando esta
+[00:29:21] herramienta para crear su prototipo
+[00:29:22] funcional a partir de unos proms. Y
+[00:29:24] finalmente, comencemos a utilizar el
+[00:29:27] backing y la infraestructura. Entonces,
+[00:29:29] ¿qué les recomendaría? comenzar con ese
+[00:29:31] PRD, decir, "Bueno, ¿qué es lo que vamos
+[00:29:33] a crear? El flujo principal, qué va a
+[00:29:35] pasar la persona que lo vaya a utilizar,
+[00:29:38] qué no vamos a construir, luego nos
+[00:29:40] vamos a ese prototipo y finalmente vamos
+[00:29:43] a conectarle todos los datos y demás."
+[00:29:45] ¿Por qué? Porque si yo comienzo a
+[00:29:47] construir la infraestructura, comienzo a
+[00:29:49] construir el backing y demás y de
+[00:29:51] repente ya después no me funciona porque
+[00:29:53] digo, "Oye, no, es que esto hay que
+[00:29:55] cambiarlo desde cero." Vamos a tener que
+[00:29:57] trabajar muchísimo más en ese back de lo
+[00:30:00] que deberíamos porque no estamos
+[00:30:02] probando antes el prototipo. Y cuando
+[00:30:04] digo probando es literalmente entre el
+[00:30:05] mismo equipo decir, "Oye, esto tiene
+[00:30:07] sentido para ti, ¿no? Oye, vamos a a
+[00:30:10] cambiarle esto. E, ¿qué tal si anexamos
+[00:30:12] o agregamos que debamos subirle o
+[00:30:15] debamos agregar más datos de la persona?
+[00:30:17] Por ejemplo, tal vez en la clínica no
+[00:30:19] tenemos información dentro de la hoja o
+[00:30:22] dentro del usuario de dónde vive la
+[00:30:24] persona. Y con eso, si lo agregamos pues
+[00:30:27] ya podemos decir, eh, esta persona muy
+[00:30:29] probablemente no vaya a llegar a la cita
+[00:30:31] porque vive eh a 2 horas y de repente sí
+[00:30:34] podemos agarrar y hacerles un
+[00:30:36] seguimiento más exacto antes de la cita.
+[00:30:39] eh entre otras cosas que podemos ir
+[00:30:41] haciendo. Entonces, ¿qué pasa si creamos
+[00:30:42] de una vez toda la infraestructura, la
+[00:30:44] base de datos, etcétera, que necesitamos
+[00:30:46] y después es que hacemos lo demás? nos
+[00:30:48] vamos a de repente quedar con un montón
+[00:30:51] de contenido, con código y demás, que no
+[00:30:53] es tal vez necesario desde el inicio.
+[00:30:55] Entonces, les recomiendo comenzar de
+[00:30:57] esta manera para que después puedan,
+[00:30:59] básicamente van a hacer como la pintura
+[00:31:01] de la casa desde afuera en la fachada y
+[00:31:04] después es que van a ir creando y les
+[00:31:06] van a poner los muebles y toda la
+[00:31:08] información dentro. Entonces, vamos a
+[00:31:10] hacer en este caso un mini PRD de
+[00:31:13] Sanamar. Eh, por ejemplo, pues, ¿a quién
+[00:31:15] podríamos resolver con esto? ¿Quién les
+[00:31:17] estaríamos resolviendo el reto? primero
+[00:31:19] a los coordinadores de sedes, porque
+[00:31:21] ellos son los que están interesados en
+[00:31:22] reportar la ocupación real dentro de
+[00:31:25] estas eh dentro de estas sedes. Cada una
+[00:31:28] pues debería tener ocupación y pues la
+[00:31:31] idea no es que tengamos inasistencia,
+[00:31:33] ¿no? La idea no es que tengamos
+[00:31:35] ocupación del 100% de todos los horarios
+[00:31:37] y después resulta que no van las
+[00:31:39] personas, sino todo lo contrario,
+[00:31:41] reportar ocupación, pero adicional a eso
+[00:31:43] dar una garantía de que estas personas
+[00:31:45] van a asistir. Y por supuesto, otras
+[00:31:48] personas que van a estar dentro de este
+[00:31:49] flujo son los pacientes de las primeras
+[00:31:51] citas con especialistas. ¿Qué quiere
+[00:31:53] decir esto? que no vamos a entrar a los
+[00:31:55] pacientes que de repente tengan esa
+[00:31:57] segunda cita en adelante, no porque no
+[00:31:59] sean importantes, sino porque en este
+[00:32:01] caso no son eh la prioridad para mejorar
+[00:32:05] ese esa métrica que tenemos. y tenemos
+[00:32:08] un flujo principal donde vamos a tener
+[00:32:10] un panel que marca las citas de altos
+[00:32:12] riesgos de inasistencia y a esos son los
+[00:32:15] que vamos a buscar confirmar con mayor
+[00:32:18] insistencia, pero el paciente va a tener
+[00:32:20] la posibilidad de confirmar o cancelar
+[00:32:21] por WhatsApp. Hoy en día, de repente, la
+[00:32:24] persona que antes había hecho la
+[00:32:25] automatización del WhatsApp no tenía la
+[00:32:28] posibilidad de que una persona le
+[00:32:30] llegara el mensaje y pudiese tocar un
+[00:32:33] botón u otro diciendo si va a ir o no.
+[00:32:35] Pero resulta pues que WhatsApp ha
+[00:32:37] mejorado muchísimo. Entonces ahora
+[00:32:38] tenemos plantillas que tienen este tipo
+[00:32:40] de información. Entonces genial. Ahora
+[00:32:42] él puede decir si va a cancelar o no. ¿Y
+[00:32:44] qué pasa si cancela? No solamente se va
+[00:32:46] a quedar en un Excel, sino que nuestro
+[00:32:48] panel va a asignarle esta información
+[00:32:51] directa, esta este cupo directamente a
+[00:32:53] alguien que esté en la lista de espera.
+[00:32:55] Y pues en este caso hay que crear esa
+[00:32:56] lista de espera en nuestro backend
+[00:32:58] también. Entonces ya de acá sale
+[00:33:01] construir. ¿Qué está fuera del alcance?
+[00:33:03] integración directa con un software
+[00:33:05] clínico. Vamos a utilizar CSV, que es de
+[00:33:07] hecho lo que nos comentaron que
+[00:33:09] utilizan. Pero, ¿qué pasa si estamos
+[00:33:11] resolviendo un reto a una empresa que ya
+[00:33:13] tiene un software espectacular,
+[00:33:15] increíble, ya no sé, SAP o lo que sea,
+[00:33:18] ya integrado? Nosotros nos vamos a
+[00:33:20] pausar porque ay, es que, ¿cómo hago
+[00:33:21] para que se integre directo con SAP? No,
+[00:33:24] podemos crear una versión simple, como
+[00:33:25] en este caso usamos CSV y listo. Ya
+[00:33:28] cuando pasemos a la integración
+[00:33:30] directamente o la implementación
+[00:33:31] directamente con la empresa, nos
+[00:33:33] preocupamos por esa parte de utilizar
+[00:33:35] una IPI o algo parecido para poder
+[00:33:37] conectarlo. Por ahora nos quedamos como
+[00:33:39] en este MVP, mostrarles que podemos
+[00:33:41] integrarlo directamente con lo que se
+[00:33:43] que lo que sea que ellos usen, pero que
+[00:33:45] por ahora como no tenemos esa
+[00:33:46] posibilidad pues vamos a utilizar
+[00:33:48] solamente CSV. No vamos a hacer un app
+[00:33:51] móvil ni vamos a integrar pagos. En este
+[00:33:53] caso lo que nos interesa es que la
+[00:33:54] persona confirme o no que va a ir.
+[00:33:57] Ahora bien, vamos a la etapa tres, que
+[00:33:59] es lo más importante. Esto para mí y en
+[00:34:01] mi opinión es lo que puede separar el
+[00:34:03] demo de un piloto realmente que la
+[00:34:05] empresa diga, "Vamos a probarlo y
+[00:34:07] comencemos."
+[00:34:08] No necesitan realmente tener todo esto
+[00:34:11] de verdad implementado al 100%, pero sí
+[00:34:14] la idea es que puedan hacerlo lo más que
+[00:34:16] puedan para demostrar que pues son
+[00:34:18] profesionales que están preparados y
+[00:34:20] quieren realmente implementar su
+[00:34:21] solución y que no es solamente un demo
+[00:34:23] que hicieron un fin de semana y ya pues
+[00:34:25] a saber si la empresa me quiere ayudar a
+[00:34:27] implementarlo o no. Eh, paso a mi
+[00:34:29] siguiente hackaton, busco mi premio y me
+[00:34:31] voy, ¿no? Entonces queremos demostrarles
+[00:34:34] a ellos que realmente podemos hacerlo
+[00:34:36] implementable. Entonces, paso uno,
+[00:34:38] seguridad. Evitar, y yo sé que esto va a
+[00:34:40] sonar a novato por completo, pero evitar
+[00:34:43] tener secretos como API Keys, etcétera,
+[00:34:46] en el código. Yo sé de nuevo que suena
+[00:34:48] como un algo de novato, pero puede
+[00:34:51] pasar. Entonces, tenemos que evitar que
+[00:34:53] eso lo tengamos, porque si no vamos a
+[00:34:55] quedar literalmente como unos novatos y
+[00:34:57] ellos van a decir, "Yo no quiero que
+[00:34:58] esta persona venga implemente esto
+[00:35:01] dentro de mi empresa." O otra
+[00:35:02] posibilidad que hay, no solamente que
+[00:35:04] ustedes puedan implementar esto con sus
+[00:35:06] empresas, sino que después estas
+[00:35:07] empresas los contraten directamente.
+[00:35:10] Pues si ustedes dejan un secreto, una
+[00:35:11] IPQ o algo parecido dentro del código,
+[00:35:14] eh literalmente ellos van a decir, "Ah,
+[00:35:16] listo, esta persona no tiene eh la
+[00:35:19] capacidad en este caso" o incluso dejar
+[00:35:21] un código que es necesario y que en este
+[00:35:24] caso eh dejar un secreto en este caso
+[00:35:27] que es necesario fuera del código, pues
+[00:35:30] también puede afectarnos. Otra cosa que
+[00:35:32] es bien importante en seguridad,
+[00:35:33] permisos por usuarios. En este caso,
+[00:35:35] nosotros estamos viendo que esta clínica
+[00:35:37] tiene varias sedes y vamos a ofrecerle
+[00:35:39] esto a los coordinadores de sedes. Yo
+[00:35:41] quiero que todas las sedes tengan la
+[00:35:43] información de de la sede de la ciudad
+[00:35:46] al lado. Es necesario que todos puedan
+[00:35:48] entrar a esa información. ¿Qué pasa si
+[00:35:50] una CDB que hay unos pacientes que
+[00:35:52] siempre van a todas las citas o un
+[00:35:54] médico que deja que o que hace que todas
+[00:35:57] las personas lleguen a su cita? Entonces
+[00:35:59] uno dice, "Ay, no, yo voy a tratar de
+[00:36:01] que ese doctor ahora pase a mi a mi sede
+[00:36:04] para quitarle ese porcentaje de
+[00:36:06] asistencia a ellos o de ocupación,
+[00:36:08] porque este doctor es el mejor de todos,
+[00:36:10] entonces me lo voy a traer para acá."
+[00:36:11] Bueno, esas son cosas que pueden pasar y
+[00:36:13] que uno diría, "Ay, pero son la misma
+[00:36:14] empresa, ¿por qué lo van a hacer?"
+[00:36:16] Bueno, la gente quiere llegar a sus
+[00:36:17] métricas. Entonces, muchas, en muchas
+[00:36:19] ocasiones, pues entre ellos se tratan de
+[00:36:21] quitar eh clientes o cosas parecidas.
+[00:36:24] Entonces, en este caso, pues deberíamos
+[00:36:27] tener permisos por usuarios. y también
+[00:36:29] tener esos datos protegidos, que una
+[00:36:31] sede no vea justamente lo que está
+[00:36:33] pasando en la otra y que solamente en
+[00:36:35] este caso el administrador de todas las
+[00:36:37] sedes pueda ver, ah, mira, cómo vamos en
+[00:36:39] cada una. Y por supuesto que esos datos
+[00:36:41] no salgan de alguna forma muy fácil a eh
+[00:36:44] allá afuera. Es decir, que yo pueda
+[00:36:46] simplemente meterme, no sé, aquí en
+[00:36:48] Depools y pueda ver en Chrome. Ah, mira,
+[00:36:51] aquí están todos los datos de las
+[00:36:52] personas. Puede pasar. Test. Lo más
+[00:36:56] importante también es crear eh un montón
+[00:36:58] de tests o de pruebas que nos puedan
+[00:37:00] mostrar que el flujo principal se puede
+[00:37:03] probar de de forma automática, ¿no? A
+[00:37:05] mano antes de su pich. Entonces ustedes
+[00:37:08] esto es s una recomendación que deben
+[00:37:09] tomar en cuenta. No vayan a probar que
+[00:37:12] todo su proyecto funciona en to en o de
+[00:37:15] inicio a fin justamente c antes de subir
+[00:37:18] el proyecto, sino literalmente tómense
+[00:37:20] el tiempo para de una vez decirle a
+[00:37:23] cloud desde el inicio o a cualquier
+[00:37:25] herramienta que vayan a usar, ey,
+[00:37:27] necesito que me crees test de todo lo
+[00:37:29] que estamos creando. Esto va a sumar
+[00:37:31] líneas de código y puede sumar tiempo,
+[00:37:33] tokens, lo que ustedes deseen. Eh, sí,
+[00:37:36] tokens en general, pero el problema está
+[00:37:38] en que si no hacemos test después vamos
+[00:37:40] a descubrir los errores en el en el
+[00:37:42] proceso de utilizarlo. Y lo peor lo peor
+[00:37:45] que puede pasar realmente es que quien
+[00:37:46] descubre el error es el jurado o es la
+[00:37:49] empresa justamente utilizando su demo y
+[00:37:51] eso no lo queremos. También necesitamos
+[00:37:54] implementar manejo de errores. ¿Qué pasa
+[00:37:56] si una IPI falla? podemos tener otra API
+[00:37:59] que la reemplace, incluso si no es como
+[00:38:02] la segunda opción, no es la mejor opción
+[00:38:04] del mercado, pero pues nos puede ayudar
+[00:38:06] a responderle a esos clientes, porque en
+[00:38:08] este caso van a ser clientes reales a
+[00:38:10] los que vamos a justamente apoyar. ¿Qué
+[00:38:13] pasa si de repente eh al crear esta
+[00:38:16] plataforma o este panel
+[00:38:19] alguien busca una cosa que no exista?
+[00:38:22] simplemente le mostramos un 404 o le
+[00:38:25] mostramos algo mejor para explicarles
+[00:38:27] qué es lo que está pasando. Este tipo de
+[00:38:30] cosas tenemos que tenerlo en cuenta
+[00:38:32] porque no es solamente decir, listo,
+[00:38:34] aquí tienes eh toda la información, sino
+[00:38:37] que podamos nosotros mostrar pues que
+[00:38:39] estamos un pasito más arriba, que
+[00:38:40] estamos elevando nuestra solución de un
+[00:38:43] demo a algo que realmente puede ser
+[00:38:45] implementable para esta empresa.
+[00:38:47] observabilidad, agregar esos logs,
+[00:38:49] alertas para saber qué pasó sin tener
+[00:38:51] que adivinar. En este caso, pueden
+[00:38:53] agregarlo directamente dentro de su
+[00:38:56] proyecto donde bueno, puedan decir,
+[00:38:58] "Okay, si algo está fallando, por detrás
+[00:39:01] tengamos un mensaje que diga, ey, mira,
+[00:39:03] esta hora falló esto debido a esto que
+[00:39:05] no está conectado." Algo bien
+[00:39:07] específico. Esto puede ser un poquito
+[00:39:09] más tedioso y adicional. No sé si si lo
+[00:39:11] metería a Juri porque sí dentro de
+[00:39:13] hackaton, pero pues este les da como esa
+[00:39:15] elevación que necesitan para que
+[00:39:17] cualquier empresa diga si no lo
+[00:39:19] implementan, no implementan su proyecto,
+[00:39:20] pues al menos los van a contratar porque
+[00:39:22] dicen, e esta persona ya tiene todo el
+[00:39:24] panorama listo para comenzar a
+[00:39:26] implementar proyectos con nosotros. Y de
+[00:39:29] último, pero no menos importante, de
+[00:39:31] hecho, cero cero cero eh sí, totalmente
+[00:39:35] prioridad cero a nivel de que es
+[00:39:36] sumamente importante es el tema de los
+[00:39:39] costos. ¿Cuánto cuesta usar cada modelo?
+[00:39:41] ¿Cuánto va a costar que esto sea usado
+[00:39:44] en este caso por la clínica? ¿Por qué?
+[00:39:47] Porque de repente si ustedes van y
+[00:39:48] dicen, "No, yo tengo implementar eleven
+[00:39:50] laps con vas a utilizar esto en lobable
+[00:39:52] y vas a utilizar esta API de meta y vas
+[00:39:55] a tener un agente de texto y también una
+[00:39:58] gente que va a llamar directamente y
+[00:40:00] vamos a a decirle a las personas del
+[00:40:02] call center, además que llamen a las
+[00:40:04] personas, no lo sé. Pónganse esta
+[00:40:07] locura. Básicamente estás diciendo que
+[00:40:11] vas a tener un montón de herramientas
+[00:40:12] que van a funcionar al mismo tiempo y de
+[00:40:14] repente el costo de esa operación es muy
+[00:40:16] alto y eso es importante tenerlo en
+[00:40:18] cuenta para las empresas. Ahorita de
+[00:40:20] nuevo, creo que se los mencioné antes,
+[00:40:22] pueden preguntarle a cualquier LLM, pues
+[00:40:24] cuánto puede costar algo para en este
+[00:40:27] caso eh operar esto para, no sé,
+[00:40:30] digamos, 10,000 usuarios. Y ya esto te
+[00:40:32] va a decir, "Oye, mira, si le haces si
+[00:40:34] le mandas desde el IPI de meta, en este
+[00:40:36] caso de WhatsApp, mensajes a 10,000
+[00:40:38] personas, eso puede tener un costo. Si
+[00:40:40] es un solo mensaje en esta región,
+[00:40:42] puedes tener un costo de tanto y te
+[00:40:44] puede dar un estimado y tú agarras y ya
+[00:40:47] tienes en tu demo la explicación de
+[00:40:49] cuánto son, cuánto te va a costar esto o
+[00:40:52] en tu pit vas a tener la estimación de
+[00:40:53] cuánto le va a costar esto a la empresa.
+[00:40:55] Y esto es importante porque las empresas
+[00:40:56] queremos rentabilidad, queremos retorno
+[00:40:59] de inversión. Entonces, si algo vemos
+[00:41:01] que es demasiado costoso para lo que nos
+[00:41:03] va a ahorrar, pues al final no lo vamos
+[00:41:05] a hacer. Entonces, en este caso tenemos
+[00:41:07] que tenerlo claro. Y justo acaban de
+[00:41:09] terminar un un workshop sobre JEV o un
+[00:41:13] demo sobre JEV. Y es una gran opción
+[00:41:15] para simplemente hacerlo mucho más
+[00:41:17] económico para las empresas.
+[00:41:19] Entonces, dentro de esta etapa aquí como
+[00:41:22] haciendo un checklist de lo que
+[00:41:23] deberíamos tener es primero esos secrets
+[00:41:25] fuera del del repo que las API KS no
+[00:41:27] estén directamente allí disponibles para
+[00:41:30] que cualquier persona se las robe, sino
+[00:41:32] que esté en una variable de entorno, que
+[00:41:35] nunca estén en el front en subidas ni
+[00:41:37] obviamente a GIHub. tampoco eh tengamos,
+[00:41:41] por ejemplo, la posibilidad de que
+[00:41:42] cualquier usuario pueda ver toda la
+[00:41:44] información de todos los usuarios, sino
+[00:41:47] que podamos tener una base de datos, por
+[00:41:48] ejemplo, en Supase o cualquier otra que
+[00:41:50] quieran utilizar, donde en este caso
+[00:41:52] para este reto en específico, pues
+[00:41:55] solamente un usuario o un eh un tipo de
+[00:41:59] usuario tenga ciertos permisos.
+[00:42:00] Entonces, los líderes de cada de cada o
+[00:42:03] los gerentes de cada sede van a poder
+[00:42:05] ver los usuarios o la información de su
+[00:42:07] sede, no la de todas las sedes. Y vamos
+[00:42:10] a tener un super admin. Ah, pero también
+[00:42:12] vamos a tener a los usuarios que pueden
+[00:42:13] eh pueden entrar, no lo sabemos. Si lo
+[00:42:16] si van a poder entrar, pues los usuarios
+[00:42:18] no deberían ver ni siquiera ni por asomo
+[00:42:20] quiénes más están en la lista dentro del
+[00:42:22] mismo día de de su cita. datos
+[00:42:25] sintéticos. Eh, si bien no deberíamos
+[00:42:28] utilizar datos reales de pacientes, por
+[00:42:31] ejemplo, en este caso, en este hacaton,
+[00:42:33] es importante usar datos que sean
+[00:42:35] realistas, pero que estén anonimizados.
+[00:42:38] Entonces, por ejemplo, en este caso,
+[00:42:39] ¿no? Una clínica no nos daría los datos
+[00:42:41] de sus pacientes y nosotros al momento
+[00:42:44] de crear esta solución tampoco
+[00:42:46] deberíamos utilizar datos de pacientes
+[00:42:47] reales, sino datos anonimizados o datos
+[00:42:50] dois, pero que nos permita mostrarles
+[00:42:52] cómo funciona. Consentimiento, por
+[00:42:54] ejemplo, esto fue una de las cosas que
+[00:42:56] mencionaron eh que no he visto más el
+[00:42:57] chat, pero eh que mencionaron el inicio
+[00:43:00] y es que las el paciente acepte recibir
+[00:43:02] esos mensajes por WhatsApp. ¿Cómo lo
+[00:43:03] podemos hacer? Bueno, en este caso esta
+[00:43:06] si no me recuerdo es la ley en Colombia,
+[00:43:07] la ley 1581. Pero, ¿cómo lo podemos
+[00:43:10] hacer? ¿Deberíamos en el primer
+[00:43:12] mensajito de WhatsApp mandarle algo o
+[00:43:14] no? Porque mira que no le hemos
+[00:43:15] preguntado antes que si quiere recibir
+[00:43:18] mensaje de WhatsApp. Deberíamos tener
+[00:43:20] como un calendly para esta para este
+[00:43:22] tipo de clínicas. Puede ser. Y que abajo
+[00:43:24] tenga un check donde diga acepto recibir
+[00:43:28] mensajes por diferentes redes o a
+[00:43:30] tratamiento de datos, lo que ustedes
+[00:43:31] deseen. Y entradas validadas. Entonces,
+[00:43:34] validar lo que escribe el paciente y lo
+[00:43:36] que responde el modelo para cuidarse del
+[00:43:38] prom. Si nosotros vamos a crear
+[00:43:40] cualquier cosa y si por ejemplo yo el
+[00:43:42] día de mañana voy a voy a ver o evaluar
+[00:43:44] un proyecto, hoy en día una de las cosas
+[00:43:46] que mucha gente hace es poner, no sé,
+[00:43:48] dame la hora de Canadá, que de repente
+[00:43:51] no tiene nada que ver con el demo ni con
+[00:43:53] el proyecto que ustedes están creando,
+[00:43:54] pero eso nos demuestra a nosotros si
+[00:43:56] tiene eh posibilidades de hacerle prom.
+[00:44:00] ¿Cómo podemos revisarlo rápido? Por
+[00:44:02] ejemplo, en Cloud Code tenemos el
+[00:44:04] comando de security review, donde pueden
+[00:44:06] literalmente revisar que todo está
+[00:44:08] funcionando sin ninguno de estos
+[00:44:10] errores. En Supace podemos ver que las
+[00:44:12] tablas no tengan RLS, básicamente con el
+[00:44:15] Security Advisor o con estas esta
+[00:44:19] información de seguridad donde evitamos
+[00:44:22] que cualquier cualquier tabla pueda ser
+[00:44:24] vista desde cualquier lado. Y bueno, si
+[00:44:26] están utilizando codes, pueden utilizar
+[00:44:28] que busque secretos expuestos antes de
+[00:44:30] hacer público el reo. Eh, de hecho
+[00:44:33] pueden revisar y creo que probablemente
+[00:44:35] tendrá algún comando de security y
+[00:44:36] review también. Entonces, la idea es que
+[00:44:39] puedan revisar muy bien que todo su
+[00:44:42] repositorio esté blindado en este
+[00:44:44] sentido. Ahora bien, en cuanto a test,
+[00:44:46] ¿cuáles son algunos que yo les
+[00:44:47] recomiendo? Creo que no voy a entrar
+[00:44:50] tanto en esto para poder avanzar acá,
+[00:44:52] pero básicamente una lógica crítica que
+[00:44:54] esté probada y esto lo pueden hacer con
+[00:44:56] by en este caso, calcular eh riesgo y
+[00:44:59] reasignación de cupos, ver qué pasa si
+[00:45:01] un paciente eh si hay dos pacientes para
+[00:45:03] el mismo cupo puede haber, no deberían.
+[00:45:05] Entonces tenemos tenemos que tener ese
+[00:45:07] test probado allí deberíamos también
+[00:45:09] probar el flujo de punta a punta.
+[00:45:12] Esto lo podríamos hacer con una
+[00:45:13] herramienta como Play y donde
+[00:45:15] básicamente pueden agendar, cancelar y
+[00:45:17] verificar que el cupo pasa a esa lista
+[00:45:19] de espera antes de que alguien vaya a
+[00:45:21] verificarlo en el demo. Por supuesto,
+[00:45:24] también podemos eh añadir evaluaciones o
+[00:45:26] IVALS donde eh pueden crear, no sé, 20
+[00:45:28] mensajes de pacientes con respuesta con
+[00:45:31] respuesta esperada para medir si un
+[00:45:33] cambio en el mensaje de o el del
+[00:45:35] paciente podría generar un cambio o
+[00:45:39] mejor para mejor o peor en cuanto a cómo
+[00:45:42] está funcionando el el agente de
+[00:45:44] inteligencia artificial en este caso si
+[00:45:46] estamos agregándole uno y también tener
+[00:45:49] C en cada push que que hagamos si
+[00:45:51] ustedes tienen tiempo y quieren hacerlo.
+[00:45:53] Buenísimo. Lo pueden hacer para que
+[00:45:55] todos estos test puedan ir corriendo
+[00:45:56] solo cada vez que ustedes hagan un push
+[00:45:59] a su repositorio. Y incluso si agregan
+[00:46:02] un bash de que dice, "Mira, todas las
+[00:46:04] cositas están pasando, todos estos test
+[00:46:06] están pasando en nuestro en su RMI. De
+[00:46:09] una, pues eso les da como una elevación
+[00:46:11] a su perfil y a su repositorio. Y bueno,
+[00:46:13] el atajo obvio es pedirle a su a su
+[00:46:16] inteligencia artificial de confianza que
+[00:46:18] escriba esos test desde el PRD, que lo
+[00:46:20] hicimos en apenas la primera etapa. Pero
+[00:46:23] podemos hacer eh podemos meterle de una
+[00:46:25] vez todos estos test que les estoy
+[00:46:27] mostrando, obviamente enfocados en la
+[00:46:29] solución que ustedes vayan a crear. ¿Qué
+[00:46:31] pueden preguntar entonces las las
+[00:46:33] personas del equipo de de TI cuando
+[00:46:35] queremos hacer esta implementación? Por
+[00:46:38] ejemplo, Sanamar les comentaba que tenía
+[00:46:40] un equipo de TI de tres personas. Cosas
+[00:46:42] que podrían preguntar es, bueno, manejo
+[00:46:44] de errores o salvarilidad, costos,
+[00:46:46] integración. Bueno, nosotros podemos
+[00:46:48] responderles, mira, si por ejemplo ya
+[00:46:50] tenemos el manejo de errores y decir,
+[00:46:51] bueno, si WhatsApp no responde, la cita
+[00:46:53] vuelve a la cola de llamadas del call
+[00:46:55] center o simplemente se cancela la cita
+[00:46:57] si no se responde en tanto tiempo y el
+[00:46:59] mensaje lo indica específicamente y le
+[00:47:02] damos una una vía de eh reagendar. Puede
+[00:47:06] ser observabilidad. Podemos añadir
+[00:47:08] centry para errores y un registro para
+[00:47:10] cada mensaje enviado. Costos podemos
+[00:47:12] indicar, bueno, los costos se evalúan
+[00:47:14] por mensaje y por llamada del modelo
+[00:47:16] proyectado a tantas citas al mes. Y esto
+[00:47:18] es importante porque, pues, ya tenemos
+[00:47:19] la información de cuántas citas eh son
+[00:47:22] tienen inasistencia. Entonces, podemos
+[00:47:24] pensar, bueno, ¿cuántas citas en total
+[00:47:25] son las que podemos eh llevar a cabo con
+[00:47:28] este tipo de este tipo de solución? Y
+[00:47:31] por supuesto, lo último que ya habíamos
+[00:47:33] mencionado, que hoy se integra con el
+[00:47:35] CSV,
+[00:47:36] pero que puede exportarse eh que se
+[00:47:39] puede exportar desde el software
+[00:47:40] clínico, pero que mañana podemos hacer
+[00:47:43] lo mismo, exactamente porque ya tenemos
+[00:47:45] la posibilidad de añadirle una API de
+[00:47:47] otro servicio. Ahora vamos a la etapa
+[00:47:50] cuatro, que es el demo. Entonces, bien
+[00:47:53] importante que desde el inicio y es una
+[00:47:54] recomendación que les doy, no esperen al
+[00:47:56] último día para literalmente hacer
+[00:47:59] deploy de su solución. Hoy en día es
+[00:48:01] mucho más fácil porque pues tenemos
+[00:48:02] inteligencia artificial y tenemos muchas
+[00:48:04] herramientas para mejorar la forma en la
+[00:48:06] que estamos construyendo, pero me
+[00:48:08] acuerdo de mis primeros hackatons. Era
+[00:48:09] horrible depollar el último día porque
+[00:48:12] era el día que salía todo mal y eso a mí
+[00:48:15] me sacaba canas verdes. Creo que no
+[00:48:17] tengo canas todavía, pero si las tuviese
+[00:48:20] serían todos por esos días de entrega,
+[00:48:22] porque literalmente el último día todo
+[00:48:25] va a fallar. Entonces, piénsenlo así.
+[00:48:27] Toda es la ley de Morpy. Entonces, el
+[00:48:28] último día, no sean, no hagan justamente
+[00:48:31] el deploy en ese momento. Utilicen
+[00:48:33] Versel desde el inicio y así sea que lo
+[00:48:36] único que diga su plataforma es Hello
+[00:48:37] World, no importa. Agarren y hagan el
+[00:48:41] despliegue desde el día uno para que
+[00:48:43] cada vez que ustedes hagan un push vean
+[00:48:45] que todo está funcionando, ¿listo? Y si
+[00:48:47] algo se cae, bueno, listo, ya en ese
+[00:48:49] push lo mejoramos. Igual estamos ahorita
+[00:48:51] pues en un Jackato, entonces no importa
+[00:48:53] si su si su app en Bersel está pública
+[00:48:55] porque muy probablemente pues muy poca
+[00:48:57] gente va a llegar a esa aplicación. Así
+[00:48:59] que no se preocupen sino hasta el último
+[00:49:01] día eh tener básicamente, o sea, no se
+[00:49:04] preocupen de de que eso sea visto por
+[00:49:07] cualquier persona porque no habrá
+[00:49:08] problema en ese sentido. Y el último día
+[00:49:11] pues ya van a tener el link público, así
+[00:49:13] que simplemente va a ser copiar y pegar.
+[00:49:15] datos realistas, eso se lo había
+[00:49:17] mencionado previamente, pueden generar
+[00:49:19] datos realistas con inteligencia
+[00:49:20] artificial. No es necesario que tengan o
+[00:49:23] o agreguen información real de personas,
+[00:49:26] pero sí va a ser necesario que
+[00:49:27] literalmente no hagan cosas como usuario
+[00:49:29] uno, usuario dos, usuario de prueba
+[00:49:31] tres, no, sino que no sé, agarren y
+[00:49:34] digan, "Bueno, listo, sede uno, eh, sede
+[00:49:38] de Plaza México, por ejemplo, eh y eso
+[00:49:41] puede ser un usuario, sede de eh Suacha,
+[00:49:45] por ejemplo, y así van creando cosas que
+[00:49:47] sean realistas en este caso para que la
+[00:49:50] empresa y si ya tienen información de
+[00:49:52] esa empresa, por ejemplo, de esta
+[00:49:53] clínica y buscan cuáles son sus sedes,
+[00:49:55] de una agarran y toman esos nombres de
+[00:49:57] las sedes y las traen a su solución.
+[00:50:00] Entonces, traten de traer los los datos
+[00:50:02] más realistas que se puedan para que eh
+[00:50:04] cuando se vaya a probar ese demo se
+[00:50:06] sienta lo más realista posible. Y por
+[00:50:08] supuesto, un video de respaldo, por
+[00:50:10] ejemplo, en este caso, bueno, ya esto se
+[00:50:12] lo vamos a explicar el viernes, pero
+[00:50:14] ¿qué pasa si ustedes están haciendo un
+[00:50:16] demo en vivo? Pues básicamente en este
+[00:50:19] caso eh dentro del hacat no van a tener
+[00:50:21] un demo en vivo sino los finalistas.
+[00:50:24] Después les vamos a explicar eso un
+[00:50:25] poquito más, pero la idea es que si
+[00:50:27] ustedes de repente van a tener un demo
+[00:50:29] en vivo y algo falla, que no es la idea
+[00:50:31] y por eso tienen que hacer tanto ustedes
+[00:50:32] como les mostré previamente, eh
+[00:50:34] básicamente ustedes pueden grabar cómo
+[00:50:36] funciona en una aplicación como CAP, que
+[00:50:38] es totalmente de software libre, así que
+[00:50:40] pueden utilizarlo sin pagar casi nada,
+[00:50:43] no como Loom. Lo era lo mejor del mundo
+[00:50:45] hasta que ya comenzó a cobrar hasta por
+[00:50:46] respirar.
+[00:50:47] Entonces, perdonen si hay alguien de lo
+[00:50:49] y se molesta por esta por este
+[00:50:51] comentario, pero sí, básicamente con un
+[00:50:53] video que ya muestre todo lo que hace su
+[00:50:55] aplicación, ustedes pueden eh decir,
+[00:50:58] "Uy, no, esto está fallando por x
+[00:51:00] razón." Entonces, voy a mostrarles cómo
+[00:51:01] funciona con este video que grabé. Eso
+[00:51:04] no va a elevar para nada su demo, pero
+[00:51:07] les da una opción de salida en ese caso.
+[00:51:10] Y finalmente, la etapa cinco, que es el
+[00:51:12] pH. eh su pit le va a hablar realmente a
+[00:51:15] la gente para que decida. Entonces, acá
+[00:51:18] en este caso, mi más importante eh
+[00:51:22] recomendación en este sentido es que
+[00:51:24] ustedes piensen en que le están hablando
+[00:51:27] a la persona que tiene ese problema, ese
+[00:51:29] reto y que después va a mostrarle esto a
+[00:51:33] directamente a su, no sé, al C level de
+[00:51:35] su empresa o a las personas que toman la
+[00:51:37] decisión o incluso esta persona es quien
+[00:51:38] toma la decisión de la empresa, el C
+[00:51:40] level, quién sabe y directamente ustedes
+[00:51:43] quieren mostrarles y justificarles por
+[00:51:45] qué pueden implementar este proyecto.
+[00:51:48] Entonces, una estructura recomendada.
+[00:51:49] Igual dentro de nuestro canal de YouTube
+[00:51:51] de 30x van a encontrar una charla que
+[00:51:55] tuvimos en el en el hackaton pasado
+[00:51:58] donde estamos viendo el tema de Pach y
+[00:52:01] dentro del Hakaton también van a tener
+[00:52:02] unas asesorías de Pach. Entonces, no se
+[00:52:04] preocupen tanto por esto, pero una
+[00:52:06] estructura que yo les recomiendo es
+[00:52:08] iniciar con el problema de la empresa.
+[00:52:09] Todos van a comenzar diciendo lo mismo,
+[00:52:11] puede ser, pero ustedes tienen que
+[00:52:13] comenzar con esto para que la persona
+[00:52:14] recuerde inmediatamente, ey, de esto se
+[00:52:17] trata, esto es lo que queremos
+[00:52:18] solucionar. Entonces, por ejemplo, en
+[00:52:20] este caso es 8800 citas al mes que están
+[00:52:23] concentradas en las primeras citas con
+[00:52:25] especialistas que tienen asistencia. Y
+[00:52:27] después de una mostramos la solución en
+[00:52:29] acción. hagan un demo directamente en el
+[00:52:31] pitch, no hagan una presentación de
+[00:52:33] slides y ay, mira, y yo utilicé cloud
+[00:52:35] para comenzar a crear esto y lo
+[00:52:37] desplegamos en Vel y toda la información
+[00:52:40] y esto es posible debido a no. En su pit
+[00:52:43] deberían tener su demo de una donde
+[00:52:45] ustedes pueden mostrar, en este caso,
+[00:52:47] como les mencionaba, el eh la solución
+[00:52:49] para este posible reto o este reto de
+[00:52:51] mentiras que le mostré es mostrar un
+[00:52:54] panel de riesgo y que diga, "Ey, de
+[00:52:55] estos 10,000 clientes que tienes,
+[00:52:57] resulta que hay eh 10,000 clientes que
+[00:52:59] tienes eh que tienen agenda, resulta que
+[00:53:02] hay 2000 que viven muy lejos. Entonces,
+[00:53:04] deberíamos disparar un mensaje de
+[00:53:06] confirmación desde antes, por ejemplo, y
+[00:53:09] que pueda mostrar cómo es el flujo de
+[00:53:10] confirmación y si la persona confirmó,
+[00:53:12] no confirmó, si reagendó, etcétera. El
+[00:53:14] impacto esperado, y esto es super
+[00:53:16] importante después de mostrar cómo
+[00:53:17] ustedes solucionan el reto, mostrar de
+[00:53:20] una vez qué se va a esperar que va a
+[00:53:22] traer esta solución una vez sea
+[00:53:24] implementada realmente. Y en este caso
+[00:53:26] sería más agenda ocupada con el equipo
+[00:53:28] con el mismo equipo de call center, es
+[00:53:30] decir, no vamos a contratar más gente
+[00:53:31] para que realmente la agenda se ocupe y
+[00:53:33] por supuesto tengamos menos
+[00:53:35] inasistencias. Y finalmente dar esa
+[00:53:37] invitación o ese aspir,
+[00:53:40] ey, para implementar esto de verdad, yo
+[00:53:43] necesito algo de tu parte. En este caso
+[00:53:45] es un piloto con una sede donde podamos
+[00:53:48] utilizar la implementación con CSV y
+[00:53:50] WhatsApp oficial. Ya tenemos los test,
+[00:53:52] ya tenemos todo. Básicamente va a ser
+[00:53:55] fácil para ustedes utilizarlo. Entonces,
+[00:53:57] con esto ya ustedes le están diciendo,
+[00:53:58] yo quiero realmente implementar esto. Lo
+[00:54:00] que necesito de ti es este por cento y
+[00:54:02] yo el otro porcentaje que necesitas eh
+[00:54:05] de mí para implementarlo, ya está listo.
+[00:54:07] Mira, tiene la seguridad, tiene los
+[00:54:09] test, tiene las evaluaciones listas y
+[00:54:11] además te digo cuánto cuesta. Entonces,
+[00:54:13] esto es bien importante para que ustedes
+[00:54:14] lo se lo puedan eh comunicar a las
+[00:54:17] personas que van a ser esas tomadoras de
+[00:54:19] decisión. Y pueden utilizar herramientas
+[00:54:22] como gama o el mismo cloud, cloud design
+[00:54:24] para crear en este caso una unas slides
+[00:54:27] bien bonitas. Y en el Redmi déjenlo
+[00:54:29] claro, dejen esto es lo que suele pues
+[00:54:32] de primero revisar los equipos técnicos.
+[00:54:34] Entonces dejen claro esta información en
+[00:54:36] el inicio y después pueden ponerse lo
+[00:54:38] más técnicos que quieran explicando qué
+[00:54:40] utilizaron y por qué.
+[00:54:43] Y finalmente, pues les dejo acá un
+[00:54:44] checklist de qué es lo que deberíamos
+[00:54:46] tener en cuenta para pues buscar que
+[00:54:48] estos demos no se queden solo en demos,
+[00:54:50] sino que pasemos a esa implementación. Y
+[00:54:53] de nuevo, incluso si no ganan o si no
+[00:54:55] llegan a final o lo que sea dentro del
+[00:54:57] hackaton, no se sientan que ay, no puede
+[00:55:00] ser, perdí todo mi tiempo, no. Esto
+[00:55:02] puede convertirse incluso en un side
+[00:55:04] project para ustedes que le puedan
+[00:55:05] vender de nuevo eh a otra persona. No lo
+[00:55:08] sabemos. Entonces, no vean esto como que
+[00:55:10] es un proyecto de fin de semana, que si
+[00:55:12] gano chévere, y si no, pues ay, no, que
+[00:55:14] qué aburrido, perdí mi tiempo, ¿no? Todo
+[00:55:16] puede convertirse y elevarse a futuro. Y
+[00:55:19] quién sabe si en la próxima vez que
+[00:55:21] algún cliente o dentro de sus empresas o
+[00:55:24] ustedes quieran crear estos proyectos,
+[00:55:26] justamente esta semilla que están
+[00:55:28] creando de repente se convierte en ese
+[00:55:30] mejor proyecto para abrir muchas más
+[00:55:32] puertas en sus experiencias laborales o
+[00:55:35] experiencias profesionales. Ahora bien,
+[00:55:37] vamos a hablar de nuevo del checklist.
+[00:55:39] Entonces, problema escrito en tres
+[00:55:41] líneas, o sea, que ustedes puedan decir,
+[00:55:43] "Ah, si lo que yo estoy tratando de de
+[00:55:45] lograr es solucionar este problema."
+[00:55:48] Entonces, muchos de los retos van a
+[00:55:49] venir y te van a decir, "Ah, el problema
+[00:55:51] es tal."
+[00:55:53] Pero ustedes tienen que tener la
+[00:55:55] capacidad de explicarlo rápidamente. Va,
+[00:55:59] la idea también es tener el flujo
+[00:56:00] principal que funcione de punta a punta
+[00:56:02] de nuevo con todos sus test y demás y
+[00:56:04] demostrar que puede funcionar desde la
+[00:56:06] parte uno hasta el último paso. Secretos
+[00:56:09] obviamente fuera del del repo o secret
+[00:56:12] fuera del repo tener LRLS activo, por
+[00:56:15] ejemplo, en este caso en Supase. si lo
+[00:56:17] quieren usar o si quieren utilizar otra
+[00:56:19] eh database, datos sintéticos, nunca
+[00:56:21] reales. Esto sobre todo para pues cuidar
+[00:56:24] nuestras propias data personal. Eh, ¿qué
+[00:56:27] pasa si algo falla? Tenerlo bien
+[00:56:29] documentado. Entonces, primero
+[00:56:31] resolverlo, porque si no, pues, para qué
+[00:56:32] lo vamos a agregar en el demo si no está
+[00:56:34] funcionando. Segundo, eh, documentarlo y
+[00:56:37] decir, bueno, si tenemos estos posibles
+[00:56:39] errores, de esta manera se van a
+[00:56:41] manejar. test de flujo principal que
+[00:56:43] pase directamente en la CI. Eh, de
+[00:56:46] nuevo, que cualquier persona cuando
+[00:56:48] quiera tomar este proyecto y ver, oye,
+[00:56:50] de verdad, tiene estos estos test o no,
+[00:56:52] pueda probarlo directamente con el CI.
+[00:56:55] Luego, eh, costo mensual estimado en la
+[00:56:58] operación real. Esto es una
+[00:57:00] recomendación personal, pero pues
+[00:57:01] realmente traten de hacerlo no solamente
+[00:57:03] para este hackaton, sino para cualquier
+[00:57:05] otro, decir cuánto cuesta esto
+[00:57:07] realmente, bien sea para un hackaton de
+[00:57:09] estos donde construimos con la
+[00:57:10] tecnología de las empresas, eh, por
+[00:57:13] ejemplo, un hackaton de, no sé, Antropic
+[00:57:15] y Cloud o de Google y sus herramientas,
+[00:57:18] de una vez decirles, "Ey, esto es lo que
+[00:57:20] me cuesta y esto es lo que yo podría
+[00:57:22] generar con este mismo este mismo
+[00:57:24] software que estoy creando. hacer que
+[00:57:26] cualquier hackaton o cualquier empresa
+[00:57:29] entienda, oye, si este proyecto tiene
+[00:57:32] sentido que lo llevemos a cabo, que le
+[00:57:34] inventamos plata, lo que sea que sea el
+[00:57:37] premio dentro de un hackaton.
+[00:57:39] Y bien, eh seguimos con esto y vendría
+[00:57:42] siendo también el link desplegado y
+[00:57:44] probado en otro dispositivo. No
+[00:57:46] solamente lo veamos en nuestra laptop o
+[00:57:49] la laptop del único desarrollador que
+[00:57:51] esté en el equipo. Si van a estar solos,
+[00:57:53] pueden ir y decirle a su mamá, a su
+[00:57:55] hermana, a su pareja, quien sea, ey,
+[00:57:58] podemos probar esto en tu computadora o
+[00:58:00] por supuesto en el teléfono, etcétera.
+[00:58:02] También piensen mucho en mobile, no
+[00:58:04] solamente hagan las cosas pensando en la
+[00:58:07] parte de desktop, porque pues hoy en día
+[00:58:09] mucho se mueve directamente en el
+[00:58:11] teléfono. Hagan video de pit en este
+[00:58:14] caso y ténganlo s en el checklist s
+[00:58:17] super importante porque de hecho es una
+[00:58:19] de las cosas que cualquier hackaton les
+[00:58:20] va a pedir, en este caso, obviamente se
+[00:58:22] los vamos a pedir y tengan un RMI donde
+[00:58:25] puedan explicar la arquitectura y cómo
+[00:58:27] correrlo. Primero en el Ritmi pueden
+[00:58:29] meter como todo un poquito de esta data
+[00:58:31] que les dejamos acá. Pero después pueden
+[00:58:33] hablar un poquito sobre la arquitectura,
+[00:58:34] cómo correrlo, dejar incluso la
+[00:58:37] documentación lista para que cualquier
+[00:58:39] persona pueda leer eh la información
+[00:58:41] directamente del ritme. Y listo, ya con
+[00:58:44] esto creo que me pasé un poquito de
+[00:58:46] tiempo, Juli, pero ya con esto eh
+[00:58:49] podemos pasar a las preguntas. No sé si
+[00:58:52] tenemos alguna por allí y comenzar a a
+[00:58:55] responder alguna duda que tengan. Acá
+[00:58:57] les dejo eh bueno, mi portfolio personal
+[00:58:59] y también mi LinkedIn y mi Twitter para
+[00:59:03] que ahí estemos en contacto también mi
+[00:59:06] Instagram, así que pues la idea es que
+[00:59:08] podamos seguir en contacto allí.
+[00:59:12] Ay, muchas gracias Sam por esa charla
+[00:59:15] tan eh buena. Les recomiendo demasiado
+[00:59:19] seguir ese checklist porque de verdad
+[00:59:20] que uno llega a la hacaton y se se
+[00:59:22] concentra en ciertas cosas que no valen
+[00:59:25] tanto la pena al final que si hubiera
+[00:59:28] priorizado otras y el resultado pudo
+[00:59:31] haber sido otro si uno hubiera seguido
+[00:59:34] esta checklist por ejemplo. Y bueno, no
+[00:59:37] veo muchas preguntas por aquí en el
+[00:59:39] chat, al contrario veo son muchos
+[00:59:41] mensajitos que te estaban siguiendo a la
+[00:59:43] par en la presentación, que me parece
+[00:59:45] muy chévere porque eso significa que
+[00:59:47] estaban prestando mucha atención y se
+[00:59:49] les ocurrieron muchas ideas de lo que
+[00:59:50] podrían hacer.
+[00:59:52] Eh, Juan Miguel nos hace una pregunta
+[00:59:55] sobre los ganadores del Hakaton, pero
+[00:59:58] pues toda esta información la daremos el
+[01:00:01] viernes a las 5 de la tarde en nuestro
+[01:00:03] kickoff, en donde vamos a estar dando
+[01:00:05] toda la información que tienen que saber
+[01:00:08] para el desarrollo de la hacat.
+[01:00:11] Entonces, si tienen pregunticas pueden
+[01:00:13] ponerlas en el chat.
+[01:00:16] Mientras tanto, acá veo también acá veo
+[01:00:19] algunos comentarios, por ejemplo, dicen
+[01:00:21] si que pueden utilizar railway para sí.
+[01:00:24] Yo realmente dejé muy poquitas opciones,
+[01:00:26] pero puedo utilizar de todo. La verdad
+[01:00:28] es que, por ejemplo, para la base de
+[01:00:30] datos pueden utilizar Neon, cualquier
+[01:00:32] tipo de cosas, no es como que solamente
+[01:00:34] lo que les mostré. E incluso pueden
+[01:00:36] utilizar literalmente lo que quieran,
+[01:00:38] pueden utilizar modelos chinos. Acá si
+[01:00:40] ustedes no quieren gastar ni un pesito
+[01:00:41] de su bolsillo, pueden hacerlo. Pueden
+[01:00:43] literalmente utilizar modelos locales,
+[01:00:46] modelos chinos, lo que ustedes quieran.
+[01:00:47] Acá les dejamos eh la oportunidad de que
+[01:00:49] ustedes exploren todo lo que quieran. Eh
+[01:00:51] y sí, hay muchísimas herramientas para
+[01:00:54] utilizar. Me gusta mucho ver por acá que
+[01:00:56] Mega Junet eh compartió, por ejemplo,
+[01:00:59] varias opciones o varias ideas que tenía
+[01:01:01] de cómo solucionar este reto y me
+[01:01:02] encanta porque a veces nosotros
+[01:01:04] pensamos, listo, el mismo reto eh para,
+[01:01:07] por ejemplo, en este caso, 500 personas
+[01:01:08] que van a estar dentro de la hacat. Ah,
+[01:01:11] no, las mismas las 500 personas van a
+[01:01:13] pensar lo mismo, ¿no? Muy probablemente
+[01:01:14] no. Mira que hasta eh Juliet en tres
+[01:01:17] mensajitos nos dejó diferentes
+[01:01:20] posibilidades, por ejemplo, eh crear eh
+[01:01:24] un predictivo, un una predicción por
+[01:01:27] mapa demográfico, ofrecerle cita al que
+[01:01:30] esté de último para que se genere una
+[01:01:31] asistencia por oportunidad. Está bien
+[01:01:33] interesante.
+[01:01:35] Eh, y veo una pregunta de Roberto que
+[01:01:37] dice, "Elis del costo es calculado por
+[01:01:40] la inferencia y la solución. hasta dónde
+[01:01:43] eh es el cálculo estimado a mostrar en
+[01:01:45] el hacato. Bueno, esto puede ser como tú
+[01:01:48] lo deseas y también puede ser tomado en
+[01:01:51] cuenta sobre todo pues por lo que sea
+[01:01:53] que te ofrezca el reto. Ejemplo, si hay
+[01:01:56] un reto que no sea solucionar algo, sino
+[01:01:58] más bien experimentar algo nuevo, que
+[01:02:01] puede ser, no sé, vamos a usar ahora en
+[01:02:03] X empresa en vez, o sea, no te van a
+[01:02:06] decir que JEB está siendo utilizado o
+[01:02:09] que JEB ha sido utilizado porque acaba
+[01:02:10] de salir hace poco. Entonces,
+[01:02:12] probablemente la empresa todavía no lo
+[01:02:13] está utilizando o lo está utilizando en
+[01:02:16] algunas cositas. Entonces, lo que
+[01:02:18] podemos hacer es decirle a la empresa,
+[01:02:19] bueno, si tú vas a si tú vas a
+[01:02:22] implementar esta solución que te estoy
+[01:02:24] trayendo y vamos a usar, por ejemplo,
+[01:02:27] pues tu costo va a ser de $1,000 cada
+[01:02:30] año, una cosa así puede ser. Mientras
+[01:02:32] que si utilizas cloud eh los modelos de
+[01:02:35] cloud o algo parecido, va a ser $1,000
+[01:02:37] cada dos semanas. Entonces, ya ahí le
+[01:02:39] estás diciendo, "Bueno, estamos
+[01:02:41] utilizando o estamos ahorrándote dinero
+[01:02:43] al utilizar esta herramienta en
+[01:02:45] específico." Entonces, va a depender
+[01:02:46] muchísimo por el tipo de reto, el tipo
+[01:02:49] de solución que te pidan. Entonces, en
+[01:02:52] este caso, yo te daría como la libertad
+[01:02:54] de ver cuál es la métrica o esa ese
+[01:02:57] costo, cómo lo puedes explicar de la
+[01:02:59] mejor forma posible para que le quede
+[01:03:00] claro en este caso a la empresa. Por
+[01:03:02] ejemplo, JEP. Ah, listo. Vas a utilizar
+[01:03:05] eh JEP y te va a costar tanto y
+[01:03:07] compararlo de una vez a con otro tipo de
+[01:03:09] modelo.
+[01:03:13] Y aquí vemos,
+[01:03:16] ¿no?
+[01:03:17] Eh, para el video pit es complementario
+[01:03:19] a la explicación, algo así como un
+[01:03:21] minuto de video, eh, y dos de
+[01:03:24] explicación.
+[01:03:26] Yo siempre recomendaría literalmente que
+[01:03:29] tu pit sea tu demo, o sea, que tú no
+[01:03:31] tengas que agarrar y y decir, "Bueno, en
+[01:03:33] el primer minuto te voy a explicar todo
+[01:03:36] lo que hace nuestra plataforma y después
+[01:03:38] te muestro un poquito lo que hace y ya o
+[01:03:40] te muestro unos slides solamente, sino
+[01:03:42] que hagas un mix y vayas explicando, por
+[01:03:45] ejemplo, la landing hazlo bien bonita o
+[01:03:46] la primera página hazla bien bonita para
+[01:03:48] que te sirva como primer slide y después
+[01:03:51] de eso comienzas a decir, eh, listo, eh,
+[01:03:54] bienvenidos. Lo va a mostrar mi
+[01:03:55] proyecto, ¿cómo se llama? X YZ. Y de una
+[01:03:58] vas mostrando. Bueno, miren, eh cuando
+[01:04:00] somos usuarios y estamos utilizándolos
+[01:04:02] como administradores de estas estas
+[01:04:04] sedes de la clínica Sanamar, listo,
+[01:04:07] entras con tu usuario de esta manera y
+[01:04:09] aquí vas a poder ver toda la lista de
+[01:04:11] personas que tienen X y Z, la la la y
+[01:04:13] vas explicando paso a paso todo lo que
+[01:04:16] hace tu aplicación o tu web app, lo que
+[01:04:19] sea que estés creando para solucionar el
+[01:04:21] reto. ¿Por qué lo diría así? Porque de
+[01:04:24] esa manera se muestra que lo que estás
+[01:04:25] creando pues de una sí estás
+[01:04:27] solucionando el reto. Entonces estás
+[01:04:29] mostrando en el paso a paso usando tu
+[01:04:31] misma aplicación lo que estás realmente
+[01:04:35] eh queriendo, sí, queriendo decir dentro
+[01:04:37] de tu pit que estás solucionando. Si
+[01:04:39] haces unas slides y después al rato es
+[01:04:42] que comienzas a explicar la solución,
+[01:04:44] trata de que sea lo más inmediato
+[01:04:46] posible, o sea, que sea una slide muy
+[01:04:48] corta con datos de repente de cómo esto
+[01:04:51] está afectando en otras industrias o
+[01:04:52] algo parecido y después entras de una
+[01:04:55] vez a mostrar el demo. Pero no les
+[01:04:57] recomendaría como perder mucho tiempo en
+[01:04:59] slides, sino más en mostrarlo con el
+[01:05:01] demo principal. Eh, por ejemplo, eh,
+[01:05:04] Andrés Vilado siempre nos dice a
+[01:05:05] nosotros que no que no vayamos con la
+[01:05:07] novela. Y a mí me encanta eso y eso me
+[01:05:09] ha enseñado un montón cuando hago una
+[01:05:11] explicación de lo que sea, porque él a
+[01:05:12] veces va y pregunta, eh, ¿qué pasó con
+[01:05:15] tal cosa que que les pedí o cómo vamos
+[01:05:17] con este proyecto? Y alguien le va y le
+[01:05:19] dice, "Bueno, Andrés, no, en este
+[01:05:22] momento, pues sabes que yo comencé eh a
+[01:05:24] hacerlo, pero no es que se me fue la luz
+[01:05:27] o ay, me pasó esto o ay no, es que
+[01:05:30] utilicé inicialmente, pero después h me
+[01:05:34] fui por Cloud o algo parecido y él te va
+[01:05:36] a decir, "No, pero no me digas la
+[01:05:38] novela, dime una vez la el resultado que
+[01:05:40] te estoy pidiendo." Entonces, eso mismo
+[01:05:41] téngalo en cuenta para los jurados. O
+[01:05:43] sea, el jurado no quiere entender toda
+[01:05:44] la novela de dónde eres, porque estás
+[01:05:47] creando esto, los datos, un montón de
+[01:05:49] cosas, sino de una este es el problema,
+[01:05:51] esta es la solución y así queremos que
+[01:05:53] lo implementemos. ¿Listo? Eh, y eso les
+[01:05:57] va a ayudar un montón.
+[01:06:02] Listo, Juli, que otra pregunta que ya no
+[01:06:06] hay más. Dicen, "Buenas noche. ¿Cuál
+[01:06:08] será el reto?" Bueno, eh como les hemos
+[01:06:12] dicho, eh todo esto lo van a saber el
+[01:06:16] viernes a las 5 de la tarde, hora
+[01:06:18] Colombia, en donde les vamos a decir
+[01:06:20] todos los retos que habrán las empresas
+[01:06:23] y cómo va a funcionar la hacat desde el
+[01:06:26] viernes hasta el domingo 18 de octubre.
+[01:06:30] Entonces, bueno, creo que no hay más
+[01:06:32] preguntas, entonces pues muchas gracias
+[01:06:34] por la sesión.
+[01:06:36] No, no hay pistas.
+[01:06:38] [risas]
+[01:06:39] Bueno, Juli, si prestaron suficiente
+[01:06:41] atención cuando vean los retos, van a
+[01:06:42] darse cuenta de que sí hubo una pista,
+[01:06:45] varias pistas, pero no lo vamos a decir
+[01:06:47] [risas] hasta el día que lo digamos.
+[01:06:51] Exacto.
+[01:06:52] Eh, muchas gracias por la charla,
+[01:06:54] Sandra. La verdad es que quienes puedan
+[01:06:56] seguir esta checklist les va a ser de
+[01:07:00] muy buen provecho para la haaton y todas
+[01:07:03] las hacatons que eh participen. Y bueno,
+[01:07:08] antes de irnos, hacerles unos
+[01:07:10] recordatorios super rapiditos
+[01:07:11] [carraspeo]
+[01:07:12] y es que mañana cierran las
+[01:07:15] inscripciones al hackaton para que
+[01:07:17] quienes aún no se han registrado o saben
+[01:07:19] de personas que quieren llegar a
+[01:07:21] participar en la hacat, por favor les
+[01:07:23] compartan el link y se puedan registrar
+[01:07:25] a la hackaton. El hackaton inicia
+[01:07:28] oficialmente este viernes a las 5 de la
+[01:07:31] tarde, hora Colombia. Y eh en este
+[01:07:35] kickoff les vamos a contar todo sobre
+[01:07:37] los retos, las empresas, así que no se
+[01:07:39] lo vayan a perder. Y recuerden que
+[01:07:42] mañana tenemos nuestra última sesión de
+[01:07:44] preparación para llegar superlistos a la
+[01:07:47] hacaton. Y recuerden siempre estar
+[01:07:51] pendientes de su correo porque allí
+[01:07:53] hemos enviado varios correítos
+[01:07:55] informándoles cosas sobre la hackaton
+[01:07:58] como los 120 créditos de lobable que
+[01:08:00] tenemos para las personas que no son
+[01:08:02] desarrolladoras, pero tienen una idea
+[01:08:03] muy buena y no queremos que se sientan
+[01:08:05] un paso atrás de quienes sí son eh
+[01:08:08] desarrolladores.
+[01:08:10] También por el correo se les envió el
+[01:08:12] link para que se puedan unir al grupo de
+[01:08:15] WhatsApp en donde también les hemos
+[01:08:17] mandado los recordatorios de la sesiones
+[01:08:19] y además información importante de la
+[01:08:22] Hakaton. Eh, no hay restricción de edad
+[01:08:25] para la Hakaton, es e totalmente virtual
+[01:08:30] y eh pueden participar eh las personas
+[01:08:33] que quieran, no hay restricción de edad.
+[01:08:37] Y bueno, sin más agradecerles a todos
+[01:08:39] los que estuvieron aquí y nos vemos
+[01:08:41] mañana en nuestra última sesión de
+[01:08:43] preparación antes del Hakaton. Que estén
+[01:08:46] muy bien.
+[01:08:48] Ya les voy a pasar por el por el chat el
+[01:08:50] link en donde se pueden
+[01:08:54] eh registrar a la hac.
+[01:09:02] A ver, se los estoy pasando aquí por el
+[01:09:05] chat.
+[01:09:08] Ahí está. Me dicen si ya lo pueden ver.
+[01:09:12] Igual en la descripción del chat de la
+[01:09:15] de la sesión también lo pueden ver y eh
+[01:09:19] en todas las grabaciones están en el
+[01:09:21] canal, así que si se perdieron alguna
+[01:09:23] sesión o quieren repetir alguna, todas
+[01:09:25] las van a poder ver aquí en este canal y
+[01:09:28] en los enlaces que se les compartió para
+[01:09:30] que se unieran a la sesión.
+[01:09:33] Entonces, ahora sí, sin más.
+[01:09:35] Que [resoplido] estén muy bien. Muchas
+[01:09:36] gracias por estar aquí.

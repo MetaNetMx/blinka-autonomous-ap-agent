@@ -1,0 +1,1592 @@
+# Kickoff Oficial - Hackathon 30X (2026-10-16)
+URL: https://www.youtube.com/watch?v=WdXQBNzHHIg
+
+[00:00:09] Buenas tardes a todos los que ya están
+[00:00:10] por acá acompañándonos. Uy, esto voy a
+[00:00:14] poner un poquito más abajo.
+[00:00:19] Veo, me encanta que ya se estén haciendo
+[00:00:21] amigos entre ustedes hablando sobre
+[00:00:22] Pantera Negra en ese en ese chat. Me
+[00:00:25] encanta.
+[00:00:26] Pero bueno, chicos, hoy vamos a darle
+[00:00:29] inicio a nuestro Hackaton de 30X,
+[00:00:32] nuestro segunda edición. En este caso,
+[00:00:34] para mí es superemocionante pues
+[00:00:36] tenerlos acá. Tenemos a más de 600
+[00:00:38] personas, 600 builders que se
+[00:00:40] conectaron, que están participando y es
+[00:00:43] una super emoción poder tenerlos aquí y
+[00:00:46] básicamente vamos a hacer cosas bien
+[00:00:48] interesantes, bien grandiosas juntos.
+[00:00:50] Entonces, bienvenidos. Voy a dar inicio
+[00:00:53] al kickof donde básicamente vamos a
+[00:00:55] explicarles todas las preguntas que
+[00:00:57] tienen de un montón de cosas que ya
+[00:00:58] sabemos que cuáles son los retos, de
+[00:01:00] cuáles son los premios, que cómo se
+[00:01:01] hacen los equipos, de todo, todo lo
+[00:01:04] vamos a ver ahorita y bueno, para mí es
+[00:01:06] superemocionante tenerlos por acá. Si
+[00:01:08] quieren vayan escribiéndonos pues de
+[00:01:09] dónde se están conectando para ir
+[00:01:11] sabiendo. A, por ejemplo, vemos alguien
+[00:01:14] de Colombia, de Medellín, una persona
+[00:01:17] que que representa Core Efectas.
+[00:01:19] Excelente. Me imagino que eres de
+[00:01:21] Colombia. Y si alguien más está, no sé,
+[00:01:24] Venezuela, México, cuéntenos de dónde.
+[00:01:26] Ahí está Venezuela. Exactamente. Sabemos
+[00:01:28] que tenemos varios que se inscribieron
+[00:01:30] desde allí. Medellín, Venezuela,
+[00:01:32] maravilloso. Ah, bastante gente de
+[00:01:34] Medellín. Me encanta. Creo que
+[00:01:35] deberíamos ir a Medellín en algún
+[00:01:37] momento. Juli, Julie está detrás,
+[00:01:39] ustedes no la ven acá, pero está detrás
+[00:01:40] de este de este live viendo todo y
+[00:01:44] ayudándome a que nada falle. Así que si
+[00:01:47] algo falla es mi culpa. Y de Juli
+[00:01:48] también. Okay, entonces. Ah, mira,
+[00:01:52] tenemos personas acá de Ecuador. Bien,
+[00:01:54] tenemos gente de asilo digital,
+[00:01:55] Barranquilla. Maravilloso. Bien, chicos,
+[00:01:58] ya veo que hay más de 100 personas
+[00:01:59] conectadas. Me imagino que muchos más
+[00:02:01] van a estar llegando adicionalmente
+[00:02:03] durante el kickoff. Igual esto queda
+[00:02:05] completamente grabado, así que lo pueden
+[00:02:06] ver luego. Ah, mira, alguien de
+[00:02:08] Salvador, me encanta.
+[00:02:10] Eh, bien. Entonces, para que la puedan
+[00:02:12] ver luego y pues darle pausa en lo que
+[00:02:14] necesiten, eh revisar y hacer preguntas
+[00:02:17] directamente de WhatsApp. Sabemos que en
+[00:02:19] el WhatsApp todavía no pueden hablar,
+[00:02:21] pero eso pues se acaba dentro de
+[00:02:23] poquito. Publ les va a dar permiso para
+[00:02:25] que hablen y allí pueden compartir sus
+[00:02:27] preguntas, decir que buscan equipo todo
+[00:02:29] lo que necesiten compartir. Entonces
+[00:02:31] allí vamos a a ver cómo nos va.
+[00:02:34] Entonces, para dar inicio, vamos a
+[00:02:38] iniciar comentándoles un poquito, pues
+[00:02:39] que esta es la segunda edición. En este
+[00:02:42] caso vamos a estar desde hoy 16 de
+[00:02:44] octubre hasta el 18 de octubre creando y
+[00:02:47] construyendo proyectos reales. Vamos a a
+[00:02:50] enfrentarnos a retos de empresas de
+[00:02:52] verdad resueltos en un fin de semana.
+[00:02:54] Esto no solamente véanlo como una
+[00:02:56] oportunidad para ganar premios, sino
+[00:02:59] adicional a eso, pues para mejorar sus
+[00:03:00] perfiles y contarle al mundo también lo
+[00:03:02] que están creando. Ya les voy a decir un
+[00:03:04] poquito más de todo para que se
+[00:03:05] emocionen y participen en todo lo que
+[00:03:07] estamos preparando para ustedes. Para
+[00:03:09] iniciar, pues obviamente tengo que
+[00:03:11] contarles un poquito de qué es 30x.
+[00:03:13] Nosotros somos una empresa de educación
+[00:03:15] ejecutiva en inteligencia artificial y
+[00:03:18] bueno, somos realmente la mejor
+[00:03:19] educación ejecutiva en este momento para
+[00:03:22] líderes dentro de Latinoamérica y
+[00:03:24] estamos expandiéndonos mucho más. Vamos
+[00:03:26] a ir dentro de poquito a Estados Unidos
+[00:03:29] y seguramente vamos a seguir
+[00:03:30] expandiéndonos hasta incluso otros
+[00:03:32] continentes. ¿Y a quiénes formamos? ¿A
+[00:03:34] líderes, a desarrolladores y equipos
+[00:03:36] comerciales para que puedan llevar la
+[00:03:38] inteligencia artificial de una teoría a
+[00:03:39] resultados concretos en sus empresas? Ya
+[00:03:42] hay más de 4,000 personas que se han
+[00:03:44] formado dentro de nuestros programas y
+[00:03:46] tenemos una red de al menos unas 250
+[00:03:49] empresas que son parte de esta gran
+[00:03:52] familia o esta gran red que estamos
+[00:03:53] creando de 30x. Importante comentarles
+[00:03:56] esto porque en el momento que ustedes se
+[00:03:57] inscribieron, ustedes también forman
+[00:03:59] parte de esta red. En este caso para
+[00:04:02] estamos creando una red de talentos
+[00:04:04] donde cualquiera de estas 250 empresas
+[00:04:06] en el momento que ellos necesiten a un
+[00:04:08] talento van a decirnos seguramente o
+[00:04:10] seguramente casi que con 100% de
+[00:04:13] seguridad. Normalmente le escriben a
+[00:04:15] Andrés Bilbao, le dicen, "Ey, ¿conoces a
+[00:04:17] alguien para este puesto?" Y si él no lo
+[00:04:19] conoce, básicamente a cualquier persona
+[00:04:22] del equipo o dentro de el chat del
+[00:04:23] equipo nos dice, "¿Cono a alguien bueno
+[00:04:25] para esta posición, para esta empresa?"
+[00:04:27] Y ahí nosotros les comentamos, les damos
+[00:04:30] referidos o o les decimos, "Ey, yo creo
+[00:04:32] que pueden revisar esta lista." Y en
+[00:04:34] este caso estamos construyendo
+[00:04:35] justamente esta lista de talentos con
+[00:04:37] ustedes donde básicamente el día de
+[00:04:40] mañana cuando alguien esté buscando algo
+[00:04:42] parecido, podemos mandarle todo este
+[00:04:44] listado de talentos o lo que estamos
+[00:04:45] haciendo realmente es mandarle a ustedes
+[00:04:47] un formulario indicando, "Ey, estamos
+[00:04:50] están buscando en esta empresa un perfil
+[00:04:52] parecido al tuyo. Inscríbete acá o llena
+[00:04:55] este formulario si estás interesado en
+[00:04:57] participar para este proceso y de esa
+[00:04:59] manera pues ustedes escriben sus datos,
+[00:05:02] escriben su experiencia y demás. Y
+[00:05:04] después de eso nosotros les pasamos a
+[00:05:06] los candidatos que tienen más fit esas
+[00:05:09] empresas directamente a quien eh a quien
+[00:05:11] se encarga de reclutar y de esa manera
+[00:05:13] hemos logrado conectar a varias
+[00:05:14] personas. Y si no ir tan lejos, les voy
+[00:05:16] contando que ahorita en 30x estamos
+[00:05:18] buscando dos posiciones que les vamos a
+[00:05:20] mandar por WhatsApp dentro de un rato
+[00:05:22] los dos formularios. Eh, bueno, hoy un
+[00:05:24] formulario y probablemente el fin de
+[00:05:26] semana les mandamos el otro. Una de las
+[00:05:28] posiciones es AI Builder, donde
+[00:05:30] básicamente entro del equipo de
+[00:05:31] tecnología, del cual también formo parte
+[00:05:33] y eso me me encanta. directamente
+[00:05:35] estamos buscando personas que no
+[00:05:37] solamente aprendan a construir, sino que
+[00:05:40] lo hagan con inteligencia artificial,
+[00:05:42] que ya tengan conocimiento de cómo crear
+[00:05:44] productos y de ser posible incluso que
+[00:05:47] de hecho ya tengan muchísima experiencia
+[00:05:49] en ello. Y nosotros pues lo que nos
+[00:05:51] encargamos es de construir lo que
+[00:05:53] nuestros equipos necesitan dentro de 30x
+[00:05:56] y estoy segura de que acá probablemente
+[00:05:57] está ese builder. Esto también se lo
+[00:05:59] hemos enviado a las personas del hacat
+[00:06:01] pasado y pues estamos en ese proceso de
+[00:06:03] evaluar varios perfiles, así que espero
+[00:06:06] que se postulen allí y bueno, si están
+[00:06:08] dentro de este jacatón, creo que tienen
+[00:06:09] muchas oportunidades de ser la persona
+[00:06:12] que pueda brillar más y lograr ese ese
+[00:06:14] trabajo allí. Y el otro el otro rol que
+[00:06:16] estamos buscando es de venta, es de VDR
+[00:06:19] y allí también les vamos a mandar un
+[00:06:20] formulario para que ustedes se postulen
+[00:06:22] durante el fin de semana si están
+[00:06:23] interesados, si son de esta área
+[00:06:25] específicamente. ¿Qué más tenemos en
+[00:06:27] 30x? Tenemos programas. Nuestros
+[00:06:30] programas son, por ejemplo, AI for
+[00:06:31] Executives, AI for Developers, Sales
+[00:06:34] Machine, eh AI Sales y más. Todos están
+[00:06:37] enfocados en aplicar esta tecnología
+[00:06:40] directamente a casos reales. Es decir,
+[00:06:43] nosotros no solamente te decimos, "Ay,
+[00:06:44] la teoría y mira qué lindo es usar, no
+[00:06:46] sé, lob o cloud o lo que sea, sino
+[00:06:49] realmente te ayudamos a pasar de, bueno,
+[00:06:51] esta tecnología existe, cómo la podemos
+[00:06:53] implementar en tu empresa, en tu área
+[00:06:56] para que puedas crecer y mejorar."
+[00:06:58] Entonces, la mayoría de las personas que
+[00:07:00] están en nuestros programas son
+[00:07:01] usualmente pues ejecutivos, como les
+[00:07:03] mencionaba previamente. Entonces, pueden
+[00:07:05] utilizar esto directamente sus empresas.
+[00:07:07] Y algo muy lindo que ha pasado es que
+[00:07:09] justamente son empresas que ahora tienen
+[00:07:11] a sus evel o a sus eh digamos jefes,
+[00:07:14] gerentes, CEOs y demás. Ahora están
+[00:07:17] entrenados, por llamarlo de alguna
+[00:07:19] forma, o tien en su mindset la necesidad
+[00:07:21] de utilizar inteligencia artificial
+[00:07:23] dentro de sus empresas. Y eso es lo que
+[00:07:25] nos lleva a que podamos hacer cosas como
+[00:07:27] este hackaton, donde directamente
+[00:07:29] podemos preguntarle empresas aliadas o
+[00:07:31] empresas de nuestra red, les podemos
+[00:07:32] preguntar, ey, ¿qué podemos solucionar
+[00:07:34] de tu empresa directamente con
+[00:07:36] inteligencia artificial? Que traigamos
+[00:07:38] un grupo grande de desarrolladores, de
+[00:07:41] marketeros, de builders en general a
+[00:07:43] solucionar y por eso es que nacen cosas
+[00:07:46] como esteaton. También tenemos
+[00:07:49] comunidad, tenemos redes de ejecutivos,
+[00:07:51] builders y empresas que pues aprendemos
+[00:07:53] haciendo juntos. Tenemos muchas clases
+[00:07:55] gratuitas sin ir tan lejos. Mañana
+[00:07:57] tenemos una mentoría en vivo que Juli
+[00:08:00] después les pasa por allí en el en el
+[00:08:02] chat les puede pasar un el link de Luma
+[00:08:05] para que se inscriban, sobre todo si son
+[00:08:06] dueños de negocio o algo parecido donde
+[00:08:09] ustedes quieran aprender directamente de
+[00:08:11] nuestro equipo, eh, bueno, nuestros
+[00:08:13] mejores perfiles directamente de 30x,
+[00:08:16] cómo mejorar lo que sea que están
+[00:08:18] creando. Entonces, allí tenemos personas
+[00:08:20] que literalmente llegan y dicen, "Tengo
+[00:08:23] estoy vendiendo hasta el 50% de mi
+[00:08:25] capacidad, quiero vender más." Y de
+[00:08:26] repente Guille o Andrés o Dylan, que son
+[00:08:29] nuestros socios o nuestros cofounders,
+[00:08:32] literalmente se sientan y hacen que tu
+[00:08:34] equipo eh comience a utilizar las
+[00:08:37] mejores herramientas para llevar a cabo
+[00:08:39] esa mejora en la métrica que estás
+[00:08:41] buscando. Y finalmente, Hackatons, como
+[00:08:43] les mencionaba, esta es otra parte de
+[00:08:45] nuestro ecosistema. Tenemos retos reales
+[00:08:47] de empresas que buscamos resolver con
+[00:08:49] inteligencia artificial directamente en
+[00:08:51] un fin de semana. Y eso es lo que vamos
+[00:08:53] a hacer este fin de semana. ¿Por qué
+[00:08:56] hacemos un hackaton? Bueno, ya les dije
+[00:08:58] un poquito antes, pero vamos aondar un
+[00:09:00] poco más acá. A ver, no es como que de
+[00:09:02] la nada nos despertamos y dijimos,
+[00:09:03] "Listo, hagamos porque nos encanta
+[00:09:06] socializar con desarrolladores y ya,
+[00:09:08] sino que realmente todo esto tiene una
+[00:09:10] idea detrás. La idea de nosotros es que
+[00:09:13] ustedes puedan aprender y llevar mucho
+[00:09:15] más allá sus habilidades construyendo
+[00:09:18] con inteligencia artificial
+[00:09:19] directamente. La inteligencia artificial
+[00:09:21] es una es una tecnología espectacular
+[00:09:23] que nos hace crecer un montón, pero si
+[00:09:26] no construimos nada con ella,
+[00:09:27] literalmente es como leer un libro de
+[00:09:30] teoría y no hacer nada con eso. Entonces
+[00:09:32] es mucho mejor venir este fin de semana,
+[00:09:35] sentarse a construir en conjunto y crear
+[00:09:38] esos esos proyectos que no solamente van
+[00:09:41] a servirle a las empresas que con las
+[00:09:43] que estamos aliados para venir y traer
+[00:09:44] este hacaton, sino también para ustedes
+[00:09:46] mismos. Esto podría ser incluso su
+[00:09:48] próximo gran proyecto personal que
+[00:09:50] pueden llevar starops, no lo sé. De
+[00:09:52] hecho, en el último hackaton que
+[00:09:53] hicimos, hasta un Star consiguió su
+[00:09:56] equipo fundador, así que ese tipo de
+[00:09:57] cosas lo valoramos mucho y queremos que
+[00:09:59] sigan pasando dentro de nuestro
+[00:10:01] ecosistema. Entonces, tenemos retos
+[00:10:03] reales de empresas que traen sus
+[00:10:04] problemas de su operación y nos dan un
+[00:10:06] poco de contexto para que ustedes lo
+[00:10:08] resuelvan. Esto es positivo para ambas
+[00:10:10] partes, para ustedes porque ganan esa
+[00:10:12] experiencia de cómo una empresa quiere
+[00:10:14] resolver un reto y cuáles son esos retos
+[00:10:16] reales de empresas a los que ustedes
+[00:10:18] pueden crear proyectos. Y por otro lado,
+[00:10:21] las empresas literalmente ganan
+[00:10:22] innovación abierta. Este concepto es muy
+[00:10:24] sencillo, es el concepto de a veces
+[00:10:27] nosotros nos sentamos y les voy a poner
+[00:10:28] un ejemplo, digamos que en el equipo de
+[00:10:30] 30x somos como casi 10 personas, 12
+[00:10:33] personas en el equipo de Tech y ¿qué
+[00:10:35] pasa si literalmente estamos teniendo o
+[00:10:37] enfrentando un problema, pero resulta
+[00:10:40] que todos seguimos pensándolo desde el
+[00:10:42] punto de vista de 30x, de lo que hemos
+[00:10:43] venido haciendo los últimos meses, pues
+[00:10:45] simplemente terminamos teniendo e las
+[00:10:48] mismas ideas o eh terminamos viendo la
+[00:10:51] misma forma de resolver ese reto Cuando
+[00:10:53] si de repente abrimos esto y decimos,
+[00:10:55] bueno, 600 personas más, 600 personas y
+[00:10:58] mentes diferentes, puntos de vista
+[00:11:00] diferentes, vengan y veamos cómo lo
+[00:11:03] podemos solucionar. Estoy segura de que
+[00:11:05] alguno de ustedes, por no decir muchos
+[00:11:07] de ustedes, van a tener formas muy
+[00:11:09] diferentes de hacer las cosas y muchos
+[00:11:10] mejores de los que nosotros internamente
+[00:11:12] podríamos resolverl. Tenemos también
+[00:11:14] mentores que ya construyen y vamos a
+[00:11:17] tener acompañamiento o ustedes van a
+[00:11:19] tener acompañamiento de producto,
+[00:11:20] ingeniería para sacarle al máximo a su
+[00:11:22] proyecto. Vamos a tener algunos mentores
+[00:11:24] que van a poder acceder directamente a
+[00:11:25] la plataforma que les vamos a mostrar
+[00:11:27] próximamente.
+[00:11:29] Luego también sus proyectos van a estar
+[00:11:31] al frente de estas empresas, pues son
+[00:11:32] empresas reales, retos reales, problemas
+[00:11:35] reales, a los que ustedes pueden decir
+[00:11:36] directamente a CTOs, a líderes de
+[00:11:39] producto, "Ey, mira lo que construí para
+[00:11:41] ti." Y lo que puede salir de allí es
+[00:11:43] que, por ejemplo, lo que les decía, ¿qué
+[00:11:45] tal si nuestro sitio ve sus perfiles y
+[00:11:47] dicen, "Esta es la persona que quiero
+[00:11:49] contratar directamente porque le hacen
+[00:11:51] un demo face to face e o ahí en vivo,
+[00:11:55] pues eso es lo que queremos que que pase
+[00:11:56] y que se logre que de repente de acá
+[00:11:58] salgan esas personas que van a ser
+[00:12:00] contratadas por las empresas que nos
+[00:12:01] acompañan y por supuesto en un fin de
+[00:12:03] semana van a tener algo funcionando.
+[00:12:05] ¿Qué pasa? Normalmente cuando somos como
+[00:12:07] bycoders, AI builders, como queramos
+[00:12:10] llamarnos, básicamente siempre tenemos
+[00:12:13] ideas, tenemos demasiadas ideas y
+[00:12:14] decimos, "No, yo quiero construir un
+[00:12:16] sistema de contenido totalmente
+[00:12:18] automatizado, quiero crear un equipo de
+[00:12:20] 14 agentes que hagan el growth de mi
+[00:12:22] empresa, no lo sé, piensen en cualquier
+[00:12:24] proyecto." Cool, lo pensamos, comenzamos
+[00:12:27] a hacerlos probablemente con clot y lo
+[00:12:29] dejamos allí porque capaz no tenemos esa
+[00:12:30] presión, entre comillas, de comienza a
+[00:12:33] hacer que esto ahora esté en vivo y lo
+[00:12:35] comience a usar cualquier persona.
+[00:12:37] Entonces, la idea es que en este fin de
+[00:12:38] semana ustedes salgan con cosas que
+[00:12:40] funcionen realmente, que puedan mostrar
+[00:12:43] directamente no solamente sus perfiles,
+[00:12:45] en sus portafolios, sino también a esas
+[00:12:48] empresas que están pendientes de qué van
+[00:12:49] a crear. Ahora bien, vamos con los retos
+[00:12:52] que estoy segura de que todos están
+[00:12:55] superinesados en conocerlos antes de que
+[00:12:58] justamente
+[00:13:00] de que justamente vayamos a a preguntar
+[00:13:02] milum veces y cuáles son los retos. Pero
+[00:13:05] bueno, acá les voy a compartir los
+[00:13:07] cuatro retos que tenemos. El primero es
+[00:13:10] eh usar JEP con 30X o usar JEP en 30X.
+[00:13:15] Vamos a traer cuatro retos en este caso.
+[00:13:17] Dos van a ser de 30x y dos van a ser de
+[00:13:20] empresas aliadas. Entonces, JEP en 30X.
+[00:13:23] Ustedes ya vieron una clase de JEP y si
+[00:13:26] no la llegaron a ver pueden agarrar y
+[00:13:28] entrar a nuestro mismo link de YouTube,
+[00:13:30] a nuestro perfil de YouTube y allí
+[00:13:32] Alfredo, que es uno de nuestros
+[00:13:33] desarrolladores del equipo, literalmente
+[00:13:35] les dio pues un demo y bien específico
+[00:13:37] sobre JEP y cómo lo pueden usar,
+[00:13:39] etcétera. Lo que queremos es que hagan
+[00:13:41] casi que lo mismo, pero acá directamente
+[00:13:43] pues con nosotros eh ayudarnos a
+[00:13:46] entender cómo podemos llevar a cabo el
+[00:13:49] uso de JEV más y mejor dentro de 30x.
+[00:13:52] Entonces, esto es un modelo que decide
+[00:13:55] milisegundos para automatizar
+[00:13:56] decisiones. Entonces, queremos que
+[00:13:58] ustedes exploren cómo lo podemos
+[00:13:59] utilizar en áreas como comercial, media
+[00:14:01] o tecnología. Toda la info de estos de
+[00:14:04] estos retos lo van a encontrar en
+[00:14:06] nuestra plataforma de H Radar, que les
+[00:14:08] vamos a mandar el link para que ustedes
+[00:14:10] puedan acceder directamente y ahí hay
+[00:14:13] una parte que se llama retos y van a
+[00:14:14] leer todo lo que quieran sobre estos
+[00:14:17] retos allí. Obviamente es un brief,
+[00:14:19] digamos como un OnePayer o una página,
+[00:14:22] no tiene la información sumamente
+[00:14:24] extensa, pero pues la idea es que
+[00:14:25] ustedes busquen también más información
+[00:14:28] tanto de estas empresas como de otras
+[00:14:30] para hacer el mejor proyecto en cada
+[00:14:33] caso. El segundo reto que tenemos de 30X
+[00:14:36] es el radar de contenido. Nosotros
+[00:14:38] hacemos bastante contenido. No sé si en
+[00:14:40] algún momento les ha tocado abrir su
+[00:14:42] Instagram y le sale el primer video es
+[00:14:44] de Andrés o de 30x. Bueno, eso queremos
+[00:14:48] seguir haciéndolo, seguimos queremos
+[00:14:49] seguir creando contenido espectacular
+[00:14:52] sobre inteligencia artificial
+[00:14:53] específicamente, pero queremos descubrir
+[00:14:56] cuáles son los temas y los formatos que
+[00:14:58] más realmente están despegando en redes,
+[00:15:01] por qué están funcionando y si encajan
+[00:15:04] con nuestra audiencia que como les
+[00:15:05] mencionaba son ejecutivos de
+[00:15:07] inteligencia artifici ejecutivos de
+[00:15:09] empresas, mejor dicho, que quieran
+[00:15:11] aprender inteligencia artificial.
+[00:15:13] Entonces, lo que queremos es que ustedes
+[00:15:15] busquen la forma de con inteligencia
+[00:15:17] artificial crear ese radar de contenido.
+[00:15:19] De igual forma en de directamente en H
+[00:15:22] Radar van a encontrar pues más
+[00:15:24] información de este reto. También vamos
+[00:15:27] a tener un reto de Blinca que no sé si
+[00:15:28] lo conocen, pero es un startup que hace
+[00:15:30] poquito, muy poquito, eh anunció que
+[00:15:32] está ahora dentro de el bash de de YC o
+[00:15:36] de Y Combinator, que es una de las
+[00:15:38] aceleradoras más reconocidas de del
+[00:15:41] mundo de las startups. Y básicamente lo
+[00:15:43] que ellos quieren en este caso resolver
+[00:15:45] es el reto de crear agentes que paguen
+[00:15:47] por una empresa. Probablemente no vamos
+[00:15:50] a llegar hasta el punto donde la gente
+[00:15:51] manda el dinero directamente, pero
+[00:15:53] podemos llegar al punto de hacer un
+[00:15:55] agente que pague las cuentas decidiendo
+[00:15:58] porque sí y por qué no, conciliándolo
+[00:16:01] porque sí y por qué no. Y que pida
+[00:16:03] permiso si es necesario, si algo se sale
+[00:16:06] de las reglas que ustedes decidan. Esto
+[00:16:09] de nuevo, más información lo vamos a
+[00:16:10] conseguir en la plataforma.
+[00:16:12] Vamos a tener el recto, el reto de del
+[00:16:15] DAPTA en este caso que está enfocado en
+[00:16:18] ventas. No sé si conocen DAPTA en este
+[00:16:20] caso es una empresa que está una startup
+[00:16:24] que básicamente está construyendo
+[00:16:26] inteligencia artificial para ventas y
+[00:16:28] Blinca creo que no se los mencioné
+[00:16:29] además de que están en YC. Linca es una
+[00:16:32] empresa que está generando, en este
+[00:16:34] caso, la facilidad de que cualquier
+[00:16:36] empresa pueda pagar de forma
+[00:16:38] internacional, pueda tener su propia
+[00:16:40] cuenta internacional para hacer pagos en
+[00:16:42] cualquier parte del mundo y no tengamos
+[00:16:44] o no suframos lo que usualmente sufre
+[00:16:46] cualquier empresa, que es que se tardan
+[00:16:49] muchos días en llegar a la plata de un
+[00:16:51] país a otro, por ejemplo. Entonces, con
+[00:16:54] Blinca, pues las empresas ahora tienen
+[00:16:56] esa facilidad de tener sus tarjetas y
+[00:16:58] tener todo su sistema financiero
+[00:16:59] directamente más automatizado y, por
+[00:17:02] supuesto, directamente más con mayor
+[00:17:05] acceso a hacer estas transacciones de
+[00:17:07] cualquier parte del mundo. Ahora bien,
+[00:17:10] Condan, ellos están enfocados en
+[00:17:12] inteligencia artificial para ventas.
+[00:17:14] Entonces, lo que ellos quieren con este
+[00:17:15] reto es que podamos encontrar más leads
+[00:17:18] con menor costo. ¿Qué pueden crear?
+[00:17:21] Por ejemplo, una plataforma que
+[00:17:22] encuentra leads en fuentes gratuitas.
+[00:17:25] Hoy en día, pues hay muchísimas fuentes,
+[00:17:28] APIFI, entre otras, pero pues, ¿cómo
+[00:17:30] podemos conseguir más fuentes que nos
+[00:17:32] hagan generar o conseguir leads de mejor
+[00:17:36] calidad o de la misma calidad de esas
+[00:17:38] fuentes que son pagas y podamos
+[00:17:40] contactarlo e incluso medir cuánto nos
+[00:17:42] cuesta cada uno de esos leads para
+[00:17:45] generar, por ejemplo, el primer contacto
+[00:17:47] por WhatsApp? pueden utilizar obviamente
+[00:17:49] DAPTA para este reto. Así que la idea es
+[00:17:52] que de acá pues salgan las mejores
+[00:17:55] ideas, siéntanse libres. En este momento
+[00:17:57] les estoy mostrando esto casi que una
+[00:18:00] una línea por cada reto, pero quiero que
+[00:18:03] lo incluso lo piensen de esta manera.
+[00:18:04] van a tener más información, como les
+[00:18:06] digo, en Haadar que les vamos a mandar
+[00:18:07] el link, pero básicamente dentro de
+[00:18:11] estos retos ustedes quisiera que lo
+[00:18:13] vieran más como lo que les estoy
+[00:18:14] mostrando ahorita, como un de
+[00:18:16] posibilidades para resolverlo, no
+[00:18:18] solamente eh las cosas un poco más
+[00:18:20] específicas que nos pueden dar la
+[00:18:21] empresa, sino cómo podemos hacer que
+[00:18:24] nuestra mente huele y resolvamos esto de
+[00:18:26] miles de formas diferentes. Entonces,
+[00:18:30] vamos a ver eh vamos a ver qué tal nos
+[00:18:32] va con eso. Y por ejemplo, veo acá un
+[00:18:35] mensaje que dice que en Colombia no se
+[00:18:36] puede contactar en frío y sobre todo las
+[00:18:38] reglas de meta. Bueno, vamos a ver cómo
+[00:18:40] lo puede solucionar. Ricardo, la idea es
+[00:18:42] que estos retos son para que ustedes se
+[00:18:45] desafíen directamente y vayan lo más
+[00:18:47] lejos posible con lo la información que
+[00:18:50] podemos tener. Eh, a ver, estoy viendo
+[00:18:53] que algunos tienen problemas para e para
+[00:18:56] acceder a la plataforma. Okay, perfecto.
+[00:18:59] No se preocupen por eso. Ya vamos a
+[00:19:01] solucionarlo,
+[00:19:02] que probablemente sea algún problema con
+[00:19:05] nuestro servicio de mail y vamos a ver
+[00:19:10] que todo esté bien.
+[00:19:14] Ustedes saben que todo lo que es
+[00:19:17] hackatons usualmente tienen fallas en
+[00:19:19] vivo. Entonces, ahorita déjenme revisar
+[00:19:21] qué está pasando con la plataforma y
+[00:19:24] hacemos el despliegue nuevamente.
+[00:19:27] Mientras tanto, vamos a a mirar una de
+[00:19:30] las personas si le si le llegó el
+[00:19:31] código.
+[00:19:33] Vamos a ver.
+[00:19:37] Okay. Eh, mientras estamos solucionando
+[00:19:39] esto, pues voy a terminar de darle esto,
+[00:19:41] esta explicación y ya directamente
+[00:19:43] nuestro equipo se va a encargar de
+[00:19:45] trabajar y listo.
+[00:19:48] Ah, okay. Lo que probablemente está
+[00:19:50] pasando es que como mucha gente está
+[00:19:52] haciendo al mismo tiempo y porque pues
+[00:19:54] al final nosotros somos una empresa que
+[00:19:57] está haciendo un montón de envíos de
+[00:19:58] correos también, si quieren cuando
+[00:20:01] intenten ingresar prácticamente pidan el
+[00:20:04] correo la primera vez y esperen unos
+[00:20:06] minutos a que les llegue y si después de
+[00:20:08] 5 minutos no les está llegando, pues
+[00:20:10] allí vuelven a pedirlo nuevamente.
+[00:20:13] Ah, mira, sí, varias personas están
+[00:20:14] diciendo que sí les está llegando. Bien,
+[00:20:16] perfecto. Entonces, no estamos tan mal.
+[00:20:19] Pero sí vamos a a revisar qué está
+[00:20:21] pasando allí, porque probablemente es un
+[00:20:23] tema de nuestro servidor de correo, ya
+[00:20:25] que estábamos hicimos varias pruebas y y
+[00:20:28] pues por cantidad de usuarios dentro de
+[00:20:30] nuestra plataforma no debe ser. Lo que
+[00:20:32] probablemente está pasando es que la
+[00:20:34] plataforma externa que estamos
+[00:20:35] utilizando para el envío de mail eh debe
+[00:20:37] estar saturada en este momento.
+[00:20:38] Entonces, ya los vamos a apoyar en todo
+[00:20:40] lo posible allí. Igual voy decirle a mi
+[00:20:43] cloud qué está pasando para que me me
+[00:20:45] vaya solucionando esto en vivo. Bien,
+[00:20:48] entonces eh alguien está preguntando que
+[00:20:51] si tenemos que elegir uno. Sí,
+[00:20:52] obviamente tenemos cuatro retos, pero
+[00:20:54] ustedes solamente deberían elegir uno.
+[00:20:56] Concéntrense en uno este fin de semana.
+[00:20:57] Si pueden solucionar los cuatro,
+[00:20:59] excelente, pero pues nada más pueden
+[00:21:02] cargar un solo proyecto. Entonces en
+[00:21:04] este caso, eh tienen que elegir uno de
+[00:21:06] los cuatro. ¿Cuáles son las reglas de
+[00:21:08] luego? Primero van a construir para
+[00:21:11] resolver los retos. Si ustedes quieren
+[00:21:12] construir una aplicación magnífica de
+[00:21:14] agentes para grow, pues capaz no entra
+[00:21:16] acá. Eh, si quieren construir una
+[00:21:19] aplicación magnífica de salud, por
+[00:21:21] ejemplo, pues tal vez no entra acá.
+[00:21:23] Entonces, podrían construirlo el fin de
+[00:21:24] semana, pero no va a ser un proyecto que
+[00:21:26] esté dentro de nuestras reglas. En este
+[00:21:28] caso, segunda regla, en este caso van a
+[00:21:32] poder crear sus equipos desde una a
+[00:21:34] cinco personas. Si ustedes están hoy
+[00:21:37] viernes a las 5:26 solos en sus equipos,
+[00:21:39] no se preocupen, pueden hacer todo su
+[00:21:42] trabajo desde cero completamente solos,
+[00:21:44] no hay problema. Eh, pero lo importante
+[00:21:46] es que pueden ser equipos desde una
+[00:21:48] persona hasta cinco personas máximos, no
+[00:21:50] pueden ser seis. Ay, que somos un
+[00:21:52] startup que tiene que estamos trabajando
+[00:21:54] en algo parecido a lo que pide Blinca.
+[00:21:56] ¿Qué tal si somos un startup que tiene
+[00:21:58] seis personas? ¿Qué hago? pueden
+[00:22:00] dividirse tres y tres en este caso. Eh,
+[00:22:04] y por supuesto, de verdad, les voy a
+[00:22:05] pedir esto con todo mi corazón porque
+[00:22:06] les voy a tener que decir que no 1 y un
+[00:22:08] veces. Entonces, por eso si es posible,
+[00:22:10] por favor, no pidan extensión de tiempo.
+[00:22:12] Ahorita les voy a explicar cómo va a ser
+[00:22:13] la agenda, pero la idea es que no
+[00:22:16] pidamos extensión de tiempo porque si
+[00:22:17] llegásemos a dar una que no va a pasar,
+[00:22:19] primero no lo vamos a hacer, pero si
+[00:22:21] llegamos a dar una, las personas que sí
+[00:22:22] hicieron su tarea y hacen su proyecto en
+[00:22:25] el tiempo estimado después se molestan
+[00:22:27] con nosotros y pues yo no quiero que
+[00:22:29] nadie se moleste. Entonces, por favor,
+[00:22:31] evitemos esto. Van a tener eh bastante
+[00:22:34] tiempo para pues generar sus proyectos.
+[00:22:36] Entonces, por favor, traten de hacerlo
+[00:22:38] en el tiempo indicado.
+[00:22:40] Ahora bien, vamos con esa agenda. ¿Qué
+[00:22:42] es lo que viene? Ustedes directamente
+[00:22:45] desde este momento, pues ya arrancan eh
+[00:22:47] toda la el proceso de construcción y el
+[00:22:49] domingo a las 12 del mediodía van a
+[00:22:52] subir sus proyectos hasta ese hasta esa
+[00:22:54] hora, mejor dicho. No es que a las 12 lo
+[00:22:56] van a subir antes de las 12, a las 11:59
+[00:23:00] máximo deben subir sus proyectos sin
+[00:23:02] excepciones. Si alguien dice, "No, pero
+[00:23:03] es que me pasó esto, lo otro, no. lo
+[00:23:06] vamos a poder eh no vamos a poder tener
+[00:23:08] excepciones, a menos que sea algo
+[00:23:09] extremadamente fuerte y pues tiene que
+[00:23:11] ser una excepción muy fuerte a nivel
+[00:23:14] familiar, a nivel de salud, algo
+[00:23:15] parecido para poder llegar a hacerlo.
+[00:23:17] Sin embargo, de verdad no lo vamos a
+[00:23:19] hacer. suba sus proyectos antes del
+[00:23:21] domingo 18 a las 12 del mediodía para
+[00:23:24] que en este caso podamos eh
+[00:23:27] podamos eh podamos todo el mundo iniciar
+[00:23:31] y partir desde el mismo punto y llegar
+[00:23:33] al mismo punto en en todos en todos los
+[00:23:36] casos. Ahora bien, de aquí al domingo,
+[00:23:38] ¿qué va a pasar? Listo, ya nos olvidamos
+[00:23:40] de ustedes y ya no hacemos nada, ¿no?
+[00:23:42] Realmente vamos a tener y de hecho en
+[00:23:44] Hgradar van a haber en mentores una
+[00:23:46] lista de personas que los vamos a estar
+[00:23:47] apoyando. Entre ellos voy a estar
+[00:23:48] también yo eh con pequeños espacios de
+[00:23:51] mentoría para que ustedes vengan con
+[00:23:52] nosotros y nos digan, bueno, cuáles son
+[00:23:55] las los problemas o las soluciones que
+[00:23:57] están teniendo, cuáles son las
+[00:23:58] soluciones en las que están pensando
+[00:24:00] para que los podamos ayudar a
+[00:24:02] mejorarlas, a darles nuestros consejos.
+[00:24:04] Tal vez incluso nos pueden decir, "Oye,
+[00:24:06] ¿y qué puedo qué herramienta puedo
+[00:24:07] usar?" etcétera. Nosotros los podemos
+[00:24:09] ayudar con eso. Eh, puede ser que la
+[00:24:11] mayoría de nosotros tengamos entre 15 a
+[00:24:12] 30 minutos. Esto pues para darle la
+[00:24:15] mejor el espacio o el tiempo posible a
+[00:24:18] todos en general. Y finalmente, eh
+[00:24:21] mañana durante la tarde, no recuerdo
+[00:24:23] bien a qué hora, eh vamos a tener un
+[00:24:26] espacio de mentoría en Peach, donde
+[00:24:29] vamos a contar con uno de nuestros
+[00:24:30] mentores, que también está disponible
+[00:24:32] para que ustedes les pidan pequeños
+[00:24:33] espacios aparte, donde él nos va a
+[00:24:35] explicar un poquito sobre cómo podemos
+[00:24:37] mejorar nuestro Pach, etcétera, y de una
+[00:24:39] les puede dar hasta feedback
+[00:24:40] directamente.
+[00:24:42] Luego también mañana sábado en dos
+[00:24:44] ciudades, en este caso Bogotá y Caracas,
+[00:24:47] vamos a tener un pequeño espacio de job,
+[00:24:49] que digamos que más que un espacio de
+[00:24:51] job o un espacio presencial, realmente
+[00:24:52] es simplemente un espacio de coworking,
+[00:24:54] ¿no? No vamos a tener nada más que eso.
+[00:24:56] O sea, si no están en Bogotá o no están
+[00:24:58] en Caracas, no se preocupen, no es como
+[00:25:00] que se van a perder algo maravilloso, no
+[00:25:02] vamos a tener merch ni nada especial,
+[00:25:04] solamente vamos a ir en este caso en
+[00:25:06] Bogotá, la Universidad Javeriana, vamos
+[00:25:08] a tener un pequeño espacio donde pues
+[00:25:10] vamos a poder ir a sentarnos con
+[00:25:12] nuestras computadoras a literalmente
+[00:25:14] codear con nuestros compañeros. Esto
+[00:25:15] sobre todo para aquellas personas que
+[00:25:17] que tienen su equipo y de repente no
+[00:25:19] tienen dónde trabajar en conjunto o
+[00:25:21] quieren hacerlo en algún espacio pues
+[00:25:22] más tranquilo, pueden hacerlo
+[00:25:24] directamente allá en la Universidad
+[00:25:25] Javeriana. De igual manera, en el caso
+[00:25:28] de Caracas, estamos en alianza con Asilo
+[00:25:31] Digital, quienes eh quienes son una
+[00:25:33] comunidad superfuerte en tecnología y
+[00:25:36] básicamente crearon y nos ayudaron a
+[00:25:38] tener este hermoso espacio en Wavetech,
+[00:25:40] que no sé si lo conocen los que estén en
+[00:25:42] Caracas, pues básicamente es un
+[00:25:43] coworking espectacular donde muchas
+[00:25:45] starups y empresas espectaculares que
+[00:25:47] están creando muchísimas cosas
+[00:25:49] increíbles para Venezuela, están
+[00:25:51] desarrollando desde allí. Entonces
+[00:25:53] pueden ir hasta allá, va a haber un
+[00:25:54] espacio como de una sala para que puedan
+[00:25:56] estar unas cuantas personitas, puedan
+[00:25:58] compartir, puedan si están directamente
+[00:26:01] en presencial todas las personas del
+[00:26:03] equipo pueden trabajar desde allí de
+[00:26:05] nuevo. Esto va a ser creo que de 9 a 5.
+[00:26:08] las personas que estaban estaban
+[00:26:09] registradas, si no mal recuerdo, hasta
+[00:26:11] el miércoles o jueves de Bogotá, ya les
+[00:26:14] habrá llegado el el correo y si lo
+[00:26:17] aceptaron directamente ya están dentro
+[00:26:19] de la lista, igual para los de Caracas y
+[00:26:22] también Asilo Digital pues lo está
+[00:26:23] promocionando por su comunidad. Entonces
+[00:26:26] la idea es que tomen estos espacios pues
+[00:26:28] simplemente para ir a compartir, para ir
+[00:26:30] a construir juntos, hombro con hombro,
+[00:26:32] por así decirlo, directamente con sus
+[00:26:34] compañeros. Si no tienen la aprobación
+[00:26:37] para ir a estas para estas sedes, no se
+[00:26:39] preocupen, no se van a perder nada. Como
+[00:26:41] les digo, realmente es un espacio de
+[00:26:43] coworking. Es como decirles que acá en
+[00:26:45] mi estudio literalmente tengamos un
+[00:26:46] espacio de coworking, aquí esté Juliana
+[00:26:48] sentada al lado al lado mío y ya no hay
+[00:26:49] nada adicional interesante que se vayan
+[00:26:52] a perder. Pero bueno, es un momento
+[00:26:54] lindo para que puedan verse las caras,
+[00:26:56] construir el conjunto y de una puedan
+[00:26:59] explorar eh soluciones allí en persona,
+[00:27:01] hacer preguntas a mentores, etcétera.
+[00:27:04] Ahora bien, entonces el domingo
+[00:27:05] entregamos nuestros proyectos y ¿qué
+[00:27:07] pasa entonces? Después de después de
+[00:27:09] eso, durante la tarde del domingo, vamos
+[00:27:11] a estar pues revisando cada uno de los
+[00:27:13] proyectos. Nuestro prejurado va a estar
+[00:27:16] en este caso evaluando cada proyecto,
+[00:27:18] dando las notas en cada caso, etcétera.
+[00:27:21] Y se van a elegir 10 finalistas, 10
+[00:27:24] finalistas por cada uno de los retos. Es
+[00:27:26] decir, reto 1 de 30x va a tener 10
+[00:27:28] finalistas, reto 2 de 30x va a tener 10
+[00:27:31] finalistas, reto adapta va a tener 10
+[00:27:33] finalistas, reto blinca va a tener 10
+[00:27:35] finalistas. Pero, ¿qué va a pasar con
+[00:27:37] esos finalistas? Pues justamente los
+[00:27:39] vamos a anunciar probablemente a las 6
+[00:27:40] de la tarde. Esperemos que pueda ser a
+[00:27:42] esa hora. Depende demasiado de cuánto va
+[00:27:44] a ser la cantidad de proyectos que haya.
+[00:27:46] Si puede ser antes, muchísimo mejor,
+[00:27:48] pero pues denos, ténganos bastante
+[00:27:50] paciencia allí. Eh, y finalmente, ¿qué
+[00:27:52] va a pasar con esos finalistas? Van a ir
+[00:27:54] a hacerle el demo directamente a los
+[00:27:57] jurados de estas empresas. Entonces, los
+[00:28:00] 10 finalistas de cada reto van a
+[00:28:02] presentar su solución en vivo, en este
+[00:28:04] caso, por ejemplo, en 30x con nuestro
+[00:28:06] CTO que se llama Diógenes eh Moreira. en
+[00:28:10] nuestro CTO y va a ser literalmente ese
+[00:28:13] último filtro para decir quién va a ser
+[00:28:15] el ganador de ese de ese premio o de
+[00:28:18] esos dos premios de 30x. Luego eh para
+[00:28:21] brinca van a tener al CTO también que
+[00:28:23] los va a evaluar y va a decidir quién va
+[00:28:25] a ser el ganador de su reto. Y en el
+[00:28:27] caso de data vamos a tener al equipo de
+[00:28:28] producto que va a evaluar ese proyecto.
+[00:28:32] Entonces, finalmente el miércoles vamos
+[00:28:35] a ver el anuncio de ganadores. Entonces,
+[00:28:37] en ese ese día vamos a anunciar pues
+[00:28:39] cuáles son los equipos que ganan y
+[00:28:41] directamente después nos pondremos en
+[00:28:43] contacto para que estos equipos nos
+[00:28:45] puedan mandar la información para
+[00:28:46] hacerles llegar el premio. A ver si hay
+[00:28:49] alguna pregunta por aquí.
+[00:28:54] Bien, por ahora creo que no veo ninguno.
+[00:28:57] Bien, ahora bien, ¿qué necesitamos
+[00:28:59] entregar para este domingo a las 12 del
+[00:29:01] mediodía? Tengamos esto muy muy en
+[00:29:03] cuenta para que podamos llegar al
+[00:29:05] domingo 18, a las 12, antes de las 12,
+[00:29:07] por favor. Bien, para poder entregar
+[00:29:10] todo esto. Vamos a revisar video pitch.
+[00:29:13] Estos van a ser 3 minutos donde ustedes
+[00:29:16] van a contar el problema, la solución y
+[00:29:18] cómo funciona. Más que contarlo,
+[00:29:20] mostrarlo directamente en todas las eh
+[00:29:23] las clases o workshops que les dimos
+[00:29:25] durante la semana. Creo que fuimos muy
+[00:29:26] enfáticos en que utilicen el pit no
+[00:29:28] solamente para decir lo maravillosa que
+[00:29:30] es su solución, sino también para
+[00:29:32] demostrar directamente cómo se utiliza
+[00:29:34] sorprender de una vez. Entonces, por
+[00:29:36] favor, utilicen esos 3 minutitos para
+[00:29:38] contar el problema y mostrar cómo lo
+[00:29:40] están solucionando allí directamente con
+[00:29:42] su plataforma. Luego vamos a tener el
+[00:29:44] demo desplegado. El demo desplegado no
+[00:29:46] es más que la URL de su proyecto para
+[00:29:49] que nosotros podamos probar ese proyecto
+[00:29:52] funcional. Luego lo otro que le vamos a
+[00:29:55] pedir es un repositorio abierto, en este
+[00:29:58] caso de GitHub, donde podamos tener la
+[00:30:00] documentación de lo que ustedes
+[00:30:02] construyeron y obviamente tiene que ser
+[00:30:04] o venir de la mano de ese demo. Es
+[00:30:06] decir, si ustedes entregan un
+[00:30:08] repositorio, que es una cosa magnífica,
+[00:30:10] pero el demo no corresponde a ello, o al
+[00:30:12] contrario, el demo es maravilloso, pero
+[00:30:13] el repositorio no corresponde al mismo
+[00:30:16] demo, obviamente estarían
+[00:30:18] descalificados. Entonces, en este caso,
+[00:30:19] que las dos cosas tengan sentido. ¿Qué
+[00:30:21] pasa si yo no soy desarrollador y estoy
+[00:30:23] entrando en esta en esta hackaton y voy
+[00:30:27] a hacer algo sin de repente un
+[00:30:28] repositorio o con otro tipo de de
+[00:30:31] tecnologías? Les pedimos que creen un
+[00:30:33] repositorio de GIHub para que puedan
+[00:30:36] documentar lo que hicieron, lo que
+[00:30:38] hicieron para poder generar esa esa
+[00:30:40] plataforma. Entonces, de todas
+[00:30:42] necesitamos ese ese repositorio abierto.
+[00:30:45] Ahora bien, ¿cómo vamos a evaluar el
+[00:30:47] 30%? se va a ir en el impacto del reto,
+[00:30:50] que también resuelve el problema que se
+[00:30:52] planteó la empresa. 20% va a la
+[00:30:55] innovación, va más allá de lo obvio o
+[00:30:57] literalmente solo otro agente de voz
+[00:30:59] random más que podemos crear con el
+[00:31:01] evenlabs en 2 minutos. Bueno, vamos a
+[00:31:04] buscar ir mucho más allá de lo básico.
+[00:31:06] Viabilidad técnica, funciona de verdad.
+[00:31:08] El código respalda esa solución.
+[00:31:11] viabilidad de implementación, la empresa
+[00:31:13] podría adoptarlo con restricciones
+[00:31:16] reales. En este caso, por ejemplo, si
+[00:31:17] ustedes, no sé, crean un una solución
+[00:31:21] que esté conectada SAP por alguna razón
+[00:31:23] SAP y nosotros en 30x no usamos SAP,
+[00:31:26] pero ustedes crearon algo que está
+[00:31:28] solamente conectado con SAP, que es un
+[00:31:29] software que ni siquiera podríamos eh
+[00:31:32] capaz ingresar tan fácil. Eh, bueno, en
+[00:31:35] ese caso pues es una cosa que tenemos
+[00:31:37] que evaluar en la viabilidad de
+[00:31:38] implementación o por ejemplo si trabajan
+[00:31:41] con modelos que son extremadamente
+[00:31:42] caros, por ejemplo, Astra, sí que cool
+[00:31:44] hacer cosas con Astra o con eh F 5.5,
+[00:31:49] cualquier modelo que ustedes quieran
+[00:31:50] usar. El tema es, pues realmente sería
+[00:31:52] bueno implementar esto, me me generaría
+[00:31:55] más costos o pues me generaría me
+[00:31:57] generaría una solución en este caso.
+[00:31:59] Tengan en cuenta eso, lo explicamos en
+[00:32:01] varias de las sesiones previas.
+[00:32:03] Entonces, para que por favor puedan eh
+[00:32:05] tomar esto en cuenta. Y finalmente, la
+[00:32:07] presentación, comunican bien ese
+[00:32:09] problema, la solución y el impacto.
+[00:32:11] Obviamente esto es sobre todo el pH. Así
+[00:32:14] que por favor tengan en cuenta estos
+[00:32:16] cinco eh estas cinco estas cinco eh
+[00:32:20] evaluaciones que vamos a estar haciendo
+[00:32:22] para que ustedes tengan sus proyectos lo
+[00:32:24] mejor posible para que puedan ser esos
+[00:32:27] ganadores. A ver,
+[00:32:31] vamos a continuar obviamente con los
+[00:32:33] premios. ¿Qué es lo que se lleva cada
+[00:32:34] premio? Cada uno de los retos se va a
+[00:32:36] llevar $500 por equipo, solo por equipo.
+[00:32:39] Es decir, no le va a llegar $500 al
+[00:32:41] bolsillo de cada uno, sino al bolsillo
+[00:32:42] del equipo. Y un y cupo en programas
+[00:32:45] 30X. Esto de cupo 30x va a ser para el
+[00:32:50] equipo ganador, el equipo que tenga el
+[00:32:52] mejor proyecto en este caso. Entonces,
+[00:32:55] acá me equivoqué, puse de cada reto,
+[00:32:56] pero en realidad de cada reto son $500 y
+[00:32:59] un cupo eh para cada persona del mejor
+[00:33:01] proyecto, del mejor proyecto que salga
+[00:33:04] de toda la hacaton. Esto quiere decir
+[00:33:06] que si su equipo tiene cinco personas,
+[00:33:08] los cinco pueden elegir en su momento
+[00:33:11] cinco cupos, bueno, un cupo diferente
+[00:33:13] para cada uno o de los mismos programas,
+[00:33:15] como ustedes decían, dentro de eh
+[00:33:18] nuestro nuestra nuestro catálogo de
+[00:33:21] programas actualmente. Entonces, por
+[00:33:23] ejemplo, uno puede elegir AI for Deps,
+[00:33:24] el otro puede elegir AI for Executives,
+[00:33:27] por ejemplo, para que ustedes
+[00:33:28] simplemente se lleven en este caso pues
+[00:33:32] este premio y puedan ampliar o elevar
+[00:33:34] sus perfiles profesionales directamente
+[00:33:36] dentro de nuestros programas.
+[00:33:39] Ahora bien, tenemos otro reto extra que
+[00:33:41] no tiene nada que ver con el código en
+[00:33:44] este caso y va a ser construye en
+[00:33:46] público. Queremos saber que están
+[00:33:48] construyendo y queremos que nos los
+[00:33:49] cuenten directamente en Instagram. En
+[00:33:52] este caso, eh nosotros tenemos un
+[00:33:54] programa que se llama Instagram y TikTok
+[00:33:56] y es es un programa que, si no mal
+[00:33:57] recuerdo, tiene un costo de $1,500, pero
+[00:34:00] queremos regalárselo a la persona o
+[00:34:02] queremos darle esto como premio a la
+[00:34:04] persona que tenga el mejor storytelling
+[00:34:05] o que nos pueda contar de una mejor
+[00:34:07] forma lo que está construyendo durante
+[00:34:08] este fin de semana. Entonces, ustedes
+[00:34:11] pueden subir desde ya mismo, si quieren
+[00:34:13] pueden comenzar a grabar y subir
+[00:34:15] resaciones
+[00:34:17] donde estén explicando lo que están
+[00:34:19] construyendo. Pueden ser uno o varios.
+[00:34:21] Lo importante es que no sean stories
+[00:34:23] porque a veces pues no podemos entrarle
+[00:34:24] en las mismas 24 horas, que sean
+[00:34:26] publicaciones, carruseles o eh eh o
+[00:34:29] reels donde bueno, que queden en su feed
+[00:34:32] directamente y nosotros podamos
+[00:34:33] evaluarlo durante estos días. Entonces,
+[00:34:35] ¿qué queremos? expliquen lo que están
+[00:34:37] construyendo. Ejemplo, bueno, entré a
+[00:34:39] HCAT de 30X y quería eh desafiarme a mí
+[00:34:43] misma utilizando una herramienta que
+[00:34:44] nunca había utilizado, que es Jep. Y les
+[00:34:47] voy a contar lo que estoy haciendo. Paso
+[00:34:48] uno, hoy me dediqué a comienzan a llegar
+[00:34:51] el cuento. De repente hacen un solo reel
+[00:34:53] y es magnífico o hacen varios reels y
+[00:34:55] van contando cómo lo hicieron poco a
+[00:34:56] poco también queda dentro de su dentro
+[00:34:59] de sus opciones para que lo hagan de la
+[00:35:01] mejor forma posible. ¿Dónde vamos a
+[00:35:03] enviar esto? Vamos a enviarlo al
+[00:35:04] WhatsApp. Ah, va a haber un grupo, si no
+[00:35:06] me recuerdo ya Juli lo debe haber
+[00:35:07] creado, que se llama Construye en
+[00:35:09] público, donde ustedes pueden mandar
+[00:35:11] esos links para que no solamente eh
+[00:35:14] nosotros como equipo lo veamos, sino
+[00:35:16] para que sus compañeros también los vean
+[00:35:17] y se inspiren. ¿Por qué queremos que
+[00:35:19] hagan esto? No solamente para que
+[00:35:22] cuenten lo que hacen y que 30x sea
+[00:35:24] mencionado, sino realmente queremos que
+[00:35:26] ustedes puedan utilizar este momento,
+[00:35:29] este fin de semana para demostrar sus
+[00:35:31] habilidades, no solamente a nosotros,
+[00:35:33] sino cualquier empresa allá afuera. a
+[00:35:35] cualquier persona que de repente esté
+[00:35:37] buscando a perfiles como el de ustedes.
+[00:35:39] Entonces, esto a muchas personas pueden
+[00:35:41] pensar que hacer que hacer contenido no
+[00:35:43] es gran cosa dentro del mundo técnico,
+[00:35:45] dentro del mundo de la inteligencia
+[00:35:46] artificial, pero realmente te puede
+[00:35:48] ayudar a conectar con tu mejor
+[00:35:50] oportunidad. Sin ir más lejos, por
+[00:35:51] ejemplo, yo les voy a contar mi caso. Yo
+[00:35:54] comencé a crear contenido sobre cuando
+[00:35:56] comencé a trabajar en en ETEC hace mucho
+[00:35:58] tiempo, pero comencé a crear algunos
+[00:36:01] contenidos sobre eso y literal antes de
+[00:36:03] siquiera trabajar en un startup o de ni
+[00:36:06] siquiera tener experiencia directamente
+[00:36:09] en tecnología, literalmente una empresa
+[00:36:11] de Star me una Starup me contactó para
+[00:36:15] hablar gracias al contenido que habíamos
+[00:36:17] hecho directamente en la plataforma de
+[00:36:20] Instagram y también en Linky en su
+[00:36:21] momento. Así que esto puede ser cosas
+[00:36:24] que a ustedes lo pueden conectar con su
+[00:36:26] mejor, sí, con su mejor versión, con su
+[00:36:28] mejor nuevo proyecto. De verdad que son
+[00:36:31] cosas que realmente les incitamos a que
+[00:36:34] hagan o los promovemos, a que realmente
+[00:36:36] aprovechen esta oportunidad y además
+[00:36:37] pues el ganador se va a llevar un cupo
+[00:36:40] para el programa de TikTok en Instagram
+[00:36:41] solamente por contar que hacen. Incluso
+[00:36:44] puede ser que el ganador no tenga nada
+[00:36:46] que ver con estos equipos que van a
+[00:36:47] ganar y se lleve su cupo por otro lado.
+[00:36:50] o puede ser que sea el mismo ganador y
+[00:36:52] entonces se lleve dos cupos. No lo
+[00:36:54] sabemos, pero pues la idea es que
+[00:36:55] aproveche este fin de semana para
+[00:36:57] construir, pero también para mostrar lo
+[00:36:59] que hacen. ¿Y quiénes van a elegir? En
+[00:37:01] este caso el ganador va a ser el equipo
+[00:37:04] de media de 30x directamente vamos a
+[00:37:06] compartir con ellos pues todos los bills
+[00:37:08] que se hagan y vamos a elegir en
+[00:37:09] conjunto quién es ese creador de
+[00:37:12] contenido, es desarrollador AI builder
+[00:37:15] que creó lo mejor posible contándonos
+[00:37:19] cómo estuvo construyendo en público
+[00:37:20] durante este fin de semana.
+[00:37:23] Y para los que no son desarrolladores,
+[00:37:25] pero quieren venir acá a construir
+[00:37:27] también y de repente están solos o
+[00:37:29] quieren apoyar a su equipo directamente
+[00:37:32] y no saben cómo hacerlo, pues hay muchas
+[00:37:34] formas de hacerlo, pero supongamos que
+[00:37:36] no que en este momento eh no la ven
+[00:37:38] todavía nosotros queremos brindarles eh
+[00:37:41] algunos códigos que tenemos con el
+[00:37:43] equipo de Lovable, que nos regaló varios
+[00:37:45] códigos para este tipo de perfiles.
+[00:37:48] Entonces, ya los días pasados les
+[00:37:49] estuvimos mandando un formulario para
+[00:37:51] esas personas que indicaron que no son
+[00:37:53] desarrolladores para que nos dijeran que
+[00:37:55] les gustaría construir más allá de las
+[00:37:57] hacat, pues en otras en otras
+[00:37:59] oportunidades directamente con lowall.
+[00:38:01] Entonces, estas personas van a estar
+[00:38:03] recibiendo los datos para poder obtener
+[00:38:06] eh en este caso en la versión Pro, para
+[00:38:10] que con varios créditos que les vamos a
+[00:38:12] estar entregando eh literalmente puedan
+[00:38:14] ir construyendo soluciones para el
+[00:38:16] hackaton, pero también para la vida en
+[00:38:18] general. ya van a poder aprender cómo
+[00:38:20] utilizar esta plataforma y pues para que
+[00:38:22] puedan crear sin necesidad de ser
+[00:38:24] desarrolladores ni saber absolutamente
+[00:38:26] nada de código, puedan en este caso
+[00:38:29] construir también sus soluciones.
+[00:38:31] Entonces no se preocupen si no saben
+[00:38:32] nada de código y no consiguen nadie para
+[00:38:34] generar un equipo, también pueden
+[00:38:36] crearlo directamente con Low. Así que
+[00:38:40] nada, la invitación por ahora es que
+[00:38:42] comiencen a construir el reloj, pues
+[00:38:44] arranca desde ya voy a revisar cómo
+[00:38:47] vamos por acá.
+[00:38:48] Los que usen lo compiten. Sí, los que
+[00:38:50] usen lo van a competir también. Eh,
+[00:38:53] básicamente vamos a a evaluar todos los
+[00:38:56] proyectos y literalmente literalmente
+[00:39:00] los que usen lobable pueden hacer eh lo
+[00:39:02] mismo. Eh, si tienen las capacidades y
+[00:39:05] saben prontear muy bien, podrían incluso
+[00:39:07] llegar a hacer lo mismo que pueda ser un
+[00:39:10] desarrollador por fuera. A ver, no llegó
+[00:39:14] el formato de LOL. Juli, porfa, hazme el
+[00:39:17] favor de mandarlo por acá por el chat
+[00:39:19] para que ya lo tengan. Y por otro lado
+[00:39:23] les voy a voy a aprovechar para
+[00:39:24] mostrarles acá
+[00:39:27] un poco de agradar. Vamos a ver si ya
+[00:39:31] está un poco descongestionado.
+[00:39:34] Ah, también a sus correos les va a
+[00:39:36] llegar directamente el link de la
+[00:39:39] plataforma de Hgradar y una pequeña
+[00:39:44] y una pequeña guía que les creó Juli
+[00:39:47] para que puedan ver cuál es el paso a
+[00:39:49] paso para crear sus equipos, para ver
+[00:39:52] toda la información para los mentores,
+[00:39:54] etcétera.
+[00:39:56] ¿Cuándo hay respuesta de si tenemos o no
+[00:39:58] los créditos de logo? directamente.
+[00:40:01] Vamos a Okay. Las personas que todavía
+[00:40:03] no hayan entrado al formulario, llenen
+[00:40:06] este formulario que les acabamos de
+[00:40:08] mandar para que directamente pidan esto
+[00:40:10] y ya a las personas que lo habían
+[00:40:12] llenado previamente ya dentro de una
+[00:40:15] hora, 2 horas máximo, le vamos a hacer
+[00:40:17] llegar el código para que puedan eh
+[00:40:20] comenzar a disfrutar de lo y bueno, el
+[00:40:22] paso a paso de cómo hacerlo.
+[00:40:26] A ver, tenemos por acá una persona que
+[00:40:29] pregunta,
+[00:40:31] "El reto uno puede ser cualquier tipo de
+[00:40:33] ejemplo comercial te que nos
+[00:40:35] imaginemos." Sí, de hecho les dejamos
+[00:40:37] algunas ideas directamente en Hard
+[00:40:39] Radar, pero pues la idea es que ustedes
+[00:40:41] pueden pueden explorar cualquier otra
+[00:40:43] cosa que se les ocurra con este con este
+[00:40:47] reto. Ver,
+[00:40:55] vamos a a trabajar acá en el problema
+[00:40:57] que estamos teniendo con Hargadar para
+[00:40:59] que lleguen esos mensajitos más rápidos
+[00:41:02] y les vamos a estar indicando por el
+[00:41:03] WhatsApp directamente eh cuando ya
+[00:41:06] tengamos esto completamente arreglado
+[00:41:08] para que ya puedan de una vez utilizarla
+[00:41:11] sin problema. Disculpas de verdad. En a
+[00:41:14] ver, por aquí tenemos que
+[00:41:18] ya tenemos algunos incluso equipos que
+[00:41:20] están formados, así que vemos por acá ya
+[00:41:22] personas que están entrando, pero sí,
+[00:41:25] lamentablemente estamos teniendo algunos
+[00:41:27] problemas acá con nuestro proveedor de
+[00:41:30] con nuestro proveedor de eh directamente
+[00:41:33] de emails que está haciendo que nos
+[00:41:35] tardemos un poco. Entonces, lo que vamos
+[00:41:36] a hacer, honestamente, es cambiarlo,
+[00:41:38] cambiar el proveedor directamente para
+[00:41:40] que nos funcione mejor. Y ya cuando
+[00:41:43] desplegemos esta versión ustedes ya van
+[00:41:45] a poder ingresar. Eh, por acá veo que si
+[00:41:47] hay algunas personas que eh sí que sí
+[00:41:51] les llegó, que está llegando con un poco
+[00:41:54] de tardanza, entonces esperemos que les
+[00:41:56] llegue también a los demás.
+[00:42:00] Mientras tanto voy a vamos a estar
+[00:42:02] trabajando en cambiar esos
+[00:42:07] cambiar esto para otro proveedor en el
+[00:42:10] momento
+[00:42:14] y listo. Okay,
+[00:42:17] acá andamos
+[00:42:22] bien directamente en el grupo de
+[00:42:24] WhatsApp que Juli, porfa, compartamos
+[00:42:26] también el link de de WhatsApp para que
+[00:42:30] directamente puedan entrar y allí van a
+[00:42:32] tener varios grupos, uno es anuncios,
+[00:42:34] otro va a ser general donde pueden hacer
+[00:42:37] todas las preguntas que quieran ya
+[00:42:39] directamente
+[00:42:42] ya directamente allí van a poder revisar
+[00:42:46] toda la información, van a poder hacer
+[00:42:48] cualquier pregunta que quieran. Nuestro
+[00:42:50] equipo de de voluntarios y demás vamos a
+[00:42:52] estar allí directamente trabajando. Ah,
+[00:42:55] mira, ma web founder, puedes hacer
+[00:42:59] literalmente un servidor para correos
+[00:43:01] masivos. Tal vez, solo tal vez este
+[00:43:03] error no es un error, sino una forma de
+[00:43:06] darles ideas para crearnos una solución.
+[00:43:09] Puede ser.
+[00:43:10] Pero sí, literalmente lo que queremos es
+[00:43:12] que ustedes puedan sacar de acá eh mejor
+[00:43:16] las mejores ideas. Eh, pero sí vamos a
+[00:43:18] tener en WhatsApp pues varios grupos.
+[00:43:20] Eh, ¿cómo pueden entrar a esos grupos?
+[00:43:21] Directamente en la
+[00:43:23] en el WhatsApp les sale el una buena
+[00:43:27] cantidad de grupos y directamente allí
+[00:43:30] pueden ingresar. O sea, no tienen que
+[00:43:31] esperar a que nosotros los metamos en
+[00:43:33] esos grupos. Solamente denle clic a
+[00:43:35] donde dice 30x arriba y allí les van a
+[00:43:38] salir eh todos los grupos y ustedes
+[00:43:39] pueden ingresar avisos a soporte y
+[00:43:41] demás. Entonces acá vemos que sobre todo
+[00:43:44] hay preguntitas en soporte y listo. Ahí
+[00:43:48] vamos a estar apoyándolas y dándole eh
+[00:43:51] toda la todo el apoyo posible
+[00:43:56] ¿Listo? Entonces, chicos, eh muchísimas
+[00:43:58] gracias por unirse a este KCOF. La idea
+[00:44:00] es que pues no solamente los que
+[00:44:02] pudieron verlo ahorita, sino
+[00:44:03] literalmente todas las personas que
+[00:44:05] están ya dentro del jacatón y
+[00:44:08] directamente est van a estar
+[00:44:10] participando, puedan ver esta grabación
+[00:44:13] y de una podamos comenzar a construir. A
+[00:44:16] ver, acá nos pregunta Gabi si van a ver
+[00:44:18] más de estas llamadas y si sí, a qué
+[00:44:20] horas. Mañana vamos a tener una mentoría
+[00:44:23] directamente de Peach. Entonces, eso va
+[00:44:26] a ser la única llamada en este caso que
+[00:44:28] vamos a a llevar a cabo, pero no vamos a
+[00:44:31] tener más llamadas de este tipo. Pero lo
+[00:44:33] que sí vamos a tener es un equipo pues
+[00:44:34] coordinado, apoyándolos directamente en
+[00:44:36] WhatsApp con cualquier duda que
+[00:44:38] tengamos, cualquier cosa que quieran
+[00:44:40] saber. Obviamente van a haber horas que
+[00:44:41] se lleva a las 3 de la mañana, que tal
+[00:44:43] vez no haya nadie del equipo porque
+[00:44:44] todos estamos durmiendo o al menos una
+[00:44:46] persona va a acostarse a dormir o algo.
+[00:44:48] Entonces, no se preocupen. Eh, en cuanto
+[00:44:50] nosotros estemos activos vamos a
+[00:44:52] mandarles eh las respuestas a todos y la
+[00:44:54] idea es que probablemente nos vamos a
+[00:44:55] quedar o al menos yo me voy a quedar por
+[00:44:56] allá hasta las 12 1 de la mañana
+[00:44:58] respondiendo cosas. ¿Dónde está la
+[00:45:00] documentación de cada reto, Ricardo? En
+[00:45:02] este caso lo vas a encontrar en Hack
+[00:45:04] Radar. En el cbar vas a poder o en la
+[00:45:06] barra lateral vas a poder encontrar una
+[00:45:08] parte que dice retos. y directamente
+[00:45:10] allí vas a eh retos, ¿no? Recursos y
+[00:45:13] directamente allí vas a poder ver toda
+[00:45:14] la información de los retos. ¿Hay opción
+[00:45:17] de que alguien se escribe el día de hoy?
+[00:45:19] No, ya están totalmente cerradas las
+[00:45:20] inscripciones. Eh, hasta de hecho fuimos
+[00:45:23] un poquito, los malcriamos un poquito
+[00:45:25] porque debíimos haberla cerrada cerrado
+[00:45:27] anoche a las 12 de la noche, pero la
+[00:45:29] cerramos hoy a las 8 de la mañana,
+[00:45:31] entonces les dimos unas cuantas horas.
+[00:45:33] Allí Juli me pregunta nuevamente el
+[00:45:36] WhatsApp. Eh, ah, sí, en el WhatsApp dan
+[00:45:38] link para la plataforma. Sí, ahí se lo
+[00:45:40] vamos a compartir, así que directamente
+[00:45:43] les va a a llegar toda la información.
+[00:45:45] Eh, hay una persona que preguntó que si
+[00:45:47] hay términos y condiciones en la hacat.
+[00:45:49] Pues sí, eh, literalmente los términos y
+[00:45:52] condiciones es seguir las reglas que les
+[00:45:53] comenté previamente, trabajar en los
+[00:45:55] retos, eh, todo lo que es todo lo que
+[00:45:58] van a ser las soluciones que ustedes van
+[00:45:59] a crear es completamente suyo. No se
+[00:46:01] preocupen por eso. En este caso, si
+[00:46:03] ustedes dicen, "Ay, pero yo voy a crear
+[00:46:05] algo y me lo va a robar 30x, no va a
+[00:46:06] pasar." Nosotros lo que vamos a hacer es
+[00:46:09] que literalmente el proyecto ustedes
+[00:46:11] construyan, vamos a tener un año
+[00:46:13] completo para poder evaluarlo después,
+[00:46:15] incluso si son ganadores o no, donde
+[00:46:17] nosotros podemos evaluar si queremos
+[00:46:19] implementarlo o no. Y de querer
+[00:46:20] implementarlo tenemos que ponernos en
+[00:46:22] contacto con ustedes. Y no solamente eso
+[00:46:24] para nosotros dentro de 30x, sino para
+[00:46:27] todas las personas eh o todas las
+[00:46:28] empresas, mejor dicho, que están
+[00:46:29] participando en este hackon. Así que no
+[00:46:31] se preocupen, no les vamos a robar nada.
+[00:46:33] En el mejor de los casos van a
+[00:46:34] implementarlo directamente con nosotros.
+[00:46:36] En el mejor de los casos, incluso van a
+[00:46:38] entrar a nuestros equipos a trabajar con
+[00:46:40] nosotros.
+[00:46:42] Eh, para los que somos no COD y no y no
+[00:46:45] sabemos nada cómo entramos a radar. Eh,
+[00:46:47] okay. Bien, el tema con los correos es
+[00:46:49] que está siendo un poco lento. Ya
+[00:46:52] estamos trabajando en desplegar la nueva
+[00:46:54] eh la versión con otro proveedor, así
+[00:46:57] que ténganle un poquito de paciencia
+[00:46:59] porque pues es una plataforma un poco
+[00:47:01] robusta, así que va a tomar unos cuantos
+[00:47:04] minutos en que se despegue la nueva
+[00:47:06] versión, pero listo, ya la idea es que
+[00:47:08] ustedes puedan eh entrar a esta
+[00:47:11] plataforma sin ningún problema.
+[00:47:13] Pero bueno, pues en este momento estamos
+[00:47:15] teniendo el problema de que se están
+[00:47:16] tardando hasta 10 minutos. Tengan en
+[00:47:17] cuenta que también en 30x no solamente
+[00:47:19] enviamos eh correos con sobre nuestro
+[00:47:23] hackaton, sino que mandamos correos
+[00:47:24] sobre miles de cosas. Así que puede que
+[00:47:27] en este momento estén pasando este tema.
+[00:47:28] Igual ya estoy viendo que hay unas 127
+[00:47:31] personas que ya están eh activando.
+[00:47:33] Ahorita ya van 172, así que estamos
+[00:47:35] viendo que están llegando esos correos
+[00:47:38] eh poco a poco, pero van llegando. Eh
+[00:47:40] hay 172 personas que ya están activas.
+[00:47:42] Entonces, la idea es que terminemos de
+[00:47:44] seguir llega llegando y y llegando a
+[00:47:47] esta plataforma para que puedan ver en
+[00:47:50] este caso todos los retos con mayor
+[00:47:52] información y allí directamente van a
+[00:47:55] poder crear sus eh equipos. Igual acá
+[00:47:59] voy a aprovechar un momento porque sé
+[00:48:00] que algunos están preguntando dónde
+[00:48:02] puedo ver más información. Les voy a
+[00:48:04] mostrar rápidamente mi pantalla
+[00:48:08] donde tengo acá hack radar para que vean
+[00:48:11] cómo van a encontrar la información.
+[00:48:13] Esto pues va a ser lo que les va a
+[00:48:15] mostrar es el panel de administración,
+[00:48:17] pero realmente ignoren este panel no va
+[00:48:19] a ser igual para ustedes. Pero acá van a
+[00:48:22] ver en la parte de recursos, ustedes lo
+[00:48:23] van a encontrar en este lado, van a
+[00:48:25] poder encontrar todas y cada uno de eh
+[00:48:28] los retos que tenemos y básicamente van
+[00:48:31] a poder entrar acá y van a ver a reto de
+[00:48:34] 30x y entonces cuál es la ficha del reto
+[00:48:37] cuál área la que ustedes decían en este
+[00:48:39] caso puede ser comercial, media o tech.
+[00:48:41] Explorar una oportunidad. Tenemos el
+[00:48:43] reto de una frase, le vamos a explicar
+[00:48:44] acá qué es Jeff, por qué, por qué
+[00:48:47] queremos usarlos en 30x, a quién podría
+[00:48:49] afectar, cómo lo abordamos, ideas que
+[00:48:52] nos pueden interesar mucho, pero no son
+[00:48:54] obligatorias. Es decir, ustedes
+[00:48:56] literalmente no crean que porque sí
+[00:48:58] tienen que hacer un W rails para agentes
+[00:49:00] internos. No sé, por ejemplo, alguien
+[00:49:01] acá dijo, "Vamos a crear un nuevo una
+[00:49:05] nueva forma de que 30x envíe correos."
+[00:49:07] Maravilloso. Hagamos eso. Eh, pero
+[00:49:10] pueden inventarse lo que quieran.
+[00:49:11] Entonces pueden eh incluso crear un
+[00:49:14] calificador de contenido donde puedan
+[00:49:16] ayudar a probar o descartar piezas que
+[00:49:18] ya estén creadas. Entonces, no sé, suben
+[00:49:20] un video o algo parecido y listo. ¿Qué
+[00:49:23] entra y qué no? entregar lo esperado que
+[00:49:26] compartimos eh en este caso
+[00:49:29] restricciones y pues directamente
+[00:49:33] van a poder ver acá los documentos de
+[00:49:34] trabajo. Básicamente en este caso son es
+[00:49:37] información sobre hier y bueno, acá todo
+[00:49:40] lo que van a poder encontrar en este
+[00:49:41] reto. También tenemos el de radar de
+[00:49:43] contenido. Acá pues les vamos a explicar
+[00:49:46] todo lo que en este caso estamos
+[00:49:48] esperando que nos gustaría obtener de
+[00:49:50] este reto. y documentos de trabajo, pues
+[00:49:53] son archivos o son referencias que
+[00:49:55] pueden estar necesitando. En este caso
+[00:49:56] les dejamos en Instagram de 30x y en
+[00:49:58] Instagram de Andrés Bilbao para que lo
+[00:50:00] tomen como referencia. Tenemos el reto
+[00:50:02] de Blinca, donde pues básicamente acá
+[00:50:05] les explicamos un poco de lo que busca
+[00:50:06] Blinca y el sitio web de ellos para que
+[00:50:09] puedan verlo. Y finalmente también el
+[00:50:12] reto de DAPTA, donde van a poder
+[00:50:14] encontrar pues el problema, el reto en
+[00:50:16] una frase, qué es lo que esperamos en
+[00:50:18] este caso importante. Yo sé que muchos
+[00:50:21] de ustedes van a encontrar acá más
+[00:50:23] información y adivinen qué van a decir,
+[00:50:24] "Me falta información." Y está bien
+[00:50:26] porque literalmente no es como que en
+[00:50:28] una página podamos mostrarles todo lo
+[00:50:30] que necesitan para resolver un reto de
+[00:50:32] una empresa real. Pero la idea es que
+[00:50:35] ustedes comiencen a buscar por su lado
+[00:50:37] también. Ah, bueno, voy a hacer
+[00:50:38] scrapping en las páginas de DATA, voy a
+[00:50:40] buscar el perfil del CEO de DATA y del
+[00:50:43] equipo a ver qué más suelen compartir,
+[00:50:45] qué más hacen, no lo sé. O incluso en el
+[00:50:47] caso de 30x también. Entonces, no vean
+[00:50:50] esto como que es a Juri porque sí
+[00:50:51] resolverlo con, digamos, lo poquito que
+[00:50:54] le podemos dar información el reto, si
+[00:50:56] no comiencen a buscar mayor información
+[00:50:58] por su cuenta también. No se preocupen
+[00:51:00] por eso. La idea es que dentro del mismo
+[00:51:02] reto tienen el reto de cómo solucionarlo
+[00:51:05] con la información que les damos, que no
+[00:51:07] es obviamente toda la que necesitan,
+[00:51:09] pueden necesitar aún más. Ahora bien, eh
+[00:51:16] acá tengo eh una pregunta que dice,
+[00:51:19] "Tipo de certificado a elegir para el
+[00:51:21] repo
+[00:51:24] Founder. A el tipo de licencia. La
+[00:51:28] verdad es que allí no lo no comprendo
+[00:51:30] esa pregunta. Si no me puedes ayudar
+[00:51:34] con otra pregunta de followup, mejor a
+[00:51:36] ver cuáles son los entregables exactos.
+[00:51:39] Eh, video pich, repo público, link
+[00:51:43] desplegado. Sí, esos son los esos son
+[00:51:46] los eh entregables que necesitamos. ¿Y
+[00:51:49] cuáles son los criterios de evaluación?
+[00:51:52] Ya lo tienen directamente acá, pueden
+[00:51:54] revisarlo previamente. Y bueno, ¿cuál va
+[00:51:56] a ser la licencia en tal caso? Eh, me o
+[00:51:59] apache? pues la que tú consideres
+[00:52:00] realmente la que consideres en este
+[00:52:03] caso, no no tenemos alguna restricción
+[00:52:06] en este momento. Alguien preguntó que si
+[00:52:08] es de Perú puede participar. Sí, de
+[00:52:09] hecho creo que se me olvidó
+[00:52:10] comentárselos, pero pues los premios que
+[00:52:12] dijimos se entregan independientemente
+[00:52:14] si viven en Venezuela, en Perú,
+[00:52:16] Colombia, México, Panamá, donde ustedes
+[00:52:18] se imaginen, de Latinoamérica, porque
+[00:52:20] pues al final el el pago se hace si es
+[00:52:23] necesario por transferencia
+[00:52:24] internacional y adicional a eso, pues
+[00:52:26] los programas de 30x, los que pueden
+[00:52:28] elegir para los ganadores básicamente
+[00:52:30] son online, así que no hay problema. se
+[00:52:32] tiene que aplicar a los cuatro retos,
+[00:52:34] ¿no? Solamente elijan uno solo para
+[00:52:36] participar y de hecho, cuando ustedes
+[00:52:38] creen su eh proyecto, van a ver que dice
+[00:52:41] a cuál reto corresponde, es decir, uno
+[00:52:43] solo. Si ustedes quieren arreglar todas
+[00:52:45] las empresas al mismo tiempo, excelente
+[00:52:48] si pueden hacerlo, pero no creo creo que
+[00:52:51] va a ser un poquito difícil en ese
+[00:52:52] sentido. Eh, pero bueno, listo. Eh, ya
+[00:52:55] veo por acá que tenemos también el el
+[00:52:58] grupo de busco equipo. Allí pueden
+[00:53:00] compartir con otras personas. Ey, estoy
+[00:53:02] buscando equipo. ¿Quién está interesado
+[00:53:05] en hablar directamente conmigo? Este es
+[00:53:08] mi perfil, etcétera. Compártanlo y
+[00:53:10] directamente las personas que quieren eh
+[00:53:13] trabajar con ustedes van a hacerlo.
+[00:53:15] Alguien me pregunta acá si España
+[00:53:16] también. Sí, también España está dentro
+[00:53:18] de los eh dentro de los países a los que
+[00:53:20] vamos a a poder enviar los los premios
+[00:53:23] en este caso. Y para finalizar, para que
+[00:53:27] se diviertan un rato, mientras le
+[00:53:30] esperan su mientras esperan su e su
+[00:53:34] código de hack radar, también les
+[00:53:36] construimos esto que es, lo voy a mandar
+[00:53:39] por acá,
+[00:53:42] que es básicamente
+[00:53:45] Brian pregunta, si el límite es hasta
+[00:53:47] las 12, puedo subirlo a las 12:15.
+[00:53:48] Claro, súbelo, pero no lo puedes subir,
+[00:53:50] pero no nos va a llegar a nosotros. Así
+[00:53:52] que si tú quieres entregar el proyecto
+[00:53:55] ah después de las 12 te quedará en la
+[00:53:58] plataforma como borrador, entonces
+[00:54:00] lamentablemente no lo vas a poder subir.
+[00:54:02] Eh, acá les voy a mostrar rápidamente
+[00:54:05] algo que quiero que vayan probando
+[00:54:07] mientras están en esa espera de su
+[00:54:10] código de de Hack Radar. Aquí les
+[00:54:14] compartimos este AI builder forman
+[00:54:18] AI builder son. Y yo les voy a
+[00:54:20] recomendar algo. Si ustedes quieren
+[00:54:21] crear equipo y todavía no lo tienen,
+[00:54:23] pueden entrar acá a este link que les
+[00:54:25] acabamos de enviar y básicamente pueden
+[00:54:28] ir respondiendo la información que
+[00:54:30] tienen acá. Ya con su correo pues vamos
+[00:54:31] a saber si están o no dentro del
+[00:54:33] hackaton. Si no están dentro de hackaton
+[00:54:34] y se lo mandan a otra persona, la idea
+[00:54:36] es que básicamente esa persona eh pueda
+[00:54:40] alterarse de los próximos hackatons. Así
+[00:54:42] que esto va a ser un test muy rapidito
+[00:54:44] donde ustedes van a ir respondiendo lo
+[00:54:46] que quieran y la la la vamos a suponer
+[00:54:50] que yo estoy haciendo esto superb y la
+[00:54:53] idea es que podamos ver un poquito de
+[00:54:55] sus perfiles, conocerlos un poquito más
+[00:54:57] y de hecho pues esto les va a salir una
+[00:55:00] un score de qué tan AI builder son. En
+[00:55:03] este caso, eh, por ejemplo, mágicamente
+[00:55:06] soy power prompter porque literalmente
+[00:55:09] eh viene esto de la nada, pero
+[00:55:11] básicamente acá van a poder compartir,
+[00:55:13] bueno, ¿qué tanto sé yo de inteligencia
+[00:55:15] artificial? Bueno, más que qué tanto sé,
+[00:55:17] qué tanto construyo normalmente con
+[00:55:18] inteligencia artificial. Y la idea es
+[00:55:20] que les diga, bueno, ¿cuál es tu
+[00:55:22] herramienta deía más compatible que les
+[00:55:24] recomendamos hasta cierto punto? Y
+[00:55:26] ustedes pueden decir, "Ah, yo no sabía
+[00:55:27] de esta herramienta o sí sabía y no lo
+[00:55:29] he usado tanto, entonces voy a
+[00:55:30] investigarla." Por ejemplo, yo no uso
+[00:55:31] tanto Gemini, capaz debería hacerlo. ¿A
+[00:55:34] qué builder son más parecidos? Y
+[00:55:36] finalmente, ¿qué tipo de proyecto puede
+[00:55:38] ser más compatible para ti? Obviamente
+[00:55:40] eh no a todos le va a salir esto, pero
+[00:55:42] eh va a a cambiar dependiendo de lo que
+[00:55:44] les guste. ¿Cuál es su superpoder? ¿Cuál
+[00:55:47] es su siguiente salto? ¿Cuál es su
+[00:55:49] fortaleza con inteligencia artificial? Y
+[00:55:51] finalmente su oportunidad con con IA.
+[00:55:54] Mira, agentes 9 de 11. Dios mío, tenemos
+[00:55:56] que mejorar con la gente en este caso. Y
+[00:55:59] adicional acá, pues les vamos a
+[00:56:01] recomendar algunos programas de 30X para
+[00:56:03] que puedan dar ese salto en este caso y
+[00:56:06] básicamente van a tener AI for Instagram
+[00:56:09] for TikTok, entre otros. Y por supuesto
+[00:56:11] también van a poder ver incluso las
+[00:56:13] clases gratis. Eh, acá incluso acá les
+[00:56:15] dejamos esto para que ustedes puedan ver
+[00:56:17] todas las clases que tenemos disponibles
+[00:56:19] y también conocer un poquito más de los
+[00:56:21] programas. Pero lo que me interesa de
+[00:56:23] esto es que puedan compartir esto
+[00:56:25] directamente en el grupo de WhatsApp
+[00:56:26] donde buscan equipo. Pueden decir,
+[00:56:28] "Hola, busco equipo y esta es un poco de
+[00:56:31] mí." Entonces, hasta este punto estoy
+[00:56:33] como AI builder. Y así de esa manera
+[00:56:35] otras personas dirán, "Oye, yo sí me
+[00:56:37] gustaría trabajar con Sandra de
+[00:56:38] repente." Y lo pueden también compartir
+[00:56:41] directamente en LinkedIn, en X, en
+[00:56:44] WhatsApp o simplemente copiar el link
+[00:56:46] para que otras personas conozcan su
+[00:56:48] resultado de esta manera. Entonces, ya
+[00:56:50] con eso pues nada, vayan descubriendo
+[00:56:53] qué tipo de builder son mientras les va
+[00:56:56] llegando ese código de eh Hack Radar. Ya
+[00:56:59] les dije que estamos desplegando la
+[00:57:01] nueva versión con eh otro proveedor de
+[00:57:04] correo, así que esperamos que en las
+[00:57:06] próxima media hora, una hora máximo, ya
+[00:57:09] tengamos esto totalmente arreglado.
+[00:57:11] Entonces, muchas gracias por venir a
+[00:57:13] Tequ y nada, vamos a estar super
+[00:57:15] disponibles en WhatsApp para
+[00:57:17] contestarles todas sus preguntas. Por
+[00:57:19] favor, tratemos de que sean preguntas en
+[00:57:21] los grupos. ¿Por qué? Porque de esa
+[00:57:22] manera, si de repente Juliana,
+[00:57:25] suponiendo, es participante, yo también
+[00:57:26] soy participante y Juliana tiene la
+[00:57:28] pregunta de dónde veo los retos. Voy yo
+[00:57:31] cuando llega a preguntar, en vez de
+[00:57:33] preguntar lo mismo, ¿dónde veo los
+[00:57:34] retos? De repente veo que otra persona
+[00:57:36] ya le contestó a Juliana sobre eso y no
+[00:57:38] tengo que volver a hacer la pregunta.
+[00:57:39] Entonces, si se van a nuestros WhatsApp
+[00:57:41] personales en este caso o a nuestras
+[00:57:44] cuentas individuales, ahí vamos a causar
+[00:57:46] recibir la misma pregunta mil y un
+[00:57:48] veces. Así que porfa, eh, literalmente
+[00:57:51] utilicemos en la medida de lo posible
+[00:57:53] directamente el WhatsApp Lupan y así no
+[00:57:56] nos van a bombardear a Juliana Dami, por
+[00:57:58] favor, y a Yulisa y a Carla y a todas
+[00:58:00] las personas que están dentro del hacat
+[00:58:02] apoyando. Entonces, eh para los que van
+[00:58:04] a estar en los dos presenciales, pues
+[00:58:06] espero que se puedan ver eh mañana y
+[00:58:08] disfruten un rato. tome este hackaton no
+[00:58:11] como una gran competencia de ayar a Juri
+[00:58:14] porque sí, sino como un momento para
+[00:58:16] literalmente explorar sus capacidades,
+[00:58:18] explorar hasta dónde pueden construir
+[00:58:20] con inteligencia artificial y sobre todo
+[00:58:22] para mostrar y decir, mira lo que puedo
+[00:58:24] construir. Entonces compartan toda la
+[00:58:26] información que quieran sobre lo que
+[00:58:27] están construyendo y aprovechen que este
+[00:58:30] fin de semana puede ser uno de ellos que
+[00:58:31] puedan cambiar sus vidas. Entonces,
+[00:58:33] muchas gracias por venir acá, por
+[00:58:35] conectarse en ya casi más de una hora.
+[00:58:38] Cualquier pregunta que tengan, ya saben,
+[00:58:40] directamente en WhatsApp vamos a
+[00:58:41] apoyarlos y vamos a estar este fin de
+[00:58:43] semana por completo eh a la merced
+[00:58:48] sientan solitos ni abandonados.
+[00:58:49] Entonces, cualquier duda por acá vamos a
+[00:58:51] estar. Muchas gracias eh por conectarse
+[00:58:54] y esperemos que que sus proyectos sean
+[00:58:56] muchísimo mejor de lo que ustedes mismos
+[00:58:58] esperan de de ellos. Así que buenas
+[00:59:01] noches a todos. Eh, bueno, si son las 6
+[00:59:03] de la tarde, ya se considera noche.
+[00:59:05] Entonces, buenas noches a todos y
+[00:59:06] gracias por conectarse.

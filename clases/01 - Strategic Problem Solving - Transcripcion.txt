@@ -1,0 +1,1509 @@
+# Strategic Problem Solving (2026-10-13)
+URL: https://www.youtube.com/watch?v=Djt7qCpg-pk
+
+[00:00:03] Buenas tardes a todas las personas que
+[00:00:04] ya se están conectando. Veo por aquí un
+[00:00:06] montón de mensajitos que nos están
+[00:00:08] mandando desde el chat, desde Venezuela,
+[00:00:09] desde Colombia, desde Bogotá. vayan
+[00:00:12] contándonos desde dónde están
+[00:00:13] conectándose. Nuestra idea es que este
+[00:00:16] estos tipos de workshops sean de
+[00:00:18] muchísimo, pero muchísimo provecho para
+[00:00:21] ustedes, para que cuando inicie el hacat
+[00:00:23] estén super preparados para tomar esos
+[00:00:25] retos que ya pronto les vamos a decir.
+[00:00:26] Yo sé que todos están muy interesados en
+[00:00:28] saber cuáles son los retos, cuáles son
+[00:00:30] las empresas, etcétera, pero es un
+[00:00:32] secreto bien guardado que vamos a dejar
+[00:00:34] hasta este viernes a las 5 pm en nuestro
+[00:00:37] kickoff del hackaton y ahí les vamos a
+[00:00:38] echar todo el cuento, les vamos a decir
+[00:00:40] todo lo que necesitan para que sus
+[00:00:42] proyectos sean los mejores y pues sean
+[00:00:44] los ganadores de estos retos. Entonces,
+[00:00:47] bienvenidos a todos. Veo que se conectan
+[00:00:49] desde Mérida, Venezuela. Me encanta
+[00:00:51] mucha gente de Venezuela. Qué lindo
+[00:00:52] verlos. Yo soy venezolana también, así
+[00:00:54] que amo tener más venezolanos
+[00:00:56] participando. Por acá también vi por eh
+[00:00:59] por encimita al inicio un saludo desde
+[00:01:01] Argentina. Entonces, me encanta tenerlos
+[00:01:03] por acá. Voy a voy a darle ahora inicio
+[00:01:07] un poco a esta sesión de workshops.
+[00:01:10] Básicamente tenemos cinco workshops
+[00:01:12] antes del hackaton. Desde hoy martes 13
+[00:01:15] de octubre hasta el jueves vamos a tener
+[00:01:17] cinco workshops que la idea es que los
+[00:01:19] alimente muchísimo, los puedan utilizar
+[00:01:21] de recursos, no solamente para
+[00:01:23] prepararse, sino para cuando comiencen
+[00:01:25] sus proyectos y tengan alguna duda que
+[00:01:28] literalmente puedan ayudarse
+[00:01:30] directamente con estos videos. Por eso
+[00:01:32] los estamos haciendo directamente en
+[00:01:34] YouTube para que les quede listo ya este
+[00:01:36] video para verlo cuántas veces lo
+[00:01:38] necesiten. Mi nombre es Andre Carrillo.
+[00:01:40] Yo soy parte del equipo de 30X. Soy head
+[00:01:43] of communities y estoy liderando estos
+[00:01:45] hackatons que estamos llevando a cabo.
+[00:01:47] Nuestra idea con estos hackatons no es
+[00:01:48] solamente que ustedes vengan, hagan un
+[00:01:51] proyecto y listo, se vayan, sino que
+[00:01:53] realmente conecten con empresas, bien
+[00:01:55] sea para trabajar directamente con
+[00:01:56] ellos, para proveerles servicios,
+[00:01:59] proveerles proyectos tecnológicos o pues
+[00:02:01] simplemente la posibilidad o la gran
+[00:02:04] posibilidad de implementar esos
+[00:02:05] proyectos que van a estar realizando con
+[00:02:07] nosotros para luego llevarlo a una
+[00:02:09] realidad directamente con ellos.
+[00:02:11] Entonces, me encanta ya ver que tenemos
+[00:02:12] 75 personas por acá viéndonos, así y
+[00:02:16] salud nos saludan desde Medellín. Me
+[00:02:18] encanta la victoria, genial. Entonces,
+[00:02:20] listo, vamos a aprovechar que ya estamos
+[00:02:22] comenzando por acá para en vez de dar
+[00:02:25] tanto preámbulo, traer de una vez a
+[00:02:27] nuestro primer eh panelista o primer
+[00:02:30] mentor de estos días, Duber. Un placer
+[00:02:33] tenerte por acá. Me encantaría que le
+[00:02:35] cuentes a nuestra gente un poco de,
+[00:02:38] bueno, quién eres, cuál ha sido tu
+[00:02:39] experiencia y qué es lo que vamos a
+[00:02:40] descubrir hoy y por qué es tan
+[00:02:42] importante, porque a veces no nos
+[00:02:43] sentamos a pensar en cómo realmente
+[00:02:46] solucionar un problema, sino que me
+[00:02:48] siento y digo, "Claud, ayúdame a
+[00:02:49] solucionarlo." En vez de comenzar a
+[00:02:51] pensar, "Bueno, ¿y qué debería hacer
+[00:02:52] antes?" Entonces, Duer, bienvenido,
+[00:02:55] preséntate porque nadie mejor que tú
+[00:02:57] sabe tu experiencia.
+[00:02:59] Sandra, muchas gracias eh por la por la
+[00:03:02] introducción, por la invitación a todo
+[00:03:03] el equipo de 30X. Realmente eh estos
+[00:03:06] espacios como la Jagatón creo que
+[00:03:08] generan bastante valor, no solamente
+[00:03:10] para el equipo digamos que de
+[00:03:12] desarrollador, sino para todas las
+[00:03:14] organizaciones que también se suman a a
+[00:03:15] estos retos, porque al final eh y un
+[00:03:18] poco la charla orientada a eso, cómo
+[00:03:19] pasamos del código al valor, cómo
+[00:03:22] sumamos valor a los retos que tengan las
+[00:03:24] organizaciones, teniendo claro y
+[00:03:26] desarrollando ese pensamiento
+[00:03:27] estratégico que creo que es fundamental
+[00:03:30] eh desarrollarlo en todos los niveles de
+[00:03:32] las organizaciones y pues obviamente
+[00:03:34] quienes van a participar en ese reto eh
+[00:03:36] de las compañías para poderles sumar
+[00:03:39] valor a ese propósito que tengan cada
+[00:03:41] uno de ellas, que como tú bien dices, el
+[00:03:43] viernes les contarás la primicia de cómo
+[00:03:46] van ellos a asumir esos retos. Entonces,
+[00:03:48] muchas gracias por la invitación
+[00:03:50] también. Bienvenidos a todos los que se
+[00:03:52] conectan, ya lo decías, Argentina,
+[00:03:55] Colombia, Venezuela, bienvenidos todos.
+[00:03:57] Esperamos que sea un espacio de bastante
+[00:03:59] valor para ustedes también.
+[00:04:03] Excelente, Duber. Bueno, cuéntanos un
+[00:04:05] poquito pues de quién eres y tu
+[00:04:07] experiencia y bueno, cuando quieras
+[00:04:08] arrancamos de una el workshop, no sé si
+[00:04:11] quieres ir comenzando a presentar y de
+[00:04:13] una ya te cedo todo el espacio. de no
+[00:04:16] pues va voy a contarles un poco un poco
+[00:04:17] de mí, pues soy eh Duer Mauriccio
+[00:04:19] Sánchez, soy de base profesión contador,
+[00:04:23] gerente eh de planeación financiera, es
+[00:04:26] mi mi formación eh continua al ser
+[00:04:29] contador público, pero la vida me ha
+[00:04:31] llevado a trabajar en estrategia, a
+[00:04:33] trabajar en sostenibilidad, que es uno
+[00:04:34] de los últimos roles que tuve en un
+[00:04:38] banco aquí en Colombia. Entonces les
+[00:04:39] contaré un poco la experiencia frente a
+[00:04:41] eso, cómo ha generado valor desarrollar
+[00:04:44] una estrategia de transformación digital
+[00:04:46] donde el equipo desarrollador ha sido
+[00:04:48] fundamental. Hm 20 años de experiencia
+[00:04:51] en el sector eh financiero, diferentes
+[00:04:54] eh cursos y programas de de formación
+[00:04:57] que me han permitido justamente orientar
+[00:04:59] a las organizaciones en las estrategias
+[00:05:01] que les ha permitido transformar y
+[00:05:03] evolucionarse. Hm algo personal, me
+[00:05:07] encanta el deporte. Eh, soy triatleta,
+[00:05:09] actualmente estoy eh preparándome para
+[00:05:12] una competencia en en Cozumel, en
+[00:05:15] México. Eh, entonces, hay que distribuir
+[00:05:17] muy bien el tiempo para para hacer todos
+[00:05:19] los los roles y apasionado por siempre
+[00:05:22] sumar, siempre sumar. Lo van a ver
+[00:05:24] ahorita en mi presentación, siempre
+[00:05:25] están mis iniciales y un signito más
+[00:05:27] porque me gusta siempre contribuir y
+[00:05:29] sumar a las personas y a las
+[00:05:31] organizaciones. Entonces, eso eso es un
+[00:05:33] poco de mí. eh al final mis datos por si
+[00:05:36] quieren eh profundizar en alguno de los
+[00:05:38] temas que les vaya contando, porque el
+[00:05:40] tiempo parece amplio, una hora, pero
+[00:05:42] termina siendo muy muy corto y muchas
+[00:05:44] dudas surgirán. Entonces, también pues
+[00:05:46] dispuesto y abierto para poderles
+[00:05:48] acompañar en lo que requiera. Entonces,
+[00:05:50] un poco de mi Sandra, eh voy por aquí ir
+[00:05:54] compartiendo pantalla y entramos en en
+[00:05:56] materia. No sé si algo algo más, Sandra,
+[00:05:59] si no arrancamos,
+[00:06:01] ¿no? Tranquilo, vamos a arrancar.
+[00:06:02] Mientras tanto, les voy comentando a
+[00:06:04] nuestros participantes que durante la
+[00:06:06] charla ustedes pueden ir comenzando a
+[00:06:08] dejar sus preguntas, pero pues la idea
+[00:06:10] es que estas sean respondidas al
+[00:06:12] finalizar la charla para que tengamos
+[00:06:15] espacio para realmente enfocarnos en
+[00:06:17] esas preguntas. Duer nos va a contar un
+[00:06:19] poquito más y cualquier duda que tengan
+[00:06:21] de una vamos a las vamos a responder y
+[00:06:25] listo por acá. Listo, ya tenemos aquí.
+[00:06:28] Firmas ahí ven mi pantalla. Sí,
+[00:06:32] sí. Perfecto, yo la veo perfecto.
+[00:06:35] Listo. Perfecto. Entonces, pues vamos a
+[00:06:38] iniciar. Eh, bueno, aquí la la charla o
+[00:06:41] el espacio de conversación eh, lo
+[00:06:44] denominé del código al valor. Aquí es
+[00:06:47] para poder tener una visión mucho más
+[00:06:49] amplia de lo que desde los equipos de
+[00:06:51] desarrollo pueden sumar a las
+[00:06:52] organizaciones. Y aquí es pasar de
+[00:06:54] resolver requerimientos a realmente
+[00:06:56] resolver problemas estratégicos que sin
+[00:06:59] duda eh es fundamental para el
+[00:07:01] crecimiento de cualquier organización.
+[00:07:03] Pero aquí voy a irme enfocando en varios
+[00:07:06] varios mensajes y donde ustedes pueden
+[00:07:08] tomar pues nota, papel lápiz.
+[00:07:10] Normalmente me gusta que vayan tomando
+[00:07:12] nota porque pues además genera
+[00:07:13] recordación en los mensajes claves que
+[00:07:15] les puedo ir transmitiendo y algunas
+[00:07:17] ideas que ustedes también pueden ir
+[00:07:19] materializando para lo que lo que hacen,
+[00:07:22] porque pues hay diferentes eh roles
+[00:07:25] dentro de las organizaciones en los
+[00:07:26] equipos técnicos o de tecnología que
+[00:07:29] pueden tomar estos mensajes para lo que
+[00:07:31] hacen en el día a día. Entonces, primero
+[00:07:34] quiero que que se llene un mensaje y es
+[00:07:36] piensen estratégicamente. Sí, esto es
+[00:07:39] cómo sumamos valor desde el
+[00:07:42] entendimiento del propósito de las
+[00:07:44] organizaciones. todas las organizaciones
+[00:07:46] van a tener un propósito superior, una
+[00:07:48] misión, eh unos objetivos y en la medida
+[00:07:51] que nosotros entendamos ese ese
+[00:07:54] propósito de las organizaciones, podemos
+[00:07:56] desde el rol que desempeñamos conectar
+[00:07:58] con ese eh objetivo y resolver el
+[00:08:01] problema, que puede ser mucho más allá
+[00:08:04] de lo técnico, un problema eh de negocio
+[00:08:06] y que al final sume valor a la
+[00:08:09] organización o sume valor a ese grupo de
+[00:08:12] interés o usuario o cliente que pueda
+[00:08:15] tener estas organizaciones. Entonces, es
+[00:08:18] el primer mensaje clave de pensar
+[00:08:20] estratégicamente. Pero pues aquí hay una
+[00:08:23] pregunta fundamental, pues que que es
+[00:08:25] estrategia, ¿si? Y para ello es algo muy
+[00:08:28] sencillo con este grafiquito y es
+[00:08:30] simplemente llevar de un estado actual
+[00:08:33] estado futuro a las organizaciones. Esto
+[00:08:36] también se puede extrapular a lo
+[00:08:38] personal y pueden hacer el ejercicio eh
+[00:08:40] si quieren ustedes individual y es dónde
+[00:08:42] estás hoy y hacia dónde quieres ir en un
+[00:08:44] futuro. El camino que tenemos para
+[00:08:47] conectar esos dos puntos, eso es
+[00:08:50] estrategia, es el cómo yo paso de un
+[00:08:52] estado actual estado futuro. Pero
+[00:08:55] adicional a estos
+[00:08:58] elementos claves de de la situación
+[00:09:00] actual, la situación futura, hay un tema
+[00:09:04] fundamental y es el pasado, el presente
+[00:09:06] y el futuro. Y es de dónde vienes, ¿sí?
+[00:09:08] ¿De dónde viene esa organización? ¿De
+[00:09:10] dónde viene esa persona? ¿De dónde
+[00:09:12] viene, o sea, cuál es esa historia que
+[00:09:13] está detrás del reto que tienen hoy o
+[00:09:16] que les presentan hoy? ¿Por qué? Porque
+[00:09:18] en la medida que tú entiendas esa
+[00:09:19] historia, puedes hoy tener datos o
+[00:09:22] información que te van a permitir
+[00:09:24] resolver hacia futuro. Entonces, estas
+[00:09:26] tres momentos en el en el tiempo, el
+[00:09:28] pasado, el presente y futuro, se
+[00:09:29] concretan en tres preguntas claves: ¿De
+[00:09:31] dónde vienes? ¿En dónde estás hoy? Y
+[00:09:34] sobre todo, ¿para dónde vas? Porque está
+[00:09:36] resaltado en negrita, hacia dónde quiero
+[00:09:38] ir y aquí pues enfocándonos en en el
+[00:09:41] jacatón, cuál es el problema que yo
+[00:09:43] tengo que resolver entendiendo hacia
+[00:09:45] dónde va la organización. Entonces, aquí
+[00:09:47] un mensaje clave es el reto que ustedes
+[00:09:50] asuman las organizaciones que van a
+[00:09:51] acompañar. Entiendan estos tres momentos
+[00:09:54] de dónde viene esa organización, dónde
+[00:09:56] está parado hoy y hacia dónde quiere ir.
+[00:09:58] Porque en la medida que ustedes
+[00:10:00] entiendan ese eh contexto, van a poder
+[00:10:02] sumar mucho más valor con lo que estén
+[00:10:05] haciendo en este en este reto. Y aquí
+[00:10:08] hay algo también eh importante y es en
+[00:10:11] esos tres momentos del tiempo hay que
+[00:10:14] evaluar los stakeholders. Sí.
+[00:10:16] Dependiendo de las compañías que estén
+[00:10:18] analizando, tienen que evaluar cuáles
+[00:10:21] son sus proveedores, cuáles son sus
+[00:10:23] acreedores. Fundamental y que
+[00:10:26] primordial, el cliente, o sea, cuál es
+[00:10:28] el cliente de esa organización. Y quizás
+[00:10:30] muchos de los retos que ustedes van eh a
+[00:10:32] entender o o asumir eh van a enfocar a
+[00:10:35] resolverle un problema o una necesidad a
+[00:10:37] ese a ese cliente. Algunas eh
+[00:10:40] organizaciones tienen sindicatos, medios
+[00:10:42] de comunicación, colaboradores, esas
+[00:10:44] todas esas partes que puedan estar
+[00:10:46] interesadas en la organización o en la
+[00:10:48] compañía eh que estén analizando, va a
+[00:10:51] ser fundamental que ustedes eh mapeen.
+[00:10:53] Esta evaluación de stakeholders es
+[00:10:55] fundamental, por lo que les digo que eh
+[00:10:58] el problema que van a resolver va
+[00:11:00] impactar directa o indirectamente a uno
+[00:11:03] o a varios de estos grupos de interés.
+[00:11:06] Entonces ahí ese mensaje también es muy
+[00:11:08] importante. [resoplido] Eso viéndolo eh
+[00:11:11] a manera externa ahora a manera interna.
+[00:11:14] Esto es una serie de herramientas. Yo yo
+[00:11:15] les dejo como el el el abrebocas, pero
+[00:11:18] ustedes pueden encontrar mucha más
+[00:11:19] información eh sobre estas herramientas.
+[00:11:22] Y como les digo, si eh les puedo ayudar
+[00:11:24] en en algo, no duelen en contactarme,
+[00:11:26] pero este lienzo del modelo de negocio
+[00:11:28] es entender de la manera eh más práctica
+[00:11:32] la organización a la cual ustedes van eh
+[00:11:35] a apoyar o van a ayudar a transformar, a
+[00:11:37] generar valor. Y hay una serie de
+[00:11:39] elementos que hay que entender también
+[00:11:41] dependiendo el problema o el reto que
+[00:11:43] ustedes tengan. que fundamental eh la
+[00:11:46] propuesta a valor, cuál es la propuesta
+[00:11:48] a valor de esa organización, de esa
+[00:11:49] compañía eh que yo voy a ayudar. ¿Qué
+[00:11:53] relación tiene con el cliente? ¿Qué
+[00:11:55] intercambio eh o interacción tengo con
+[00:11:58] mis clientes? ¿Cuáles son los segmentos
+[00:12:01] del de los clientes? Eh, tengo un
+[00:12:03] segmento bajo, medio, alto, eh de por
+[00:12:06] ingresos, por edad. O sea, hay que
+[00:12:08] entender muy bien esa información.
+[00:12:10] ¿Cuáles son los canales de distribución?
+[00:12:13] si es físico, si es digital, tienen que
+[00:12:15] tener pues claramente eh definido estos
+[00:12:18] elementos claves dentro del eh análisis
+[00:12:22] del problema que vayan a resolver. Eh,
+[00:12:25] un tema no menor, ¿cuáles son las
+[00:12:27] actividades y esto es más enfocado el
+[00:12:29] proceso de la organización dependiendo
+[00:12:31] de esa propuesta de valor? ¿Qué procesos
+[00:12:33] o actividades están concatenadas para
+[00:12:35] llegar a esa propuesta valor? una red de
+[00:12:38] asociados que va muy eh de la mano
+[00:12:40] también con lo que les mencionaba de los
+[00:12:42] grupos de interés y eh los recursos
+[00:12:45] claves de dónde se apalanca esa
+[00:12:47] organización para operar y un tema no
+[00:12:49] menor que es el tema financiero, cuál es
+[00:12:51] la estructura de costos y cuál es el
+[00:12:53] flujo de ingresos. Porque cuando tenemos
+[00:12:55] estas conversaciones a alto nivel,
+[00:12:57] juntas directivas, equipos directivos,
+[00:13:00] pues va muy enfocado a, bueno, tenemos
+[00:13:02] un gran propósito, pero esto, ¿cómo se
+[00:13:05] ve en términos de números, en términos
+[00:13:07] de ingreso, en términos de gastos y al
+[00:13:08] final cuál es el margen que me está
+[00:13:10] dejando este negocio en el que yo opero.
+[00:13:13] Entonces, sin que obviamente vayan a ser
+[00:13:15] ustedes expertos en las organizaciones,
+[00:13:17] pero tener a grandes rasgos estos
+[00:13:20] elementos bien identificados en las
+[00:13:22] compañías que ustedes van a apoyar, les
+[00:13:24] va a servir muchísimo para enfocar eh la
+[00:13:27] solución a ese reto que que van a
+[00:13:29] asumir. Entonces, eh importante esta
+[00:13:32] herramienta lienzo, modelo de negocio.
+[00:13:34] Aquí un pequeño paréntesis. De esta
+[00:13:37] herramienta también van a encontrar eh
+[00:13:39] una herramienta en términos personales,
+[00:13:41] o sea, cuál es el lienzo de negocio
+[00:13:43] personal. Esto pues ya es un un plus que
+[00:13:46] los invito a que lo puedan consultar
+[00:13:48] porque es muy importante también hacer
+[00:13:50] ese ejercicio eh a manera personal y ahí
+[00:13:53] ustedes van a encontrar también una
+[00:13:55] relación muy importante con el propósito
+[00:13:57] que tienen ustedes como personas y cómo
+[00:14:00] ese propósito conecta con el de las
+[00:14:01] organizaciones. Entonces ahí para que lo
+[00:14:04] tengan en cuenta en esos temitas
+[00:14:06] pendientes de investigar, lo puedan eh
+[00:14:09] consultar más adelante. Entonces,
+[00:14:12] siguiendo con esta conversación, quiero
+[00:14:14] contarles en una organización que estuve
+[00:14:17] acompañando recientemente como gerente
+[00:14:19] de estrategia y sostenibilidad, hace un
+[00:14:21] par de años definimos un propósito el
+[00:14:24] cual es impulsar el progreso del agro,
+[00:14:26] las familias contribuyendo al desarrollo
+[00:14:28] sostenible de nuestro país. Aquí el lo
+[00:14:31] importante y lo que quiero que se lleven
+[00:14:33] es cómo eso que les estoy contando se
+[00:14:35] aterriza en quizás un solo slide, pero
+[00:14:38] que tiene de fondo muchísimo y es
+[00:14:41] tenemos un gran propósito, el propósito
+[00:14:43] superior, pero hay tres enfoques y aquí
+[00:14:46] es es importante que en lo que hagamos
+[00:14:47] siempre nos enfoquemos en dos, máximo
+[00:14:50] tres cosas, porque si apuntamos a muchas
+[00:14:53] cosas quizás no termina materializándose
+[00:14:56] eh en nada. Entonces, aquí tres focos
+[00:14:58] estratégicos, expansión del crédito
+[00:15:00] agropecuario fue el primero de ellos y
+[00:15:02] es irrigar más recursos hacia los
+[00:15:04] segmentos donde eh el esta entidad
+[00:15:07] financiera es muy fuerte, mejorar la
+[00:15:09] experiencia y el servicio que vea muy
+[00:15:11] alineado con la propuesta de valor que
+[00:15:13] veíamos en el eh lienzo de de negocio,
+[00:15:17] este enfoque cómo mejoramos esa
+[00:15:19] experiencia del servicio y un tema no
+[00:15:22] menor que ahí voy a entrar un poquito
+[00:15:24] más en detalle. el tercer punto o el
+[00:15:27] tercer foco estratégico que es la
+[00:15:28] transformación digital. ¿Por qué? Porque
+[00:15:31] era una gran apuesta eh estratégica dado
+[00:15:35] unos análisis que hicimos de esta
+[00:15:37] entidad financiera de cómo ha sido
+[00:15:40] percibida un poco eh lenta, obsoleta.
+[00:15:43] Entonces dijimos, "No, vamos a
+[00:15:45] enfocarnos en esa transformación digital
+[00:15:47] y cómo el equipo de de tecnología y sus
+[00:15:51] equipos eh de desarrollo de arquitectura
+[00:15:54] fueron fundamentales para esta
+[00:15:56] transformación digital. Entonces, este
+[00:15:58] es como un caso práctico, un caso de
+[00:16:00] éxito de cómo desde lo estratégico eh
+[00:16:03] hicimos un énfasis en esa transformación
+[00:16:06] digital y al final como esta
+[00:16:08] organización fue reconocida eh por
+[00:16:11] organizaciones eh internacionales en esa
+[00:16:13] transformación digital. Entonces, esto
+[00:16:15] es un poco para resumir este primer
+[00:16:17] punto de cómo evaluando eh ese o
+[00:16:20] haciendo ese análisis estratégico,
+[00:16:22] podemos llegar a definir un propósito,
+[00:16:25] unos focos estratégicos y plantearnos
+[00:16:27] unas metas. ¿Sí? Entonces, aquí eh es eh
+[00:16:31] ese resumen de lo que tenemos que
+[00:16:34] desarrollar como eh pensamiento
+[00:16:36] estratégico. Ahora bien, para llegar a a
+[00:16:40] esos a ese propósito y a esos objetivos
+[00:16:42] estratégicos, siempre vamos a tener que
+[00:16:45] resolver algunos problemas y el objetivo
+[00:16:48] es que esos problemas los tengamos
+[00:16:51] claramente identificados,
+[00:16:54] porque pues resolver el requerimiento eh
+[00:16:57] que normalmente tenemos frente a un
+[00:16:59] desarrollo tecnológico, no de
+[00:17:01] tecnológico, perdón, no significa
+[00:17:03] necesariamente resolver el problema. Y
+[00:17:05] aquí es donde quiero que también amplíen
+[00:17:07] esa visión de no solamente eh ver esa
+[00:17:10] historia de usuario, cuál es el
+[00:17:12] requerimiento, de cómo eh tengo que eh
+[00:17:15] mejorar algún eh programa, algún
+[00:17:19] software, no es venga, ¿cuál es el
+[00:17:21] problema realmente que yo quiero
+[00:17:22] resolver y ustedes como eh
+[00:17:25] desarrolladores, cómo pueden generar
+[00:17:26] valor en ese sentido y poder identificar
+[00:17:29] claramente ese ese problema? Porque
+[00:17:32] uniéndolo a ese pensamiento estratégico
+[00:17:34] que era ir de un punto a una situación
+[00:17:36] actual, a una situación futura, que es
+[00:17:38] este punto B, ustedes van a encontrar un
+[00:17:41] sinnúmero de de de caminos. Y aquí la
+[00:17:45] gráfica creo que es bastante explícita.
+[00:17:47] Una cosa es lo que eh en los equipos
+[00:17:49] directivos se encuentra y listo, vamos
+[00:17:51] de este punto A a este punto B, pero ya
+[00:17:53] cuando los equipos eh tácticos y
+[00:17:56] operativos se enfrentan a a ese camino,
+[00:17:59] pues van a encontrar pues bastantes
+[00:18:00] alternativas y aquí cobra bastante
+[00:18:03] relevancia de teniendo claro ese punto
+[00:18:05] B, cómo nos alineamos con los equipos
+[00:18:08] que interactúan eh en la organización
+[00:18:11] para llegar a ese punto B. y tenemos
+[00:18:13] claros varias definiciones. Y aquí
+[00:18:15] quizás eh es un ejemplo muy práctico,
+[00:18:19] gráfico, eh eh que creo que nos puede
+[00:18:22] ayudar muchísimo y es, vean la primera
+[00:18:24] imagen en la parte superior izquierda
+[00:18:26] que así lo explica el cliente. ¿Qué es
+[00:18:29] lo que necesita el cliente? Ahí ustedes
+[00:18:31] pueden ver la imagen. Vean la segunda
+[00:18:33] imagen, la parte superior hacia hacia la
+[00:18:36] derecha. Así lo entiende el jefe del
+[00:18:38] proyecto, ¿ven? que ya empieza a cambiar
+[00:18:41] eh esa eh esa identificación de la
+[00:18:44] necesidad del cliente y por ende el
+[00:18:46] requerimiento. Así lo diseña el
+[00:18:48] analista, vean que ya cambia totalmente.
+[00:18:51] Luego así lo describe el programador,
+[00:18:54] cero funcional porque ha venido una
+[00:18:56] secuencia eh de desinformación basada en
+[00:19:00] lo que necesita explícitamente el
+[00:19:02] cliente. Ahora, el de marketing, vean lo
+[00:19:04] que vende el de marketing, es un tema
+[00:19:06] totalmente
+[00:19:08] diferente a lo que realmente necesita eh
+[00:19:12] lo que explica el cliente. Así lo
+[00:19:14] documentan y creo que aquí es es un tema
+[00:19:17] bien importante y es todo lo que se vaya
+[00:19:19] desarrollando. Eh, documéntenlo,
+[00:19:22] documéntenlo muy bien, porque esto al
+[00:19:25] final va a ser la gestión del
+[00:19:26] conocimiento de la organización o de los
+[00:19:28] equipos. Entonces, es fundamental y y
+[00:19:31] suena chistoso, pero eh realmente así
+[00:19:34] pasan muchas organizaciones. Se va
+[00:19:36] avanzando, se va avanzando, no se
+[00:19:38] documenta nada y cuando o se van las
+[00:19:40] personas eh o cambian de área, se queda
+[00:19:43] esa gestión del conocimiento en cero. No
+[00:19:45] hay nada de conocimiento creado ahí.
+[00:19:47] Entonces es es fundamental. Es
+[00:19:49] importante que ustedes en el reto puedan
+[00:19:51] ir documentando lo que lo que van
+[00:19:53] haciendo. Eh, así funciona la versión
+[00:19:56] instalada. una sola cuerdita, el
+[00:19:58] columbio, creo que es cero práctico. Eh,
+[00:20:01] luego lo que eh se factura el cliente,
+[00:20:04] que normalmente siempre va con bastante
+[00:20:08] eh promesa de de valor, eh el aporte
+[00:20:13] previsto que es bastante nulo. Y miren
+[00:20:16] al final lo que realmente necesita el
+[00:20:19] cliente, eh, vista de todas las
+[00:20:22] conversaciones que se puedan tener en
+[00:20:23] diferentes equipos. Entonces, aquí el
+[00:20:24] mensaje clave es alinearse, alinearse
+[00:20:28] con los equipos, alinearse con las
+[00:20:30] organizaciones. Si ustedes van a ayudar
+[00:20:32] algunas empresas, tengan esas
+[00:20:34] conversaciones y tengan claramente esas
+[00:20:37] eh necesidades identificadas con
+[00:20:40] elementos claves que les voy a
+[00:20:41] compartir. deben tener un objetivo
+[00:20:43] único, deben tener esos objetivos
+[00:20:45] completamente claros, que no tengan
+[00:20:47] distorsión de la información, tienen que
+[00:20:49] ser, obviamente, eh realistas al tiempo,
+[00:20:53] al presupuesto, los recursos que que se
+[00:20:55] asignen, verificables que ustedes
+[00:20:57] dependiendo de la de la metodología y ya
+[00:20:59] más adelante lo vamos a ver, pueden ir
+[00:21:01] chequeando si es realmente lo que va
+[00:21:03] necesitando el el cliente, tener como
+[00:21:05] esos puntos de de control o de chequeo
+[00:21:08] que sea priorizado, que es que que
+[00:21:10] dentro de las organizaciones se tengan
+[00:21:12] claros los objetivos que deben ser
+[00:21:15] priorizados y por ende pues los equipos
+[00:21:17] estén dedicados a a ello, que realmente
+[00:21:19] sea lo que se necesita. ¿Sí? Entonces eh
+[00:21:23] eh es importante esas conversaciones con
+[00:21:26] todos los grupos de interés. Ahora, hay
+[00:21:28] que plantear correctamente el problema y
+[00:21:31] aquí tienen que sentarse, analizar con
+[00:21:35] información a detalle, como les contaba
+[00:21:38] hace un par de slides, esa historia que
+[00:21:40] tenga la organización, ese momento
+[00:21:42] actual y sobre todo hacia hacia dónde va
+[00:21:45] la organización para poder desarrollar
+[00:21:46] ese pensamiento crítico, tengan datos y
+[00:21:50] definí
+[00:21:51] en la medida que ustedes le dediquen
+[00:21:54] tiempo a identificar claramente el
+[00:21:56] problema. créanme que se va a ganar
+[00:21:57] mucho tiempo eh en la ejecución, en el
+[00:22:00] desarrollo de de ese reto. Entonces,
+[00:22:03] tengan clarísimo ese problema. Hay
+[00:22:05] diferentes eh herramientas que les
+[00:22:08] pueden ayudar para poder identificar ese
+[00:22:11] ese problema. Hay aquí nombro nombro
+[00:22:14] algunas. Eh, hay árbol de problemas,
+[00:22:17] como les digo, por temas de tiempo no va
+[00:22:18] a entrar en cada una de ellos. De pronto
+[00:22:20] les explico un poco el mapa de empatía,
+[00:22:21] pero eh pueden ustedes entrar a
+[00:22:24] consultar y pues la herramienta que que
+[00:22:26] encuentren ustedes eh más amigable para
+[00:22:28] para aplicar pues eh utilícen. Entonces,
+[00:22:32] hay árbol de problemas, hay mapa de
+[00:22:33] empatía, eh hay una herramienta de
+[00:22:35] storytelling, el customer journey, que
+[00:22:38] en el caso de la entidad financiera que
+[00:22:40] les contaba fue la la que usamos. eh los
+[00:22:42] cinco por qué es y ahí ustedes pueden
+[00:22:45] encontrar un sin número, pero
+[00:22:46] independiente de la herramienta, lo
+[00:22:48] importante es que tengan claro eh la
+[00:22:51] justificación que siempre debe estar
+[00:22:53] basada en datos. Por eso la historia de
+[00:22:56] las compañías debe ser importante o el
+[00:22:58] reto que van a asumir, ¿cuál es la
+[00:22:59] historia? porque yo quiero resolver eso.
+[00:23:01] El objetivo es ser específico, medible,
+[00:23:03] alcanzable, relevante. Hay una
+[00:23:05] metodología eh quizás que pueden
+[00:23:06] utilizar que es la metodología Smart,
+[00:23:09] donde ustedes pueden ir definiendo
+[00:23:10] claramente los objetivos, asumir ese
+[00:23:13] reto, qué es lo que quiero resolver y
+[00:23:14] ponerle un objetivo claro y el alcance,
+[00:23:17] pues que se va eh definir de manera
+[00:23:19] general o detallada según el ciclo del
+[00:23:22] proyecto o el reto que ustedes tengan. Y
+[00:23:24] ahí vuelvo a la imagen de del columpio
+[00:23:26] en el árbol y es definamente o alínen
+[00:23:29] claramente esas expectativas con eh los
+[00:23:32] grupos de interés que vayan a
+[00:23:34] interactuar, en este caso pues con las
+[00:23:35] organizaciones que ustedes van a ayudar
+[00:23:37] a a asumir esos esos retos en la
+[00:23:39] jacatón. Entonces, esta es una serie eh
+[00:23:42] de herramientas que les puede les puede
+[00:23:44] servir. A mí en particular me gusta
+[00:23:46] mucho el mapa de empatía porque esto es
+[00:23:49] como ponerse en esos zapatos del cliente
+[00:23:52] o en ese zapato, en esos zapatos eh de
+[00:23:55] la organización, de la compañía a la que
+[00:23:57] yo quiero ayudar. Muchas de las
+[00:23:59] organizaciones se ven a sus clientes y
+[00:24:01] en la medida que yo entienda el cliente
+[00:24:03] puedo poder apalancar eh de mayor medida
+[00:24:07] la generación de valor a través de esos
+[00:24:10] retos que nosotros asumamos. Porque el
+[00:24:11] mapa de empatía es muy importante porque
+[00:24:13] yo voy a identificar eh qué es lo que
+[00:24:16] dice, qué es lo que hace ese cliente,
+[00:24:18] ¿sí? qué grado de conversación yo puedo
+[00:24:22] tener con ellos para identificar
+[00:24:23] claramente sus necesidades, con quién se
+[00:24:26] relaciona, cuáles son sus amigos, cuáles
+[00:24:28] son sus familias, qué piensa y qué
+[00:24:31] siente. Importante pues saber cuál qué
+[00:24:33] le preocupa, qué anhelos tiene, cuál es
+[00:24:35] su propósito de vida, porque como les
+[00:24:38] mencionaba, en la medida que yo
+[00:24:39] identifique claramente sus necesidades,
+[00:24:41] puedo ofrecerle una solución a esos a
+[00:24:44] esos problemas o a esas necesidades.
+[00:24:46] también normalmente que oye, me ayuda
+[00:24:48] mucho a identificar por qué canales de
+[00:24:51] de yo puedo llegarle para ser atractivo
+[00:24:54] a ese a ese cliente, si es eh a través
+[00:24:56] de sus amigos o su familia, eh a través
+[00:24:59] de algunas redes por donde normalmente
+[00:25:03] eh frecuenta, qué personas de pronto
+[00:25:06] puede admirar. una serie de preguntas
+[00:25:08] que pueden ayudarles para identificar
+[00:25:11] claramente la necesidad de ese cliente.
+[00:25:12] Ahora, también que ve eh qué entorno
+[00:25:15] está esa persona, eh qué recibe o qué
+[00:25:19] frecuenta normal normalmente, incluso
+[00:25:23] con la trazabilidad que tenemos a través
+[00:25:25] de de las diferentes páginas web.
+[00:25:27] Podemos ver qué lee, que consulta, o
+[00:25:29] sea, hay información. Por eso les
+[00:25:32] contaba hace un rato, los datos van a
+[00:25:33] ser fundamentales aquí para poder
+[00:25:35] identificar claramente las necesidades
+[00:25:37] de ese cliente. Ahora, dos elementos
+[00:25:39] claves, cuáles son eh esas esas
+[00:25:42] fricciones, esos esfuerzos que tiene ese
+[00:25:46] cliente para interactuar con la
+[00:25:48] compañía. y yo voy a identificar qué
+[00:25:51] teme o qué frustraciones tiene o qué
+[00:25:53] obstáculos tiene. Y cuando hay algún
+[00:25:56] problema, créame que eh a través de de
+[00:25:58] estas herramientas pueden plantearse
+[00:26:00] fácilmente las soluciones en la medida
+[00:26:03] que yo identifique a profundidad y como
+[00:26:05] mencionaba hace unos segundos, la causa
+[00:26:08] raíz eh de ese problema o de esa
+[00:26:11] necesidad que tiene mi cliente para
+[00:26:12] poder eh aportarle valor y al final
+[00:26:15] tener resultados. qué es lo que lo que
+[00:26:17] desea, qué es lo que necesita y cuál es
+[00:26:20] la medida que yo puedo utilizar para
+[00:26:23] para saber si está siendo exitosa o no
+[00:26:25] mi propuesta de valor desde la
+[00:26:27] organización. Entonces, esto es en
+[00:26:30] general, pongámonos en los zapatos de
+[00:26:32] nuestros clientes a través de preguntas
+[00:26:34] para identificar claramente las
+[00:26:36] necesidades que tengan eh nuestros
+[00:26:39] clientes y así pues identificando el el
+[00:26:42] problema. Claramente yo puedo plantearme
+[00:26:44] el objetivo aquí. una metodología que
+[00:26:47] normalmente se se usía smart y es que yo
+[00:26:51] pueda saber qué, cuánto, cómo, para qué
+[00:26:54] y cuándo, porque en la medida que yo
+[00:26:56] tenga resueltas estas preguntas tengo
+[00:26:58] claro mi apetido y puedo enfocar mis
+[00:27:01] esfuerzos para poder llegar a esa
+[00:27:03] solución del problema o el reto que
+[00:27:05] ustedes van a tener en esta jacatón.
+[00:27:08] Entonces, eh utilicen esta esta
+[00:27:10] herramienta bastante bastante
+[00:27:12] recomendada. Ahora bien, identificando
+[00:27:15] claramente el problema, identificando
+[00:27:17] claramente las necesidades de de mi
+[00:27:19] cliente o mis grupos de interés,
+[00:27:22] diseñemos la mejor solución. Y aquí si
+[00:27:25] abierto, hay bastantes metodologías,
+[00:27:28] dependiendo de su experiencia también
+[00:27:29] pueden utilizar, pero el mensaje clave
+[00:27:31] es si no ven, experimenten, planteen
+[00:27:34] alternativas y un tema no menor, piensen
+[00:27:37] sostenible. Y cuando me refiero a Piens
+[00:27:39] en Sostenible es que no solamente eh
+[00:27:42] pensemos en en lo económico, sino
+[00:27:44] también tengamos connotaciones
+[00:27:46] importantes frente lo a al impacto
+[00:27:48] ambiental y al impacto social que pueden
+[00:27:50] tener esas soluciones que eh están
+[00:27:53] ustedes desarrollando para las
+[00:27:55] organizaciones. que hoy eh hablar de un
+[00:27:58] un componente económico sin tener ese
+[00:28:01] impacto social y ambiental claramente eh
+[00:28:04] identificado, que termina siendo eh un
+[00:28:08] un tema suelto o aislado de lo que
+[00:28:11] realmente es generar valor para una
+[00:28:12] organización. Entonces, empiecen a
+[00:28:15] incorporar los conceptos de
+[00:28:16] sostenibilidad dentro de estas
+[00:28:18] soluciones, pero eh sin dejar de
+[00:28:20] experimentar y plantear esas esas
+[00:28:22] alternativas. Aquí normalmente hay eh
+[00:28:27] diferentes
+[00:28:28] metodologías en las que se pueden llevar
+[00:28:31] a cabo la ejecución eh o la resolución
+[00:28:34] de estos de estos problemas. Básicamente
+[00:28:36] es a través de proyectos y quizás aquí
+[00:28:39] eh por por temas de tiempo no entraré
+[00:28:42] como en detalle de cada uno, pero hay
+[00:28:44] dos variables fundamentales en las
+[00:28:45] diferentes metodologías. Uno es la
+[00:28:48] frecuencia de entrega y dos el grave de
+[00:28:50] cambio que es lo que ustedes ven en el
+[00:28:52] gráfico de la izquierda. Entonces ahí
+[00:28:54] tenemos proyectos que puede ser
+[00:28:56] incrementales, que aquí es básicamente
+[00:28:58] tenía un alcance claro y voy con
+[00:29:00] pequeñas entregas a mayor velocidad.
+[00:29:02] Entonces voy entregando, voy entregando,
+[00:29:04] voy probando si eh a mi cliente le gusta
+[00:29:08] o cumple con las necesidades y voy
+[00:29:11] mejorando un tema predictivo que es un
+[00:29:13] alcance claro y una entrega únicas. Lo
+[00:29:16] tenemos claro desde el principio. Se lo
+[00:29:17] entrego al al final, no tengo
+[00:29:20] interacción. Eh, el ágil, que es eh una
+[00:29:24] variable, una variación en el alcance,
+[00:29:26] en la medida que yo voy entregando valor
+[00:29:29] constante a mi cliente y él me va
+[00:29:31] retroalimentando, yo puedo ir ajustando.
+[00:29:33] ¿Sí? Entonces, eso es una interacción
+[00:29:35] que que quizás ustedes pueden eh
+[00:29:38] consultar más a detalle en algunas
+[00:29:41] páginas especializadas, pero aquí la
+[00:29:43] diferencia es variando mi alcance
+[00:29:45] dependiendo de esa retroalimentación que
+[00:29:47] me da mi cliente. Y el iterativo que es
+[00:29:50] eh varía el alcance y hay pequeñas
+[00:29:52] entregas de de valor. es pues muy
+[00:29:56] similar al al método ágil, pero en este
+[00:30:01] caso la frecuencia de entrega es es
+[00:30:04] menor. El ágil tiene la diferencia de
+[00:30:06] que la entrega es es mayor. Entonces
+[00:30:08] aquí hay diferentes diferentes marcos.
+[00:30:11] Voy a pasar rápidamente por alguno de
+[00:30:13] ellos, solo para que lo tengan en su
+[00:30:15] inventario y puedan entrar a consultar
+[00:30:16] quizás a a mayor detalle. Hay métodos de
+[00:30:20] trabajo que es es en cascada, tenemos un
+[00:30:22] requerimiento, diseñamos, hay una
+[00:30:23] implementación, unas pruebas, un
+[00:30:26] despliegue y una operación. Normalmente
+[00:30:28] es esa secuencia cuando trabajamos
+[00:30:31] proyectos eh o resolución de de
+[00:30:33] problemas en Cascada. hay metodologías
+[00:30:37] de trabajo bajo mágicos de trabajo eh
+[00:30:40] SCRO, que aquí es donde básicamente
+[00:30:43] tenemos el el feedback eh y diferentes
+[00:30:45] ceremonias entre los equipos y y el
+[00:30:48] cliente para poder nosotros tener esas
+[00:30:50] entregas incrementales dependiendo el
+[00:30:54] las necesidades que tenga el cliente o
+[00:30:56] los retos que vayamos a a resolver, en
+[00:30:58] este caso lo que ustedes van a resolver
+[00:31:01] para las empresas en la acaton y hay
+[00:31:03] diferentes roles. el PR owner, el Team,
+[00:31:06] el Scream Master, eh y un equipo pues
+[00:31:11] interdisciplinario que nos va eh
+[00:31:13] permitir tener esas conversaciones en
+[00:31:15] unas ceremonias que es el review y el
+[00:31:18] retrospective y ahí tenemos la
+[00:31:19] retroalimentación para ir mejorando cada
+[00:31:22] vez más el producto que se tiene eh de
+[00:31:26] este proyecto o reto que vayamos a
+[00:31:28] asumir. Entonces, también es recomendada
+[00:31:31] esta metodología. Hm.
+[00:31:34] Can también tenemos un listado de de
+[00:31:38] historias de usuario que eh tenemos ya
+[00:31:41] en progreso, que ya está eh en
+[00:31:44] verificación de de calidad o en testing
+[00:31:46] y ya al final si está o no está. Eso es
+[00:31:49] un poco más eh práctico, simple, como
+[00:31:51] les digo, varias metodologías, pero pues
+[00:31:53] al final es lo que más se puede acoplar
+[00:31:56] al reto y al equipo que conformen para
+[00:31:59] asumir estos retos de la de laatoria.
+[00:32:01] [resoplido] Hm. Design Thinking también
+[00:32:04] es es una herramienta pues bastante eh
+[00:32:06] usada. Aquí pueden ustedes usar varias
+[00:32:09] herramientas. Eh, el mapa de empatía
+[00:32:11] pueden incluso incluirlo aquí eh dentro
+[00:32:14] de esta etapa de empatizar. Luego
+[00:32:16] ustedes definen claramente qué es lo que
+[00:32:17] se necesita. idear que aquí es donde
+[00:32:20] vienen diferentes eh ideas o lluvias de
+[00:32:23] ideas donde eh los equipos participan y
+[00:32:26] eh al final escogen uno o dos,
+[00:32:29] prototipan, prueban y pues se quedan con
+[00:32:32] la que mejor resultado de en esas en
+[00:32:34] esas pruebas. Entonces, otro esquema de
+[00:32:36] trabajo que pueden utilizar para abordar
+[00:32:38] estos estos retos del Hatón. eh LINSup,
+[00:32:42] que también por ahí hay un libro, quizás
+[00:32:45] algunos lo lo han chequeado frente a
+[00:32:48] esta metodología y aquí pues digamos que
+[00:32:50] el el tema fundamental es como yo tengo
+[00:32:53] una idea, cómo construyo, mido, aprendo
+[00:32:56] y empiezo a pivotear, ¿sí? Entonces,
+[00:32:58] como tengo ese ciclo eh de construcción
+[00:33:02] en la medida que yo vaya desarrollando
+[00:33:05] el proyecto que o el proeto que esté que
+[00:33:07] esté asumiendo. Mevs
+[00:33:10] también eh muy alineado al al equipo de
+[00:33:14] de desarrollo, pues normalmente hay una
+[00:33:16] planeación, un monitoreo, una operación,
+[00:33:18] unas pruebas, unamiento. que aquí eh
+[00:33:21] básicamente es, reitero, la herramienta
+[00:33:24] que mejor eh les les venga con el
+[00:33:28] programa, el proyecto o el reto que
+[00:33:30] vayan a asumir, pues lo pueden eh usar.
+[00:33:33] Y h para cerrar digamos que
+[00:33:36] independiente de las metodologías ahí en
+[00:33:39] el pensamiento estratégico son cuatro eh
+[00:33:43] palabras claves que en lo personal me
+[00:33:46] gusta mucho usar porque creo que da un
+[00:33:48] sentido práctico a lo que vayamos a
+[00:33:50] desarrollar en las organizaciones y es
+[00:33:53] planificar, hacer, verificar y actuar.
+[00:33:56] Actuar como una retroalimentación para
+[00:33:58] poder ajustar nuevamente, hacer,
+[00:34:00] verificar y actuar. Entonces, eso es un
+[00:34:02] ciclo de mejora continua que
+[00:34:04] independiente de las metodologías que
+[00:34:06] utilicemos, quiero que se lleven ese
+[00:34:07] mensaje mensaje clave que es planeen,
+[00:34:10] hagan, verifiquen cómo van y ajusten o
+[00:34:13] actúen dependiendo de las desviaciones
+[00:34:15] que que tengan. Entonces, este es el
+[00:34:17] mensaje central de esta eh de esta parte
+[00:34:20] de la de la conversación y pues como les
+[00:34:23] mencionaba, la metodología que eh con la
+[00:34:26] que mejor interactúen ustedes, pues
+[00:34:28] utilícenla para asumir esos retos en la
+[00:34:30] en la Jacatón. Y aquí uniendo eh con la
+[00:34:34] historia que les contaba de la de la
+[00:34:36] entidad eh financiera en la que eh
+[00:34:38] acompañé el proceso estratégico y en ese
+[00:34:41] foco, como les contaba, de
+[00:34:43] transformación digital, algo muy ganador
+[00:34:46] y que nos permitió evolucionar eh en
+[00:34:48] esta entidad en lo digital fue la
+[00:34:51] creación de la OBT, que es la oficina de
+[00:34:55] valor y transformación y un laboratorio
+[00:34:57] digital, eh donde principalmente mente
+[00:35:01] el objetivo era habilitar tres células
+[00:35:04] de trabajo con dedicación al 100% y eso
+[00:35:06] es una diferencia eh en las
+[00:35:09] organizaciones cuando tienen equipos
+[00:35:11] dedicados y esto que nos permitió pues
+[00:35:13] tener eh diferentes productos digitales
+[00:35:17] en el mercado de una forma muy muy
+[00:35:19] rápida y por eso la interacción entre
+[00:35:22] los equipos eh tácticos y operativos con
+[00:35:25] los equipos estratégicos es fundamental
+[00:35:27] porque en la medida que los equipos de
+[00:35:30] desarrollo
+[00:35:31] o de esas células de trabajo tienen
+[00:35:33] identificados eh oportunidades de mejora
+[00:35:36] y lo comunican acertadamente a los
+[00:35:38] equipos tácticos y estratégicos, podemos
+[00:35:40] sumar mucho más valor. Entonces, esto es
+[00:35:43] un caso eh de éxito de la entidad que
+[00:35:45] que tuve la oportunidad de acompañar y
+[00:35:48] cómo habilitar esas capacidades en las
+[00:35:50] organizaciones pueden ayudar a la
+[00:35:53] transformación y a la evolución de las
+[00:35:55] organizaciones. Como les contaba, ir de
+[00:35:57] ese punto A a ese punto B, en este caso
+[00:36:00] en transformación digital para la
+[00:36:02] entidad financiera eh que tuve la
+[00:36:04] oportunidad de acompañar.
+[00:36:07] Hm. Ya por último y para ir eh cerrando
+[00:36:12] y quizás pues algunas preguntas que
+[00:36:14] tengamos en el en el chat eh y es
+[00:36:17] evalúa, aprende y evoluciona. Y aquí,
+[00:36:20] ¿por qué es importante evaluar? Porque
+[00:36:22] en la medida que yo vaya chequeando cómo
+[00:36:24] va la organización eh en ese en ese
+[00:36:28] propósito superior, en esos objetivos
+[00:36:31] que tienen planteados y en esos
+[00:36:33] proyectos que desde cada uno de sus
+[00:36:35] roles pueden estar acompañando, ustedes
+[00:36:37] pueden eh ir aprendiendo y
+[00:36:39] evolucionando. que siempre es un tema
+[00:36:44] que convicción personal de de siempre se
+[00:36:47] aprende, o sea, nunca nunca se pierde,
+[00:36:49] se gana o se aprende, porque nosotros en
+[00:36:52] la medida que vayamos evaluando lo que
+[00:36:54] vamos haciendo podemos aprender y
+[00:36:56] hacerlo cada vez mejor, pero hay que
+[00:36:59] actuar rápido. Por eso después de
+[00:37:01] planear viene el hacer y en el hacer
+[00:37:03] está el corazón para poder evaluar y
+[00:37:06] después eh retroalimentar ese ciclo.
+[00:37:09] Entonces, evalúen, aprendan y
+[00:37:11] evolucionen estos retos que ustedes van
+[00:37:13] van a tener. Eh, hagan el ejercicio,
+[00:37:16] evalúenlo rápidamente, aprendan y
+[00:37:19] incrementen ese valor que pueden sumar a
+[00:37:21] la organización que van ustedes a
+[00:37:23] acompañar. Y un tema lo mencioné hace
+[00:37:27] unos minutos y es cómo gestionamos ese
+[00:37:30] ese conocimiento a través de eh la
+[00:37:33] transferencia del conocimiento de las
+[00:37:35] lecciones aprendidas. Aquí toma bastante
+[00:37:37] valor la documentación. del retro
+[00:37:40] ustedes tengan, documenten todas las
+[00:37:41] soluciones, las alternativas. Ustedes no
+[00:37:44] saben, quizás hoy una alternativa que
+[00:37:45] documentaron no es viable, pero al cabo
+[00:37:49] de una dos semanas, un 2 3 meses es eh
+[00:37:53] la iniciativa o la alternativa que mejor
+[00:37:56] puede resolver ese problema. Entonces,
+[00:37:58] siempre documenten, tengan esas
+[00:37:59] secciones aprendidas muy bien
+[00:38:01] documentadas, esa transferencia de de
+[00:38:03] conocimiento, el existente del
+[00:38:05] conocimiento nuevo y enfóquese hacia esa
+[00:38:08] mejora continua, el logro de los
+[00:38:10] objetivos, que es ese propósito superior
+[00:38:12] de las organizaciones que siempre van a
+[00:38:14] estar declarados en su marco estratégico
+[00:38:18] y enfocados en esa eficiencia y eficacia
+[00:38:21] de los problemas que ustedes van a
+[00:38:23] resolver que realmente le generen valor
+[00:38:26] a la organización Y continuando con esa
+[00:38:29] historia de cómo en esa organización eh
+[00:38:32] se definió un propósito superior, unos
+[00:38:36] focos estratégicos, ahí se tuvo un foco
+[00:38:38] estratégico de transformación digital,
+[00:38:41] se habilitó capacidades para la
+[00:38:43] transformación digital a través de la
+[00:38:45] oficina de valor y transformación, la
+[00:38:47] OBT y al final eh este año se tuvo eh un
+[00:38:51] reconocimiento en Fintech América. Es un
+[00:38:54] ah una ceremonia que se hace en Miami y
+[00:38:57] le entregaron al Banco un premio platino
+[00:39:00] por la transformación digital. Y esto
+[00:39:03] pues si bien lo lo recibió el CEO de la
+[00:39:05] compañía, tuve la oportunidad de
+[00:39:07] acompañarlo como gerente de estrategia y
+[00:39:09] sostenibilidad, pero es un trabajo que
+[00:39:11] se hace desde los equipos, desde esas
+[00:39:14] células de trabajo, desde los
+[00:39:16] desarrolladores, desde los owner, desde
+[00:39:19] los screen master, desde las unidades de
+[00:39:21] negocio. es un equipo interdisciplinario
+[00:39:24] que al final pueden sumar valor a las
+[00:39:26] organizaciones y que en este caso pues
+[00:39:28] el Banco Agrario es un caso de éxito
+[00:39:31] cuando se trabaja en equipo, cuando se
+[00:39:33] tiene un foco estratégico eh claramente
+[00:39:36] definido y cómo la interacción entre
+[00:39:39] diferentes grupos de la organización
+[00:39:41] pueden llegar a posicionar a una entidad
+[00:39:44] en estas eh instancias, en el caso de
+[00:39:47] fintech Américas que tiene un
+[00:39:49] reconocimiento
+[00:39:51] mundial. Entonces,
+[00:39:53] hasta por aquí va va mi charla. Espero
+[00:39:56] que pues haya sido completamente eh
+[00:40:00] claro mis datos por si quieren les pueda
+[00:40:03] apoyar en algo eh de lo que de los temas
+[00:40:06] que que vimos hoy. Eh, por aquí
+[00:40:10] compartir mi pantalla.
+[00:40:16] No sé.
+[00:40:17] Listo, ya la dejamos de compartir por
+[00:40:19] acá.
+[00:40:20] Bueno, muchas gracias por compartir todo
+[00:40:23] tu conocimiento hasta ahora. Me encantó
+[00:40:24] porque justamente es algo que todos los
+[00:40:26] que van a estar participando en laaton
+[00:40:28] tienen que hacer y es tomar el problema
+[00:40:30] más que problema, el reto que cada una
+[00:40:32] de las empresas que van a estar
+[00:40:33] participando dentro del hackat les está
+[00:40:35] poniendo a nuestros participantes y
+[00:40:38] comenzar a tomar eso para descubrir,
+[00:40:40] bueno, cómo voy a convertir este reto en
+[00:40:42] una solución. Eh, yo les comento siempre
+[00:40:45] a los participantes de este tipo de
+[00:40:46] hackatons que el reto no es solamente
+[00:40:48] está dentro de voy a hacer una
+[00:40:51] aplicación para resolver lo que me pide
+[00:40:53] la empresa, sino también en evaluar o
+[00:40:56] buscar la forma de resolverlo sin
+[00:40:58] necesidad de pedir o consultar por más
+[00:41:01] información. A veces, obviamente, lo
+[00:41:02] vamos a necesitar, vamos a necesitar
+[00:41:04] hacer preguntas adicionales, pero en la
+[00:41:06] mayoría de los casos, pues las empresas
+[00:41:08] no nos van a dar totalmente todo en
+[00:41:09] bandeja de plata y te van a decir,
+[00:41:11] "Necesito que me hagas una aplicación,
+[00:41:12] que el paso uno sea esto y el paso dos."
+[00:41:14] Porque también pasa lo que mismo eh
+[00:41:16] Duber nos comentaba, que es que lo que
+[00:41:18] piden a veces desde un área es muy
+[00:41:20] diferente a lo que puede entregarle
+[00:41:22] otra. Entonces, lo que podemos hacer o
+[00:41:23] lo que a mí me encanta siempre
+[00:41:25] recomendarles es que vean el reto como
+[00:41:27] un un arma de doble fil un poco. Por un
+[00:41:29] lado tenemos que solucionar justamente
+[00:41:31] eso que nos indica la empresa que quiere
+[00:41:33] lograr tener, por ejemplo, un agente
+[00:41:35] sobre algo en específico, no les voy a
+[00:41:37] dar muchos spoilers, o utilizar un nuevo
+[00:41:40] modelo en a otro tipo de cosas
+[00:41:43] específicas, pero capaz no te van a
+[00:41:45] decir específicamente en qué ni cómo. Y
+[00:41:48] la idea es que tú puedas traer todo el
+[00:41:50] valor posible, justamente aprendiendo eh
+[00:41:53] cómo puedes solucionar el reto más que
+[00:41:55] eh buscando más información, buscando
+[00:41:58] qué hace la empresa, qué deberías
+[00:42:00] agregarle de valor adicional y eso me
+[00:42:01] gustó muchísimo. Entonces,
+[00:42:04] de pronto hay un tip que que les puede
+[00:42:07] servir un montón. Normalmente las
+[00:42:09] organizaciones tienen eh informes de
+[00:42:11] gestión, ¿sí? Entonces, año a año van
+[00:42:13] sacando ese informe de gestión. Entonces
+[00:42:15] pueden por ahí chequear si tienen
+[00:42:17] publicado su informe de gestión y eso
+[00:42:19] les da una visión mucho más amplia de lo
+[00:42:21] que es la organización y cómo el reto
+[00:42:23] que ustedes tienen que asumir eh pueden
+[00:42:27] generar bastante valor a lo que la
+[00:42:29] organización espera.
+[00:42:31] Perfecto. Tenemos varias preguntas acá y
+[00:42:33] voy de inicio comentarles que preguntas
+[00:42:36] como la de Juan, que es cuáles serán los
+[00:42:38] principales criterios de evaluación y
+[00:42:39] qué diferencia una eh un proyecto que
+[00:42:42] simplemente funciona uno que realmente
+[00:42:44] destaca. Estas son preguntas que vamos a
+[00:42:46] responder durante el kickoff, donde pues
+[00:42:47] vamos a literalmente adentrarnos mucho
+[00:42:49] más en todo esto. Eh, durante estas
+[00:42:52] sesiones lo que vamos a hacer es
+[00:42:53] literalmente aprender y aprovechar a los
+[00:42:55] expertos que estamos trayendo para poder
+[00:42:57] hacerle preguntas directamente a ellos.
+[00:42:59] Durante el KCKO vamos a brindarles toda
+[00:43:00] la información que necesitan, les vamos
+[00:43:02] a explicar cada uno de los retos y
+[00:43:04] adicional a eso les vamos a decir cuáles
+[00:43:05] son los criterios de evaluación, cuánto
+[00:43:07] tiempo va a ser va a durar el proceso de
+[00:43:09] de la evaluación de sus proyectos, cómo
+[00:43:12] los van a presentar al jurado final de
+[00:43:14] las empresas, etcétera. Así que no se
+[00:43:16] preocupen, calma, [resoplido] que el
+[00:43:17] viernes vamos a tener todas esas
+[00:43:19] respuestas. Pero por acá veo más
+[00:43:21] preguntas. Por ejemplo, acá eh la última
+[00:43:24] que nos llegó fue cómo hacer cuando la
+[00:43:26] empresa se pone necia en ocupar alguna
+[00:43:28] tecnología o requisitos cuando uno sabe
+[00:43:30] que esa no es la mejor solución. ¿Cómo
+[00:43:32] manejamos estos stakeholders?
+[00:43:35] Va a ser fundamental eh la conversación
+[00:43:38] que se de desde la junta directiva, los
+[00:43:42] equipos directivos y los equipos
+[00:43:44] tácticos. Normalmente hay un conducto
+[00:43:46] regular. Si si hay alguna observación
+[00:43:49] frente que hay una mejor tecnología que
+[00:43:51] se puede usar, pues normalmente se
+[00:43:53] escala a nivel de gerente, luego
+[00:43:55] vicepresidente y luego ese equipo
+[00:43:57] directivo. Entonces es buscar el espacio
+[00:43:59] y dejar obviamente con hechos y datos,
+[00:44:01] no que sea un capricho, sino hechos y
+[00:44:03] datos. Esta es la mejor alternativa,
+[00:44:05] esta es la mejor herramienta que podemos
+[00:44:06] usar y cómo pues se evalúan ya
+[00:44:08] dependiendo eh de matrices de
+[00:44:10] priorización que va un poco también a la
+[00:44:12] pregunta inicial y es impacto esfuerzo,
+[00:44:14] o sea, lo que mayor impacto te pueda
+[00:44:16] generar eh con un menor esfuerzo, ahí es
+[00:44:19] donde está el valor de las
+[00:44:21] organizaciones. En el caso de la
+[00:44:22] herramienta eh que puede generar un
+[00:44:25] mayor valor, pues si tiene un mayor
+[00:44:26] impacto y requiere menor esfuerzo para
+[00:44:28] implementarlo, creo que es un camino
+[00:44:31] sensato para irnos por esa tecnología o
+[00:44:33] no. Entonces hay dos mensajes claves, la
+[00:44:36] gobernanza que se tenga para escalar el
+[00:44:37] tema uno y dos, hechos y datos para que
+[00:44:40] la se tenga claramente definida la
+[00:44:42] priorización de acuerdo a ese impacto
+[00:44:44] que genera la nueva tecnología.
+[00:44:46] Y eso me encanta que justamente lo
+[00:44:48] mencionemos porque las empresas con las
+[00:44:50] que estamos trabajando en este tipo de
+[00:44:51] hacaton son empresas que ya pues
+[00:44:53] nosotros tenemos contacto con ellos
+[00:44:54] desde 30x y sabemos que son ya son
+[00:44:57] believers, ya son personas que creen y
+[00:44:59] su se level cree en esta tecnología de
+[00:45:02] inteligencia artificial. Y por eso
+[00:45:03] cuando nosotros abrimos esta
+[00:45:05] convocatoria les decimos, "No importa si
+[00:45:07] tú quieres crear tu proyecto desde el
+[00:45:10] primer comit hasta el último, lo puedes
+[00:45:12] crear totalmente con inteligencia
+[00:45:14] artificial. lo que nos importa es que
+[00:45:15] sea algo que sea funcional. Y bueno,
+[00:45:17] luego de eso lo vamos a explicar un
+[00:45:19] poquito más. Acá tenemos dos preguntas
+[00:45:21] adicionales. Eh, uno es si utilizas
+[00:45:26] algún framework para este tipo de
+[00:45:27] análisis y levantamiento de información,
+[00:45:29] si eres si te asistes con algún modelo o
+[00:45:32] bueno, si cómo lo realizas.
+[00:45:34] Sí, normalmente eh ahora con con
+[00:45:38] inteligencia artificial hay varias eh
+[00:45:40] herramientas, pero pues cloud funciona
+[00:45:42] muy bien, CH GPT también eh tiene pues
+[00:45:45] bastantes herramientas que nos nos
+[00:45:46] pueden ayudar, pero hay información que
+[00:45:49] aún no está en ninguna en ninguna web y
+[00:45:52] en el caso de ese mapa de empatía es
+[00:45:54] información que hay que recoger en
+[00:45:56] campo. O sea, si es sentarse con el
+[00:45:58] cliente, esas preguntas que le hacíamos,
+[00:46:01] bueno, este, ¿qué oye? ¿Qué ve? cómo se
+[00:46:03] siente, es muy del uno a uno. Sí. Y pues
+[00:46:06] particularmente la última entidad
+[00:46:08] financiada en la que estuve eran
+[00:46:10] clientes de la ruralidad, entonces
+[00:46:11] acceso a a a internet, a páginas web muy
+[00:46:16] complejo. Entonces es trabajo de campo.
+[00:46:17] Entonces, ahí hay que identificar muy
+[00:46:20] bien cuál es la mejor herramienta para
+[00:46:22] poder identificar o levantar esas esa
+[00:46:25] información de diagnóstico estratégico y
+[00:46:27] poder orientar los esfuerzos hacia ese
+[00:46:30] cierre de brechas que se identifiquen en
+[00:46:31] ese en ese diagnóstico. Entonces es una
+[00:46:34] combinación dependiendo del propósito de
+[00:46:36] la organización.
+[00:46:40] Excelente. Otra pregunta que tenemos y
+[00:46:42] yo siento me encanta que que están
+[00:46:43] utilizando esto no solamente para
+[00:46:45] prepararse para el hackaton sino para
+[00:46:46] resolver los problemas de su vida,
+[00:46:48] probablemente los retos de su vida,
+[00:46:50] porque Daniel nos pregunta por acá,
+[00:46:52] "¿Qué consejos ofreces en cómo lidiar
+[00:46:54] con stakeholders que cambian
+[00:46:56] constantemente de requisitos?" Eh, por
+[00:46:58] ejemplo, una persona que establece ya un
+[00:47:00] roap, pero después se les ocurre una
+[00:47:02] gran idea nueva. ¿Cómo te ha pasado?
+[00:47:05] ¿Qué has hecho para lidiar? [risas]
+[00:47:07] Creo que son conversaciones y y retos
+[00:47:10] que que se deben tener eh
+[00:47:12] constantemente. Sí, hay una una
+[00:47:15] gobernanza en las instituciones donde se
+[00:47:17] hace el seguimiento a la estrategia y a
+[00:47:20] los proyectos. Entonces, en la medida
+[00:47:22] que vayamos siendo claros con los
+[00:47:24] stakeholders de cómo avanzan o cómo
+[00:47:26] evolucionan sus proyectos, si están
+[00:47:28] avanzando o si no están avanzando,
+[00:47:30] también hay que ser sinceros para ver
+[00:47:32] dónde se enfoca se enfoca el esfuerzo.
+[00:47:34] Entonces, eh al final si en los grupos
+[00:47:38] de interés para los que nosotros
+[00:47:40] propendemos generarles valor, no en
+[00:47:42] valor en algún proyecto que estemos
+[00:47:44] ejecutando, pues tenemos que ser
+[00:47:46] sensatos y bueno, si ese no es el
+[00:47:48] proyecto, pues renunciamos a eso y nos
+[00:47:50] vamos con uno que sí genere valor. Pero
+[00:47:52] el punto clave es generar los espacios
+[00:47:55] en la gobernanza corporativa para que se
+[00:47:57] den justamente esas conversaciones.
+[00:47:59] Porque si vamos a conversar, no sé, al
+[00:48:02] final del año, cuando ya el proyecto no
+[00:48:04] se dio y pudimos haberlo resuelto a
+[00:48:07] mitad de año y enfocar los esfuerzos
+[00:48:09] hacia otro proyecto, pues va a ser mucho
+[00:48:12] más ganador tener esa conversación a
+[00:48:14] tiempo y poder reenfocar los esfuerzos.
+[00:48:16] Entonces, la gobernanza va a ser
+[00:48:18] fundamental en esas definiciones.
+[00:48:22] Maravilloso. A ver si tenemos algún
+[00:48:24] comentario adicional. Okay. Aquí,
+[00:48:26] considerando el tiempo limitado del
+[00:48:28] hackaton, ¿qué recomiendan priorizar
+[00:48:29] para destacar? ¿Resolver un problema
+[00:48:31] específico de manera excelente o
+[00:48:33] construir una solución más amplia con
+[00:48:35] varias funciones? Ahí yo voy a a dar mi
+[00:48:37] take como una persona que ha estado un
+[00:48:39] montón de hacatons hasta ahora en en
+[00:48:41] ambas partes, tanto organizando como
+[00:48:44] durante el hackaton como participante y
+[00:48:47] también como jurado para empresas que
+[00:48:49] son partners de este tipo de eventos. Yo
+[00:48:51] creo que lo más importante es que
+[00:48:52] resuelvas algo bien. Si puedes resolver
+[00:48:55] una cosa bien y eres muy bueno
+[00:48:57] haciéndola, eso ya te garantiza que vas
+[00:48:59] a vas a hacer que el jurado vea y diga,
+[00:49:02] "Wow, esta solución es muy buena."
+[00:49:04] Porque soluciona lo que dice. ¿Qué pasa?
+[00:49:06] A veces nosotros terminamos haciendo un
+[00:49:08] monstruo gigante que tiene 50,000
+[00:49:09] features y es espectacular porque uno se
+[00:49:11] emociona y uno quiere resolverle toda la
+[00:49:13] vida a la empresa a la que quiere, a la
+[00:49:15] que estás haciendo el reto o el sí, el
+[00:49:18] el pequeño producto que estás haciendo
+[00:49:20] durante un hackat, pero después incluso
+[00:49:22] cuando vas al peach o quieres explicarle
+[00:49:24] al jurado qué es lo que estás haciendo,
+[00:49:26] básicamente terminas gastándote todo el
+[00:49:29] tiempo porque son como 50 featers y no
+[00:49:31] puedes terminar de explicar una sola.
+[00:49:33] Entonces, una sola bien, al menos.
+[00:49:35] Entonces, yo la verdad les recomendaría
+[00:49:37] que busquen resolver algo muy bien y si
+[00:49:39] lo logran y quieren sumarle más valor,
+[00:49:42] listo, ahora sí vamos a añadirle un
+[00:49:43] poquito más, pero si no, enfóquense en
+[00:49:46] hacer lo mejor posible con una sola cosa
+[00:49:48] y después le van sumando más cositas.
+[00:49:50] El poder, el poder de lo simple, Andra,
+[00:49:53] el poder de lo simple. Total.
+[00:49:54] ¿Tú qué opinas de eso, Duber? Es es
+[00:49:57] enfocarse, como tú dices, en el punto.
+[00:49:59] Por eso mencionaba dentro de la charla,
+[00:50:01] la causa radioal, cuál es el problema
+[00:50:03] que tengo que resolver. Ahí se enfocan y
+[00:50:06] ya sobre eso si funciona muy bien, pues
+[00:50:07] lo van escalando, pero es el poder de lo
+[00:50:09] simple.
+[00:50:11] Buenísimo. Ángel nos hace otra pregunta
+[00:50:13] que es si podemos escoger cualquier tipo
+[00:50:15] de empresas. Nosotros vamos a tener eh
+[00:50:18] vas a decir, vamos a tener eh si no mal
+[00:50:20] recuerdo tres empresas con eh con
+[00:50:22] hackatons, con retos y ustedes pueden
+[00:50:24] elegir cualquier reto que ustedes
+[00:50:26] quieran. Vamos a tener cuatro retos y
+[00:50:27] ustedes pueden decir, "No, yo voy a irme
+[00:50:29] por este reto o por aquel." Pero pues la
+[00:50:31] idea es que sea un reto que quieran
+[00:50:32] solucionar. Así que no se preocupen por
+[00:50:34] eso. Eh, son totalmente libres de
+[00:50:36] sentarse y elegir cualquier reto. Eh,
+[00:50:39] obviamente la idea es que pues vaya haya
+[00:50:41] varios proyectos o muchos proyectos en
+[00:50:43] cada reto, pero ustedes son totalmente
+[00:50:45] libres de de elegir el que quieran y
+[00:50:47] también pueden hacerlo, bien sea solos o
+[00:50:49] en equipo. Siempre les recomendamos que
+[00:50:51] sea en equipo, pues para que se
+[00:50:52] enriquezca mucho más de la experiencia
+[00:50:54] de sus compañeros y demás. Y Alexis nos
+[00:50:57] dice por acá que sí es pensar en X lo
+[00:50:59] más sencillo. Muy bien. Bien. Déjame ver
+[00:51:02] si tenemos alguna preguntita adicional
+[00:51:04] por acá.
+[00:51:07] Eh, ah, aquí me gustó una mucho que
+[00:51:10] compartió Alexis hace rato y no la había
+[00:51:12] leído y es eh veo mucho enfoque hacia la
+[00:51:16] empresa donde trabajo, pero eh y bueno,
+[00:51:18] donde conseguir los datos puede ser
+[00:51:19] sencillo, pero ¿y si es un producto
+[00:51:21] personal, ¿cómo sugieres recolectar esos
+[00:51:23] datos?
+[00:51:25] un producto personal,
+[00:51:28] como un proyecto personal en este caso,
+[00:51:30] si estás creando tu S Project o algo
+[00:51:32] parecido.
+[00:51:33] Ah, okay. No, igual pues dependiendo del
+[00:51:35] enfoque que le quieras dar a ese
+[00:51:37] proyecto, pues vas a encontrar
+[00:51:39] información eh disponible. Ahora bien,
+[00:51:42] si hay información que no esté pública,
+[00:51:45] pues puedes hacer algunos proxis, o sea,
+[00:51:47] dependiendo de las variables que tengas
+[00:51:49] para evaluar el proyecto, hacer
+[00:51:51] simulaciones. Entonces, eh no sé si es
+[00:51:54] ingresos de las personas, entonces
+[00:51:56] simulación estimada eh de cuánto puede
+[00:51:59] incrementar los ingresos una persona
+[00:52:01] dado el desarrollo de un negocio. Ahí
+[00:52:04] empiezas a hacer eh dinámicas eh para
+[00:52:08] simular cuál es la predicción de esos
+[00:52:10] ingresos. Las variables dependiendo que
+[00:52:12] vayas a usar en el proyecto es empezar
+[00:52:14] [carraspeo] a hacer simulaciones, tener
+[00:52:15] dos o normalmente tres escenarios, el
+[00:52:19] optimista, el viable y ya el pesimista,
+[00:52:22] que dependiendo de las variables que que
+[00:52:24] uses, pues vas a irte por uno o por
+[00:52:26] otro.
+[00:52:27] Genial. Tenemos dos preguntas por acá.
+[00:52:29] Una es principalmente para ti, Duber, si
+[00:52:31] nos puedes compartir los slides para
+[00:52:33] compartírselos a los participantes. Si
+[00:52:35] no tienes problema con eso, nosotros se
+[00:52:37] los podemos compartir.
+[00:52:38] Claro, claro que sí. Sí, no hay
+[00:52:38] problema.
+[00:52:40] Buenísimo. Y si ustedes si los
+[00:52:42] participantes van a poder ver esta
+[00:52:43] grabación, sí, totalmente. De hecho, en
+[00:52:46] el mismo link en YouTube, literalmente
+[00:52:48] van a poder ingresar cuando quieran y
+[00:52:50] van a ver toda esta grabación. ya no va
+[00:52:53] a ser un live, sino literalmente la
+[00:52:55] grabación en este caso. Entonces sí, ahí
+[00:52:58] van a estar disponibles. Y acá nos
+[00:53:00] pregunta Juan, desde su experiencia,
+[00:53:02] ¿cuál es el error más frecuente que
+[00:53:04] cometen los participantes en este tipo
+[00:53:06] de hackatons y qué recomendarían eh
+[00:53:08] hacer para evitarlo? Eh, bueno, en mi
+[00:53:11] experiencia les cuento un poquito que yo
+[00:53:12] creo que uno de los errores es quedarse
+[00:53:14] como con el problema de no sé qué
+[00:53:18] construir o no sé qué cómo puedo abordar
+[00:53:21] esto y no sentarse a ver justamente lo
+[00:53:23] que nos mostraba Duber, que es bueno,
+[00:53:25] okay, tengo este reto, ¿cómo lo voy a
+[00:53:27] cómo lo voy a solucionar? Y es
+[00:53:29] literalmente sentarse a buscar
+[00:53:31] información de la misma empresa y no
+[00:53:33] solamente quedarse con lo que dice la
+[00:53:34] empresa que es el reto, sino con todo lo
+[00:53:37] que ustedes pueden explorar. Por
+[00:53:38] ejemplo, algo que yo los invito a hacer
+[00:53:39] es hacer scrapping de todas las web o lo
+[00:53:41] que sea que tenga la empresa y ahí
+[00:53:43] aprenden un montón, o sea, ni no tienen
+[00:53:45] ni que hacerlo. Ustedes mismos pueden
+[00:53:46] decirle a Cloud o cualquier inteligencia
+[00:53:48] artificial, por favor consígueme toda la
+[00:53:50] información que puedas de esta empresa y
+[00:53:52] demás y todo lo que haya salido sobre
+[00:53:55] esta empresa sobre algo eh relacionado
+[00:53:57] al reto y allí pueden sacar más
+[00:53:59] información directamente y eso los ayuda
+[00:54:02] a explorar nuevas maneras. Y segundo,
+[00:54:04] siento que mucha gente se quedaba
+[00:54:06] pensando que, bueno, es que voy a hacer
+[00:54:07] lo mismo que otras personas, pero
+[00:54:09] realmente creo que pues todos tenemos
+[00:54:11] una forma distinta de solucionar las
+[00:54:13] cosas y eso es lo bonito de este tipo de
+[00:54:14] hackatons. Por eso las empresas entran a
+[00:54:16] este tipo de de eventos, porque no es
+[00:54:20] que 10 personas van a hacer las mismas
+[00:54:21] 10 soluciones, sino que 10 personas van
+[00:54:23] a tener 10 formas distintas de
+[00:54:25] solucionar algo que incluso va a ser
+[00:54:27] diferente a lo que hace la empresa
+[00:54:29] normalmente su día a día. Entonces, eh
+[00:54:31] no se sientan como que ay, voy a hacer
+[00:54:33] lo mismo que otras personas, ni tampoco
+[00:54:35] eh no se sientan privados por eh la
+[00:54:38] información que se les pueda dar, que
+[00:54:40] puede ser para muchos en algunos casos
+[00:54:42] pueden decir, ay, es que es muy poquita
+[00:54:43] información. Pero realmente piensen que
+[00:54:45] esa es la misma información que nos dan
+[00:54:46] a veces dentro de los equipos de
+[00:54:47] tecnología en las empresas, como que
+[00:54:50] quiero hacer este proyecto y uno va y
+[00:54:52] busca toda la información y a veces
+[00:54:53] hasta más complicado porque tienes que
+[00:54:55] terminar haciendo miles de reuniones y
+[00:54:57] ustedes literalmente acá les decimos,
+[00:54:59] acá tienes el problema un poquito más
+[00:55:00] estructurado de lo que nos daría
+[00:55:02] internamente y adicional a eso, pues
+[00:55:04] tiene mucha información disponible a
+[00:55:06] nivel público de dichas empresas. No sé
+[00:55:08] d si tienes alguna recomendación.
+[00:55:10] Sí, dos mensajes s super prácticos.
+[00:55:13] siempre me gusta como ser muy sencillo y
+[00:55:15] es eh uno parálisis por análisis, creo
+[00:55:18] que a veces demasiada información
+[00:55:20] también eh puede llevar un análisis o
+[00:55:23] tomar un tiempo de análisis bastante
+[00:55:25] extenso. Entonces, la con la información
+[00:55:27] que tengan disponible es es suficiente
+[00:55:29] para avanzar en el reto. Uno y dos, eh
+[00:55:32] lo perfecto es enemigo de lo bueno, no
+[00:55:35] esperen a tener la solución perfecta
+[00:55:37] para avanzar. O sea, con el prototipo
+[00:55:39] que tengan, con la solución base que
+[00:55:41] tengan, empiecen a a probar y sobre eso
+[00:55:44] iteran para ir mejorando la la solución.
+[00:55:47] No esperen tenerla perfecta para poderla
+[00:55:49] probar. Es es como los dos mensajes que
+[00:55:51] quisiera complementar.
+[00:55:54] Maravilloso, Duber. Bueno, ya estamos
+[00:55:56] casi en el tiempo de Te agradezco
+[00:55:58] muchísimo pues este rato que nos has
+[00:56:00] regalado para aprender bastante sobre tu
+[00:56:03] forma de ver, justamente cómo desde el
+[00:56:06] pensamiento estratégico podemos
+[00:56:08] solucionar problemas y y demás. Eh,
+[00:56:13] ahí tenemos otra otra pregunta acá. Si
+[00:56:15] algún proyecto personal llegase a
+[00:56:17] coincidir o ser de utilidad para la
+[00:56:18] solución del problema, podría usarse
+[00:56:20] para aplicar en ese proyecto de la no
+[00:56:23] tiene que ser un proyecto totalmente de
+[00:56:24] cero. Bueno, si de casualidad su
+[00:56:27] proyecto personal es extremadamente
+[00:56:29] similar a lo que nosotros estamos
+[00:56:30] buscando en los diferentes retos, la
+[00:56:32] recomendación es que literalmente eh
+[00:56:35] puedan agarrar el GIHub o el repositorio
+[00:56:38] de ese proyecto que tienen previamente,
+[00:56:40] hacer un fork y decirnos, "Desde este
+[00:56:42] punto estamos trabajando en este reto y
+[00:56:44] así ya sabemos, ah, bueno, listo, es
+[00:56:46] algo que ya tenían preparado
+[00:56:48] previamente, pero que es porque es un
+[00:56:50] proyecto personal que puede ser
+[00:56:51] relacionado con este proyecto en este
+[00:56:54] caso, pero deben dejarlo y en específico
+[00:56:56] en el Ghost Repo y también en toda la
+[00:56:58] información del hackaton para uno saber
+[00:57:00] a es porque esta persona ya tenía algo,
+[00:57:03] algún producto de lado que puede
+[00:57:05] servirle en este caso, entonces no hay
+[00:57:07] problema allí. Eh, y bueno, nada, Duer,
+[00:57:09] para finalizar realmente te doy las
+[00:57:11] gracias por este espacio. Eh, de verdad
+[00:57:13] que nos ayudó un montón para no
+[00:57:14] solamente pensar en solucionar y
+[00:57:16] solamente pensar en bueno, qué
+[00:57:18] estrategias, ¿no? ¿Qué estrategias? Eh,
+[00:57:19] qué herramientas uso, sino eso, irnos
+[00:57:22] hacia las estrategias, que es super
+[00:57:24] importante y a veces nos olvidamos sobre
+[00:57:25] todo con este tipo de eventos que son de
+[00:57:27] muy corta duración, entonces nos
+[00:57:28] volvemos locos a codiar de una vez
+[00:57:30] cuando podemos sentarnos primero a
+[00:57:32] explorar y ver qué estrategias tenemos.
+[00:57:33] Así que muchísimas gracias. Ya saben,
+[00:57:35] todas las personas que se conectaron,
+[00:57:37] todo esto está disponible para que
+[00:57:39] ustedes lo vean cuando deseen. Y nada,
+[00:57:41] les recuerdo que este viernes a las 5 de
+[00:57:44] la tarde, hora Colombia, 6 de la tarde,
+[00:57:46] hora Venezuela, 4 de la tarde, hora
+[00:57:47] México, vamos a tener nuestro kickof,
+[00:57:49] donde allí voy a explicarles un poco
+[00:57:51] pues todas las hacat, cuáles son eh los
+[00:57:55] eh lo la forma en la que vamos a estar
+[00:57:57] evaluando sus proyectos, cuáles son los
+[00:57:59] retos, las empresas participantes, toda
+[00:58:01] esa información y toda la todo lo que
+[00:58:03] vamos a tener disponibles para ustedes
+[00:58:04] durante este fin de semana. Así que
+[00:58:06] muchas gracias por conectarse por acá
+[00:58:08] pues eh voy a finalizar la transmisión.
+[00:58:10] Gracias y nos vemos en la siguiente en
+[00:58:13] la siguiente clase.
+[00:58:15] Gracias Sandra. Gracias a todos por
+[00:58:17] conectarse. Excelente día. Chaiao. Chao.

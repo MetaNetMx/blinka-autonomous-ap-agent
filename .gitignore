@@ -8,3 +8,7 @@ dist/
 .DS_Store
 Thumbs.db
 *.tsbuildinfo
+
+clases/*.mp4
+*.mp4
+
