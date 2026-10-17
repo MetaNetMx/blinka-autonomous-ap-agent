@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "Autonomous Accounts Payable, B2B Payments & Treasury Management Agent for Blinka (YC F26) powered by Model Context Protocol (MCP)",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "npm --prefix mcp-server run build && npm --prefix web run build",
+    "build": "npm --prefix mcp-server install && npm --prefix mcp-server run build && npm --prefix web install && npm --prefix web run build",
     "build:mcp": "npm --prefix mcp-server run build",
     "build:web": "npm --prefix web run build",
     "test": "npm --prefix mcp-server run test",
     "dev:web": "npm --prefix web run dev",
+    "start": "node server.js",
     "start:mcp": "npm --prefix mcp-server start"
   },
   "keywords": [
