@@ -1,10 +1,16 @@
 # Blinka — Autonomous Accounts Payable (AP) & Treasury Agent
 > **Desafío Oficial Hackathon 30X (Octubre 2026) | Evaluado por el CTO de Blinka (YC F26)**
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Railway%20Cloud-00C7B7?style=for-the-badge&logo=railway&logoColor=white)](https://blinka-autonomous-ap-agent-production.up.railway.app)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-MetaNetMx%2Fblinka--autonomous--ap--agent-black?style=for-the-badge&logo=github)](https://github.com/MetaNetMx/blinka-autonomous-ap-agent)
+
 [![Blinka Banking](https://img.shields.io/badge/Blinka-YC%20Fall%202026-2a4bd0?style=flat-square)](https://blinka.co)
 [![MCP Protocol](https://img.shields.io/badge/Model%20Context%20Protocol-MCP%20v1.0-emerald?style=flat-square)](https://modelcontextprotocol.io)
 [![Portage Bank FDIC](https://img.shields.io/badge/Portage%20Bank-Member%20FDIC-blue?style=flat-square)](https://portage.bank)
 [![Treasury Yield](https://img.shields.io/badge/BNY%20Mellon%20Dreyfus-4.85%25%20APY-purple?style=flat-square)](https://atomicvest.com)
+
+> 🌐 **URL de Producción en Vivo (Railway):** [https://blinka-autonomous-ap-agent-production.up.railway.app](https://blinka-autonomous-ap-agent-production.up.railway.app)  
+> 📁 **Repositorio Público GitHub:** [https://github.com/MetaNetMx/blinka-autonomous-ap-agent](https://github.com/MetaNetMx/blinka-autonomous-ap-agent)
 
 ---
 
@@ -126,8 +132,8 @@ La aplicación web ubicada en `web/` replica fielmente la experiencia visual de 
 
 ### 1. Clonar el Repositorio
 ```bash
-git clone https://github.com/<tu-usuario>/hackaton-octubre-2026.git
-cd hackaton-octubre-2026
+git clone https://github.com/MetaNetMx/blinka-autonomous-ap-agent.git
+cd blinka-autonomous-ap-agent
 ```
 
 ### 2. Ejecutar la Suite de Pruebas del Servidor MCP
