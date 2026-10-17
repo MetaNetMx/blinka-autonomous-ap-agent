@@ -180,6 +180,39 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
         </div>
       </div>
 
+      {/* Demo Invoices Quick Access Banner */}
+      <div className="bg-gradient-to-r from-slate-900 to-indigo-950 text-white rounded-2xl p-4 flex flex-col md:flex-row md:items-center justify-between gap-3 shadow-md border border-slate-800">
+        <div className="flex items-center space-x-3">
+          <div className="p-2 bg-indigo-500/20 rounded-xl text-indigo-400">
+            <FileText className="w-5 h-5" />
+          </div>
+          <div>
+            <h4 className="text-sm font-semibold text-slate-100">Facturas de Demostración para el Pitch</h4>
+            <p className="text-xs text-slate-400">Descarga los PDFs de prueba diseñados para evaluar la conciliación automática vs bloqueo de phishing.</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 flex-wrap">
+          <a
+            href="/factura_aws_legitima.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30 border border-emerald-500/40 transition-colors"
+          >
+            <span>Factura AWS ($2,450 - Auto-aprobada)</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
+          <a
+            href="/factura_stripe_phishing_alerta.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-red-500/20 text-red-300 hover:bg-red-500/30 border border-red-500/40 transition-colors"
+          >
+            <span>Factura Phishing ($14,250 - Alerta Fraude)</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
+        </div>
+      </div>
+
       {/* Invoices List */}
       <div className="blinka-card overflow-hidden bg-white">
         <div className="overflow-x-auto">

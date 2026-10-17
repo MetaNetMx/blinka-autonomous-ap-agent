@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Invoice INV-AWS-2026-9941 - Amazon Web Services</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1c253a;
+      background: #ffffff;
+      margin: 0;
+      padding: 40px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid #232f3e;
+      padding-bottom: 20px;
+    }
+    .logo {
+      font-size: 26px;
+      font-weight: 800;
+      color: #ff9900;
+      letter-spacing: -0.5px;
+    }
+    .logo span {
+      color: #232f3e;
+    }
+    .subtitle {
+      font-size: 11px;
+      color: #576071;
+      margin-top: 4px;
+    }
+    .invoice-title {
+      text-align: right;
+    }
+    .invoice-title h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #1c253a;
+      font-weight: 700;
+    }
+    .invoice-title p {
+      margin: 4px 0 0 0;
+      font-family: ui-monospace, monospace;
+      color: #576071;
+      font-size: 12px;
+    }
+    .details {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+    .box {
+      width: 48%;
+      background: #f7f7f4;
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid #e3e3dc;
+    }
+    .box h3 {
+      margin: 0 0 8px 0;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #576071;
+    }
+    .box p {
+      margin: 2px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+    }
+    th {
+      background: #f7f7f4;
+      border-bottom: 2px solid #e3e3dc;
+      padding: 10px;
+      text-align: left;
+      font-size: 11px;
+      text-transform: uppercase;
+      color: #576071;
+    }
+    td {
+      padding: 12px 10px;
+      border-bottom: 1px solid #eeeee8;
+    }
+    .total-row td {
+      border-top: 2px solid #1c253a;
+      border-bottom: none;
+      font-size: 15px;
+      font-weight: 700;
+      color: #1c253a;
+    }
+    .payment-box {
+      margin-top: 35px;
+      padding: 18px;
+      background: #f0f7ff;
+      border: 1px solid #c8e1ff;
+      border-radius: 8px;
+    }
+    .payment-box h3 {
+      margin: 0 0 10px 0;
+      font-size: 12px;
+      color: #0052cc;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .bank-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      font-size: 12px;
+    }
+    .bank-item strong {
+      display: block;
+      color: #576071;
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+    .bank-item span {
+      font-family: ui-monospace, monospace;
+      font-weight: 600;
+      color: #1c253a;
+    }
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 11px;
+      color: #8c93a0;
+      border-top: 1px solid #eeeee8;
+      padding-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div>
+      <div class="logo">aws<span>amazon</span></div>
+      <div class="subtitle">Amazon Web Services, Inc. · 410 Terry Ave N, Seattle, WA 98109</div>
+      <div class="subtitle">Tax ID (EIN): 47-0849291</div>
+    </div>
+    <div class="invoice-title">
+      <h1>TAX INVOICE</h1>
+      <p>Invoice #: <strong>INV-AWS-2026-9941</strong></p>
+      <p>Issue Date: Oct 14, 2026</p>
+      <p>Due Date: Oct 28, 2026</p>
+    </div>
+  </div>
+
+  <div class="details">
+    <div class="box">
+      <h3>Billed To (Customer):</h3>
+      <p><strong>Acme Global Ventures LLC</strong></p>
+      <p>1209 Orange St, Wilmington, DE 19801</p>
+      <p>Attention: Accounts Payable (finance@acmeglobal.co)</p>
+      <p>Account ID: 8829-4102-1194</p>
+    </div>
+    <div class="box">
+      <h3>Invoice Summary:</h3>
+      <p>Billing Period: Sep 01, 2026 - Sep 30, 2026</p>
+      <p>Terms: Net 14 Days</p>
+      <p>Currency: <strong>USD ($)</strong></p>
+      <p>Payment Rail: <strong>ACH / Fedwire Domestic</strong></p>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Service Description</th>
+        <th>Region</th>
+        <th>Usage</th>
+        <th style="text-align: right;">Amount (USD)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Amazon Elastic Compute Cloud (EC2)</strong><br><span style="color:#576071; font-size:11px;">m6i.4xlarge compute instances, Linux operating system</span></td>
+        <td>us-east-1</td>
+        <td>720 Hours</td>
+        <td style="text-align: right;">$1,640.00</td>
+      </tr>
+      <tr>
+        <td><strong>Amazon Simple Storage Service (S3)</strong><br><span style="color:#576071; font-size:11px;">Standard Storage & Data Retrieval (Tier 1)</span></td>
+        <td>us-east-1</td>
+        <td>12,450 GB-Mo</td>
+        <td style="text-align: right;">$286.35</td>
+      </tr>
+      <tr>
+        <td><strong>Amazon Relational Database Service (RDS)</strong><br><span style="color:#576071; font-size:11px;">db.r6g.xlarge Multi-AZ PostgreSQL 16</span></td>
+        <td>us-east-1</td>
+        <td>720 Hours</td>
+        <td style="text-align: right;">$523.65</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="3" style="text-align: right;">Total Amount Due:</td>
+        <td style="text-align: right; color: #2a4bd0;">$2,450.00 USD</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Official Bank Instructions Matching Blinka Registered Counterparty -->
+  <div class="payment-box">
+    <h3>Direct Electronic Payment Instructions (ACH / Fedwire)</h3>
+    <div class="bank-grid">
+      <div class="bank-item">
+        <strong>Beneficiary Name</strong>
+        <span>Amazon Web Services Inc</span>
+      </div>
+      <div class="bank-item">
+        <strong>Receiving Bank</strong>
+        <span>JPMorgan Chase Bank, N.A.</span>
+      </div>
+      <div class="bank-item">
+        <strong>Routing Transit Number (ABA)</strong>
+        <span>026009593</span>
+      </div>
+      <div class="bank-item">
+        <strong>Account Number (Checking)</strong>
+        <span>••••••••1099</span>
+      </div>
+      <div class="bank-item">
+        <strong>Payment Reference / Memo</strong>
+        <span>INV-AWS-2026-9941 / ACME-GLOBAL</span>
+      </div>
+      <div class="bank-item">
+        <strong>Payment Method</strong>
+        <span>US Domestic ACH Transfer</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Thank you for choosing Amazon Web Services. For billing inquiries, contact aws-receivables@amazon.com.<br>
+    Portage Bank & Blinka Verified Counterparty · Authorized Merchant ID: cp_aws_cloud
+  </div>
+
+</body>
+</html>
