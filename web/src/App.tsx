@@ -37,6 +37,33 @@ export function App() {
     }
   };
 
+  const totalBalanceCents = store.getTotalBalanceCents();
+
+  const handleProcessInboundPayment = (paymentId: string) => {
+    try {
+      const res = store.evaluateAndProcessInboundPayment(paymentId);
+      if (res.accredited) {
+        showToast(`✅ Cobro de ${res.payment.payerName} conciliado y acreditado (+ $${(res.payment.amountCents / 100).toLocaleString()} ${res.payment.currency}) en ${res.targetAccount}. Saldo total actualizado.`);
+        confetti({ particleCount: 45, spread: 65, origin: { y: 0.6 } });
+      } else {
+        showToast(`🚨 DEPÓSITO BLOQUEADO: ${res.reason}`);
+      }
+    } catch (e: any) {
+      showToast(`Error: ${e?.message || e}`);
+    }
+  };
+
+  const handleAccreditCustomPayin = (payin: {
+    payerName: string;
+    amountCents: number;
+    currency: 'USD' | 'USDC';
+    referenceOrInvoice: string;
+    rail: 'ACH' | 'WIRE' | 'BASE_USDC';
+  }) => {
+    const staged = store.stageInboundPayment(payin);
+    handleProcessInboundPayment(staged.id);
+  };
+
   const handleProcessInvoice = (invoiceId: string) => {
     try {
       const res = store.evaluateAndProcessInvoice(invoiceId);
@@ -54,20 +81,15 @@ export function App() {
   };
 
   const handleProcessAllInvoices = () => {
-    const pending = store.state.invoices.filter((i) => i.status === 'pending_evaluation');
-    let autoApproved = 0;
-    let requiringCfo = 0;
-    let blocked = 0;
+    const res = store.evaluateAll({ includeInbound: true, includeOutbound: true });
+    const netFormatted = res.netCashflowCents >= 0
+      ? `+$${(res.netCashflowCents / 100).toLocaleString(undefined, { minimumFractionDigits: 2 })}`
+      : `-$${(Math.abs(res.netCashflowCents) / 100).toLocaleString(undefined, { minimumFractionDigits: 2 })}`;
 
-    for (const inv of pending) {
-      const res = store.evaluateAndProcessInvoice(inv.id);
-      if (res.policyResult.decision === 'AUTO_APPROVE') autoApproved++;
-      else if (res.policyResult.decision === 'REQUIRE_HUMAN_APPROVAL') requiringCfo++;
-      else blocked++;
-    }
-
-    showToast(`🤖 Auditoría completada: ${autoApproved} pagadas, ${requiringCfo} para firma CFO, ${blocked} bloqueadas por fraude.`);
-    confetti({ particleCount: 50, spread: 70, origin: { y: 0.6 } });
+    showToast(
+      `⚡ Conciliación Dual: +$${(res.totalEntradasCents / 100).toLocaleString()} entradas acreditadas, -$${(res.totalSalidasCents / 100).toLocaleString()} salidas liquidadas. Flujo Neto: ${netFormatted} USD. Total: $${(res.newTotalCents / 100).toLocaleString()} USD.`
+    );
+    confetti({ particleCount: 60, spread: 80, origin: { y: 0.6 } });
   };
 
   const handleCfoApprove = (invoiceId: string) => {
@@ -79,9 +101,9 @@ export function App() {
     }
   };
 
-  const pendingApprovalsCount = store.state.invoices.filter(
-    (i) => i.status === 'awaiting_cfo_approval' || i.status === 'pending_evaluation'
-  ).length;
+  const pendingApprovalsCount =
+    store.state.invoices.filter((i) => i.status === 'awaiting_cfo_approval' || i.status === 'pending_evaluation').length +
+    store.state.inboundPayments.filter((p) => p.status === 'pending_verification').length;
 
   return (
     <div className="min-h-screen bg-[#f7f7f4] text-[#1c253a] flex flex-col font-sans">
@@ -103,6 +125,7 @@ export function App() {
           showToast('Estado demo restaurado a los valores predeterminados.');
         }}
         pendingApprovalsCount={pendingApprovalsCount}
+        totalBalanceCents={totalBalanceCents}
       />
 
       {/* Main Content Workspace */}
@@ -119,6 +142,9 @@ export function App() {
         {activeTab === 'inbox' && (
           <AutonomousAPInbox
             invoices={store.state.invoices}
+            inboundPayments={store.state.inboundPayments}
+            accounts={store.state.accounts}
+            totalBalanceCents={totalBalanceCents}
             onProcessInvoice={handleProcessInvoice}
             onCfoApprove={handleCfoApprove}
             onAddCustomInvoice={(inv) => {
@@ -126,6 +152,8 @@ export function App() {
               showToast(`Factura ${inv.invoiceNumber} registrada en la bandeja.`);
             }}
             onProcessAll={handleProcessAllInvoices}
+            onProcessInboundPayment={handleProcessInboundPayment}
+            onAccreditCustomPayin={handleAccreditCustomPayin}
             onVerifyInbound={store.verifyInboundPaymentAction}
           />
         )}

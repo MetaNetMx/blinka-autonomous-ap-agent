@@ -1,4 +1,4 @@
-import { Account, Counterparty, Transaction, StagedInvoice } from './types';
+import { Account, Counterparty, Transaction, StagedInvoice, StagedInboundPayment } from './types';
 
 export const INITIAL_LEGAL_ENTITY = {
   id: '018f6734-7123-789a-bcde-0123456789ab',
@@ -419,3 +419,46 @@ export const DEMO_PRESET_INVOICES: StagedInvoice[] = [
     notes: '🚨 ALERTA CRIPTO: Dirección de wallet no coincide con la registrada. Intento de Address Poisoning.',
   },
 ];
+
+export const INITIAL_INBOUND_PAYMENTS: StagedInboundPayment[] = [
+  {
+    id: 'payin_staged_openai',
+    payerName: 'OpenAI Foundation LLC',
+    amountCents: 500000, // +$5,000.00 USDC
+    currency: 'USDC',
+    referenceOrInvoice: 'GRANT-Q3-2026',
+    rail: 'BASE_USDC',
+    status: 'pending_verification',
+    txHashOrMemo: '0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7',
+    destinationAccountId: 'acc_usdc_treasury_9012',
+    notes: 'Subvención de IA e infraestructura Web3 en Base Network (Billetera KYB Verificada)',
+    createdAt: '2026-10-16T11:00:00Z',
+  },
+  {
+    id: 'payin_staged_meli',
+    payerName: 'Mercado Libre LatAm',
+    amountCents: 1840000, // +$18,400.00 USD
+    currency: 'USD',
+    referenceOrInvoice: 'INV-MELI-OCT-09',
+    rail: 'ACH',
+    status: 'pending_verification',
+    originAccountEnding: '9182',
+    destinationAccountId: 'acc_usd_primary_4821',
+    notes: 'Cobro de suscripción Enterprise API Portage Bank ACH (Empresa Verificada)',
+    createdAt: '2026-10-15T15:30:00Z',
+  },
+  {
+    id: 'payin_staged_spoofed',
+    payerName: 'Fake Entity Phantom',
+    amountCents: 1250000, // +$12,500.00 USDC
+    currency: 'USDC',
+    referenceOrInvoice: 'SPOOFED-COLLISION',
+    rail: 'BASE_USDC',
+    status: 'pending_verification',
+    txHashOrMemo: '0x0000000000000000DEADBEEF',
+    destinationAccountId: 'acc_usdc_treasury_9012',
+    notes: '🚨 ALERTA CIBERSEGURIDAD: Intento de depósito con dirección de origen no autorizada (Address Poisoning)',
+    createdAt: '2026-10-16T09:45:00Z',
+  },
+];
+

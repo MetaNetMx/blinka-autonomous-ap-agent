@@ -6,6 +6,7 @@ interface NavbarProps {
   setActiveTab: (tab: 'overview' | 'inbox' | 'guardrails' | 'counterparties' | 'copilot') => void;
   onReset: () => void;
   pendingApprovalsCount: number;
+  totalBalanceCents?: number;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -13,6 +14,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   setActiveTab,
   onReset,
   pendingApprovalsCount,
+  totalBalanceCents,
 }) => {
   return (
     <header className="sticky top-0 z-50 bg-[#f7f7f4]/90 backdrop-blur-md border-b border-[#e3e3dc]">
@@ -109,6 +111,20 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Right Action buttons */}
           <div className="flex items-center space-x-2">
+            {totalBalanceCents !== undefined && (
+              <button
+                onClick={() => setActiveTab('overview')}
+                className="hidden sm:flex items-center space-x-1.5 px-3 py-1.5 bg-white border border-[#e3e3dc] rounded-lg text-[#1c253a] text-xs font-bold hover:bg-[#f7f7f4] transition-all shadow-2xs group"
+                title="Liquidez total combinada en tiempo real (Checking + Treasury + USDC)"
+              >
+                <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-[11px] font-medium text-[#576071]">Total:</span>
+                <span className="font-extrabold text-[#1c253a] group-hover:text-[#2a4bd0]">
+                  ${(totalBalanceCents / 100).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                </span>
+              </button>
+            )}
+
             <button
               onClick={onReset}
               title="Restaurar estado de prueba demo inicial"

@@ -19,12 +19,18 @@ import {
   Zap,
   Search,
   ArrowDownLeft,
+  ArrowUpRight,
   Coins,
   Building2,
   Sparkles,
+  Landmark,
+  Plus,
+  RefreshCw,
 } from 'lucide-react';
 import {
   StagedInvoice,
+  StagedInboundPayment,
+  Account,
   InboundPaymentVerificationInput,
   InboundPaymentVerificationResult,
 } from '../blinka-core/types';
@@ -32,19 +38,35 @@ import confetti from 'canvas-confetti';
 
 interface AutonomousAPInboxProps {
   invoices: StagedInvoice[];
+  inboundPayments?: StagedInboundPayment[];
+  accounts?: Account[];
+  totalBalanceCents?: number;
   onProcessInvoice: (invoiceId: string) => void;
   onCfoApprove: (invoiceId: string) => void;
   onAddCustomInvoice: (inv: Omit<StagedInvoice, 'id' | 'status'>) => void;
   onProcessAll: () => void;
+  onProcessInboundPayment?: (paymentId: string) => void;
+  onAccreditCustomPayin?: (payin: {
+    payerName: string;
+    amountCents: number;
+    currency: 'USD' | 'USDC';
+    referenceOrInvoice: string;
+    rail: 'ACH' | 'WIRE' | 'BASE_USDC';
+  }) => void;
   onVerifyInbound?: (input: InboundPaymentVerificationInput) => InboundPaymentVerificationResult;
 }
 
 export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
   invoices,
+  inboundPayments = [],
+  accounts = [],
+  totalBalanceCents = 0,
   onProcessInvoice,
   onCfoApprove,
   onAddCustomInvoice,
   onProcessAll,
+  onProcessInboundPayment,
+  onAccreditCustomPayin,
   onVerifyInbound,
 }) => {
   const [selectedInvoice, setSelectedInvoice] = useState<StagedInvoice | null>(null);
@@ -266,9 +288,28 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
     }, 120);
   };
 
+  const [activeSection, setActiveSection] = useState<'ap_invoices' | 'ar_payins'>('ap_invoices');
+
+  const checkingAccount = accounts.find((a) => a.type === 'CHECKING' && a.settlementStrategy === 'USD');
+  const treasuryAccount = accounts.find((a) => a.type === 'TREASURY');
+  const usdcAccount = accounts.find((a) => a.settlementStrategy === 'USDC');
+
   const pendingCount = invoices.filter((i) => i.status === 'pending_evaluation').length;
   const awaitingCfoCount = invoices.filter((i) => i.status === 'awaiting_cfo_approval').length;
   const fraudCount = invoices.filter((i) => i.status === 'fraud_blocked').length;
+
+  const pendingInboundCount = inboundPayments.filter((p) => p.status === 'pending_verification').length;
+  const accreditedInboundCount = inboundPayments.filter((p) => p.status === 'accredited').length;
+  const fraudInboundCount = inboundPayments.filter((p) => p.status === 'rejected_fraud').length;
+
+  const totalInboundAccreditedCents = inboundPayments
+    .filter((p) => p.status === 'accredited')
+    .reduce((sum, p) => sum + p.amountCents, 0);
+
+  const autoPaidInvoices = invoices.filter((i) => i.status === 'auto_paid');
+  const totalOutboundPaidCents = autoPaidInvoices.reduce((sum, i) => sum + i.amountCents, 0);
+  const netCashflowCycleCents = totalInboundAccreditedCents - totalOutboundPaidCents;
+  const combinedPendingCount = pendingCount + pendingInboundCount;
 
   const usdCount = invoices.filter((i) => i.currency === 'USD').length;
   const usdcCount = invoices.filter((i) => i.currency === 'USDC').length;
@@ -486,17 +527,120 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
 
   return (
     <div className="space-y-6">
+      {/* Real-time Portfolio Liquidity & Cashflow Strip */}
+      <div className="blinka-card p-4 md:p-5 bg-gradient-to-r from-slate-900 via-[#1c253a] to-slate-900 text-white rounded-2xl shadow-sm border border-slate-800">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-400 font-bold shrink-0">
+              <Landmark className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="flex items-center space-x-2 text-xs text-slate-300">
+                <span className="font-semibold uppercase tracking-wider text-slate-400">Saldo Total de Cartera</span>
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-emerald-400 text-[10px] font-bold">Actualizado en vivo</span>
+              </div>
+              <div className="text-2xl md:text-3xl font-black tracking-tight text-white mt-0.5">
+                ${(totalBalanceCents / 100).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}{' '}
+                <span className="text-sm font-semibold text-slate-400">USD</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Sub-account Breakdown */}
+          <div className="flex items-center space-x-2 sm:space-x-3 text-xs overflow-x-auto py-1">
+            <div className="bg-white/10 px-3 py-1.5 rounded-lg border border-white/10 shrink-0">
+              <span className="text-slate-400 block text-[10px]">Checking (Portage FDIC)</span>
+              <span className="font-bold text-white">
+                ${((checkingAccount?.balance || 0) / 100).toLocaleString(undefined, { minimumFractionDigits: 2 })}
+              </span>
+            </div>
+            <div className="bg-white/10 px-3 py-1.5 rounded-lg border border-white/10 shrink-0">
+              <span className="text-slate-400 block text-[10px]">Treasury (BNY 4.85%)</span>
+              <span className="font-bold text-emerald-400">
+                ${((treasuryAccount?.balance || 0) / 100).toLocaleString(undefined, { minimumFractionDigits: 2 })}
+              </span>
+            </div>
+            <div className="bg-white/10 px-3 py-1.5 rounded-lg border border-white/10 shrink-0">
+              <span className="text-slate-400 block text-[10px]">Bóveda USDC (Base)</span>
+              <span className="font-bold text-indigo-300">
+                {((usdcAccount?.balance || 0) / 100).toLocaleString(undefined, { minimumFractionDigits: 2 })} USDC
+              </span>
+            </div>
+          </div>
+
+          {/* Dual Flow Status Pill */}
+          <div className="flex items-center space-x-3 border-t lg:border-t-0 lg:border-l border-white/10 pt-3 lg:pt-0 lg:pl-4 shrink-0">
+            <div className="text-left lg:text-right">
+              <div className="text-[10px] uppercase font-bold text-slate-400">Flujo Operativo del Ciclo</div>
+              <div className="flex items-center space-x-2 text-xs font-bold mt-0.5">
+                <span className="text-emerald-400">+{((totalInboundAccreditedCents || 0) / 100).toLocaleString()} Entradas</span>
+                <span className="text-slate-500">·</span>
+                <span className="text-rose-400">-{((totalOutboundPaidCents || 0) / 100).toLocaleString()} Salidas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Dual Section Switcher: Facturas vs Cobros */}
+      <div className="flex items-center space-x-2 border-b border-[#e3e3dc] pb-2">
+        <button
+          onClick={() => setActiveSection('ap_invoices')}
+          className={`flex items-center space-x-2 px-4 py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all ${
+            activeSection === 'ap_invoices'
+              ? 'bg-[#1c253a] text-white shadow-sm'
+              : 'text-[#576071] hover:text-[#1c253a] hover:bg-[#ecebe6]'
+          }`}
+        >
+          <FileText className="w-4 h-4" />
+          <span>Facturas por Pagar (AP - Salidas)</span>
+          <span className={`px-2 py-0.5 rounded-full text-[11px] font-bold ${
+            activeSection === 'ap_invoices' ? 'bg-white/20 text-white' : 'bg-slate-200 text-[#576071]'
+          }`}>
+            {invoices.length}
+          </span>
+          {pendingCount > 0 && (
+            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+          )}
+        </button>
+
+        <button
+          onClick={() => setActiveSection('ar_payins')}
+          className={`flex items-center space-x-2 px-4 py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all ${
+            activeSection === 'ar_payins'
+              ? 'bg-emerald-700 text-white shadow-sm'
+              : 'text-[#576071] hover:text-emerald-800 hover:bg-emerald-50'
+          }`}
+        >
+          <ArrowDownLeft className="w-4 h-4 text-emerald-300" />
+          <span>Cobros por Conciliar (AR - Entradas)</span>
+          <span className={`px-2 py-0.5 rounded-full text-[11px] font-bold ${
+            activeSection === 'ar_payins' ? 'bg-white/20 text-white' : 'bg-emerald-100 text-emerald-800'
+          }`}>
+            {inboundPayments.length}
+          </span>
+          {pendingInboundCount > 0 && (
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          )}
+        </button>
+      </div>
+
       {/* Header & Quick Action Bar */}
       <div className="blinka-card p-6 bg-white flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center space-x-2">
-            <h2 className="text-xl font-bold text-[#1c253a]">Bandeja de Entrada Autónoma (AP & Pay-ins)</h2>
+            <h2 className="text-xl font-bold text-[#1c253a]">
+              {activeSection === 'ap_invoices'
+                ? 'Bandeja AP Autónoma (Dispersiones y Facturas)'
+                : 'Bandeja AR Autónoma (Cobros y Pay-ins Entrantes)'}
+            </h2>
             <span className="text-xs px-2 py-0.5 rounded-full bg-slate-100 text-[#576071] font-semibold">
-              {invoices.length} Facturas
+              {activeSection === 'ap_invoices' ? `${invoices.length} Facturas` : `${inboundPayments.length} Cobros`}
             </span>
           </div>
           <p className="text-xs md:text-sm text-[#576071] mt-1">
-            Motor de conciliación dual-rail: verificación de dispersiones (ACH y Base USDC) y validación de cobros entrantes.
+            Motor de conciliación dual-rail: verificación de dispersiones (ACH y Base USDC) y acreditación de cobros entrantes en el balance total.
           </p>
         </div>
 
@@ -510,13 +654,22 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
             <span>Batch Stress-Test (8 Facturas)</span>
           </button>
 
-          {pendingCount > 0 && (
+          {combinedPendingCount > 0 ? (
             <button
               onClick={onProcessAll}
-              className="bg-[#2a4bd0] hover:bg-[#1e3bb3] text-white text-xs md:text-sm font-semibold px-4 py-2.5 rounded-xl flex items-center space-x-2 shadow-sm transition-all"
+              className="bg-[#2a4bd0] hover:bg-[#1e3bb3] text-white text-xs md:text-sm font-semibold px-4 py-2.5 rounded-xl flex items-center space-x-2 shadow-sm transition-all animate-pulse"
+              title="Evalúa todas las facturas pendientes y concilia todos los cobros entrantes acreditándolos en el total"
             >
               <Play className="w-4 h-4 fill-white" />
-              <span>Evaluar Todo ({pendingCount})</span>
+              <span>Evaluar Todo ({combinedPendingCount})</span>
+            </button>
+          ) : (
+            <button
+              onClick={onProcessAll}
+              className="bg-emerald-700 hover:bg-emerald-800 text-white text-xs md:text-sm font-semibold px-4 py-2.5 rounded-xl flex items-center space-x-2 shadow-sm transition-all"
+            >
+              <CheckCircle2 className="w-4 h-4 text-white" />
+              <span>Re-evaluar Todo</span>
             </button>
           )}
 
@@ -550,7 +703,10 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
         </div>
       </div>
 
-      {/* Metric Pills & Currency Filter Bar */}
+      {/* AP Invoices Section */}
+      {activeSection === 'ap_invoices' && (
+        <div className="space-y-6">
+          {/* Metric Pills & Currency Filter Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         {/* Metric Pills */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 flex-1">
@@ -842,6 +998,187 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
           </table>
         </div>
       </div>
+    </div>
+  )}
+
+      {/* AR Inbound Pay-ins Section */}
+      {activeSection === 'ar_payins' && (
+        <div className="space-y-6">
+          {/* Pay-ins Summary Banner */}
+          <div className="blinka-card p-5 bg-gradient-to-r from-emerald-950 via-slate-900 to-emerald-950 text-white rounded-2xl border border-emerald-800 shadow-md flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="flex items-center space-x-3">
+              <div className="p-2.5 bg-emerald-500/20 text-emerald-400 rounded-xl shrink-0">
+                <ArrowDownLeft className="w-6 h-6" />
+              </div>
+              <div>
+                <div className="flex items-center space-x-2">
+                  <h3 className="text-base font-bold text-white">Conciliación de Cobros Entrantes (Accounts Receivable)</h3>
+                  <span className="text-[11px] px-2 py-0.5 rounded-full bg-emerald-500/30 text-emerald-200 border border-emerald-400/30 font-semibold">
+                    Dual-Rail Inflows
+                  </span>
+                </div>
+                <p className="text-xs text-slate-300 mt-0.5">
+                  Depósitos y subvenciones auditados en Portage Bank (USD ACH/Wire) y Base Network (USDC). Al conciliarse se acreditan de inmediato al balance total.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={() => {
+                  setShowVerifyModal(true);
+                  setPayinResult(null);
+                }}
+                className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3.5 py-2.5 rounded-xl flex items-center space-x-1.5 shadow-sm transition-all"
+              >
+                <Search className="w-3.5 h-3.5" />
+                <span>Verificar Nuevo Cobro</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Metric cards for Pay-ins */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="bg-emerald-50/70 border border-emerald-200 rounded-xl p-3 flex items-center justify-between">
+              <div>
+                <div className="text-xs text-emerald-900 font-medium">Acreditados en Balance Total</div>
+                <div className="text-lg font-bold text-emerald-700">
+                  +${(totalInboundAccreditedCents / 100).toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                </div>
+              </div>
+              <CheckCircle2 className="w-5 h-5 text-emerald-500" />
+            </div>
+
+            <div className="bg-blue-50/70 border border-blue-200 rounded-xl p-3 flex items-center justify-between">
+              <div>
+                <div className="text-xs text-blue-900 font-medium">Por Conciliar</div>
+                <div className="text-lg font-bold text-[#2a4bd0]">{pendingInboundCount} Cobros</div>
+              </div>
+              <Info className="w-5 h-5 text-blue-500" />
+            </div>
+
+            <div className="bg-red-50/70 border border-red-200 rounded-xl p-3 flex items-center justify-between">
+              <div>
+                <div className="text-xs text-red-900 font-medium">Alertas de Fraude / Spoofing</div>
+                <div className="text-lg font-bold text-red-600">{fraudInboundCount} Neutralizados</div>
+              </div>
+              <ShieldAlert className="w-5 h-5 text-red-500" />
+            </div>
+          </div>
+
+          {/* Table of Inbound Payments */}
+          <div className="blinka-card overflow-hidden bg-white">
+            <div className="px-6 py-4 border-b border-[#e3e3dc] flex items-center justify-between">
+              <div>
+                <h3 className="text-sm font-bold text-[#1c253a]">Libro de Cobros Entrantes Dual-Rail</h3>
+                <p className="text-xs text-[#576071]">Acreditación verificada por KYB bancario y contratos inteligentes Base</p>
+              </div>
+              <span className="text-xs font-medium text-[#576071] bg-[#f7f7f4] px-2.5 py-1 rounded-md border border-[#e3e3dc]">
+                {inboundPayments.length} Registros
+              </span>
+            </div>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-sm">
+                <thead className="bg-[#f7f7f4] text-[#576071] text-xs font-semibold uppercase tracking-wider border-b border-[#e3e3dc]">
+                  <tr>
+                    <th className="px-6 py-3">Estado / Verificación</th>
+                    <th className="px-6 py-3">Pagador / Cliente</th>
+                    <th className="px-6 py-3">Riel / Destino</th>
+                    <th className="px-6 py-3">Referencia / Hash</th>
+                    <th className="px-6 py-3 text-right">Monto</th>
+                    <th className="px-6 py-3 text-right">Acción</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#eeeee8]">
+                  {inboundPayments.map((payin) => {
+                    const isAccredited = payin.status === 'accredited';
+                    const isFraud = payin.status === 'rejected_fraud';
+                    const isPending = payin.status === 'pending_verification';
+
+                    return (
+                      <tr key={payin.id} className="hover:bg-[#fcfcf9] transition-colors">
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          {isAccredited && (
+                            <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                              <CheckCircle2 className="w-3.5 h-3.5 mr-1 text-emerald-600" />
+                              Acreditado en Balance
+                            </span>
+                          )}
+                          {isFraud && (
+                            <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-red-50 text-red-700 border border-red-200">
+                              <ShieldAlert className="w-3.5 h-3.5 mr-1 text-red-600" />
+                              Fraude Bloqueado
+                            </span>
+                          )}
+                          {isPending && (
+                            <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-50 text-[#2a4bd0] border border-blue-200">
+                              <Info className="w-3.5 h-3.5 mr-1 text-[#2a4bd0]" />
+                              Por Conciliar
+                            </span>
+                          )}
+                        </td>
+
+                        <td className="px-6 py-4">
+                          <div className="font-bold text-[#1c253a]">{payin.payerName}</div>
+                          <div className="text-xs text-[#576071]">{payin.notes}</div>
+                        </td>
+
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <span className={`text-xs font-mono px-2 py-0.5 rounded border ${
+                            payin.currency === 'USDC'
+                              ? 'bg-indigo-50 text-indigo-700 border-indigo-200'
+                              : 'bg-blue-50 text-blue-700 border-blue-200'
+                          }`}>
+                            {payin.rail === 'BASE_USDC' ? 'Base USDC (Vault)' : 'Portage ACH (Checking)'}
+                          </span>
+                        </td>
+
+                        <td className="px-6 py-4 whitespace-nowrap text-xs font-mono text-[#576071]">
+                          <div className="font-semibold text-[#1c253a] truncate max-w-[180px]">{payin.referenceOrInvoice}</div>
+                          {payin.txHashOrMemo && (
+                            <div className="text-[10px] text-slate-400 truncate max-w-[180px]">
+                              {payin.txHashOrMemo}
+                            </div>
+                          )}
+                        </td>
+
+                        <td className="px-6 py-4 whitespace-nowrap text-right">
+                          <div className="text-sm font-black text-emerald-600">
+                            +${(payin.amountCents / 100).toLocaleString(undefined, { minimumFractionDigits: 2 })} {payin.currency}
+                          </div>
+                        </td>
+
+                        <td className="px-6 py-4 whitespace-nowrap text-right">
+                          {isPending && onProcessInboundPayment && (
+                            <button
+                              onClick={() => onProcessInboundPayment(payin.id)}
+                              className="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold shadow-xs transition-all flex items-center space-x-1 ml-auto"
+                            >
+                              <Plus className="w-3.5 h-3.5" />
+                              <span>Conciliar y Acreditar</span>
+                            </button>
+                          )}
+                          {isAccredited && (
+                            <span className="text-xs font-mono text-emerald-700 font-bold bg-emerald-50 px-2 py-1 rounded border border-emerald-200">
+                              ✓ En Total de Cartera
+                            </span>
+                          )}
+                          {isFraud && (
+                            <span className="text-xs font-semibold text-red-600 bg-red-50 px-2 py-1 rounded border border-red-200">
+                              🛡️ $0 Acreditado
+                            </span>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Inbound Pay-in Verification Modal */}
       {showVerifyModal && (
@@ -1011,6 +1348,29 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
                         <strong>Hash / Ref:</strong> {payinResult.txHashOrReference}
                       </div>
                     )}
+                  </div>
+                )}
+
+                {payinResult.verified && onAccreditCustomPayin && (
+                  <div className="pt-2">
+                    <button
+                      onClick={() => {
+                        onAccreditCustomPayin({
+                          payerName: payinClient || 'Cliente Verificado',
+                          amountCents: payinResult.amountReceivedCents,
+                          currency: payinResult.currency,
+                          referenceOrInvoice: payinRef || 'REF-COBRO-CONCILIADO',
+                          rail: payinResult.railUsed.includes('Base') ? 'BASE_USDC' : 'ACH',
+                        });
+                        setShowVerifyModal(false);
+                      }}
+                      className="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center space-x-2 transition-all shadow-md"
+                    >
+                      <Plus className="w-4 h-4" />
+                      <span>
+                        Acreditar al Balance Total (+${(payinResult.amountReceivedCents / 100).toLocaleString(undefined, { minimumFractionDigits: 2 })} {payinResult.currency})
+                      </span>
+                    </button>
                   </div>
                 )}
               </div>

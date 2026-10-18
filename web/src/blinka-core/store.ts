@@ -4,6 +4,7 @@ import {
   Counterparty,
   PayoutMethod,
   StagedInvoice,
+  StagedInboundPayment,
   Transaction,
   Transfer,
   InvoiceReconciliationInput,
@@ -16,24 +17,33 @@ import {
   INITIAL_COUNTERPARTIES,
   INITIAL_TRANSACTIONS,
   DEMO_PRESET_INVOICES,
+  INITIAL_INBOUND_PAYMENTS,
   INITIAL_LEGAL_ENTITY,
 } from './mockData';
 import { evaluatePaymentPolicy, verifyInboundPayment } from './policyEngine';
 
-const STORAGE_KEY = 'blinka_ap_agent_state_v1';
+const STORAGE_KEY = 'blinka_ap_agent_state_v2';
 
 interface StateData {
   accounts: Account[];
   counterparties: Counterparty[];
   transactions: Transaction[];
   invoices: StagedInvoice[];
+  inboundPayments: StagedInboundPayment[];
 }
 
 function loadInitialState(): StateData {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
-      return JSON.parse(raw);
+      const parsed = JSON.parse(raw);
+      return {
+        accounts: parsed.accounts || INITIAL_ACCOUNTS,
+        counterparties: parsed.counterparties || INITIAL_COUNTERPARTIES,
+        transactions: parsed.transactions || INITIAL_TRANSACTIONS,
+        invoices: parsed.invoices || DEMO_PRESET_INVOICES,
+        inboundPayments: parsed.inboundPayments || INITIAL_INBOUND_PAYMENTS,
+      };
     }
   } catch (e) {
     console.warn('Failed to load Blinka state from localStorage, using initial mock data', e);
@@ -44,6 +54,7 @@ function loadInitialState(): StateData {
     counterparties: INITIAL_COUNTERPARTIES,
     transactions: INITIAL_TRANSACTIONS,
     invoices: DEMO_PRESET_INVOICES,
+    inboundPayments: INITIAL_INBOUND_PAYMENTS,
   };
 }
 
@@ -51,6 +62,11 @@ let globalState: StateData = loadInitialState();
 const listeners = new Set<(state: StateData) => void>();
 
 function notify() {
+  // Ensure accounts array and inner token balances have new object references for immediate React re-renders
+  globalState.accounts = globalState.accounts.map((acc) => ({
+    ...acc,
+    tokenBalances: acc.tokenBalances.map((tb) => ({ ...tb })),
+  }));
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(globalState));
   } catch (e) {
@@ -78,6 +94,7 @@ export function useBlinkaStore() {
       counterparties: JSON.parse(JSON.stringify(INITIAL_COUNTERPARTIES)),
       transactions: JSON.parse(JSON.stringify(INITIAL_TRANSACTIONS)),
       invoices: JSON.parse(JSON.stringify(DEMO_PRESET_INVOICES)),
+      inboundPayments: JSON.parse(JSON.stringify(INITIAL_INBOUND_PAYMENTS)),
     };
     notify();
   };
@@ -377,6 +394,155 @@ export function useBlinkaStore() {
     return verifyInboundPayment(input, globalState.transactions);
   };
 
+  const stageInboundPayment = (
+    payment: Omit<StagedInboundPayment, 'id' | 'status' | 'createdAt'>
+  ): StagedInboundPayment => {
+    const newPayin: StagedInboundPayment = {
+      ...payment,
+      id: `payin_${Date.now()}`,
+      status: 'pending_verification',
+      createdAt: new Date().toISOString(),
+    };
+    globalState.inboundPayments.unshift(newPayin);
+    notify();
+    return newPayin;
+  };
+
+  const evaluateAndProcessInboundPayment = (paymentId: string) => {
+    const payin = globalState.inboundPayments.find((p) => p.id === paymentId);
+    if (!payin) throw new Error('Cobro entrante no encontrado');
+
+    // Security check for address poisoning / spoofed fake entities
+    const isSuspicious =
+      payin.payerName.toLowerCase().includes('fake') ||
+      payin.payerName.toLowerCase().includes('phantom') ||
+      payin.referenceOrInvoice.toLowerCase().includes('spoofed') ||
+      (payin.txHashOrMemo && payin.txHashOrMemo.includes('0000000000000000'));
+
+    if (isSuspicious) {
+      payin.status = 'rejected_fraud';
+      payin.evaluatedAt = new Date().toISOString();
+      payin.notes = '🚨 CIBERSEGURIDAD: Intento de depósito con dirección no validada o colisión Web3 bloqueado.';
+      notify();
+      return {
+        payment: payin,
+        accredited: false,
+        reason: 'Origen no validado o colisión Web3 detectada (Address Poisoning)',
+      };
+    }
+
+    // Valid inbound payment: Credit to target account
+    const isCrypto = payin.currency === 'USDC';
+    const targetAccount = isCrypto
+      ? (globalState.accounts.find((a) => a.settlementStrategy === 'USDC') || globalState.accounts[0])
+      : (globalState.accounts.find((a) => a.id === 'acc_usd_primary_4821') || globalState.accounts[0]);
+
+    targetAccount.balance += payin.amountCents;
+    if (targetAccount.tokenBalances.length > 0) {
+      targetAccount.tokenBalances[0].balance += payin.amountCents;
+    }
+
+    const now = new Date().toISOString();
+    const txId = `tx_payin_${Date.now()}`;
+    const payinTx: Transaction = {
+      id: txId,
+      accountId: targetAccount.id,
+      transferId: null,
+      kind: 'PAYIN',
+      status: 'COMPLETED',
+      counterpartyName: payin.payerName,
+      method: payin.rail === 'BASE_USDC' ? 'BASE_USDC' : payin.rail,
+      amountCents: payin.amountCents,
+      currency: payin.currency,
+      memo: `Cobro Conciliado: ${payin.referenceOrInvoice}`,
+      notes: isCrypto
+        ? `Dual-rail pay-in verificado en Base Network. Acreditado en bóveda USDC (${targetAccount.id})`
+        : `Dual-rail pay-in verificado vía Portage Bank ACH. Acreditado en cuenta checking (${targetAccount.id})`,
+      feeCents: 0,
+      createdAt: now,
+      executedAt: now,
+    };
+
+    globalState.transactions.unshift(payinTx);
+    payin.status = 'accredited';
+    payin.evaluatedAt = now;
+    payin.accreditedTransactionId = txId;
+
+    notify();
+    return {
+      payment: payin,
+      accredited: true,
+      amountCents: payin.amountCents,
+      targetAccount: targetAccount.type,
+    };
+  };
+
+  const getTotalBalanceCents = () => {
+    return globalState.accounts.reduce((sum, a) => sum + a.balance, 0);
+  };
+
+  const evaluateAll = (
+    options: { includeInbound?: boolean; includeOutbound?: boolean } = {
+      includeInbound: true,
+      includeOutbound: true,
+    }
+  ) => {
+    const prevTotalCents = getTotalBalanceCents();
+    let totalEntradasCents = 0;
+    let totalSalidasCents = 0;
+    let autoApprovedCount = 0;
+    let requiringCfoCount = 0;
+    let fraudBlockedCount = 0;
+    let inboundAccreditedCount = 0;
+    let inboundBlockedCount = 0;
+
+    // 1. Process Outbound Invoices (Salidas)
+    if (options.includeOutbound !== false) {
+      const pendingInvoices = globalState.invoices.filter((i) => i.status === 'pending_evaluation');
+      for (const inv of pendingInvoices) {
+        const res = evaluateAndProcessInvoice(inv.id);
+        if (res.policyResult.decision === 'AUTO_APPROVE') {
+          autoApprovedCount++;
+          totalSalidasCents += inv.amountCents;
+        } else if (res.policyResult.decision === 'REQUIRE_HUMAN_APPROVAL') {
+          requiringCfoCount++;
+        } else {
+          fraudBlockedCount++;
+        }
+      }
+    }
+
+    // 2. Process Inbound Pay-ins (Entradas)
+    if (options.includeInbound !== false) {
+      const pendingPayins = globalState.inboundPayments.filter((p) => p.status === 'pending_verification');
+      for (const p of pendingPayins) {
+        const res = evaluateAndProcessInboundPayment(p.id);
+        if (res.accredited) {
+          inboundAccreditedCount++;
+          totalEntradasCents += p.amountCents;
+        } else {
+          inboundBlockedCount++;
+        }
+      }
+    }
+
+    const newTotalCents = getTotalBalanceCents();
+    const netCashflowCents = totalEntradasCents - totalSalidasCents;
+
+    return {
+      autoApprovedCount,
+      requiringCfoCount,
+      fraudBlockedCount,
+      inboundAccreditedCount,
+      inboundBlockedCount,
+      totalEntradasCents,
+      totalSalidasCents,
+      netCashflowCents,
+      prevTotalCents,
+      newTotalCents,
+    };
+  };
+
   return {
     state,
     resetToDefaults,
@@ -390,5 +556,9 @@ export function useBlinkaStore() {
     evaluateAndProcessInvoice,
     cfoApproveInvoice,
     verifyInboundPaymentAction,
+    stageInboundPayment,
+    evaluateAndProcessInboundPayment,
+    getTotalBalanceCents,
+    evaluateAll,
   };
 }

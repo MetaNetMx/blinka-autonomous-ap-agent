@@ -157,6 +157,23 @@ export interface InboundPaymentVerificationResult {
   notes: string;
 }
 
+export interface StagedInboundPayment {
+  id: string;
+  payerName: string;
+  amountCents: number;
+  currency: 'USD' | 'USDC';
+  referenceOrInvoice: string;
+  rail: 'ACH' | 'WIRE' | 'BASE_USDC';
+  status: 'pending_verification' | 'accredited' | 'rejected_fraud';
+  txHashOrMemo?: string;
+  originAccountEnding?: string;
+  destinationAccountId?: string;
+  notes?: string;
+  createdAt: string;
+  evaluatedAt?: string;
+  accreditedTransactionId?: string;
+}
+
 export interface PolicyEvaluationResult {
   decision: 'AUTO_APPROVE' | 'REQUIRE_HUMAN_APPROVAL' | 'REJECT';
   score: number; // 0 to 100 confidence
