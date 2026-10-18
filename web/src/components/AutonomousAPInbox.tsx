@@ -1011,6 +1011,7 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
                             <button
                               onClick={() => handleIndividualEvaluate(inv)}
                               className="bg-[#2a4bd0] hover:bg-[#1e3bb3] text-white text-xs font-semibold py-1.5 px-3 rounded-lg transition-all shadow-xs flex items-center space-x-1 hover:scale-105"
+                              title="Evaluar factura contra políticas Blinka"
                             >
                               <Play className="w-3 h-3" />
                               <span>Evaluar</span>
@@ -1021,10 +1022,36 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
                             <button
                               onClick={() => handleOpenCfoModal(inv)}
                               className="bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold py-1.5 px-3 rounded-lg transition-all shadow-sm flex items-center space-x-1 hover:scale-105"
+                              title="Revisar y firmar desembolso dual como CFO"
                             >
                               <Check className="w-3.5 h-3.5" />
                               <span>Revisar y Firmar CFO</span>
                             </button>
+                          )}
+
+                          {inv.status === 'fraud_blocked' && (
+                            <button
+                              onClick={() => setExpandedRowId(isExpanded ? null : inv.id)}
+                              className="bg-red-50 hover:bg-red-100 text-red-700 border border-red-300 text-xs font-bold py-1.5 px-3 rounded-lg flex items-center space-x-1.5 shadow-2xs transition-all hover:scale-105"
+                              title="Ver reporte de ciberseguridad y amenaza neutralizada"
+                            >
+                              <ShieldAlert className="w-3.5 h-3.5 text-red-600" />
+                              <span>Ver Bloqueo</span>
+                            </button>
+                          )}
+
+                          {inv.status === 'auto_paid' && (
+                            <span className="bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-semibold py-1.5 px-2.5 rounded-lg flex items-center space-x-1">
+                              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                              <span>{isCrypto ? 'Liquidado Base' : 'Liquidado ACH'}</span>
+                            </span>
+                          )}
+
+                          {inv.status === 'duplicate_rejected' && (
+                            <span className="bg-slate-100 text-slate-700 border border-slate-300 text-xs font-semibold py-1.5 px-2.5 rounded-lg flex items-center space-x-1">
+                              <X className="w-3.5 h-3.5 text-slate-500" />
+                              <span>Duplicado</span>
+                            </span>
                           )}
 
                           <button

@@ -22,7 +22,7 @@ import {
 } from './mockData';
 import { evaluatePaymentPolicy, verifyInboundPayment } from './policyEngine';
 
-const STORAGE_KEY = 'blinka_ap_agent_state_v2';
+const STORAGE_KEY = 'blinka_ap_agent_state_v5';
 
 interface StateData {
   accounts: Account[];
@@ -37,12 +37,37 @@ function loadInitialState(): StateData {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
       const parsed = JSON.parse(raw);
+
+      // Merge counterparties to guarantee new/updated directory profiles exist
+      const existingCps: Counterparty[] = parsed.counterparties || [];
+      for (const initCp of INITIAL_COUNTERPARTIES) {
+        if (!existingCps.some((cp) => cp.name.toLowerCase() === initCp.name.toLowerCase())) {
+          existingCps.push(initCp);
+        }
+      }
+
+      // Merge demo preset invoices to ensure test scenarios are always accessible
+      const existingInvs: StagedInvoice[] = parsed.invoices || [];
+      for (const initInv of DEMO_PRESET_INVOICES) {
+        if (!existingInvs.some((i) => i.invoiceNumber === initInv.invoiceNumber)) {
+          existingInvs.push(initInv);
+        }
+      }
+
+      // Merge inbound payments
+      const existingPayins: StagedInboundPayment[] = parsed.inboundPayments || [];
+      for (const initPay of INITIAL_INBOUND_PAYMENTS) {
+        if (!existingPayins.some((p) => p.id === initPay.id)) {
+          existingPayins.push(initPay);
+        }
+      }
+
       return {
         accounts: parsed.accounts || INITIAL_ACCOUNTS,
-        counterparties: parsed.counterparties || INITIAL_COUNTERPARTIES,
+        counterparties: existingCps,
         transactions: parsed.transactions || INITIAL_TRANSACTIONS,
-        invoices: parsed.invoices || DEMO_PRESET_INVOICES,
-        inboundPayments: parsed.inboundPayments || INITIAL_INBOUND_PAYMENTS,
+        invoices: existingInvs,
+        inboundPayments: existingPayins,
       };
     }
   } catch (e) {
@@ -62,24 +87,48 @@ let globalState: StateData = loadInitialState();
 const listeners = new Set<(state: StateData) => void>();
 
 function notify() {
-  // Ensure accounts array and inner token balances have new object references for immediate React re-renders
-  globalState.accounts = globalState.accounts.map((acc) => ({
-    ...acc,
-    tokenBalances: acc.tokenBalances.map((tb) => ({ ...tb })),
-  }));
+  // Deep clone all collections to guarantee immediate React 18 reconciler updates
+  globalState = {
+    accounts: globalState.accounts.map((acc) => ({
+      ...acc,
+      tokenBalances: acc.tokenBalances.map((tb) => ({ ...tb })),
+      transferRails: acc.transferRails.map((tr) => ({ ...tr })),
+    })),
+    counterparties: globalState.counterparties.map((cp) => ({
+      ...cp,
+      payoutMethods: cp.payoutMethods.map((pm) => ({ ...pm })),
+    })),
+    transactions: globalState.transactions.map((tx) => ({ ...tx })),
+    invoices: globalState.invoices.map((inv) => ({
+      ...inv,
+      policyResult: inv.policyResult
+        ? {
+            ...inv.policyResult,
+            rulesTriggered: inv.policyResult.rulesTriggered ? [...inv.policyResult.rulesTriggered] : [],
+            reasons: inv.policyResult.reasons ? [...inv.policyResult.reasons] : [],
+          }
+        : undefined,
+    })),
+    inboundPayments: globalState.inboundPayments.map((p) => ({ ...p })),
+  };
+
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(globalState));
   } catch (e) {
     console.error('Storage write error', e);
   }
-  listeners.forEach((listener) => listener({ ...globalState }));
+  listeners.forEach((listener) => listener(globalState));
 }
 
 export function useBlinkaStore() {
   const [state, setState] = useState<StateData>(globalState);
+  const [, setVersion] = useState(0);
 
   useEffect(() => {
-    const handler = (newState: StateData) => setState(newState);
+    const handler = (newState: StateData) => {
+      setState(newState);
+      setVersion((v) => v + 1);
+    };
     listeners.add(handler);
     return () => {
       listeners.delete(handler);
@@ -271,7 +320,8 @@ export function useBlinkaStore() {
 
     const counterparty = findCounterpartyByName(inv.vendorName);
     const payoutMethod = counterparty?.payoutMethods.find(
-      (pm) => pm.accountEnding === inv.beneficiaryBankLastFour
+      (pm) => (inv.beneficiaryBankLastFour && pm.accountEnding === inv.beneficiaryBankLastFour) ||
+              (inv.walletAddress && pm.walletAddress?.toLowerCase() === inv.walletAddress.toLowerCase())
     ) || counterparty?.payoutMethods[0];
 
     const input: InvoiceReconciliationInput = {
@@ -283,6 +333,8 @@ export function useBlinkaStore() {
       description: inv.description,
       beneficiaryBankLastFour: inv.beneficiaryBankLastFour,
       routingNumber: inv.routingNumber,
+      walletAddress: inv.walletAddress,
+      network: inv.network,
     };
 
     const policy = evaluatePaymentPolicy(input, counterparty, payoutMethod);
@@ -291,6 +343,7 @@ export function useBlinkaStore() {
 
     if (policy.decision === 'REJECT') {
       inv.status = 'fraud_blocked';
+      inv.notes = policy.reasons[0] || 'Factura bloqueada por políticas de seguridad Blinka.';
     } else if (policy.decision === 'REQUIRE_HUMAN_APPROVAL') {
       inv.status = 'awaiting_cfo_approval';
     } else {
@@ -499,33 +552,54 @@ export function useBlinkaStore() {
 
     // 1. Process Outbound Invoices (Salidas)
     if (options.includeOutbound !== false) {
-      const pendingInvoices = globalState.invoices.filter((i) => i.status === 'pending_evaluation');
-      for (const inv of pendingInvoices) {
-        const res = evaluateAndProcessInvoice(inv.id);
-        if (res.policyResult.decision === 'AUTO_APPROVE') {
-          autoApprovedCount++;
-          totalSalidasCents += inv.amountCents;
-        } else if (res.policyResult.decision === 'REQUIRE_HUMAN_APPROVAL') {
-          requiringCfoCount++;
-        } else {
-          fraudBlockedCount++;
+      let invoicesToProcess = globalState.invoices.filter((i) => i.status === 'pending_evaluation');
+      // If no invoices are strictly pending, allow re-evaluating non-settled ones
+      if (invoicesToProcess.length === 0) {
+        invoicesToProcess = globalState.invoices.filter(
+          (i) => i.status !== 'auto_paid' && i.status !== 'duplicate_rejected'
+        );
+      }
+
+      for (const inv of invoicesToProcess) {
+        try {
+          const res = evaluateAndProcessInvoice(inv.id);
+          if (res.policyResult.decision === 'AUTO_APPROVE') {
+            autoApprovedCount++;
+            totalSalidasCents += inv.amountCents;
+          } else if (res.policyResult.decision === 'REQUIRE_HUMAN_APPROVAL') {
+            requiringCfoCount++;
+          } else {
+            fraudBlockedCount++;
+          }
+        } catch (err) {
+          console.error(`Error processing invoice ${inv.id}:`, err);
         }
       }
     }
 
     // 2. Process Inbound Pay-ins (Entradas)
     if (options.includeInbound !== false) {
-      const pendingPayins = globalState.inboundPayments.filter((p) => p.status === 'pending_verification');
-      for (const p of pendingPayins) {
-        const res = evaluateAndProcessInboundPayment(p.id);
-        if (res.accredited) {
-          inboundAccreditedCount++;
-          totalEntradasCents += p.amountCents;
-        } else {
-          inboundBlockedCount++;
+      let payinsToProcess = globalState.inboundPayments.filter((p) => p.status === 'pending_verification');
+      if (payinsToProcess.length === 0) {
+        payinsToProcess = globalState.inboundPayments.filter((p) => p.status === 'rejected_fraud');
+      }
+
+      for (const p of payinsToProcess) {
+        try {
+          const res = evaluateAndProcessInboundPayment(p.id);
+          if (res.accredited) {
+            inboundAccreditedCount++;
+            totalEntradasCents += p.amountCents;
+          } else {
+            inboundBlockedCount++;
+          }
+        } catch (err) {
+          console.error(`Error processing pay-in ${p.id}:`, err);
         }
       }
     }
+
+    notify();
 
     const newTotalCents = getTotalBalanceCents();
     const netCashflowCents = totalEntradasCents - totalSalidasCents;
