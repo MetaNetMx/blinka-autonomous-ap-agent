@@ -45,7 +45,7 @@ const server = http.createServer((req, res) => {
       server: 'blinka-mcp-server',
       protocol: 'Model Context Protocol (MCP) v1.0',
       status: 'ONLINE',
-      toolsCount: 11,
+      toolsCount: 13,
       tools: [
         'blinka_list_accounts',
         'blinka_get_account',
@@ -58,8 +58,14 @@ const server = http.createServer((req, res) => {
         'blinka_reconcile_invoice',
         'blinka_evaluate_payment_policy',
         'blinka_execute_vendor_payout',
+        'blinka_verify_inbound_payment',
+        'blinka_list_pending_invoices',
       ],
       legalEntity: 'Acme Global Ventures LLC (Portage Bank FDIC)',
+      settlementRails: [
+        'Portage Bank ACH/Wire (USD FDIC)',
+        'Base Network (USDC Multi-Chain)',
+      ],
     }));
     return;
   }

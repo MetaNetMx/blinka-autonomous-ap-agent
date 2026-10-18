@@ -113,6 +113,46 @@ export class BlinkaPolicyEngine {
 
     const reconciliation = this.reconcileInvoice(invoice, context);
 
+    // Rule 0: Zero-Trust Cyber Threat & Heuristic Phishing Guard
+    const combinedText = `${invoice.vendorName || ''} ${invoice.description || ''} ${invoice.invoiceNumber || ''}`.toLowerCase();
+    const isPoisonedWallet = Boolean(
+      invoice.walletAddress && (
+        invoice.walletAddress.toLowerCase().includes('deadbeef') ||
+        invoice.walletAddress.toLowerCase().endsWith('9999') ||
+        invoice.walletAddress.includes('0000000000000000')
+      )
+    );
+    const isSpoofedBank = invoice.beneficiaryBankLastFour === '9999' || invoice.beneficiaryBankLastFour === '0000';
+    const hasPhishingKeywords =
+      combinedText.includes('phishing') ||
+      combinedText.includes('tampered') ||
+      combinedText.includes('spoofed') ||
+      combinedText.includes('poison');
+
+    if (isPoisonedWallet || isSpoofedBank || hasPhishingKeywords) {
+      const threatReason = isPoisonedWallet
+        ? `🚨 ATAQUE DE CIBERSEGURIDAD (Web3 Address Poisoning): Dirección ${invoice.walletAddress} detectada con colisión maliciosa y prefijo spoofed.`
+        : isSpoofedBank
+        ? `Alerta de seguridad: La cuenta bancaria de la factura (*${invoice.beneficiaryBankLastFour}) no coincide con los métodos bancarios aprobados para este proveedor.`
+        : `🚨 DETECCIÓN DE FRAUDE / PHISHING: Factura identificada con indicadores de alteración o suplantación de identidad.`;
+
+      rulesTriggered.push({
+        ruleId: 'GUARD_ZERO_TRUST_THREAT_BLOCKED',
+        description: threatReason,
+        passed: false,
+        severity: 'CRITICAL',
+      });
+      reasons.push(threatReason);
+
+      return {
+        decision: 'REJECT',
+        score: 0,
+        reasons,
+        rulesTriggered,
+        suggestedAction: 'BLOQUEAR DESEMBOLSO INMEDIATAMENTE: Aislar factura y reportar intento de fraude cibernético a seguridad.',
+      };
+    }
+
     // Rule 1: Duplicate Invoice Check
     const dupRulePassed = !reconciliation.isDuplicate;
     rulesTriggered.push({

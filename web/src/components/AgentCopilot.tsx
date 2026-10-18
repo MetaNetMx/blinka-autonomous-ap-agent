@@ -122,7 +122,7 @@ export const AgentCopilot: React.FC<AgentCopilotProps> = ({ store }) => {
               </span>
             </div>
             <p className="text-[11px] text-[#576071]">
-              Equipado con 11 herramientas MCP de banca, AP autónomo y control de políticas.
+              Equipado con 13 herramientas MCP de banca dual-rail (Fiat & Crypto), AP autónomo y ciberseguridad.
             </p>
           </div>
         </div>

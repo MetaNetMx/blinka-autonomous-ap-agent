@@ -22,6 +22,8 @@ Designed for the **30X Hackathon**, this MCP server empowers AI agents (Antigrav
 | `blinka_reconcile_invoice` | Autonomous AP | Matches vendor invoices against existing counterparties, verifies liquidity, and checks for duplicates. |
 | `blinka_evaluate_payment_policy`| Risk Engine | Evaluates corporate guardrails: duplicate checks, approved payout status, bank account continuity (anti-phishing), and spending ceilings. |
 | `blinka_execute_vendor_payout` | Execution | Dispatches approved payouts or stages them for human dual-authorization. |
+| `blinka_verify_inbound_payment`| Dual-Rail AR | Validates incoming client pay-ins across Fiat (USD ACH/Fedwire via Portage Bank) and Crypto (USDC Base Network blockchain). |
+| `blinka_list_pending_invoices` | Autonomous AP | Lists all pending/staged vendor invoices awaiting policy evaluation, approval, or settlement across rails. |
 
 ---
 

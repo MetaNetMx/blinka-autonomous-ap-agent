@@ -87,7 +87,7 @@ Para cumplir con las exigencias del CTO de Blinka y estándares bancarios instit
 
 ## ⚡ 4. Servidor Model Context Protocol (MCP)
 
-El servidor MCP está construido en TypeScript bajo el SDK oficial `@modelcontextprotocol/sdk` y expone **11 herramientas**:
+El servidor MCP está construido en TypeScript bajo el SDK oficial `@modelcontextprotocol/sdk` y expone **13 herramientas**:
 
 1. `blinka_list_accounts`: Consulta saldos en tiempo real en Checking ($184k), Treasury ($50k) y USDC (18.5k).
 2. `blinka_get_account`: Obtiene detalles de cuenta, enrutamiento bancario y rieles activos.
@@ -98,17 +98,22 @@ El servidor MCP está construido en TypeScript bajo el SDK oficial `@modelcontex
 7. `blinka_approve_payout_method`: Validación humana (Human-in-the-loop) para habilitar una cuenta destino.
 8. `blinka_create_transfer`: Ejecución de transferencias internas idempotentes (Treasury Sweeps).
 9. `blinka_reconcile_invoice`: Extracción y matching de facturas contra el directorio corporativo.
-10. `blinka_evaluate_payment_policy`: Evaluación de los 6 guardrails de riesgo y asignación de score.
+10. `blinka_evaluate_payment_policy`: Evaluación de los guardrails de riesgo, Zero-Trust Phishing Shield y asignación de score.
 11. `blinka_execute_vendor_payout`: Dispersión de fondos o puesta en cola de aprobación según políticas.
+12. `blinka_verify_inbound_payment`: Conciliación dual-rail de cobros entrantes (Fiat ACH/Wire y Cripto USDC Base Network).
+13. `blinka_list_pending_invoices`: Inspección de la bandeja AP de facturas pendientes y etapas de verificación.
 
-### Pruebas Automatizadas de la Suite MCP (7/7 Pasadas)
+### Pruebas Automatizadas de la Suite MCP (9/9 Pasadas)
 El servidor incluye una suite completa de pruebas en `mcp-server/test-suite.ts` validando:
-- ✅ Auto-aprobación de suscripciones estándar ($3,200 Vercel).
-- ✅ Detección y bloqueo de factura fraudulenta con cuenta bancaria adulterada (Stripe Spoof).
-- ✅ Retención de pago de alto valor ($48,500 GPU Cluster) para firma dual del CFO.
-- ✅ Rechazo de facturas duplicadas ya pagadas.
-- ✅ Ejecución de barrido de tesorería (Treasury Sweep) de $25,000 USD a BNY Mellon.
-- ✅ Flujo de aprobación de nuevo método de pago (`pending` $\to$ `approved`).
+- ✅ **Test 1:** Carga de cuentas multi-rail (Checking USD, Treasury BNY Mellon, Bóveda USDC Base).
+- ✅ **Test 2:** Consulta cronológica de movimientos del libro mayor.
+- ✅ **Test 3 (Escenario A):** Auto-aprobación de suscripción micro-spend recurrente ($128 USD Linear).
+- ✅ **Test 4 (Escenario B):** Retención preventiva de gasto elevado ($8,500 USD) para aprobación humana.
+- ✅ **Test 5 (Escenario C):** Alerta y bloqueo crítico de Phishing por discrepancia bancaria (*9999).
+- ✅ **Test 6 (Escenario D):** Detección y bloqueo por idempotencia de factura duplicada.
+- ✅ **Test 7 (Escenario E):** Barrido de tesorería (Treasury Sweep) de $10,000 USD a BNY Mellon.
+- ✅ **Test 8 (Escenario F):** Validación de factura cripto ($1,850 USDC en Base Network con wallet verificada).
+- ✅ **Test 9 (Escenario G):** Conciliación dual-rail de cobros entrantes (USD Fiat $25k + USDC Cripto $5k).
 
 ---
 
@@ -140,23 +145,39 @@ cd blinka-autonomous-ap-agent
 ```bash
 cd mcp-server
 npm install
+npm run build
 npm test
 ```
-*Salida esperada: 7 escenarios probados con 100% de éxito.*
+*Salida esperada: 9 suites de prueba ejecutadas con 100% de éxito (Dual-Rail: Fiat & Cripto).*
 
-### 3. Ejecutar la Aplicación Web
+### 3. Configuración del Servidor MCP en Claude Desktop / Cursor / Antigravity
+Para conectar cualquier agente de IA a las 13 herramientas MCP de Blinka, agrega a tu archivo de configuración (`claude_desktop_config.json` o `mcp.json`):
+
+```json
+{
+  "mcpServers": {
+    "blinka": {
+      "command": "node",
+      "args": ["./mcp-server/dist/index.js"]
+    }
+  }
+}
+```
+
+### 4. Ejecutar la Aplicación Web
 ```bash
-cd ../web
+cd web
 npm install
 npm run dev
 ```
 Abre en tu navegador: `http://localhost:5173`
 
-### 4. Compilar para Producción / Despliegue Vercel
+### 5. Compilar para Producción / Despliegue Cloud (Railway / Vercel)
 ```bash
+cd web
 npm run build
 ```
-Listo para despliegue en Vercel con un solo clic gracias a la configuración preintegrada en `vercel.json`.
+Listo para despliegue en Vercel o Railway con un solo clic gracias a la configuración preintegrada en `server.js` y `vercel.json`.
 
 ---
 
