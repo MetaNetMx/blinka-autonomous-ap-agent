@@ -15,10 +15,11 @@ export function App() {
   const [activeTab, setActiveTab] = useState<'overview' | 'inbox' | 'guardrails' | 'counterparties' | 'copilot'>('overview');
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [isDemoAutopilotOpen, setIsDemoAutopilotOpen] = useState(false);
+  const [highlightSweep, setHighlightSweep] = useState(false);
 
   const showToast = (msg: string) => {
     setToastMessage(msg);
-    setTimeout(() => setToastMessage(null), 4000);
+    setTimeout(() => setToastMessage(null), 4500);
   };
 
   const handleExecuteSweep = () => {
@@ -33,7 +34,15 @@ export function App() {
         2500000,
         'Autonomous Yield Sweep - Idle Cash Optimization'
       );
+      setHighlightSweep(true);
+      setTimeout(() => setHighlightSweep(false), 9000);
       showToast('⚡ Barrido de $25,000 USD transferido con éxito a Blinka Treasury (4.85% APY)');
+      confetti({
+        particleCount: 75,
+        spread: 80,
+        origin: { y: 0.35 },
+        colors: ['#10b981', '#f59e0b', '#2a4bd0'],
+      });
     } catch (e: any) {
       showToast(`Error en barrido: ${e?.message || e}`);
     }
@@ -132,7 +141,7 @@ export function App() {
       
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 bg-[#1c253a] text-white text-xs md:text-sm px-4 py-3 rounded-xl shadow-lg border border-slate-700 flex items-center space-x-2 animate-bounce">
+        <div className="fixed top-20 right-6 z-50 bg-[#1c253a] text-white text-xs md:text-sm px-4 py-3 rounded-xl shadow-2xl border border-slate-700 flex items-center space-x-2 animate-in fade-in slide-in-from-top-2">
           <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
           <span>{toastMessage}</span>
         </div>
@@ -159,6 +168,7 @@ export function App() {
             transactions={store.state.transactions}
             onExecuteSweep={handleExecuteSweep}
             onOpenCopilot={() => setActiveTab('copilot')}
+            highlightSweep={highlightSweep}
           />
         )}
 

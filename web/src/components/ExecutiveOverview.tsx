@@ -20,6 +20,7 @@ interface ExecutiveOverviewProps {
   transactions: Transaction[];
   onExecuteSweep: () => void;
   onOpenCopilot: () => void;
+  highlightSweep?: boolean;
 }
 
 export const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({
@@ -27,6 +28,7 @@ export const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({
   transactions,
   onExecuteSweep,
   onOpenCopilot,
+  highlightSweep = false,
 }) => {
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
@@ -60,6 +62,35 @@ export const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({
   return (
     <div className="space-y-6">
       
+      {/* Dynamic Animated Banner when Sweep is executed */}
+      {highlightSweep && (
+        <div className="bg-gradient-to-r from-emerald-600 via-teal-700 to-indigo-900 text-white p-4 md:p-5 rounded-2xl shadow-2xl flex items-center justify-between animate-in fade-in slide-in-from-top-3 border border-emerald-400/40">
+          <div className="flex items-center space-x-3.5">
+            <div className="w-10 h-10 rounded-xl bg-white/20 border border-white/30 flex items-center justify-center font-bold text-white shrink-0 shadow-inner">
+              <Zap className="w-5 h-5 text-amber-300 animate-pulse" />
+            </div>
+            <div>
+              <div className="flex items-center space-x-2">
+                <span className="text-xs font-black uppercase tracking-wider text-amber-300">
+                  ⚡ Barrido de Tesorería Ejecutado
+                </span>
+                <span className="bg-emerald-400 text-slate-950 font-mono text-[10px] font-extrabold px-2 py-0.5 rounded-full">
+                  +$25,000.00 USD
+                </span>
+              </div>
+              <p className="text-xs text-emerald-100 font-medium mt-0.5">
+                Excedente de Checking transferido a BNY Mellon Dreyfus (4.85% APY). Saldo Treasury actualizado a <strong>${treasuryBal.toLocaleString(undefined, { minimumFractionDigits: 2 })} USD</strong>.
+              </p>
+            </div>
+          </div>
+          <div className="hidden sm:block text-right">
+            <span className="text-[11px] font-mono text-emerald-200 bg-black/20 px-2.5 py-1 rounded-lg border border-white/10">
+              Liquidez T+0 · 4.85% APY
+            </span>
+          </div>
+        </div>
+      )}
+
       {/* Top Banner: Total Portfolio & Yield Optimizer */}
       <div className="blinka-card p-6 md:p-8 relative overflow-hidden bg-white">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#2a4bd0]/5 via-transparent to-transparent pointer-events-none rounded-full blur-2xl" />
@@ -146,8 +177,13 @@ export const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({
             </div>
 
             <div className="mt-4">
-              <div className="text-2xl font-black text-[#1c253a]">
-                ${checkingBal.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+              <div className="text-2xl font-black text-[#1c253a] flex items-center space-x-2">
+                <span>${checkingBal.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>
+                {highlightSweep && (
+                  <span className="text-[11px] font-bold text-amber-700 bg-amber-100 border border-amber-300 px-2 py-0.5 rounded-full animate-pulse">
+                    -$25k Barrido
+                  </span>
+                )}
               </div>
               <p className="text-xs text-[#576071] mt-0.5">Saldo para nómina y pagos AP diarios</p>
             </div>
@@ -166,7 +202,11 @@ export const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({
         </div>
 
         {/* Card 2: BNY Mellon Treasury */}
-        <div className="blinka-card p-5 blinka-card-interactive flex flex-col justify-between">
+        <div
+          className={`blinka-card p-5 blinka-card-interactive flex flex-col justify-between transition-all duration-500 ${
+            highlightSweep ? 'ring-4 ring-emerald-500 shadow-2xl scale-[1.02] bg-emerald-50/40' : ''
+          }`}
+        >
           <div>
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
@@ -184,8 +224,13 @@ export const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({
             </div>
 
             <div className="mt-4">
-              <div className="text-2xl font-black text-[#1c253a]">
-                ${treasuryBal.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+              <div className="text-2xl font-black text-[#1c253a] flex items-center space-x-2">
+                <span>${treasuryBal.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>
+                {highlightSweep && (
+                  <span className="text-[11px] font-bold text-emerald-700 bg-emerald-100 border border-emerald-300 px-2 py-0.5 rounded-full animate-pulse">
+                    +$25k Recibido
+                  </span>
+                )}
               </div>
               <p className="text-xs text-[#576071] mt-0.5">Generando rendimientos diarios con liquidez T+0</p>
             </div>

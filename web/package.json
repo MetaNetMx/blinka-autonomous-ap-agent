@@ -12,6 +12,7 @@
   "dependencies": {
     "canvas-confetti": "^1.9.4",
     "clsx": "^2.1.1",
+    "fix-webm-duration": "^1.0.6",
     "lucide-react": "^1.58.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",

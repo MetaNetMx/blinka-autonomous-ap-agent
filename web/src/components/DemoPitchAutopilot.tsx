@@ -31,6 +31,7 @@ import {
   Settings,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { fixWebmDuration } from '../utils/webmDuration';
 
 export interface DemoStep {
   id: number;
@@ -177,6 +178,9 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
   const recordedChunksRef = useRef<Blob[]>([]);
   const screenStreamRef = useRef<MediaStream | null>(null);
   const recordingTimerRef = useRef<any>(null);
+  const recordingStartTimeRef = useRef<number>(0);
+  const audioContextRef = useRef<AudioContext | null>(null);
+  const micStreamRef = useRef<MediaStream | null>(null);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const isPlayingRef = useRef(false);
@@ -348,14 +352,55 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
   // Screen & Audio Video Recording (WebM / MP4)
   const startRecordingAndDemo = async () => {
     try {
-      // Prompt user to select screen/tab with audio
-      const stream = await navigator.mediaDevices.getDisplayMedia({
+      // 1. Prompt user to select screen/tab with selfBrowserSurface: 'include' & preferCurrentTab: true
+      // This explicitly allows and highlights the current Blinka tab in the browser dialog!
+      const displayStream = await navigator.mediaDevices.getDisplayMedia({
         video: { displaySurface: 'browser' } as any,
         audio: true,
-      });
+        preferCurrentTab: true,
+        selfBrowserSurface: 'include',
+        systemAudio: 'include',
+        surfaceSwitching: 'include',
+      } as any);
 
-      screenStreamRef.current = stream;
+      screenStreamRef.current = displayStream;
       recordedChunksRef.current = [];
+      recordingStartTimeRef.current = Date.now();
+
+      // 2. Setup Web Audio Master Mixer
+      const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
+      const audioCtx = new AudioCtx();
+      audioContextRef.current = audioCtx;
+      const masterDestination = audioCtx.createMediaStreamDestination();
+
+      // A) Mix Tab Audio (if user shared tab audio)
+      if (displayStream.getAudioTracks().length > 0) {
+        try {
+          const tabSource = audioCtx.createMediaStreamSource(new MediaStream(displayStream.getAudioTracks()));
+          tabSource.connect(masterDestination);
+        } catch (e) {
+          console.warn('Could not connect tab audio', e);
+        }
+      }
+
+      // B) Mix Microphone Audio (crucial for Browser TTS played through speakers or live commentary!)
+      try {
+        const micStream = await navigator.mediaDevices.getUserMedia({
+          audio: { echoCancellation: true, noiseSuppression: true },
+        });
+        micStreamRef.current = micStream;
+        const micSource = audioCtx.createMediaStreamSource(micStream);
+        micSource.connect(masterDestination);
+      } catch (micErr) {
+        console.warn('Microphone permission not granted or mic unavailable', micErr);
+      }
+
+      // 3. Assemble Combined MediaStream (Video from tab + Master Mixed Audio)
+      const combinedTracks = [
+        ...displayStream.getVideoTracks(),
+        ...masterDestination.stream.getAudioTracks(),
+      ];
+      const combinedStream = new MediaStream(combinedTracks);
 
       let mimeType = 'video/webm;codecs=vp9,opus';
       if (!MediaRecorder.isTypeSupported(mimeType)) {
@@ -365,7 +410,7 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
         mimeType = 'video/mp4';
       }
 
-      const recorder = new MediaRecorder(stream, { mimeType });
+      const recorder = new MediaRecorder(combinedStream, { mimeType });
 
       recorder.ondataavailable = (e) => {
         if (e.data && e.data.size > 0) {
@@ -373,10 +418,15 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
         }
       };
 
-      recorder.onstop = () => {
+      recorder.onstop = async () => {
+        const durationMs = Date.now() - recordingStartTimeRef.current;
         if (recordedChunksRef.current.length > 0) {
-          const blob = new Blob(recordedChunksRef.current, { type: mimeType });
-          const url = URL.createObjectURL(blob);
+          const rawBlob = new Blob(recordedChunksRef.current, { type: mimeType });
+
+          // Patch EBML duration so the video has full seeking/scrubbing (adelantar/retrasar)!
+          const seekableBlob = await fixWebmDuration(rawBlob, durationMs);
+
+          const url = URL.createObjectURL(seekableBlob);
           const link = document.createElement('a');
           const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
           link.href = url;
@@ -390,7 +440,16 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
         setIsRecording(false);
         setRecordingSeconds(0);
         if (recordingTimerRef.current) clearInterval(recordingTimerRef.current);
-        stream.getTracks().forEach((track) => track.stop());
+
+        // Clean up all tracks & audio context
+        displayStream.getTracks().forEach((track) => track.stop());
+        if (micStreamRef.current) {
+          micStreamRef.current.getTracks().forEach((track) => track.stop());
+          micStreamRef.current = null;
+        }
+        if (audioCtx.state !== 'closed') {
+          audioCtx.close().catch(() => {});
+        }
       };
 
       mediaRecorderRef.current = recorder;
@@ -404,12 +463,13 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
       }, 1000);
 
       // If user ends sharing via browser native UI banner
-      stream.getVideoTracks()[0].onended = () => {
+      displayStream.getVideoTracks()[0].onended = () => {
         stopScreenRecording();
       };
 
       // Automatically launch the Autopilot from Step 1 with audio
       setIsPlaying(true);
+      isPlayingRef.current = true;
       goToStep(0, true);
     } catch (err: any) {
       console.warn('Recording cancelled or not supported:', err);
@@ -423,6 +483,14 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
     }
     if (screenStreamRef.current) {
       screenStreamRef.current.getTracks().forEach((t) => t.stop());
+    }
+    if (micStreamRef.current) {
+      micStreamRef.current.getTracks().forEach((t) => t.stop());
+      micStreamRef.current = null;
+    }
+    if (audioContextRef.current && audioContextRef.current.state !== 'closed') {
+      audioContextRef.current.close().catch(() => {});
+      audioContextRef.current = null;
     }
     setIsRecording(false);
     if (recordingTimerRef.current) clearInterval(recordingTimerRef.current);
@@ -542,10 +610,12 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
       setActiveTab(step.tab);
     }
 
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     if (step.autoActionName === 'process_invoices') {
       setTimeout(() => {
         onProcessAllInvoices();
-      }, 400);
+      }, 450);
     } else if (step.autoActionName === 'cfo_approve') {
       setTimeout(() => {
         onCfoApproveLambda();
@@ -553,7 +623,7 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
     } else if (step.autoActionName === 'execute_sweep') {
       setTimeout(() => {
         onExecuteSweep();
-      }, 400);
+      }, 450);
     } else if (step.autoActionName === 'show_copilot') {
       confetti({
         particleCount: 60,
