@@ -179,7 +179,23 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
   const recordingTimerRef = useRef<any>(null);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const isPlayingRef = useRef(false);
+  const voiceModeRef = useRef(voiceMode);
+  const customAudioUrlsRef = useRef<Record<number, string>>({});
+  const activeUtteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
   const currentStep = DEMO_PITCH_STEPS[currentStepIndex];
+
+  useEffect(() => {
+    isPlayingRef.current = isPlaying;
+  }, [isPlaying]);
+
+  useEffect(() => {
+    voiceModeRef.current = voiceMode;
+  }, [voiceMode]);
+
+  useEffect(() => {
+    customAudioUrlsRef.current = customAudioUrls;
+  }, [customAudioUrls]);
 
   // Try to load any previously saved custom ElevenLabs audio URLs from localStorage
   useEffect(() => {
@@ -188,8 +204,10 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
       if (savedAudios) {
         const parsed = JSON.parse(savedAudios);
         if (Object.keys(parsed).length > 0) {
+          customAudioUrlsRef.current = parsed;
           setCustomAudioUrls(parsed);
           setVoiceMode('elevenlabs');
+          voiceModeRef.current = 'elevenlabs';
         }
       }
     } catch (e) {
@@ -264,7 +282,7 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
 
     setIsGeneratingAudios(true);
     setElevenLabsError(null);
-    const updatedAudios = { ...customAudioUrls };
+    const updatedAudios = { ...customAudioUrlsRef.current };
 
     try {
       for (let i = 0; i < DEMO_PITCH_STEPS.length; i++) {
@@ -303,6 +321,7 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
         });
 
         updatedAudios[step.id] = base64Data;
+        customAudioUrlsRef.current = { ...updatedAudios };
         setCustomAudioUrls({ ...updatedAudios });
       }
 
@@ -313,6 +332,7 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
         console.warn('LocalStorage quota limit reached, audio kept in browser memory:', storageErr);
       }
 
+      voiceModeRef.current = 'elevenlabs';
       setVoiceMode('elevenlabs');
       setGeneratingProgress(null);
       confetti({ particleCount: 80, spread: 90, origin: { y: 0.6 } });
@@ -421,8 +441,16 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
       return;
     }
 
+    // Cancel any previous utterance safely without triggering its callbacks
+    if (activeUtteranceRef.current) {
+      activeUtteranceRef.current.onend = null;
+      activeUtteranceRef.current.onerror = null;
+      activeUtteranceRef.current = null;
+    }
     window.speechSynthesis.cancel();
+
     const utterance = new SpeechSynthesisUtterance(text);
+    activeUtteranceRef.current = utterance;
     utterance.lang = 'es-MX';
     utterance.rate = 1.05;
 
@@ -435,11 +463,15 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
     }
 
     utterance.onend = () => {
+      if (activeUtteranceRef.current !== utterance) return;
+      activeUtteranceRef.current = null;
       setAudioPlaybackState('stopped');
       if (onEndCallback) onEndCallback();
     };
 
     utterance.onerror = () => {
+      if (activeUtteranceRef.current !== utterance) return;
+      activeUtteranceRef.current = null;
       setAudioPlaybackState('stopped');
       if (onEndCallback) onEndCallback();
     };
@@ -450,21 +482,30 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
 
   const stopAllAudio = () => {
     if (audioRef.current) {
+      audioRef.current.onended = null;
+      audioRef.current.onerror = null;
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
     }
     if (window.speechSynthesis) {
+      if (activeUtteranceRef.current) {
+        activeUtteranceRef.current.onend = null;
+        activeUtteranceRef.current.onerror = null;
+        activeUtteranceRef.current = null;
+      }
       window.speechSynthesis.cancel();
     }
     setAudioPlaybackState('stopped');
   };
 
-  // Play audio for current step (Custom ElevenLabs mp3 or Browser TTS)
-  const playCurrentStepAudio = (onFinish?: () => void) => {
+  // Play audio for a specific step (Custom ElevenLabs mp3 or Browser TTS)
+  const playStepAudio = (stepToPlay: DemoStep, onFinish?: () => void) => {
     stopAllAudio();
 
-    const customAudio = customAudioUrls[currentStep.id];
-    if (voiceMode === 'elevenlabs' && customAudio) {
+    const mode = voiceModeRef.current;
+    const customAudio = customAudioUrlsRef.current[stepToPlay.id];
+
+    if (mode === 'elevenlabs' && customAudio) {
       if (!audioRef.current) {
         audioRef.current = new Audio();
       }
@@ -474,16 +515,16 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
         if (onFinish) onFinish();
       };
       audioRef.current.onerror = () => {
-        console.warn('ElevenLabs custom audio error, falling back to TTS');
-        speakText(currentStep.script, onFinish);
+        console.warn(`ElevenLabs audio error on step ${stepToPlay.id}, falling back to TTS`);
+        speakText(stepToPlay.script, onFinish);
       };
       setAudioPlaybackState('playing');
       audioRef.current.play().catch((e) => {
         console.warn('Audio play failed, fallback to TTS', e);
-        speakText(currentStep.script, onFinish);
+        speakText(stepToPlay.script, onFinish);
       });
-    } else if (voiceMode === 'browser_tts') {
-      speakText(currentStep.script, onFinish);
+    } else if (mode === 'browser_tts') {
+      speakText(stepToPlay.script, onFinish);
     } else {
       // Teleprompter (mute): simulate timer duration
       setAudioPlaybackState('playing');
@@ -523,25 +564,34 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
   };
 
   // Handle Step transition
-  const goToStep = (stepIdx: number, andPlay = isPlaying) => {
+  const goToStep = (stepIdx: number, andPlay = isPlayingRef.current) => {
     stopAllAudio();
     if (stepIdx < 0 || stepIdx >= DEMO_PITCH_STEPS.length) {
       setIsPlaying(false);
+      isPlayingRef.current = false;
       return;
     }
 
-    const nextStep = DEMO_PITCH_STEPS[stepIdx];
+    const targetStep = DEMO_PITCH_STEPS[stepIdx];
     setCurrentStepIndex(stepIdx);
-    executeStepAction(nextStep);
+    executeStepAction(targetStep);
 
     if (andPlay) {
+      setIsPlaying(true);
+      isPlayingRef.current = true;
       setTimeout(() => {
-        playCurrentStepAudio(() => {
+        // Only start audio if still in playing mode
+        if (!isPlayingRef.current) return;
+
+        playStepAudio(targetStep, () => {
           // Autopilot: automatically go to next step if still playing
+          if (!isPlayingRef.current) return;
+
           if (stepIdx < DEMO_PITCH_STEPS.length - 1) {
             goToStep(stepIdx + 1, true);
           } else {
             setIsPlaying(false);
+            isPlayingRef.current = false;
             confetti({ particleCount: 90, spread: 100, origin: { y: 0.4 } });
             // Auto stop screen recording if active
             if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
@@ -551,16 +601,18 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
             }
           }
         });
-      }, 350);
+      }, 450);
     }
   };
 
   const handleTogglePlay = () => {
     if (isPlaying) {
       setIsPlaying(false);
+      isPlayingRef.current = false;
       stopAllAudio();
     } else {
       setIsPlaying(true);
+      isPlayingRef.current = true;
       goToStep(currentStepIndex, true);
     }
   };
@@ -573,9 +625,11 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
     reader.onload = (event) => {
       const result = event.target?.result as string;
       if (result) {
-        const updated = { ...customAudioUrls, [stepId]: result };
+        const updated = { ...customAudioUrlsRef.current, [stepId]: result };
+        customAudioUrlsRef.current = updated;
         setCustomAudioUrls(updated);
         setVoiceMode('elevenlabs');
+        voiceModeRef.current = 'elevenlabs';
         try {
           localStorage.setItem('blinka_elevenlabs_demo_audios', JSON.stringify(updated));
         } catch (err) {
