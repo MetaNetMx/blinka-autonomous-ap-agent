@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, RotateCcw, Zap, ExternalLink, Bot, Landmark, FileText, Users, Sliders } from 'lucide-react';
+import { ShieldCheck, RotateCcw, Zap, ExternalLink, Bot, Landmark, FileText, Users, Sliders, Sparkles } from 'lucide-react';
 
 interface NavbarProps {
   activeTab: 'overview' | 'inbox' | 'guardrails' | 'counterparties' | 'copilot';
@@ -7,6 +7,7 @@ interface NavbarProps {
   onReset: () => void;
   pendingApprovalsCount: number;
   totalBalanceCents?: number;
+  onOpenDemoAutopilot?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -15,6 +16,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onReset,
   pendingApprovalsCount,
   totalBalanceCents,
+  onOpenDemoAutopilot,
 }) => {
   return (
     <header className="sticky top-0 z-50 bg-[#f7f7f4]/90 backdrop-blur-md border-b border-[#e3e3dc]">
@@ -122,6 +124,17 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <span className="font-extrabold text-[#1c253a] group-hover:text-[#2a4bd0]">
                   ${(totalBalanceCents / 100).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </span>
+              </button>
+            )}
+
+            {onOpenDemoAutopilot && (
+              <button
+                onClick={onOpenDemoAutopilot}
+                className="flex items-center space-x-1.5 px-3 py-1.5 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white text-xs font-bold rounded-lg shadow-sm hover:shadow transition-all animate-pulse"
+                title="Abrir el Modo Pitch Autopilot con guion de 3 minutos y narración"
+              >
+                <Sparkles className="w-3.5 h-3.5 fill-white" />
+                <span>🎬 Pitch Autopilot</span>
               </button>
             )}
 

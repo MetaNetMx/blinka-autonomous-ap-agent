@@ -6,6 +6,7 @@ import { AutonomousAPInbox } from './components/AutonomousAPInbox';
 import { GuardrailsMatrix } from './components/GuardrailsMatrix';
 import { CounterpartiesView } from './components/CounterpartiesView';
 import { AgentCopilot } from './components/AgentCopilot';
+import { DemoPitchAutopilot } from './components/DemoPitchAutopilot';
 import { ShieldCheck, CheckCircle2, ExternalLink } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -13,6 +14,7 @@ export function App() {
   const store = useBlinkaStore();
   const [activeTab, setActiveTab] = useState<'overview' | 'inbox' | 'guardrails' | 'counterparties' | 'copilot'>('overview');
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [isDemoAutopilotOpen, setIsDemoAutopilotOpen] = useState(false);
 
   const showToast = (msg: string) => {
     setToastMessage(msg);
@@ -103,6 +105,24 @@ export function App() {
     }
   };
 
+  const handleCfoApproveLambda = () => {
+    try {
+      const lambdaInv = store.state.invoices.find((i) => i.vendorName.includes('Lambda') || i.amountCents === 4850000);
+      if (lambdaInv) {
+        if (lambdaInv.status === 'pending_evaluation') {
+          store.evaluateAndProcessInvoice(lambdaInv.id);
+        }
+        if (lambdaInv.status === 'awaiting_cfo_approval') {
+          store.cfoApproveInvoice(lambdaInv.id);
+          showToast('✅ Desembolso de $48,500 USD (Lambda Labs GPU) firmado y liberado como CFO.');
+          confetti({ particleCount: 60, spread: 75, origin: { y: 0.5 } });
+        }
+      }
+    } catch (e: any) {
+      console.warn('CFO Lambda sign error in autopilot', e);
+    }
+  };
+
   const pendingApprovalsCount =
     store.state.invoices.filter((i) => i.status === 'awaiting_cfo_approval' || i.status === 'pending_evaluation').length +
     store.state.inboundPayments.filter((p) => p.status === 'pending_verification').length;
@@ -128,6 +148,7 @@ export function App() {
         }}
         pendingApprovalsCount={pendingApprovalsCount}
         totalBalanceCents={totalBalanceCents}
+        onOpenDemoAutopilot={() => setIsDemoAutopilotOpen(true)}
       />
 
       {/* Main Content Workspace */}
@@ -212,6 +233,17 @@ export function App() {
           </div>
         </div>
       </footer>
+
+      {/* Interactive Pitch Autopilot Tour Player */}
+      <DemoPitchAutopilot
+        isOpen={isDemoAutopilotOpen}
+        onClose={() => setIsDemoAutopilotOpen(false)}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        onProcessAllInvoices={handleProcessAllInvoices}
+        onCfoApproveLambda={handleCfoApproveLambda}
+        onExecuteSweep={handleExecuteSweep}
+      />
 
     </div>
   );
