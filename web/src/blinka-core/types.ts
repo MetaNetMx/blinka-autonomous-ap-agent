@@ -171,6 +171,7 @@ export interface StagedInboundPayment {
   notes?: string;
   createdAt: string;
   evaluatedAt?: string;
+  accreditedAt?: string;
   accreditedTransactionId?: string;
 }
 

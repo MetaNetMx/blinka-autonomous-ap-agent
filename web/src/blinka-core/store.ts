@@ -466,6 +466,7 @@ export function useBlinkaStore() {
     globalState.transactions.unshift(payinTx);
     payin.status = 'accredited';
     payin.evaluatedAt = now;
+    payin.accreditedAt = now;
     payin.accreditedTransactionId = txId;
 
     notify();

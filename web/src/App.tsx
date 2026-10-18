@@ -96,8 +96,10 @@ export function App() {
     try {
       const inv = store.cfoApproveInvoice(invoiceId);
       showToast(`✅ Desembolso de $${(inv.amountCents / 100).toLocaleString()} USD aprobado por CFO y liberado vía Wire.`);
+      return inv;
     } catch (e: any) {
       showToast(`Error: ${e?.message || e}`);
+      throw e;
     }
   };
 
@@ -144,12 +146,14 @@ export function App() {
             invoices={store.state.invoices}
             inboundPayments={store.state.inboundPayments}
             accounts={store.state.accounts}
+            transactions={store.state.transactions}
             totalBalanceCents={totalBalanceCents}
             onProcessInvoice={handleProcessInvoice}
             onCfoApprove={handleCfoApprove}
             onAddCustomInvoice={(inv) => {
-              store.stageInvoice(inv);
+              const staged = store.stageInvoice(inv);
               showToast(`Factura ${inv.invoiceNumber} registrada en la bandeja.`);
+              return staged;
             }}
             onProcessAll={handleProcessAllInvoices}
             onProcessInboundPayment={handleProcessInboundPayment}

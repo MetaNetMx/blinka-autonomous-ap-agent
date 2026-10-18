@@ -31,6 +31,7 @@ import {
   StagedInvoice,
   StagedInboundPayment,
   Account,
+  Transaction,
   InboundPaymentVerificationInput,
   InboundPaymentVerificationResult,
 } from '../blinka-core/types';
@@ -40,10 +41,11 @@ interface AutonomousAPInboxProps {
   invoices: StagedInvoice[];
   inboundPayments?: StagedInboundPayment[];
   accounts?: Account[];
+  transactions?: Transaction[];
   totalBalanceCents?: number;
   onProcessInvoice: (invoiceId: string) => void;
-  onCfoApprove: (invoiceId: string) => void;
-  onAddCustomInvoice: (inv: Omit<StagedInvoice, 'id' | 'status'>) => void;
+  onCfoApprove: (invoiceId: string) => StagedInvoice | void;
+  onAddCustomInvoice: (inv: Omit<StagedInvoice, 'id' | 'status'>) => StagedInvoice | void;
   onProcessAll: () => void;
   onProcessInboundPayment?: (paymentId: string) => void;
   onAccreditCustomPayin?: (payin: {
@@ -60,6 +62,7 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
   invoices,
   inboundPayments = [],
   accounts = [],
+  transactions = [],
   totalBalanceCents = 0,
   onProcessInvoice,
   onCfoApprove,
@@ -87,6 +90,22 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
   } | null>(null);
   const [expandedRowId, setExpandedRowId] = useState<string | null>(null);
   const [currencyFilter, setCurrencyFilter] = useState<'ALL' | 'USD' | 'USDC'>('ALL');
+
+  // CFO Dual-Authorization Sign-Off state
+  const [cfoSignModalInvoice, setCfoSignModalInvoice] = useState<StagedInvoice | null>(null);
+  const [cfoReceiptData, setCfoReceiptData] = useState<{
+    invoice: StagedInvoice;
+    txId: string;
+    approver: string;
+    approvedAt: string;
+    rail: string;
+    amountFormatted: string;
+    sourceAccount: string;
+    destinationDetails: string;
+  } | null>(null);
+
+  // Live Ledger Filter state
+  const [ledgerFilter, setLedgerFilter] = useState<'ALL' | 'PAYOUT' | 'PAYIN' | 'USDC' | 'USD'>('ALL');
 
   // New Invoice Form state
   const [vendorName, setVendorName] = useState('');
@@ -320,11 +339,24 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
     return true;
   });
 
+  const displayedTransactions = transactions.filter((tx) => {
+    if (ledgerFilter === 'PAYOUT') return tx.kind === 'PAYOUT' || tx.kind === 'EXTERNAL_PAYOUT';
+    if (ledgerFilter === 'PAYIN') return tx.kind === 'PAYIN';
+    if (ledgerFilter === 'USDC') return tx.currency === 'USDC' || tx.method?.includes('USDC') || tx.notes?.includes('Base');
+    if (ledgerFilter === 'USD') return tx.currency === 'USD' && !tx.method?.includes('USDC');
+    return true;
+  });
+
+  const payoutsCount = transactions.filter((tx) => tx.kind === 'PAYOUT' || tx.kind === 'EXTERNAL_PAYOUT').length;
+  const payinsCount = transactions.filter((tx) => tx.kind === 'PAYIN').length;
+  const usdcTxCount = transactions.filter((tx) => tx.currency === 'USDC' || tx.method?.includes('USDC') || tx.notes?.includes('Base')).length;
+  const usdTxCount = transactions.filter((tx) => tx.currency === 'USD' && !tx.method?.includes('USDC')).length;
+
   const handleCreateCustomInvoice = (e: React.FormEvent) => {
     e.preventDefault();
     if (!vendorName || !invoiceNumber || !amountUsd) return;
 
-    onAddCustomInvoice({
+    const staged = onAddCustomInvoice({
       invoiceNumber,
       vendorName,
       amountCents: Math.round(parseFloat(amountUsd) * 100),
@@ -339,6 +371,14 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
       notes: `Factura ${currency} ingresada para auditoría (${uploadedFileName || 'Entrada manual'})`,
     });
 
+    const stagedId = (staged as StagedInvoice)?.id;
+    if (stagedId) {
+      setTimeout(() => {
+        onProcessInvoice(stagedId);
+        setExpandedRowId(stagedId);
+      }, 80);
+    }
+
     setVendorName('');
     setInvoiceNumber('');
     setAmountUsd('');
@@ -350,14 +390,57 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
     setShowUploadModal(false);
   };
 
-  const handleCfoClick = (id: string) => {
-    onCfoApprove(id);
-    confetti({
-      particleCount: 40,
-      spread: 70,
-      origin: { y: 0.6 },
-      colors: ['#2a4bd0', '#10b981'],
+  const handleIndividualEvaluate = (inv: StagedInvoice) => {
+    onProcessInvoice(inv.id);
+    setExpandedRowId(inv.id);
+  };
+
+  const handleOpenCfoModal = (inv: StagedInvoice) => {
+    setCfoSignModalInvoice(inv);
+  };
+
+  const handleConfirmCfoDisbursement = () => {
+    if (!cfoSignModalInvoice) return;
+    const inv = cfoSignModalInvoice;
+    const approver = 'cfo@acmeglobal.co';
+    const approvedInv = onCfoApprove(inv.id);
+    const nowStr = new Date().toLocaleString('es-MX', {
+      dateStyle: 'medium',
+      timeStyle: 'medium',
     });
+
+    const txId = (approvedInv as StagedInvoice)?.payoutTransactionId || `tx_cfo_sox_${Date.now()}`;
+    const isCrypto = inv.currency === 'USDC';
+
+    setCfoReceiptData({
+      invoice: inv,
+      txId,
+      approver,
+      approvedAt: nowStr,
+      rail: isCrypto ? 'Base Network (USDC Multi-chain Gateway)' : 'Portage Bank Fedwire / Real-Time ACH',
+      amountFormatted: `$${(inv.amountCents / 100).toLocaleString(undefined, { minimumFractionDigits: 2 })} ${inv.currency}`,
+      sourceAccount: isCrypto ? 'Blinka Base USDC Treasury Vault (Ending 0x43e7)' : 'Portage Operating Checking (*4821)',
+      destinationDetails: isCrypto
+        ? `Wallet Base Whitelisted: ${inv.walletAddress || '0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7'}`
+        : `Banco Destino: Termina en ${inv.beneficiaryBankLastFour || '8833'} · Routing ${inv.routingNumber || '026009593'} (${inv.vendorName})`,
+    });
+
+    setCfoSignModalInvoice(null);
+    confetti({
+      particleCount: 50,
+      spread: 75,
+      origin: { y: 0.5 },
+      colors: ['#10b981', '#2a4bd0', '#f59e0b'],
+    });
+  };
+
+  const handleCfoClick = (id: string) => {
+    const inv = invoices.find((i) => i.id === id);
+    if (inv) {
+      handleOpenCfoModal(inv);
+    } else {
+      onCfoApprove(id);
+    }
   };
 
   const handleRunVerification = (e?: React.FormEvent) => {
@@ -424,6 +507,15 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
       return true;
     });
 
+    const filteredTransactionsForAudit = transactions.filter((tx) => {
+      if (period === 'all') return true;
+      const txDate = tx.executedAt ? tx.executedAt.split('T')[0] : (tx.createdAt ? tx.createdAt.split('T')[0] : todayStr);
+      if (period === 'today') return txDate === todayStr;
+      if (period === 'week') return txDate >= sevenDaysAgo;
+      if (period === 'month') return txDate.startsWith(currentMonthStr);
+      return true;
+    });
+
     const periodLabels: Record<string, string> = {
       today: `Cierre Diario (${todayStr})`,
       week: `Cierre Semanal (${sevenDaysAgo} a ${todayStr})`,
@@ -439,6 +531,13 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
         periodLabel: periodLabels[period],
         filterAppliedDate: todayStr,
       },
+      portfolioFinancialSummary: {
+        totalPortfolioBalanceUsd: (totalBalanceCents / 100).toFixed(2),
+        portageCheckingBalanceUsd: ((checkingAccount?.balance || 0) / 100).toFixed(2),
+        treasuryYieldBalanceUsd: ((treasuryAccount?.balance || 0) / 100).toFixed(2),
+        baseUsdcBalanceUsd: ((usdcAccount?.balance || 0) / 100).toFixed(2),
+        currency: 'USD (Combined Dual-Rail Multi-Asset)',
+      },
       agentArchitecture: 'Deterministic Policy Engine + Anthropic Model Context Protocol (MCP)',
       settlementRails: [
         'Portage Bank ACH/Wire (USD FDIC-Insured)',
@@ -453,11 +552,22 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
       ],
       metrics: {
         periodSelected: periodLabels[period],
-        totalInPeriod: filteredForAudit.length,
+        totalInvoicesInPeriod: filteredForAudit.length,
         autoPaid: filteredForAudit.filter((i) => i.status === 'auto_paid').length,
         awaitingCfoApproval: filteredForAudit.filter((i) => i.status === 'awaiting_cfo_approval').length,
         fraudBlocked: filteredForAudit.filter((i) => i.status === 'fraud_blocked').length,
+        totalLedgerTransactionsInPeriod: filteredTransactionsForAudit.length,
       },
+      inboundPayinsReconciled: inboundPayments.map((p) => ({
+        id: p.id,
+        payer: p.payerName,
+        amount: (p.amountCents / 100).toFixed(2),
+        currency: p.currency,
+        rail: p.rail,
+        reference: p.referenceOrInvoice,
+        status: p.status,
+        accreditedAt: p.accreditedAt || null,
+      })),
       ledgerEntries: filteredForAudit.map((inv) => ({
         invoiceId: inv.id,
         invoiceNumber: inv.invoiceNumber,
@@ -472,6 +582,18 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
         reasoning: inv.policyResult?.reasons?.join('; ') || 'Evaluation completed successfully',
         idempotencyKey: `audit_blinka_${inv.invoiceNumber}_${inv.amountCents}`,
         timestamp: inv.evaluatedAt || new Date().toISOString(),
+      })),
+      executedLedgerTransactions: filteredTransactionsForAudit.map((tx) => ({
+        id: tx.id,
+        kind: tx.kind,
+        counterparty: tx.counterpartyName,
+        method: tx.method,
+        amount: (tx.amountCents / 100).toFixed(2),
+        currency: tx.currency,
+        status: tx.status,
+        memo: tx.memo,
+        notes: tx.notes,
+        executedAt: tx.executedAt,
       })),
     };
 
@@ -887,20 +1009,21 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
                         <div className="flex items-center justify-center space-x-2">
                           {inv.status === 'pending_evaluation' && (
                             <button
-                              onClick={() => onProcessInvoice(inv.id)}
-                              className="bg-[#2a4bd0] hover:bg-[#1e3bb3] text-white text-xs font-semibold py-1 px-3 rounded-lg transition-all"
+                              onClick={() => handleIndividualEvaluate(inv)}
+                              className="bg-[#2a4bd0] hover:bg-[#1e3bb3] text-white text-xs font-semibold py-1.5 px-3 rounded-lg transition-all shadow-xs flex items-center space-x-1 hover:scale-105"
                             >
-                              Evaluar
+                              <Play className="w-3 h-3" />
+                              <span>Evaluar</span>
                             </button>
                           )}
 
                           {inv.status === 'awaiting_cfo_approval' && (
                             <button
-                              onClick={() => handleCfoClick(inv.id)}
-                              className="bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold py-1.5 px-3 rounded-lg transition-all shadow-sm flex items-center space-x-1"
+                              onClick={() => handleOpenCfoModal(inv)}
+                              className="bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold py-1.5 px-3 rounded-lg transition-all shadow-sm flex items-center space-x-1 hover:scale-105"
                             >
                               <Check className="w-3.5 h-3.5" />
-                              <span>Aprobar CFO</span>
+                              <span>Revisar y Firmar CFO</span>
                             </button>
                           )}
 
@@ -1179,6 +1302,184 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
           </div>
         </div>
       )}
+
+      {/* ========================================================
+          LIVE LEDGER & MOVIMIENTOS RECIENTES (DUAL-RAIL)
+          ======================================================== */}
+      <div id="libro-mayor-section" className="blinka-card overflow-hidden bg-white mt-8 scroll-mt-6 border border-[#e3e3dc] shadow-sm">
+        <div className="px-6 py-4 bg-gradient-to-r from-slate-900 via-[#1c253a] to-slate-900 text-white flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="flex items-center space-x-3">
+            <div className="p-2.5 bg-emerald-500/20 text-emerald-400 rounded-xl border border-emerald-500/30">
+              <Landmark className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="flex items-center space-x-2">
+                <h3 className="text-base font-bold text-white">Libro Mayor & Movimientos en Tiempo Real</h3>
+                <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping mr-1.5" />
+                  Dual-Rail Live Sync
+                </span>
+              </div>
+              <p className="text-xs text-slate-300 mt-0.5">
+                Trazabilidad inmutable de débitos bancarios ACH/Wire, transferencias cripto Base USDC y cobros entrantes acreditados.
+              </p>
+            </div>
+          </div>
+
+          {/* Filter Buttons & Total Movements Badge */}
+          <div className="flex items-center gap-2 flex-wrap">
+            <div className="bg-slate-800/80 p-1 rounded-xl border border-slate-700/80 flex items-center space-x-1">
+              <button
+                onClick={() => setLedgerFilter('ALL')}
+                className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all ${
+                  ledgerFilter === 'ALL'
+                    ? 'bg-[#2a4bd0] text-white'
+                    : 'text-slate-300 hover:text-white'
+                }`}
+              >
+                Todos ({transactions.length})
+              </button>
+              <button
+                onClick={() => setLedgerFilter('PAYOUT')}
+                className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all ${
+                  ledgerFilter === 'PAYOUT'
+                    ? 'bg-red-600 text-white'
+                    : 'text-slate-300 hover:text-white'
+                }`}
+              >
+                Débitos AP ({payoutsCount})
+              </button>
+              <button
+                onClick={() => setLedgerFilter('PAYIN')}
+                className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all ${
+                  ledgerFilter === 'PAYIN'
+                    ? 'bg-emerald-600 text-white'
+                    : 'text-slate-300 hover:text-white'
+                }`}
+              >
+                Cobros AR ({payinsCount})
+              </button>
+              <button
+                onClick={() => setLedgerFilter('USDC')}
+                className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all ${
+                  ledgerFilter === 'USDC'
+                    ? 'bg-indigo-600 text-white'
+                    : 'text-slate-300 hover:text-white'
+                }`}
+              >
+                ⚡ Base USDC ({usdcTxCount})
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Table of Movements */}
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-sm">
+            <thead className="bg-[#f7f7f4] text-[#576071] text-xs font-semibold uppercase tracking-wider border-b border-[#e3e3dc]">
+              <tr>
+                <th className="px-6 py-3.5">Fecha & Hora</th>
+                <th className="px-6 py-3.5">Contraparte / Entidad</th>
+                <th className="px-6 py-3.5">Riel & Cuenta</th>
+                <th className="px-6 py-3.5">Método / Trazabilidad</th>
+                <th className="px-6 py-3.5">Concepto / Notas</th>
+                <th className="px-6 py-3.5 text-right">Monto</th>
+                <th className="px-6 py-3.5 text-center">Estado</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-[#eeeee8]">
+              {displayedTransactions.length === 0 ? (
+                <tr>
+                  <td colSpan={7} className="px-6 py-8 text-center text-xs text-[#576071]">
+                    No hay movimientos que coincidan con el filtro seleccionado.
+                  </td>
+                </tr>
+              ) : (
+                displayedTransactions.map((tx) => {
+                  const isPayout = tx.kind === 'PAYOUT' || tx.kind === 'EXTERNAL_PAYOUT';
+                  const isCrypto = tx.currency === 'USDC' || tx.method?.includes('USDC') || tx.notes?.includes('Base');
+                  const formattedDate = tx.executedAt
+                    ? new Date(tx.executedAt).toLocaleString('es-MX', {
+                        month: 'short',
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                      })
+                    : 'Reciente';
+
+                  return (
+                    <tr key={tx.id} className="hover:bg-[#fcfcf9] transition-colors">
+                      <td className="px-6 py-4 whitespace-nowrap text-xs text-[#576071] font-mono">
+                        {formattedDate}
+                      </td>
+
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="flex items-center space-x-2">
+                          <div className={`p-1.5 rounded-lg ${isPayout ? 'bg-red-50 text-red-600' : 'bg-emerald-50 text-emerald-600'}`}>
+                            {isPayout ? <ArrowUpRight className="w-3.5 h-3.5" /> : <ArrowDownLeft className="w-3.5 h-3.5" />}
+                          </div>
+                          <div>
+                            <div className="font-bold text-[#1c253a] text-xs">
+                              {tx.counterpartyName || 'Blinka Internal'}
+                            </div>
+                            <div className="text-[10px] text-[#576071] font-mono truncate max-w-[120px]">
+                              ID: {tx.id}
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        {isCrypto ? (
+                          <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200">
+                            <Zap className="w-3 h-3 mr-1 text-indigo-600" />
+                            Base USDC Vault
+                          </span>
+                        ) : tx.notes?.includes('Treasury') || tx.method === 'INTERNAL_SWEEP' ? (
+                          <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+                            <Landmark className="w-3 h-3 mr-1 text-blue-600" />
+                            BNY Mellon Treasury
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                            <Building2 className="w-3 h-3 mr-1 text-emerald-600" />
+                            Portage Checking (*4821)
+                          </span>
+                        )}
+                      </td>
+
+                      <td className="px-6 py-4 whitespace-nowrap text-xs font-mono">
+                        <span className="px-2 py-0.5 rounded bg-[#f7f7f4] border border-[#e3e3dc] text-[#1c253a] font-semibold text-[11px]">
+                          {tx.method || (isCrypto ? 'BASE_USDC' : 'ACH')}
+                        </span>
+                      </td>
+
+                      <td className="px-6 py-4 text-xs text-[#576071]">
+                        <div className="font-medium text-[#1c253a] truncate max-w-xs">{tx.memo || 'Sin memo'}</div>
+                        {tx.notes && <div className="text-[10px] text-slate-500 truncate max-w-xs">{tx.notes}</div>}
+                      </td>
+
+                      <td className="px-6 py-4 whitespace-nowrap text-right">
+                        <div className={`text-sm font-black ${isPayout ? 'text-[#1c253a]' : 'text-emerald-600'}`}>
+                          {isPayout ? '-' : '+'}${((tx.amountCents || 0) / 100).toLocaleString(undefined, { minimumFractionDigits: 2 })}{' '}
+                          <span className="text-xs font-semibold text-[#576071]">{tx.currency || 'USD'}</span>
+                        </div>
+                      </td>
+
+                      <td className="px-6 py-4 whitespace-nowrap text-center">
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                          <CheckCircle2 className="w-3 h-3 mr-1 text-emerald-600" />
+                          Liquidado
+                        </span>
+                      </td>
+                    </tr>
+                  );
+                })
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
 
       {/* Inbound Pay-in Verification Modal */}
       {showVerifyModal && (
@@ -1790,6 +2091,206 @@ export const AutonomousAPInbox: React.FC<AutonomousAPInboxProps> = ({
                 className="px-4 py-2 text-xs font-semibold bg-[#2a4bd0] hover:bg-[#1e3bb3] text-white rounded-xl shadow-sm"
               >
                 Cerrar Reporte
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* CFO Dual-Authorization Sign-Off Modal */}
+      {cfoSignModalInvoice && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
+          <div className="bg-white rounded-3xl max-w-xl w-full p-6 shadow-2xl border border-amber-200 space-y-4 max-h-[90vh] overflow-y-auto">
+            {/* Header */}
+            <div className="flex items-center justify-between border-b border-[#eeeee8] pb-3">
+              <div className="flex items-center space-x-3">
+                <div className="p-2.5 bg-amber-500/10 text-amber-700 rounded-2xl border border-amber-300">
+                  <ShieldAlert className="w-6 h-6 text-amber-600" />
+                </div>
+                <div>
+                  <div className="flex items-center space-x-2">
+                    <h3 className="text-base font-bold text-[#1c253a]">Autorización Dual de Desembolso Ejecutivo</h3>
+                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800 border border-amber-300">
+                      SOX 404 Control
+                    </span>
+                  </div>
+                  <p className="text-xs text-[#576071]">
+                    Firma ejecutiva requerida para desembolsos superiores al umbral autónomo de $10,000.00 USD/USDC.
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={() => setCfoSignModalInvoice(null)}
+                className="text-[#576071] hover:text-[#1c253a] p-1.5 rounded-lg hover:bg-slate-100"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Hero Amount Box */}
+            <div className="bg-gradient-to-br from-amber-50 via-white to-amber-50/50 rounded-2xl p-4 border border-amber-200 text-center space-y-1">
+              <span className="text-[11px] font-bold text-amber-900 uppercase tracking-wider">
+                Monto Autorizado para Desembolso
+              </span>
+              <div className="text-3xl font-black text-[#1c253a]">
+                ${(cfoSignModalInvoice.amountCents / 100).toLocaleString(undefined, { minimumFractionDigits: 2 })}{' '}
+                <span className="text-lg font-bold text-amber-700">{cfoSignModalInvoice.currency}</span>
+              </div>
+              <p className="text-xs text-amber-800 font-medium">
+                Beneficiario: <strong className="text-[#1c253a]">{cfoSignModalInvoice.vendorName}</strong>
+              </p>
+            </div>
+
+            {/* Clear Executive Summary Cards */}
+            <div className="space-y-2 text-xs">
+              <div className="p-3 bg-[#f7f7f4] rounded-xl border border-[#e3e3dc] space-y-2">
+                <div className="font-bold text-[#1c253a] flex items-center justify-between border-b border-[#e3e3dc] pb-1.5">
+                  <span>📋 Detalle de la Factura y Razón del Control:</span>
+                  <span className="font-mono text-[11px] text-[#2a4bd0]">{cfoSignModalInvoice.invoiceNumber}</span>
+                </div>
+                <p className="text-[11px] text-[#576071]">
+                  {cfoSignModalInvoice.description || 'Desembolso corporativo a proveedor verificado.'}
+                </p>
+                <div className="text-[11px] text-amber-800 bg-amber-50 p-2 rounded-lg border border-amber-200">
+                  <strong>¿Por qué se requiere su firma?:</strong> La política de tesorería SOX estipula que ningún agente autónomo puede liberar más de $10,000 USD de forma unilateral. El Policy Engine validó los datos del proveedor y generó la orden de desembolso para su aprobación dual.
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2 text-[11px]">
+                <div className="p-3 bg-white rounded-xl border border-[#e3e3dc]">
+                  <span className="text-[#576071] block font-semibold">Cuenta Origen (Débito):</span>
+                  <span className="font-bold text-[#1c253a] block mt-0.5">
+                    {cfoSignModalInvoice.currency === 'USDC' ? 'Base USDC Treasury Vault' : 'Portage Operating Checking (*4821)'}
+                  </span>
+                  <span className="text-[10px] text-emerald-700 font-mono">Saldo disponible verificado</span>
+                </div>
+
+                <div className="p-3 bg-white rounded-xl border border-[#e3e3dc]">
+                  <span className="text-[#576071] block font-semibold">Destino Validado:</span>
+                  <span className="font-bold text-[#1c253a] block mt-0.5 truncate">
+                    {cfoSignModalInvoice.currency === 'USDC'
+                      ? `Base Wallet: ${cfoSignModalInvoice.walletAddress ? `${cfoSignModalInvoice.walletAddress.slice(0, 8)}...` : '0x8920...43e7'}`
+                      : `Banco: •••• ${cfoSignModalInvoice.beneficiaryBankLastFour || '8833'} (Routing ${cfoSignModalInvoice.routingNumber || '026009593'})`}
+                  </span>
+                  <span className="text-[10px] text-emerald-700 font-mono">✓ Coincide con W-9 / Catálogo</span>
+                </div>
+              </div>
+
+              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between text-[11px]">
+                <span className="text-[#576071]">Identidad del Firmante:</span>
+                <span className="font-mono font-bold text-[#1c253a]">cfo@acmeglobal.co (Chief Financial Officer · Clave #1)</span>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex items-center justify-end space-x-2 pt-3 border-t border-[#eeeee8]">
+              <button
+                type="button"
+                onClick={() => setCfoSignModalInvoice(null)}
+                className="px-4 py-2.5 text-xs font-medium text-[#576071] hover:bg-[#ecebe6] rounded-xl transition-colors"
+              >
+                Revisar más tarde
+              </button>
+              <button
+                type="button"
+                onClick={handleConfirmCfoDisbursement}
+                className="px-5 py-2.5 text-xs font-bold bg-amber-600 hover:bg-amber-700 text-white rounded-xl shadow-md flex items-center space-x-2 transition-all hover:scale-102"
+              >
+                <Check className="w-4 h-4" />
+                <span>
+                  ✍️ Firmar y Ejecutar Desembolso (${(cfoSignModalInvoice.amountCents / 100).toLocaleString()} {cfoSignModalInvoice.currency})
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* CFO Official Disbursement Receipt Modal */}
+      {cfoReceiptData && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
+          <div className="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-emerald-200 space-y-4 animate-in fade-in zoom-in-95 duration-200">
+            <div className="flex items-center justify-between border-b border-[#eeeee8] pb-3">
+              <div className="flex items-center space-x-3">
+                <div className="p-2.5 bg-emerald-500/10 text-emerald-600 rounded-2xl border border-emerald-300">
+                  <CheckCircle2 className="w-6 h-6 text-emerald-600" />
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-[#1c253a]">Recibo Oficial de Desembolso Ejecutivo</h3>
+                  <p className="text-xs text-[#576071]">Firma dual procesada y transmitida a la red con éxito.</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setCfoReceiptData(null)}
+                className="text-[#576071] hover:text-[#1c253a] p-1.5 rounded-lg hover:bg-slate-100"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="bg-emerald-50/80 border border-emerald-200 rounded-2xl p-4 text-center space-y-1">
+              <span className="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">
+                Desembolso Aprobado y Transmitido
+              </span>
+              <div className="text-3xl font-black text-emerald-700">
+                {cfoReceiptData.amountFormatted}
+              </div>
+              <div className="text-xs text-emerald-900 font-medium">
+                A favor de: <strong>{cfoReceiptData.invoice.vendorName}</strong>
+              </div>
+            </div>
+
+            <div className="p-4 bg-[#f7f7f4] rounded-2xl border border-[#e3e3dc] space-y-2.5 text-xs font-mono">
+              <div className="flex justify-between items-center text-[#576071]">
+                <span>Factura Liquidada:</span>
+                <span className="font-bold text-[#1c253a]">{cfoReceiptData.invoice.invoiceNumber}</span>
+              </div>
+              <div className="flex justify-between items-center text-[#576071]">
+                <span>ID de Transacción:</span>
+                <span className="text-[#2a4bd0] font-bold">{cfoReceiptData.txId}</span>
+              </div>
+              <div className="flex justify-between items-center text-[#576071]">
+                <span>Riel de Pago:</span>
+                <span className="text-[#1c253a] font-semibold">{cfoReceiptData.rail}</span>
+              </div>
+              <div className="flex justify-between items-center text-[#576071]">
+                <span>Cuenta de Origen:</span>
+                <span className="text-[#1c253a] font-semibold">{cfoReceiptData.sourceAccount}</span>
+              </div>
+              <div className="flex justify-between items-center text-[#576071]">
+                <span>Aprobado por:</span>
+                <span className="text-emerald-700 font-bold">{cfoReceiptData.approver}</span>
+              </div>
+              <div className="flex justify-between items-center text-[#576071]">
+                <span>Fecha & Hora de Firma:</span>
+                <span className="text-[#1c253a]">{cfoReceiptData.approvedAt}</span>
+              </div>
+              <div className="flex justify-between items-center text-[#576071] border-t border-[#e3e3dc] pt-2">
+                <span>Estado en Libro Mayor:</span>
+                <span className="text-emerald-700 font-bold bg-emerald-100 px-2 py-0.5 rounded text-[11px]">
+                  ✓ Liquidado (Settled)
+                </span>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between pt-2 border-t border-[#eeeee8]">
+              <button
+                type="button"
+                onClick={() => {
+                  setCfoReceiptData(null);
+                  document.getElementById('libro-mayor-section')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="text-xs font-semibold text-[#2a4bd0] hover:underline flex items-center space-x-1"
+              >
+                <span>Ver Movimiento en Libro Mayor Abajo ↓</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setCfoReceiptData(null)}
+                className="px-4 py-2 text-xs font-semibold bg-[#1c253a] hover:bg-slate-800 text-white rounded-xl shadow-sm"
+              >
+                Cerrar Recibo
               </button>
             </div>
           </div>
