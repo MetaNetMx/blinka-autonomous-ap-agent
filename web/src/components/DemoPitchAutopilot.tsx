@@ -179,8 +179,6 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
   const screenStreamRef = useRef<MediaStream | null>(null);
   const recordingTimerRef = useRef<any>(null);
   const recordingStartTimeRef = useRef<number>(0);
-  const audioContextRef = useRef<AudioContext | null>(null);
-  const micStreamRef = useRef<MediaStream | null>(null);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const isPlayingRef = useRef(false);
@@ -352,9 +350,7 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
   // Screen & Audio Video Recording (WebM / MP4)
   const startRecordingAndDemo = async () => {
     try {
-      // 1. Prompt user to select screen/tab with selfBrowserSurface: 'include' & preferCurrentTab: true
-      // This explicitly allows and highlights the current Blinka tab in the browser dialog!
-      const displayStream = await navigator.mediaDevices.getDisplayMedia({
+      const stream = await navigator.mediaDevices.getDisplayMedia({
         video: { displaySurface: 'browser' } as any,
         audio: true,
         preferCurrentTab: true,
@@ -363,54 +359,22 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
         surfaceSwitching: 'include',
       } as any);
 
-      screenStreamRef.current = displayStream;
+      screenStreamRef.current = stream;
       recordedChunksRef.current = [];
       recordingStartTimeRef.current = Date.now();
 
-      // 2. Setup Web Audio Master Mixer
-      const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
-      const audioCtx = new AudioCtx();
-      audioContextRef.current = audioCtx;
-      const masterDestination = audioCtx.createMediaStreamDestination();
-
-      // A) Mix Tab Audio (if user shared tab audio)
-      if (displayStream.getAudioTracks().length > 0) {
-        try {
-          const tabSource = audioCtx.createMediaStreamSource(new MediaStream(displayStream.getAudioTracks()));
-          tabSource.connect(masterDestination);
-        } catch (e) {
-          console.warn('Could not connect tab audio', e);
-        }
+      let mimeType = 'video/webm;codecs=vp8,opus';
+      if (!MediaRecorder.isTypeSupported(mimeType)) {
+        mimeType = 'video/webm;codecs=vp9,opus';
       }
-
-      // B) Mix Microphone Audio (crucial for Browser TTS played through speakers or live commentary!)
-      try {
-        const micStream = await navigator.mediaDevices.getUserMedia({
-          audio: { echoCancellation: true, noiseSuppression: true },
-        });
-        micStreamRef.current = micStream;
-        const micSource = audioCtx.createMediaStreamSource(micStream);
-        micSource.connect(masterDestination);
-      } catch (micErr) {
-        console.warn('Microphone permission not granted or mic unavailable', micErr);
-      }
-
-      // 3. Assemble Combined MediaStream (Video from tab + Master Mixed Audio)
-      const combinedTracks = [
-        ...displayStream.getVideoTracks(),
-        ...masterDestination.stream.getAudioTracks(),
-      ];
-      const combinedStream = new MediaStream(combinedTracks);
-
-      let mimeType = 'video/webm;codecs=vp9,opus';
       if (!MediaRecorder.isTypeSupported(mimeType)) {
         mimeType = 'video/webm';
       }
-      if (!MediaRecorder.isTypeSupported(mimeType)) {
-        mimeType = 'video/mp4';
-      }
 
-      const recorder = new MediaRecorder(combinedStream, { mimeType });
+      const recorder = new MediaRecorder(stream, {
+        mimeType,
+        videoBitsPerSecond: 2500000,
+      });
 
       recorder.ondataavailable = (e) => {
         if (e.data && e.data.size > 0) {
@@ -422,11 +386,18 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
         const durationMs = Date.now() - recordingStartTimeRef.current;
         if (recordedChunksRef.current.length > 0) {
           const rawBlob = new Blob(recordedChunksRef.current, { type: mimeType });
+          let finalBlob = rawBlob;
 
-          // Patch EBML duration so the video has full seeking/scrubbing (adelantar/retrasar)!
-          const seekableBlob = await fixWebmDuration(rawBlob, durationMs);
+          if (durationMs > 2000) {
+            try {
+              finalBlob = await fixWebmDuration(rawBlob, durationMs);
+            } catch (patchErr) {
+              console.warn('Could not patch webm duration, using original blob:', patchErr);
+              finalBlob = rawBlob;
+            }
+          }
 
-          const url = URL.createObjectURL(seekableBlob);
+          const url = URL.createObjectURL(finalBlob);
           const link = document.createElement('a');
           const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
           link.href = url;
@@ -440,16 +411,7 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
         setIsRecording(false);
         setRecordingSeconds(0);
         if (recordingTimerRef.current) clearInterval(recordingTimerRef.current);
-
-        // Clean up all tracks & audio context
-        displayStream.getTracks().forEach((track) => track.stop());
-        if (micStreamRef.current) {
-          micStreamRef.current.getTracks().forEach((track) => track.stop());
-          micStreamRef.current = null;
-        }
-        if (audioCtx.state !== 'closed') {
-          audioCtx.close().catch(() => {});
-        }
+        stream.getTracks().forEach((track) => track.stop());
       };
 
       mediaRecorderRef.current = recorder;
@@ -457,17 +419,14 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
       setIsRecording(true);
       setRecordingSeconds(0);
 
-      // Start timer
       recordingTimerRef.current = setInterval(() => {
         setRecordingSeconds((prev) => prev + 1);
       }, 1000);
 
-      // If user ends sharing via browser native UI banner
-      displayStream.getVideoTracks()[0].onended = () => {
+      stream.getVideoTracks()[0].onended = () => {
         stopScreenRecording();
       };
 
-      // Automatically launch the Autopilot from Step 1 with audio
       setIsPlaying(true);
       isPlayingRef.current = true;
       goToStep(0, true);
@@ -483,14 +442,7 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
     }
     if (screenStreamRef.current) {
       screenStreamRef.current.getTracks().forEach((t) => t.stop());
-    }
-    if (micStreamRef.current) {
-      micStreamRef.current.getTracks().forEach((t) => t.stop());
-      micStreamRef.current = null;
-    }
-    if (audioContextRef.current && audioContextRef.current.state !== 'closed') {
-      audioContextRef.current.close().catch(() => {});
-      audioContextRef.current = null;
+      screenStreamRef.current = null;
     }
     setIsRecording(false);
     if (recordingTimerRef.current) clearInterval(recordingTimerRef.current);
@@ -534,18 +486,39 @@ export const DemoPitchAutopilot: React.FC<DemoPitchAutopilotProps> = ({
       if (activeUtteranceRef.current !== utterance) return;
       activeUtteranceRef.current = null;
       setAudioPlaybackState('stopped');
-      if (onEndCallback) onEndCallback();
+      if (onEndCallback && isPlayingRef.current) onEndCallback();
     };
 
-    utterance.onerror = () => {
+    utterance.onerror = (e: any) => {
+      console.warn('SpeechSynthesis error on step:', e?.error || e);
       if (activeUtteranceRef.current !== utterance) return;
       activeUtteranceRef.current = null;
       setAudioPlaybackState('stopped');
-      if (onEndCallback) onEndCallback();
+
+      // CRITICAL: Do NOT auto-advance if speech was canceled or interrupted!
+      if (e?.error === 'canceled' || e?.error === 'interrupted') {
+        return;
+      }
+
+      // If speech synthesis genuinely failed, wait 15 seconds for viewer to read instead of skipping in 1ms!
+      setTimeout(() => {
+        if (isPlayingRef.current && onEndCallback) {
+          onEndCallback();
+        }
+      }, 15000);
     };
 
     setAudioPlaybackState('playing');
-    window.speechSynthesis.speak(utterance);
+
+    // Small delay ensures Chrome has cleared previous canceled utterances and resumes the engine
+    setTimeout(() => {
+      try {
+        window.speechSynthesis.resume();
+        window.speechSynthesis.speak(utterance);
+      } catch (err) {
+        console.warn('SpeechSynthesis speak failed:', err);
+      }
+    }, 80);
   };
 
   const stopAllAudio = () => {
