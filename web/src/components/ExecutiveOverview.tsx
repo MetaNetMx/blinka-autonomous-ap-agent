@@ -88,14 +88,16 @@ export const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({
             </p>
           </div>
 
-          <button
-            onClick={() => setShowNetworkGraph(!showNetworkGraph)}
-            className="inline-flex items-center space-x-1.5 text-xs font-bold px-3 py-1.5 rounded-lg border border-[#e3e3dc] text-[#1c253a] hover:bg-[#f7f7f4] transition-all shrink-0 cursor-pointer"
-          >
-            <Sliders className="w-3.5 h-3.5 text-[#2a4bd0]" />
-            <span>{showNetworkGraph ? 'Ocultar Red de Decisión' : 'Ver Red de Decisión SVG'}</span>
-            {showNetworkGraph ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-          </button>
+          <div className="flex items-center space-x-2 shrink-0">
+            <button
+              onClick={() => setShowNetworkGraph(!showNetworkGraph)}
+              className="inline-flex items-center space-x-2 text-xs font-bold px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#2a4bd0] via-indigo-600 to-[#1e3bb3] hover:from-[#1e3bb3] hover:to-indigo-900 text-white shadow-md hover:shadow-lg transition-all cursor-pointer ring-2 ring-[#2a4bd0]/20"
+            >
+              <Zap className="w-3.5 h-3.5 fill-amber-300 text-amber-300 animate-pulse" />
+              <span>{showNetworkGraph ? 'Ocultar Red en Vivo' : '⚡ Ver Red en Vivo (Simulación en Tiempo Real)'}</span>
+              {showNetworkGraph ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+            </button>
+          </div>
         </div>
 
         {/* Proportional Tri-State Decision Bar */}
