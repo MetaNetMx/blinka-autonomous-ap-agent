@@ -11,8 +11,17 @@ import {
   Check,
   Clock,
   Sparkles,
+  GitCommit,
+  CheckCircle2,
+  AlertTriangle,
+  AlertOctagon,
+  ChevronDown,
+  ChevronUp,
+  Sliders,
+  Lock,
 } from 'lucide-react';
 import { Account, Transaction } from '../blinka-core/types';
+import { DecisionNetworkGraph } from './DecisionNetworkGraph';
 import confetti from 'canvas-confetti';
 
 interface ExecutiveOverviewProps {
@@ -31,6 +40,7 @@ export const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({
   highlightSweep = false,
 }) => {
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [showNetworkGraph, setShowNetworkGraph] = useState(false);
 
   const checking = accounts.find((a) => a.type === 'CHECKING' && a.settlementStrategy === 'USD');
   const treasury = accounts.find((a) => a.type === 'TREASURY');
@@ -61,6 +71,120 @@ export const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({
 
   return (
     <div className="space-y-6">
+      
+      {/* Mandato-inspired Hero Autonomy & Decision Bar Panel */}
+      <div className="bg-white rounded-2xl border border-[#e3e3dc] p-6 md:p-8 shadow-xs space-y-5">
+        <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-4">
+          <div>
+            <div className="inline-flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-[#576071] mb-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span>Mandato de Autonomía en Ejecución Continua</span>
+            </div>
+            <h1 className="text-2xl md:text-3xl font-extrabold text-[#1c253a] tracking-tight">
+              107 de 146 facturas decididas sin una persona <span className="text-[#2a4bd0]">(73,3%)</span>
+            </h1>
+            <p className="text-xs md:text-sm text-[#576071] mt-1">
+              El agente ejecuta desembolsos en milisegundos bajo 18 controles deterministas. Las excepciones y montos elevados se escalan con firma del CFO.
+            </p>
+          </div>
+
+          <button
+            onClick={() => setShowNetworkGraph(!showNetworkGraph)}
+            className="inline-flex items-center space-x-1.5 text-xs font-bold px-3 py-1.5 rounded-lg border border-[#e3e3dc] text-[#1c253a] hover:bg-[#f7f7f4] transition-all shrink-0 cursor-pointer"
+          >
+            <Sliders className="w-3.5 h-3.5 text-[#2a4bd0]" />
+            <span>{showNetworkGraph ? 'Ocultar Red de Decisión' : 'Ver Red de Decisión SVG'}</span>
+            {showNetworkGraph ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+          </button>
+        </div>
+
+        {/* Proportional Tri-State Decision Bar */}
+        <div className="space-y-2">
+          <div className="barra-decisiones" title="Distribución de decisiones del agente">
+            <span className="seg seg--pagar" style={{ width: '73.3%' }} title="107 Pagadas (73.3%)" />
+            <span className="seg seg--escalar" style={{ width: '15.6%' }} title="23 Escaladas (15.6%)" />
+            <span className="seg seg--frenar" style={{ width: '11.1%' }} title="16 Frenadas (11.1%)" />
+          </div>
+
+          <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-[#576071]">
+            <div className="flex flex-wrap items-center gap-4">
+              <span className="inline-flex items-center gap-1.5 font-medium">
+                <span className="punto punto--pagar" />
+                <strong className="text-[#1c253a]">107 Pagadas</strong> autónomas (73,3%)
+              </span>
+              <span className="inline-flex items-center gap-1.5 font-medium">
+                <span className="punto punto--escalar" />
+                <strong className="text-[#1c253a]">23 Escaladas</strong> para firma CFO (15,6%)
+              </span>
+              <span className="inline-flex items-center gap-1.5 font-medium">
+                <span className="punto punto--frenar" />
+                <strong className="text-[#1c253a]">16 Frenadas</strong> por Zero-Trust (11,1%)
+              </span>
+            </div>
+            <div className="font-mono text-[11px] text-[#576071]">
+              146 registros auditados · 0 errores
+            </div>
+          </div>
+        </div>
+
+        {/* Operational Invariants Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
+          <div className="flex items-start space-x-3 p-3.5 rounded-xl bg-emerald-50/70 border border-emerald-200">
+            <ShieldCheck className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" />
+            <div>
+              <div className="text-xs font-bold text-emerald-900">
+                0 pagos fuera de reglas
+              </div>
+              <p className="text-[11px] text-emerald-800/90 mt-0.5 leading-relaxed">
+                Verificado formalmente: ninguna dispersión excedió los límites ni se pagó a cuentas bancarias alteradas.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start space-x-3 p-3.5 rounded-xl bg-blue-50/70 border border-blue-200">
+            <Lock className="w-5 h-5 text-blue-700 shrink-0 mt-0.5" />
+            <div>
+              <div className="text-xs font-bold text-blue-900">
+                Registro íntegro encadenado con SHA-256
+              </div>
+              <p className="text-[11px] text-blue-800/90 mt-0.5 leading-relaxed">
+                Trazabilidad inmutable: cada decisión y desembolso incluye sello hash no repudiable para auditoría fiscal.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Tabular Metric List */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-[#e3e3dc] text-xs">
+          <div>
+            <span className="text-[#576071] block">Tiempo Mediano</span>
+            <span className="text-lg font-bold font-mono text-[#1c253a]">1,4 s</span>
+            <span className="text-[10px] text-emerald-600 font-semibold block">vs 8 días tradicional</span>
+          </div>
+          <div>
+            <span className="text-[#576071] block">Dispersiones Autónomas</span>
+            <span className="text-lg font-bold font-mono text-[#1c253a]">$45,210.00</span>
+            <span className="text-[10px] text-[#576071] block">Liquidación T+0</span>
+          </div>
+          <div>
+            <span className="text-[#576071] block">Rendimiento Tesorería</span>
+            <span className="text-lg font-bold font-mono text-emerald-600">4.85% APY</span>
+            <span className="text-[10px] text-[#576071] block">BNY Mellon Dreyfus</span>
+          </div>
+          <div>
+            <span className="text-[#576071] block">Ataques Adversariales</span>
+            <span className="text-lg font-bold font-mono text-[#1c253a]">1.056 de 1.056</span>
+            <span className="text-[10px] text-emerald-600 font-semibold block">0 pagados (100% parados)</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Optional Expandable Visual Decision Network SVG */}
+      {showNetworkGraph && (
+        <div className="animate-in fade-in slide-in-from-top-2">
+          <DecisionNetworkGraph />
+        </div>
+      )}
       
       {/* Dynamic Animated Banner when Sweep is executed */}
       {highlightSweep && (

@@ -36,7 +36,7 @@ import { fixWebmDuration } from '../utils/webmDuration';
 export interface DemoStep {
   id: number;
   title: string;
-  tab: 'overview' | 'inbox' | 'guardrails' | 'counterparties' | 'copilot';
+  tab: 'overview' | 'inbox' | 'guardrails' | 'counterparties' | 'copilot' | 'arena';
   timeLabel: string;
   badge: string;
   headline: string;
@@ -49,8 +49,8 @@ export interface DemoStep {
 interface DemoPitchAutopilotProps {
   isOpen: boolean;
   onClose: () => void;
-  activeTab: 'overview' | 'inbox' | 'guardrails' | 'counterparties' | 'copilot';
-  setActiveTab: (tab: 'overview' | 'inbox' | 'guardrails' | 'counterparties' | 'copilot') => void;
+  activeTab: 'overview' | 'inbox' | 'guardrails' | 'counterparties' | 'copilot' | 'arena';
+  setActiveTab: (tab: 'overview' | 'inbox' | 'guardrails' | 'counterparties' | 'copilot' | 'arena') => void;
   onProcessAllInvoices: () => void;
   onCfoApproveLambda: () => void;
   onExecuteSweep: () => void;

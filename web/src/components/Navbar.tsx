@@ -1,9 +1,9 @@
 import React from 'react';
-import { ShieldCheck, RotateCcw, Zap, ExternalLink, Bot, Landmark, FileText, Users, Sliders, Sparkles } from 'lucide-react';
+import { ShieldCheck, RotateCcw, Zap, ExternalLink, Bot, Landmark, FileText, Users, Sliders, Sparkles, ShieldAlert } from 'lucide-react';
 
 interface NavbarProps {
-  activeTab: 'overview' | 'inbox' | 'guardrails' | 'counterparties' | 'copilot';
-  setActiveTab: (tab: 'overview' | 'inbox' | 'guardrails' | 'counterparties' | 'copilot') => void;
+  activeTab: 'overview' | 'inbox' | 'guardrails' | 'counterparties' | 'copilot' | 'arena';
+  setActiveTab: (tab: 'overview' | 'inbox' | 'guardrails' | 'counterparties' | 'copilot' | 'arena') => void;
   onReset: () => void;
   pendingApprovalsCount: number;
   totalBalanceCents?: number;
@@ -84,6 +84,21 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Sliders className="w-4 h-4" />
               <span>Políticas & Guardrails</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('arena')}
+              className={`flex items-center space-x-2 px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
+                activeTab === 'arena'
+                  ? 'bg-[#1c253a] text-white shadow-sm'
+                  : 'text-[#576071] hover:text-[#1c253a] hover:bg-[#ecebe6]'
+              }`}
+            >
+              <ShieldAlert className="w-4 h-4 text-emerald-600" />
+              <span>Arena (1.056)</span>
+              <span className="px-1.5 py-0.2 text-[10px] font-bold rounded-full bg-emerald-100 text-emerald-800">
+                0 fugas
+              </span>
             </button>
 
             <button
@@ -190,6 +205,17 @@ export const Navbar: React.FC<NavbarProps> = ({
             }`}
           >
             Guardrails
+          </button>
+          <button
+            onClick={() => setActiveTab('arena')}
+            className={`px-3 py-1 rounded-md whitespace-nowrap flex items-center space-x-1 ${
+              activeTab === 'arena' ? 'bg-[#1c253a] text-white' : 'text-[#576071]'
+            }`}
+          >
+            <span>Arena (1.056)</span>
+            <span className="px-1.5 py-0.2 rounded-full bg-emerald-500 text-white text-[10px]">
+              0
+            </span>
           </button>
           <button
             onClick={() => setActiveTab('counterparties')}

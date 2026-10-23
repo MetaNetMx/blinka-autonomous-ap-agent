@@ -17,6 +17,7 @@ import {
   Server,
   Activity,
 } from 'lucide-react';
+import { DecisionNetworkGraph } from './DecisionNetworkGraph';
 
 export const GuardrailsMatrix: React.FC = () => {
   const [killSwitchActive, setKillSwitchActive] = useState(false);
@@ -89,6 +90,9 @@ export const GuardrailsMatrix: React.FC = () => {
           </span>
         </div>
       )}
+
+      {/* Section 0: Interactive Visual Decision Network Pipeline */}
+      <DecisionNetworkGraph />
 
       {/* Section 1: Cybersecurity & Threat Intelligence Shield (Ciberdelito & Architecture) */}
       <div className="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white rounded-3xl p-6 shadow-xl border border-slate-800 space-y-6">

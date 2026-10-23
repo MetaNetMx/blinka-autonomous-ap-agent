@@ -7,12 +7,13 @@ import { GuardrailsMatrix } from './components/GuardrailsMatrix';
 import { CounterpartiesView } from './components/CounterpartiesView';
 import { AgentCopilot } from './components/AgentCopilot';
 import { DemoPitchAutopilot } from './components/DemoPitchAutopilot';
+import { SecurityArenaView } from './components/SecurityArenaView';
 import { ShieldCheck, CheckCircle2, ExternalLink } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 export function App() {
   const store = useBlinkaStore();
-  const [activeTab, setActiveTab] = useState<'overview' | 'inbox' | 'guardrails' | 'counterparties' | 'copilot'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'inbox' | 'guardrails' | 'counterparties' | 'copilot' | 'arena'>('overview');
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [isDemoAutopilotOpen, setIsDemoAutopilotOpen] = useState(false);
   const [highlightSweep, setHighlightSweep] = useState(false);
@@ -194,6 +195,8 @@ export function App() {
         )}
 
         {activeTab === 'guardrails' && <GuardrailsMatrix />}
+
+        {activeTab === 'arena' && <SecurityArenaView />}
 
         {activeTab === 'counterparties' && (
           <CounterpartiesView

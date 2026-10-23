@@ -11,6 +11,12 @@
     --blinka-surface-subtle: #f0f0eb;
     --blinka-border: #e3e3dc;
     --blinka-border-subtle: #eeeee8;
+    --verde: #0f7b4b;
+    --verde-suave: #e8f4ee;
+    --ambar: #8a5300;
+    --ambar-suave: #fbf1df;
+    --rojo: #b42318;
+    --rojo-suave: #fdecea;
   }
 
   body {
@@ -43,6 +49,61 @@
 .blinka-card-interactive:hover {
   border-color: #cbd5e1;
   box-shadow: 0 4px 12px 0 rgba(28, 37, 58, 0.06);
+}
+
+/* Mandato-inspired Tri-State Proportional Decision Bar */
+.barra-decisiones {
+  display: flex;
+  gap: 3px;
+  height: 12px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #e3e3dc;
+}
+.seg {
+  display: block;
+  min-width: 6px;
+  transition: width 0.3s ease;
+}
+.seg--pagar {
+  background: #1f9a62;
+}
+.seg--escalar {
+  background: #d9922b;
+}
+.seg--frenar {
+  background: #d4483b;
+}
+
+.punto {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.punto--pagar {
+  background: #1f9a62;
+}
+.punto--escalar {
+  background: #d9922b;
+}
+.punto--frenar {
+  background: #d4483b;
+}
+
+/* Institutional Tabular Numbers and Currency Decimals */
+.monto {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+.monto .moneda {
+  color: #576071;
+  font-size: 0.84em;
+  margin-right: 2px;
+}
+.monto .cent {
+  color: #8a919e;
 }
 
 /* Custom scrollbars */
